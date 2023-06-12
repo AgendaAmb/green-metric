@@ -1,0 +1,9 @@
+.navbar {
+    @extend .grid-center !optional;
+    background-color: $tertiary-color;
+    color: $secondary-color;
+    height: clamp(27px, 27px, 27px);
+    width: 100dvw;
+    font-weight: bold;
+    font-size: 14pt;
+}

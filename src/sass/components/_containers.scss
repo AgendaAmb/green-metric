@@ -1,0 +1,16 @@
+.main-container {
+    @extend .flex-default-column, .invert-base-color;
+    flex-grow: 1;
+    width: 100dvw;
+    padding: 30px;
+
+    input {
+        color: $primary-color;
+        background-color: $secondary-color;
+    }
+}
+
+.self-start {
+    align-self: self-start;
+    justify-self: self-start;
+}

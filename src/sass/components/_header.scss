@@ -1,0 +1,12 @@
+.header {
+    > * {
+        @extend .grid-center, .base-color;
+        flex-grow: 1;
+    }
+    height: 65px;
+    width: 100dvw;
+    background-color: $secondary-color;
+    color: $primary-color;
+    display: flex;
+    flex-flow: row nowrap;
+}
