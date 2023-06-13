@@ -4,6 +4,7 @@
     width: 100dvw;
     padding: 30px;
 
+    overflow-y: auto;
     input {
         color: $primary-color;
         background-color: $secondary-color;
@@ -39,4 +40,13 @@
 
 .show-borders {
     border: solid black 1px;
+}
+
+.column-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.column-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }

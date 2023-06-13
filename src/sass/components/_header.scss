@@ -3,7 +3,7 @@
         @extend .grid-center, .base-color;
         flex-grow: 1;
     }
-    height: 65px;
+    height: 10dvh;
     width: 100dvw;
     background-color: $secondary-color;
     color: $primary-color;

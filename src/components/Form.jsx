@@ -7,7 +7,7 @@ import Modal from "./Modal"; */
 
 function Form() {
     return (
-        <VStack w="60%" divider={<StackDivider borderColor="gray.200" />}>
+        <VStack w="80%" divider={<StackDivider borderColor="gray.200" />}>
             <Stack spacing="10px" w="30%">
                 <h3 className="subtitle self-start">Datos básicos</h3>
                 <Input placeholder="Dependencia Universitaria" h="35px" />
@@ -26,6 +26,7 @@ function Form() {
                         { name: "Transporte" },
                         { name: "Educación" },
                     ]}
+                    columns={2}
                 />
             </Stack>
 
