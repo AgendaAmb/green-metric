@@ -17,7 +17,7 @@ function CustomModal({ title, bodyComponents, footerComponents }) {
         <>
             <Button onClick={onOpen}>Open Modal</Button>
 
-            <Modal isOpen={isOpen} onClose={onClose} color="blue.500">
+            <Modal isOpen={isOpen} onClose={onClose}>
                 <ModalOverlay />
                 <ModalContent className="modal">
                     <ModalHeader>{title}</ModalHeader>

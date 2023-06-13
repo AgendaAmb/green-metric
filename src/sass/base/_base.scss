@@ -7,6 +7,16 @@
     display: grid;
     place-items: center;
 }
+.grid-center-1 {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+}
+.grid-center-2 {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr 1fr;
+}
 
 .flex-default-column {
     display: flex;

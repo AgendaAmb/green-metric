@@ -14,3 +14,29 @@
     align-self: self-start;
     justify-self: self-start;
 }
+
+.disabled {
+    //@extend .show-borders;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backdrop-filter: grayscale(90%);
+    cursor: not-allowed;
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+    z-index: 1;
+}
+
+.grid-2-col {
+    @extend .grid-center;
+    grid-template-columns: 1fr 1fr;
+}
+
+.relative-container {
+    position: relative;
+}
+
+.show-borders {
+    border: solid black 1px;
+}
