@@ -2,7 +2,6 @@
     @extend .flex-default-column, .invert-base-color;
     flex-grow: 1;
     width: 100dvw;
-    padding: 30px;
 
     overflow-y: auto;
     input {
@@ -25,7 +24,7 @@
     cursor: not-allowed;
     width: 100%;
     height: 100%;
-    border-radius: 30px;
+
     z-index: 1;
 }
 
@@ -49,4 +48,67 @@
 .column-3 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+}
+
+.checkbox-item {
+    font-size: 3px !important;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.navigation-arrows {
+    @extend .absolute;
+    height: 100dvh;
+    color: $primary-color;
+    font-size: 1.8rem;
+    font-weight: bolder;
+    display: flex;
+    padding: 30px;
+    z-index: 3;
+    > * {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        &:hover {
+            transition: all 0.3s ease-in-out;
+            animation: infinite bounce 1s ease-in-out,
+                infinite blink 1s ease-in-out;
+        }
+    }
+}
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.55;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.navigation-arrow-left {
+    @extend .navigation-arrows;
+    align-self: flex-start;
+    align-items: center;
+    flex-grow: 1;
+}
+.navigation-arrow-right {
+    @extend .navigation-arrows;
+    align-self: flex-end;
+    align-items: center;
+    flex-grow: 1;
 }

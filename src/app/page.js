@@ -1,6 +1,5 @@
-import Image from "next/image";
 import "@/sass";
-import App from "./App";
+import App from "@/components/App";
 export default function Home() {
     return (
         <main className="main">

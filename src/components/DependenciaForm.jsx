@@ -1,22 +1,27 @@
 "use client";
 import { Input, VStack, Stack, StackDivider } from "@chakra-ui/react";
-import { useState } from "react";
 import CheckboxGroup from "./CheckboxCustomGroup";
-/* import SelectForm from "./SelectForm";
-import Modal from "./Modal"; */
 
-function Form() {
+export default function DependenciaForm() {
     return (
-        <VStack w="80%" divider={<StackDivider borderColor="gray.200" />}>
+        <VStack
+            w="80%"
+            divider={<StackDivider borderColor="gray.200" />}
+            className="base-z-index"
+            spacing={"15px"}
+        >
             <Stack spacing="10px" w="30%">
-                <h3 className="subtitle self-start">Datos básicos</h3>
+                <h2 className="self-start">Información sobre Dependencia</h2>
                 <Input placeholder="Dependencia Universitaria" h="35px" />
                 <Input placeholder="Dirección de la Dependencia" h="35px" />
                 <Input placeholder="Nombre del Responsable" h="35px" />
             </Stack>
             <Stack spacing="10px" w="100%">
                 <h3>Secciones</h3>
-
+                <li>
+                    Favor de indicar el nombre completo del responsable de cada
+                    sección{" "}
+                </li>
                 <CheckboxGroup
                     elements={[
                         { name: "Infraestructura y escenarios" },
@@ -32,6 +37,10 @@ function Form() {
 
             <Stack w="100%">
                 <h3>Investigaciones</h3>
+                <li>
+                    Indique si en su entidad se realiza investigación
+                    relacionada con la sostenibilidad.
+                </li>
                 <CheckboxGroup
                     elements={[
                         { name: "Infraestructura y escenarios", area: true },
@@ -46,5 +55,3 @@ function Form() {
         </VStack>
     );
 }
-
-export default Form;

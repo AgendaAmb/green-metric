@@ -1,3 +1,7 @@
+body {
+    background-color: $secondary-color;
+}
+
 .main {
     @extend .flex-default-column !optional;
     height: 100dvh;
