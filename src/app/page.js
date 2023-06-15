@@ -1,17 +1,17 @@
 "use client";
 import { useEffect, useState } from "react";
-
-import FormArrows from "@/components/FormArrows";
-
+import { useRouter } from "next/navigation";
 import "@/sass";
 
 export default function Home() {
-    const [number, setNumber] = useState(1);
-    useEffect(() => {}, []);
+    const router = useRouter();
+
+    useEffect(() => {
+        router.push("/forms/dependencia/1");
+    }, []);
     return (
         <>
             <h1>Root</h1>
-            <FormArrows number={number} setNumber={setNumber} />
         </>
     );
 }

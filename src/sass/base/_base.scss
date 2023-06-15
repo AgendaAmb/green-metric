@@ -38,3 +38,14 @@ body {
     color: $primary-color;
     background-color: $secondary-color;
 }
+
+.scroll-y {
+    overflow-y: auto;
+    position: fixed;
+}
+
+.main {
+    display: grid;
+    justify-items: center;
+    height: 80dvh;
+}

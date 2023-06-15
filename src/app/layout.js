@@ -21,7 +21,9 @@ export default function RootLayout({ children }) {
                 suppressHydrationWarning={true}
             >
                 <Header />
-                <Providers>{children}</Providers>
+                <div className="main">
+                    <Providers>{children}</Providers>
+                </div>
             </body>
         </html>
     );
