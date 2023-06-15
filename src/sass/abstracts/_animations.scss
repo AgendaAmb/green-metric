@@ -1,12 +1,12 @@
-@keyframes bounce {
+@keyframes bounceX {
     0% {
-        transform: translateY(0);
+        transform: translateX(0);
     }
     50% {
-        transform: translateY(5px);
+        transform: translateX(-5px);
     }
     100% {
-        transform: translateY(0);
+        transform: translateX(0);
     }
 }
 

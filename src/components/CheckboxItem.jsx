@@ -16,7 +16,6 @@ export default function CheckboxItem({ element, index }) {
             className="grid-center-2"
         >
             <Checkbox
-                key={index}
                 value={`${name}`}
                 onChange={handleEnabled}
                 h="35px"
@@ -32,7 +31,6 @@ export default function CheckboxItem({ element, index }) {
             >
                 {!enabled && <div className="disabled"></div>}
                 <Input
-                    key={index}
                     placeholder={`${area ? "Investigador" : "Representante"}`}
                     w={"100%"}
                     className="grid-center"
@@ -40,7 +38,6 @@ export default function CheckboxItem({ element, index }) {
                 {area && (
                     <>
                         <Input
-                            key={index + "a"}
                             placeholder={`${"Area"}`}
                             w="100%"
                             className="grid-center"

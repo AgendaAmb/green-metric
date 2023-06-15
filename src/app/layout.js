@@ -1,8 +1,11 @@
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 import "@/sass";
 import { Providers } from "./providers";
-import { Inter } from "next/font/google";
+
 import Header from "@/components/Header";
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
     title: "Create Next App",
@@ -10,9 +13,13 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+    useEffect(() => {}, []);
     return (
         <html lang="en">
-            <body className={`${inter.className} main main-container`}>
+            <body
+                className={`main main-container`}
+                suppressHydrationWarning={true}
+            >
                 <Header />
                 <Providers>{children}</Providers>
             </body>

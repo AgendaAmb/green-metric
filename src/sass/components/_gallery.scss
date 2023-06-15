@@ -1,0 +1,9 @@
+.gallery-300 {
+    width: clamp(300px, 300px, 300px);
+    height: clamp(300px, 300px, 300px);
+}
+
+.image-gallery-image {
+    width: clamp(300px, 300px, 300px) !important;
+    height: clamp(300px, 300px, 300px) !important;
+}

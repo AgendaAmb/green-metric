@@ -1,9 +1,17 @@
+"use client";
+import { useEffect, useState } from "react";
+
+import FormArrows from "@/components/FormArrows";
+
 import "@/sass";
-import App from "@/components/App";
+
 export default function Home() {
+    const [number, setNumber] = useState(1);
+    useEffect(() => {}, []);
     return (
-        <main className="main">
-            <App />
-        </main>
+        <>
+            <h1>Root</h1>
+            <FormArrows number={number} setNumber={setNumber} />
+        </>
     );
 }
