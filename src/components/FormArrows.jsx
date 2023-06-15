@@ -1,30 +1,28 @@
+"use client";
 import { ArrowRightIcon, ArrowLeftIcon } from "@chakra-ui/icons";
-import { usePathname } from "next/navigation";
-import { useEffect } from "react";
-export default function FormArrows({ number, setNumber }) {
-    const pathname = usePathname();
-    const handleNumber = (e) => {
-        if (e.target.id === "left") {
-            setNumber(number - 1);
-        } else if (e.target.id === "right") {
-            setNumber(number + 1);
-        }
+import { useRouter } from "next/navigation";
+
+export default function FormArrows({ right, left }) {
+    const router = useRouter();
+    const prev = () => {
+        router.push(left);
     };
-    useEffect(() => {
-        console.log(pathname);
-    });
+    const next = () => {
+        router.push(right);
+    };
+
     return (
         <>
-            <div className="navigation-arrow-left" onClick={handleNumber}>
+            <div className="navigation-arrow-left" onClick={prev}>
                 <div className="arrow">
                     <div id="left"></div>
-                    {number > 0 && <ArrowLeftIcon />}
+                    {left && <ArrowLeftIcon />}
                 </div>
             </div>
-            <div className="navigation-arrow-right" onClick={handleNumber}>
+            <div className="navigation-arrow-right" onClick={next}>
                 <div className="arrow">
                     <div id="right"></div>
-                    {number > -1 && <ArrowRightIcon />}
+                    {right && <ArrowRightIcon />}
                 </div>
             </div>
         </>

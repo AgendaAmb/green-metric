@@ -1,5 +1,12 @@
 "use client";
-import { Select, VStack, Stack, StackDivider } from "@chakra-ui/react";
+import {
+    Select,
+    VStack,
+    Stack,
+    StackDivider,
+    Text,
+    Input,
+} from "@chakra-ui/react";
 
 import ImageSection from "./ImageSection";
 export default function DependenciaImagesForm() {
@@ -28,7 +35,7 @@ export default function DependenciaImagesForm() {
                 <Input placeholder="Nombre del Responsable" h="35px" />
             </Stack> */}
             <Stack spacing="10px" w="100%">
-                <h3>Fotografías</h3>
+                <h3>Información</h3>
                 <li>Indique tipo de dependencia universitaria</li>
                 <Select placeholder="Select option">
                     {options?.map((option, index) => {
@@ -39,16 +46,25 @@ export default function DependenciaImagesForm() {
                         );
                     })}
                 </Select>
+                <Text mb="8px">
+                    ¿Cuántas personas asisten a su entidad en promedio
+                    diariamente?
+                </Text>
+                <Input
+                    type="number"
+                    placeholder="Ingrese una cantidad numérica"
+                    size="sm"
+                />
             </Stack>
 
-            <Stack w="100%">
-                <h3>Anexos</h3>
+            <Stack spacing="10px" w="100%">
+                <h3>Fotografías</h3>
                 <li>Anexar fotografías de su entidad de trabajo.</li>
-                <Stack w="100%" className="grid-center column-3">
+                <VStack w="100%" className="grid-center column-3">
                     <ImageSection title={"Instalaciones interiores"} />
                     <ImageSection title={"Fachadas"} />
                     <ImageSection title={"Planos"} />
-                </Stack>
+                </VStack>
             </Stack>
         </VStack>
     );
