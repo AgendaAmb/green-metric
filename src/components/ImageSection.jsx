@@ -8,7 +8,7 @@ export default function ImageSection({ title, classes }) {
 
     return (
         <div>
-            <Stack>
+            <Stack className="grid-center">
                 <h3 className="grid-center">{title}</h3>
                 <Uploader setImages={setImages} images={images} />
                 <div className="image-container gallery-300">
