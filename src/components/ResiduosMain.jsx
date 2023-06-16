@@ -17,6 +17,7 @@ export default function ResiduosMain() {
             className="base-z-index scroll-y main"
             spacing={"15px"}
         >
+            <h1>Residuos</h1>
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <InputGroup>
                     <Text mb="8px">
@@ -78,7 +79,7 @@ export default function ResiduosMain() {
                             />
                         </InputGroup>
                     </InputGroup>
-                    <ImageSection title={""} />
+                    <ImageSection title={"Evidencia"} />
                 </Stack>
                 <Stack>
                     <InputGroup>
@@ -101,8 +102,34 @@ export default function ResiduosMain() {
                             />
                         </InputGroup>
                     </InputGroup>
-                    <ImageSection title={""} />
+                    <ImageSection title={"Evidencia"} />
                 </Stack>
+                {/* <Stack>
+                    <InputGroup>
+                        <h3>
+                            Porcentaje de implementación de programa para
+                            tratamiento de residuos orgánicos.
+                        </h3>
+
+                        <InputGroup>
+                            <Text mb="8px">
+                                ¿Cuenta con un programa de tratamiento de
+                                resiudos orgánicos?
+                            </Text>
+                            <InputLeftElement
+                                pointerEvents="none"
+                                color="gray.300"
+                                fontSize="1.2em"
+                                children="123"
+                            />
+                            <Input
+                                placeholder="Cantidad numérica"
+                                type="number"
+                            />
+                        </InputGroup>
+                    </InputGroup>
+                    <ImageSection title={""} />
+                </Stack> */}
             </Stack>
         </VStack>
     );

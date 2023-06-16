@@ -45,7 +45,10 @@ body {
 }
 
 .main {
-    display: grid;
-    justify-items: center;
-    height: 80dvh;
+    display: flex;
+
+    height: 100dvh;
+    width: 100vw;
+    place-items: center !important;
+    overflow-y: auto;
 }

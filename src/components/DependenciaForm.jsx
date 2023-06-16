@@ -7,7 +7,6 @@ export default function DependenciaForm() {
         <VStack
             w="80%"
             divider={<StackDivider borderColor="gray.200" />}
-            className="base-z-index"
             spacing={"15px"}
         >
             <Stack spacing="10px" w="30%">
