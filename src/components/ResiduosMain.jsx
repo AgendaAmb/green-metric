@@ -14,56 +14,21 @@ export default function ResiduosMain() {
         <VStack
             w="80%"
             divider={<StackDivider borderColor="gray.200" />}
-            className="base-z-index scroll-y main"
             spacing={"15px"}
+            className="hidden-container"
         >
-            <h1>Residuos</h1>
-            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <InputGroup>
-                    <Text mb="8px">
-                        Indicar la cantidad de RSU en kg, que se recolentan por
-                        semana.
-                    </Text>
-
-                    <InputGroup>
-                        <InputLeftElement
-                            pointerEvents="none"
-                            color="gray.300"
-                            fontSize="1.2em"
-                            children="123"
-                        />
-                        <Input placeholder="Cantidad numérica" type="number" />
-                    </InputGroup>
-                </InputGroup>
-                <InputGroup>
-                    <Text mb="8px">
-                        Indicar el porcentaje de estos RSU que son valorizados
-                        para su reciclaje.
-                    </Text>
-
-                    <InputGroup>
-                        <InputLeftElement
-                            pointerEvents="none"
-                            color="gray.300"
-                            fontSize="1.2em"
-                            children="%"
-                        />
-                        <Input placeholder="Porcentaje" type="number" />
-                    </InputGroup>
-                </InputGroup>
-            </Stack>
-            <Stack
-                spacing="30px"
-                w="100%"
-                className="column-2"
-                padding="30px"
-                direction={"row"}
-            >
-                <Stack>
+            <Stack>
+                <h1>Residuos</h1>
+                <Stack
+                    spacing="30px"
+                    w="100%"
+                    className="column-2"
+                    padding="30px"
+                >
                     <InputGroup>
                         <Text mb="8px">
-                            Cantidad de residuos organicos producidos por semana
-                            (kg) .
+                            Indicar la cantidad de RSU en kg, que se recolentan
+                            por semana.
                         </Text>
 
                         <InputGroup>
@@ -79,14 +44,10 @@ export default function ResiduosMain() {
                             />
                         </InputGroup>
                     </InputGroup>
-                    <ImageSection title={"Evidencia"} />
-                </Stack>
-                <Stack>
                     <InputGroup>
                         <Text mb="8px">
-                            Cantidad de residuos organicos tratados por semana
-                            (Compostaje en casa, servicio particular, jardines,
-                            Unihuerto, etc. (kg)).
+                            Indicar el porcentaje de estos RSU que son
+                            valorizados para su reciclaje.
                         </Text>
 
                         <InputGroup>
@@ -94,42 +55,65 @@ export default function ResiduosMain() {
                                 pointerEvents="none"
                                 color="gray.300"
                                 fontSize="1.2em"
-                                children="123"
+                                children="%"
                             />
-                            <Input
-                                placeholder="Cantidad numérica"
-                                type="number"
-                            />
+                            <Input placeholder="Porcentaje" type="number" />
                         </InputGroup>
                     </InputGroup>
-                    <ImageSection title={"Evidencia"} />
                 </Stack>
-                {/* <Stack>
-                    <InputGroup>
-                        <h3>
-                            Porcentaje de implementación de programa para
-                            tratamiento de residuos orgánicos.
-                        </h3>
-
+                <Stack
+                    spacing="30px"
+                    w="100%"
+                    className="column-2"
+                    padding="30px"
+                    direction={"row"}
+                >
+                    <Stack>
                         <InputGroup>
                             <Text mb="8px">
-                                ¿Cuenta con un programa de tratamiento de
-                                resiudos orgánicos?
+                                Cantidad de residuos organicos producidos por
+                                semana (kg) .
                             </Text>
-                            <InputLeftElement
-                                pointerEvents="none"
-                                color="gray.300"
-                                fontSize="1.2em"
-                                children="123"
-                            />
-                            <Input
-                                placeholder="Cantidad numérica"
-                                type="number"
-                            />
+
+                            <InputGroup>
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    color="gray.300"
+                                    fontSize="1.2em"
+                                    children="123"
+                                />
+                                <Input
+                                    placeholder="Cantidad numérica"
+                                    type="number"
+                                />
+                            </InputGroup>
                         </InputGroup>
-                    </InputGroup>
-                    <ImageSection title={""} />
-                </Stack> */}
+                        <ImageSection title={"Evidencia"} />
+                    </Stack>
+                    <Stack>
+                        <InputGroup>
+                            <Text mb="8px">
+                                Cantidad de residuos organicos tratados por
+                                semana (Compostaje en casa, servicio particular,
+                                jardines, Unihuerto, etc. (kg)).
+                            </Text>
+
+                            <InputGroup>
+                                <InputLeftElement
+                                    pointerEvents="none"
+                                    color="gray.300"
+                                    fontSize="1.2em"
+                                    children="123"
+                                />
+                                <Input
+                                    placeholder="Cantidad numérica"
+                                    type="number"
+                                />
+                            </InputGroup>
+                        </InputGroup>
+                        <ImageSection title={"Evidencia"} />
+                    </Stack>
+                </Stack>
             </Stack>
         </VStack>
     );

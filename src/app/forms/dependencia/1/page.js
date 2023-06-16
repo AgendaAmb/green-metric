@@ -8,7 +8,9 @@ export default function DependenciaForm1() {
 
     return (
         <>
-            <Main />
+            <div>
+                <Main />
+            </div>
             <Arrows right={"2"} />
         </>
     );

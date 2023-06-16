@@ -8,6 +8,7 @@ export default function DependenciaForm() {
             w="80%"
             divider={<StackDivider borderColor="gray.200" />}
             spacing={"15px"}
+            className="hidden-container"
         >
             <Stack spacing="10px" w="30%">
                 <h2 className={styles["self-start"]}>

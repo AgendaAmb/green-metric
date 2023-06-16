@@ -1,5 +1,5 @@
 import ImageGallery from "react-image-gallery";
-import Image from "next/image";
+import "next/image";
 export default function Gallery({ images }) {
     return images.length > 0 ? (
         <ImageGallery items={images} useBrowserFullscreen={false} />

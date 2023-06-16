@@ -7,12 +7,16 @@ export default function ImageSection({ title, classes }) {
     const [images, setImages] = useState([]);
 
     return (
-        <Stack className={`grid-center ${classes}`}>
-            <h3>{title}</h3>
-            <Uploader setImages={setImages} images={images} />
-            <div className="gallery-300">
-                <Gallery images={images} />
-            </div>
-        </Stack>
+        <div>
+            <Stack>
+                <h3 className="grid-center">{title}</h3>
+                <Uploader setImages={setImages} images={images} />
+                <div className="image-container gallery-300">
+                    <div className="self-center">
+                        <Gallery images={images} />
+                    </div>
+                </div>
+            </Stack>
+        </div>
     );
 }

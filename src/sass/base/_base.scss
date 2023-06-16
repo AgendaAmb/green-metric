@@ -1,5 +1,9 @@
 body {
     background-color: $secondary-color;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-items: center;
 }
 
 .main {
@@ -41,8 +45,22 @@ body {
 
 .main {
     display: flex;
-    overflow: hidden;
-    height: 90%;
-    width: 100%;
+    flex-grow: 1;
+    padding: 50px;
+    gap: 30px;
+    overflow: hidden !important;
+    height: calc(100dvh - 150px);
+    width: 90%;
     place-items: center !important;
+    div {
+        width: 100%;
+        &:first-of-type {
+            flex-grow: 8;
+            overflow-y: auto;
+        }
+    }
+}
+
+.hidden-container {
+    overflow-y: auto;
 }

@@ -5,11 +5,7 @@ import DependenciaForm from "@/components/DependenciaForm";
 
 function Main() {
     useEffect(() => {}, []);
-    return (
-        <>
-            <DependenciaForm />
-        </>
-    );
+    return <DependenciaForm />;
 }
 
 export default Main;

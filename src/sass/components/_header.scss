@@ -1,12 +1,14 @@
 .header {
+    position: static;
     > * {
         @extend .grid-center, .base-color;
         flex-grow: 1;
     }
-    height: 10%;
+    height: 150px;
     width: 100%;
     background-color: $secondary-color;
     color: $primary-color;
     display: flex;
     flex-flow: column nowrap;
+    flex-grow: 1;
 }

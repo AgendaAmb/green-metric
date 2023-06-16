@@ -3,7 +3,9 @@ import Arrows from "@/components/FormArrows";
 export default function DependenciaForm2() {
     return (
         <>
-            <DependenciaImagesForm />;
+            <div>
+                <DependenciaImagesForm />;
+            </div>
             <Arrows left={"1"} />
         </>
     );

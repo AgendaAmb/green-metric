@@ -4,7 +4,9 @@ import FormArrows from "@/components/FormArrows";
 export default function ResiduosPage() {
     return (
         <>
-            <ResiduosMain />
+            <div>
+                <ResiduosMain />
+            </div>
             <FormArrows right="2" />
         </>
     );

@@ -12,7 +12,7 @@ export default function FormArrows({ right, left }) {
     };
 
     return (
-        <>
+        <div className="nav-arrows">
             <div className="navigation-arrow-left" onClick={prev}>
                 <div className="arrow">
                     <div id="left"></div>
@@ -25,6 +25,6 @@ export default function FormArrows({ right, left }) {
                     {right && <ArrowRightIcon />}
                 </div>
             </div>
-        </>
+        </div>
     );
 }
