@@ -1,7 +1,7 @@
 "use client";
 import { Input, VStack, Stack, StackDivider } from "@chakra-ui/react";
 import CheckboxGroup from "./CheckboxCustomGroup";
-
+import styles from "@/sass";
 export default function DependenciaForm() {
     return (
         <VStack
@@ -10,7 +10,9 @@ export default function DependenciaForm() {
             spacing={"15px"}
         >
             <Stack spacing="10px" w="30%">
-                <h2 className="self-start">Información sobre Dependencia</h2>
+                <h2 className={styles["self-start"]}>
+                    Información sobre Dependencia
+                </h2>
                 <Input placeholder="Dependencia Universitaria" h="35px" />
                 <Input placeholder="Dirección de la Dependencia" h="35px" />
                 <Input placeholder="Nombre del Responsable" h="35px" />
