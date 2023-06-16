@@ -3,10 +3,10 @@
         @extend .grid-center, .base-color;
         flex-grow: 1;
     }
-    height: 10dvh;
-    width: 100dvw;
+    height: 10%;
+    width: 100%;
     background-color: $secondary-color;
     color: $primary-color;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
 }

@@ -39,16 +39,10 @@ body {
     background-color: $secondary-color;
 }
 
-.scroll-y {
-    overflow-y: auto;
-    position: fixed;
-}
-
 .main {
     display: flex;
-
-    height: 100dvh;
-    width: 100vw;
+    overflow: hidden;
+    height: 90%;
+    width: 100%;
     place-items: center !important;
-    overflow-y: auto;
 }
