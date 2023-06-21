@@ -72,8 +72,13 @@
     place-items: center;
     font-size: 3rem;
     color: $primary-color;
+    width: 100%;
+    
 }
 
+.no-gap {
+    gap: 0 !important;
+}
 .hide-container {
     opacity: 0;
     transition: all ease-in-out 0.25s;

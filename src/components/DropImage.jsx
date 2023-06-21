@@ -33,7 +33,7 @@ export default function DropImage({ title = "Agregar Evidencia: " }) {
         reference?.current?.slideToIndex(index + 1);
     }
     return (
-        <Stack direction={"column"} className="grid-center" spacing={"30px"}>
+        <Stack direction={"column"} className="grid-center" spacing={"30px 0"}>
             <h3 className="blue">{title}</h3>
             <Dropzone onDrop={handleImages}>
                 {({ getRootProps, getInputProps }) => (

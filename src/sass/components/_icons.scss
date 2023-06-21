@@ -3,3 +3,10 @@
         filter: brightness(0.5);
     }
 }
+
+.icon-button {
+    transition: all ease-in-out 0.25s;
+    &:hover{
+        transform: scale(1.1);
+    }
+}

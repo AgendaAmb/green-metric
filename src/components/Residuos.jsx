@@ -9,7 +9,7 @@ import {
     Select,
 } from "@chakra-ui/react";
 
-import ImageSection from "./ImageSection";
+
 import ModuleInput from "./ModuleInput";
 
 export default function Residuos() {
