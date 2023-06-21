@@ -94,6 +94,7 @@
 #right,
 #left {
     position: absolute;
+
     width: 100%;
     height: 100%;
     top: 0;
@@ -130,4 +131,15 @@
             width: auto;
         }
     }
+}
+
+.main-info-container {
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.226),
+    -3px -3px 3px 1px rgba(207, 207, 207, 0.137);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.align-start{
+    align-items: start;
 }

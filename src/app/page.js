@@ -1,13 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import styles from "@/sass";
+import  "@sass";
 
 export default function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        router.push("/forms/dependencia/1");
+        router.push(encodeURIComponent("/forms/información/1"));
     }, []);
     return (
         <>

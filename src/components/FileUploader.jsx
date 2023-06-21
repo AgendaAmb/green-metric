@@ -8,7 +8,7 @@ export default function DragDrop({ setImages, images }) {
     const handleChange = (file) => {
         setFile(file);
         let url = URL.createObjectURL(file);
-        setImages([...images, { original: url, thumbnail: url }]);
+        setImages([...images, { original: url }]);
     };
     return (
         <FileUploader

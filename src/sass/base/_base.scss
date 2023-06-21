@@ -50,10 +50,13 @@ body {
     gap: 30px;
     overflow: hidden !important;
     height: calc(100dvh - 150px);
-    width: 90%;
+    width: 100%;
     place-items: center !important;
-    div {
+    > * {
+        display: flex;
         width: 100%;
+    }
+    div {
         &:first-of-type {
             flex-grow: 8;
             overflow-y: auto;
@@ -63,4 +66,50 @@ body {
 
 .hidden-container {
     overflow-y: auto;
+}
+
+.overflow-y {
+    height: auto;
+    overflow-y: auto;
+    /* Estilos para el scrollbar */
+  
+    .column-3 {
+        * {
+
+            overflow: hidden;
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 8px; /* Ancho del scrollbar */
+        
+        background-color: #f5f5f5; /* Color de fondo del scrollbar */
+      }
+      
+      &::-webkit-scrollbar-thumb {
+        background-color: #ccc; /* Color del thumb (barra deslizadora) del scrollbar */
+        border-radius: 4px; /* Radio de borde del thumb */
+      }
+      
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #999; /* Color del thumb en el estado de hover */
+      }
+      
+      &::-webkit-scrollbar-track {
+        
+        background-color: #f5f5f5; /* Color de la pista del scrollbar */
+        border-radius: 4px; /* Radio de borde de la pista */
+      }
+      
+      &::-webkit-scrollbar-track:hover {
+        background-color: #eee; /* Color de la pista en el estado de hover */
+      }
+
+      
+}
+.no-overflow {
+    * {
+
+        overflow: hidden;
+    }
 }

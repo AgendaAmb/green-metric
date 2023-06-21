@@ -3,26 +3,26 @@ import Link from "next/link";
 export default function Navbar() {
     return (
         <div className="navbar">
-            <Link href="/forms/dependencia/1">
-                <h3>Información</h3>
+            <Link href="/información">
+                <h5>Información</h5>
             </Link>
-            <Link href="#">
-                <h3>I y E</h3>
+            <Link href="/infraestructura">
+                <h5>Infraestructura y escenarios</h5>
             </Link>
-            <Link href="#">
-                <h3>E y CC</h3>
+            <Link href="/energía">
+                <h5>Energía y cambio climático</h5>
             </Link>
-            <Link href="/forms/residuos/1">
-                <h3>Residuos</h3>
+            <Link href="/residuos">
+                <h5>Residuos</h5>
             </Link>
-            <Link href="#">
-                <h3>Agua</h3>
+            <Link href="/agua">
+                <h5>Agua</h5>
+            </Link> 
+            <Link href="/transporte">
+                <h5>Transporte</h5>
             </Link>
-            <Link href="#">
-                <h3>Transporte</h3>
-            </Link>
-            <Link href="#">
-                <h3>Educacion</h3>
+            <Link href="/educación">
+                <h5>Educación</h5>
             </Link>
         </div>
     );

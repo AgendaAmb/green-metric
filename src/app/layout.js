@@ -3,10 +3,10 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { VStack, StackDivider } from "@chakra-ui/react";
-import styles from "@/sass";
+import styles from "@sass";
 import { Providers } from "./providers";
 
-import Header from "@/components/Header";
+import Header from "@components/Header";
 
 export const metadata = {
     title: "Create Next App",
@@ -22,8 +22,10 @@ export default function RootLayout({ children }) {
                 suppressHydrationWarning={true}
             >
                 <Header />
-                <div className="main">
-                    <Providers>{children}</Providers>
+                <div className="main ">
+                    <div className="main-info-container">
+                        <Providers>{children}</Providers>
+                    </div>
                 </div>
             </body>
         </html>

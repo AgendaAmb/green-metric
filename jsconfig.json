@@ -2,8 +2,8 @@
     "compilerOptions": {
         "paths": {
             "@/*": ["./src/*"],
-            "@/sass": ["./src/sass/main.scss"],
-            "@/components": ["./src/components/*"]
+            "@sass": ["./src/sass/main.scss"],
+            "@components/*": ["./src/components/*"]
         }
     }
 }
