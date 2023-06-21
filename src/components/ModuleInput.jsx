@@ -11,8 +11,8 @@ import {
 } from "@chakra-ui/react";
 
 import DropImage from "./DropImage";
-import ImageSection from "./ImageSection";
-
+import CustomCheckbox from "./CustomCheckbox";
+import CustomSelect from "./CustomSelect";
 /*
 * * Elementos
 * * Tipo 1: Texto
@@ -20,13 +20,13 @@ import ImageSection from "./ImageSection";
 * * Tipo 3: Porcentaje
 * * Tipo 4: Kilogramos
 */
-export default function ModuleInput({ title, elements }) {
+export default function ModuleInput({ title, elements, checkbox, area = false , select}) {
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
-            {elements.map(({ text, holder, type, evidence, span, half, dicotomic, left }, index) => {
+            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left }, index) => {
                 return (
-                    <Stack direction="column" className={`${span ? "expand-2" : ""}`}>
+                    <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index}>
                         <Stack direction="row" w={`${half ? "50%" : "100%"}`} spacing={"30px"}>
                             {text && <Text w="100%">{text}</Text>}
                             {
@@ -57,6 +57,8 @@ export default function ModuleInput({ title, elements }) {
                     </Stack >
                 )
             })}
+            {checkbox && <CustomCheckbox data={checkbox} area={area}/>}
+            {select && <CustomSelect data={select} />}
         </>
     )
 }

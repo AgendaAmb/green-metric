@@ -11,7 +11,7 @@ import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage() {
+export default function DropImage({ title = "Agregar Evidencia: " }) {
     const [images, setImages] = useState([]);
     const [reference, setReference] = useState(null);
     const handleImages = (e) => {
@@ -34,7 +34,7 @@ export default function DropImage() {
     }
     return (
         <Stack direction={"column"} className="grid-center" spacing={"30px"}>
-            <h3 className="blue">Agregar Evidencia: </h3>
+            <h3 className="blue">{title}</h3>
             <Dropzone onDrop={handleImages}>
                 {({ getRootProps, getInputProps }) => (
                     <section className="carousel-row">

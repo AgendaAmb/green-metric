@@ -7,10 +7,14 @@ import {
     Text,
     Input,
 } from "@chakra-ui/react";
-import CheckboxGroup from "./CheckboxCustomGroup";
-import ImageSection from "./ImageSection";
 
-export default function DependenciaForm() {
+import CustomSelect from "./CustomSelect";
+import DropImage from "./DropImage";
+
+
+import ModuleInput from "./ModuleInput";
+
+export default function Informacion() {
     const options = [
         "Entidades Academicas",
         "Institutos y centros de investigación",
@@ -21,6 +25,7 @@ export default function DependenciaForm() {
         "Entidades de apoyo académico",
         "Servicios al público",
     ];
+
     return (
         <VStack
             w="100%"
@@ -29,8 +34,47 @@ export default function DependenciaForm() {
             className="overflow-y"
             padding="30px"
         >
-            <h1>Información</h1>
-            <Stack spacing="10px" w="30%">
+            <h1 className="blue">Información</h1>
+            <Stack spacing="30px" w="30%" padding="30px">
+            <ModuleInput title={"Datos de la dependencia"} elements={[{holder: "Nombre de la dependencia", type: 1}, {holder: "Direccion de la dependencia", type: 1}, {holder: "Nombre del responsable", type: 1}]} />
+            </Stack>
+
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options}/>
+            </Stack>
+            
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} area={true}/>
+            </Stack>
+            
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Indique tipo de dependencia universitaria" select={options} elements={[{text: "¿Cuántas personas asisten a su entidad en promedio diariamente?",type: 2}]}/>
+            </Stack>
+
+            {/* <Stack spacing="10px" w="100%">
+                <li>Indique tipo de dependencia universitaria</li>
+                <CustomSelect data={options} />
+                <Text mb="8px">
+                    ¿Cuántas personas asisten a su entidad en promedio
+                    diariamente?
+                </Text>
+                <Input
+                    type="number"
+                    placeholder="Ingrese una cantidad numérica"
+                    size="sm"
+                />
+            </Stack> */}
+
+            <Stack spacing="10px" w="100%">
+                <h3>Fotografías</h3>
+                <li>Anexar fotografías de su entidad de trabajo.</li>
+                <VStack w="100%" className="grid-center column-3">
+                    <DropImage title={"Instalaciones interiores"} />
+                    <DropImage title={"Fachadas"} />
+                    <DropImage title={"Planos"} />
+                </VStack>
+            </Stack> 
+           {/*  <Stack spacing="10px" w="30%">
                 <h3>Datos de la dependencia</h3>
                 <Stack>
                     <Input placeholder="Dependencia universitaria" h="35px" />
@@ -79,15 +123,7 @@ export default function DependenciaForm() {
             </Stack>
             <Stack spacing="10px" w="100%">
                 <li>Indique tipo de dependencia universitaria</li>
-                <Select placeholder="Selecciona una opción">
-                    {options?.map((option, index) => {
-                        return (
-                            <option value={`${index}`} key={index}>
-                                {option}
-                            </option>
-                        );
-                    })}
-                </Select>
+                <CustomSelect data={options} />
                 <Text mb="8px">
                     ¿Cuántas personas asisten a su entidad en promedio
                     diariamente?
@@ -103,11 +139,11 @@ export default function DependenciaForm() {
                 <h3>Fotografías</h3>
                 <li>Anexar fotografías de su entidad de trabajo.</li>
                 <VStack w="100%" className="grid-center column-3">
-                    <ImageSection title={"Instalaciones interiores"} />
-                    <ImageSection title={"Fachadas"} />
-                    <ImageSection title={"Planos"} />
+                    <DropImage title={"Instalaciones interiores"} />
+                    <DropImage title={"Fachadas"} />
+                    <DropImage title={"Planos"} />
                 </VStack>
-            </Stack>
+            </Stack> */}
         </VStack>
     );
 }

@@ -1,16 +1,16 @@
 import { Select } from "@chakra-ui/react";
 
-function SelectForm({ options, setSelected }) {
-    let count = 0;
+function CustomSelect({ data, setSelected }) {
+
     const handleSelected = (e) => {
         setSelected(e.target.value || "Seleccione: ");
     };
     return (
         <Select placeholder="Seleccionar Dependencia" onChange={handleSelected}>
-            {options.map((option) => {
+            {data?.map((el, index) => {
                 return (
-                    <option key={count++} value={option}>
-                        {option}
+                    <option key={"el" + index} value={el}>
+                        {el}
                     </option>
                 );
             })}
@@ -18,4 +18,4 @@ function SelectForm({ options, setSelected }) {
     );
 }
 
-export default SelectForm;
+export default CustomSelect;

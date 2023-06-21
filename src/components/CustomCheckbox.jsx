@@ -8,31 +8,24 @@ const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
 };
 
-export default function CustomCheckbox({ elements, columns = 0 }) {
-    const [items, setItems] = useState(null);
+export default function CustomCheckbox({ data , area}) {
     useEffect(() => {
-        if (items === null) {
-            setItems(elements);
-        }
-    }, [items]);
+        
+    }, [data])
     return (
         <CheckboxGroup colorScheme="green" w={"100%"}>
-            <Stack
-                spacing={["5px", "10px"]}
-                direction={["row", "column"]}
-                w={"100%"}
-                className={`column${-columns}`}
-            >
-                {items?.map((element) => {
+            
+                {data?.map((element, index) => {
                     return (
                         <CheckboxItem
                             element={element}
-                            key={generateKey("checkbox")}
+                            key={"cb" + index}
+                            area={area}
                         />
                     );
                     //return <h1 key={generateKey("checkbox")}>Hi</h1>;
                 })}
-            </Stack>
+            
         </CheckboxGroup>
     );
 }

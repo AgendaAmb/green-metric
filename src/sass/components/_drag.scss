@@ -78,7 +78,9 @@
     opacity: 0;
     transition: all ease-in-out 0.25s;
     &:hover {
+        text-shadow: 1px 1px 1px black;
         color: $secondary-color;
         opacity: 1;
+        backdrop-filter: brightness(0.5);
     }
 }
