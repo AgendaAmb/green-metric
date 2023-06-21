@@ -7,8 +7,10 @@ import {
     InputLeftElement,
     InputGroup,
     Select,
+    InputLeftAddon,
 } from "@chakra-ui/react";
 
+import DropImage from "./DropImage";
 import ImageSection from "./ImageSection";
 
 /*
@@ -22,11 +24,11 @@ export default function ModuleInput({ title, elements }) {
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
-            {elements.map(({ text, holder, type, evidence, span, half, dicotomic }, index) => {
+            {elements.map(({ text, holder, type, evidence, span, half, dicotomic, left }, index) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`}>
-                        <Stack direction="row" w={`${half ? "50%" : "100%"}`}>
-                            <Text w="100%">{text}</Text>
+                        <Stack direction="row" w={`${half ? "50%" : "100%"}`} spacing={"30px"}>
+                            {text && <Text w="100%">{text}</Text>}
                             {
                                 dicotomic ?
                                     <Select>
@@ -36,12 +38,13 @@ export default function ModuleInput({ title, elements }) {
                                     </Select> :
                                     (type != null) ?
 
-                                        <InputGroup maxW="90%">
-                                            <InputLeftElement
+                                        <InputGroup w="100%"  >
+                                            <InputLeftAddon
+
                                                 pointerEvents="none"
-                                                color="gray.300"
+                                                color="gray.600"
                                                 fontSize="1.2em"
-                                                children={`${type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : "kg"}`}
+                                                children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : "kg"}`}
                                             />
                                             <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />
                                         </InputGroup> :
@@ -49,7 +52,7 @@ export default function ModuleInput({ title, elements }) {
                             }
                         </Stack >
                         {evidence &&
-                            <ImageSection title="Evidencias" classes={[`no-overflow ${span ? "expand-2" : ""}`]} />
+                            <DropImage />
                         }
                     </Stack >
                 )

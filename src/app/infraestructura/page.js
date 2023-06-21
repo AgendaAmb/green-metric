@@ -1,3 +1,14 @@
-export default function InfraestructuraMain() {
-    return <h1>Modulo en proceso</h1>;
+"use client";
+
+
+import Infraestructura from "@components/Infraestructura";
+export default function InfraestructuraPage() {
+
+    return (
+        <div className="overflow-y">
+            <Infraestructura />
+
+
+
+        </div>)
 }

@@ -12,7 +12,7 @@ import {
 import ImageSection from "./ImageSection";
 import ModuleInput from "./ModuleInput";
 
-export default function ResiduosMain() {
+export default function Residuos() {
     return (
         <VStack
             w="100%"
@@ -39,7 +39,7 @@ export default function ResiduosMain() {
                     Porcentaje de implementación del programa de separación de RSU de la UASLP
 
                 </h3>
-                <ModuleInput elements={[{ text: "¿Cuenta con un programa de separación de residuos sólidos urbanos?", type: 3, dicotomic: true }, { text: "¿Cual?", type: 1, holder: "Respuesta abierta" }, { text: "¿Cuenta con actividades o  dinámicas de separación (papel, botellas de PET, taparroscas, latas,etc.)?", type: 1, holder: "Respuesta abierta", evidence: true }]} title={"Cantidad de residuos sólidos urbanos (RSU)."} />
+                <ModuleInput elements={[{ text: "¿Cuenta con un programa de separación de residuos sólidos urbanos?", type: 3, dicotomic: true }, { text: "¿Cual?", type: 1, holder: "Respuesta abierta" }, { text: "¿Cuenta con actividades o  dinámicas de separación (papel, botellas de PET, taparroscas, latas,etc.)?", type: 1, holder: "Respuesta abierta" }, { evidence: true, span: true }]} title={"Cantidad de residuos sólidos urbanos (RSU)."} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
@@ -66,98 +66,26 @@ export default function ResiduosMain() {
                 <ModuleInput elements={[{ text: "¿Cuentan con protocolos de manejo, tratamiento y disposición de estos residuos", dicotomic: true }, { text: "Porcentaje de residuos inorgánicos que son tratados.", type: 3 }, { text: "Porcentaje de residuos tóxicos que son entregados a disposición.", type: 3 }, { evidence: true, span: 2 }]} title="Porcentaje de implementación de programa para tratamiento de residuos tóxicos." />
             </Stack>
 
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput elements={[{ text: "", dicotomic: true }, { text: "Porcentaje de residuos inorgánicos que son tratados.", type: 3 }, { text: "Porcentaje de residuos tóxicos que son entregados a disposición.", type: 3 }, { evidence: true, span: 2 }]} title="Número de programas en torno a consumo responsable (reparación, reúso, trueque)." />
+            </Stack>
 
 
-            <Stack spacing="30px" w="100%" className="column-2 grid-center" padding="30px">
-                <h3 className="expand-2 blue self-start">Número de programas en torno a consumo responsable (reparación, reúso, trueque).
-                </h3>
-
-
-
-                <InputGroup maxW="90%">
-                    <InputLeftElement
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em"
-                        children="123"
-                    />
-                    <Input placeholder="Total programas" type="number" />
-                </InputGroup>
-                <ImageSection
-                    title={"Evidencias"}
-                    classes={["no-overflow"]}
-                />
-
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Número de programas en torno a consumo responsable (reparación, reúso, trueque)." elements={[{ type: 2, holder: "Total de programas", evidence: true, span: true }]} />
 
             </Stack>
-            <Stack spacing="30px" w="100%" className="column-2 grid-center" padding="30px">
-                <h3 className="expand-2 blue self-start">Cantidad en kg de materiales recuperados para  programas de consumo responsable.
-                </h3>
-
-
-
-                <InputGroup maxW="90%">
-                    <InputLeftElement
-                        pointerEvents="none"
-                        color="gray.300"
-                        fontSize="1.2em"
-                        children="kg"
-                    />
-                    <Input placeholder="Cantidad numérica" type="number" />
-                </InputGroup>
-                <ImageSection
-                    title={"Evidencias"}
-                    classes={["no-overflow"]}
-                />
-
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Cantidad en kg de materiales recuperados para  programas de consumo responsable." elements={[{ type: 4, evidence: true, span: true }]} />
 
             </Stack>
-            <Stack spacing="30px" w="100%" className="column-2 grid-center" padding="30px">
-                <h3 className="expand-2 blue self-start">Cantidad de planes de manejo para los residuos de acuerdo con su clasificación
-
-                </h3>
-
-
-                <Stack w="100%" className="grid-center">
-
-                    <Text>RSU</Text>
-                    <InputGroup maxW="90%">
-                        <InputLeftElement
-                            pointerEvents="none"
-                            color="gray.300"
-                            fontSize="1.2em"
-                            children="123"
-                        />
-                        <Input placeholder="Cantidad numérica" type="number" />
-                    </InputGroup>
-                    <Text>RME</Text>
-                    <InputGroup maxW="90%">
-                        <InputLeftElement
-                            pointerEvents="none"
-                            color="gray.300"
-                            fontSize="1.2em"
-                            children="123"
-                        />
-                        <Input placeholder="Cantidad numérica" type="number" />
-                    </InputGroup>
-                    <Text>RP</Text>
-                    <InputGroup maxW="90%">
-                        <InputLeftElement
-                            pointerEvents="none"
-                            color="gray.300"
-                            fontSize="1.2em"
-                            children="123"
-                        />
-                        <Input placeholder="Cantidad numérica" type="number" />
-                    </InputGroup>
-                </Stack>
-                <ImageSection
-                    title={"Evidencias"}
-                    classes={["no-overflow"]}
-                />
-
+            <Stack spacing="30px" w="100%" className="column-2" padding="30px">
+                <ModuleInput title="Cantidad de planes de manejo para los residuos de acuerdo con su clasificación" elements={[{ left: "RSU", type: 2 }, { left: "RME", type: 2 }, { left: "RP", type: 2 }, { evidence: true, span: true }]} />
 
             </Stack>
+
+
+
 
         </VStack>
     );

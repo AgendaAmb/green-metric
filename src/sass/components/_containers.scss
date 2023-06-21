@@ -15,6 +15,12 @@
     justify-self: self-start;
 }
 
+.self-center {
+    align-self: center !important;
+    justify-self: center !important;
+
+}
+
 .disabled {
     //@extend .show-borders;
     position: absolute;
@@ -143,3 +149,4 @@
 .align-start{
     align-items: start;
 }
+

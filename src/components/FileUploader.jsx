@@ -15,6 +15,7 @@ export default function DragDrop({ setImages, images }) {
             handleChange={handleChange}
             name="file"
             types={fileTypes}
+
         />
     );
 }

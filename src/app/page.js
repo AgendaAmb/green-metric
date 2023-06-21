@@ -7,7 +7,7 @@ export default function Home() {
     const router = useRouter();
 
     useEffect(() => {
-        router.push(encodeURIComponent("/forms/información/1"));
+        router.push("/información");
     }, []);
     return (
         <>
