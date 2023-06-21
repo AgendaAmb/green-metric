@@ -19,6 +19,7 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 2: Numérico
 * * Tipo 3: Porcentaje
 * * Tipo 4: Kilogramos
+* * Tipo 5: Metros Cuadrados
 */
 export default function ModuleInput({ title, elements, checkbox, area = false , select}) {
     return (
@@ -44,7 +45,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false , 
                                                 pointerEvents="none"
                                                 color="gray.600"
                                                 fontSize="1.2em"
-                                                children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : "kg"}`}
+                                                children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : "m2"}`}
                                             />
                                             <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />
                                         </InputGroup> :
