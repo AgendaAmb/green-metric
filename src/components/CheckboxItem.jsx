@@ -44,11 +44,12 @@ export default function CheckboxItem({ element, area }) {
                         />
 
                         <Button
-                            leftIcon={<AddIcon />}
+                            
                             colorScheme="blue"
                             variant="solid"
                             className="grid-center"
-                        />
+                            fontSize="2xl"
+                        >+</Button>
                             
                        
                     </>

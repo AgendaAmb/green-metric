@@ -25,7 +25,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false , 
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
-            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left }, index) => {
+            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left, title = "Evidencias: " }, index) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index}>
                         <Stack direction="row" w={`${half ? "50%" : "100%"}`} spacing={"30px"}>
@@ -53,7 +53,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false , 
                             }
                         </Stack >
                         {evidence &&
-                            <DropImage />
+                            <DropImage title={title}/>
                         }
                     </Stack >
                 )
