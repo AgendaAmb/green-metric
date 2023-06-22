@@ -8,7 +8,10 @@ import {
     InputGroup,
     Select,
     InputLeftAddon,
+    Icon
 } from "@chakra-ui/react";
+
+import { MdLibraryAdd } from "react-icons/md";
 
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
@@ -21,7 +24,7 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false , select}) {
+export default function ModuleInput({ title, elements, checkbox, area = false, select, add }) {
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
@@ -53,13 +56,22 @@ export default function ModuleInput({ title, elements, checkbox, area = false , 
                             }
                         </Stack >
                         {evidence &&
-                            <DropImage title={title}/>
+                            <DropImage title={title} />
                         }
                     </Stack >
                 )
             })}
-            {checkbox && <CustomCheckbox data={checkbox} area={area}/>}
+            {checkbox && <CustomCheckbox data={checkbox} area={area} />}
             {select && <CustomSelect data={select} />}
+            {add && <Stack direction={"column"} className="add-module" spacing={"30px"}>
+                <Stack className="grid-center">
+                    <h4 className=" blue">Añadir otro modulo</h4>
+                    <Stack spacing="30px" className="border-dashed">
+
+                        <Icon as={MdLibraryAdd} role="button" fontSize="80px" className="blue icon-button" />
+                    </Stack>
+                </Stack>
+            </Stack>}
         </>
     )
 }
