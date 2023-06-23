@@ -1,11 +1,13 @@
 {
     "name": "green-metric",
     "version": "0.1.0",
-    "private": true,
+    "private": false,
+    "homepage": "/GreenMetric",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
-        "start": "next start",
+        "start": "nodemon \"server/index.js\"",
+        "start:prod": "npm start",
         "lint": "next lint"
     },
     "dependencies": {
@@ -14,6 +16,7 @@
         "@chakra-ui/react": "^2.7.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
+        "dotenv": "^16.3.1",
         "formik": "^2.4.1",
         "framer-motion": "^10.12.16",
         "next": "13.4.5",

@@ -4,7 +4,7 @@
         @extend .grid-center, .base-color;
         flex-grow: 1;
     }
-    height: 150px;
+    height: 20dvh;
     width: 100%;
     background-color: $secondary-color;
     color: $primary-color;

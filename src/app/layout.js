@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { VStack, StackDivider } from "@chakra-ui/react";
-import styles from "@sass";
+import "../sass/main.scss";
 import { Providers } from "./providers";
 
 import Header from "@components/Header";
@@ -17,16 +17,19 @@ export default function RootLayout({ children }) {
     useEffect(() => {}, []);
     return (
         <html lang="en">
-            <body
-                className={`${styles.main} ${styles["main-container"]}`}
-                suppressHydrationWarning={true}
-            >
-                <Header />
-                <div className="main ">
-                    <div className="main-info-container">
-                        <Providers>{children}</Providers>
+            <body>
+                <div
+                    className={`main  main-container body`}
+                    suppressHydrationWarning={true}
+                >
+                    <Header />
+                    <div className="main ">
+                        <div className="main-info-container">
+                            <Providers>{children}</Providers>
+                        </div>
                     </div>
                 </div>
+
             </body>
         </html>
     );

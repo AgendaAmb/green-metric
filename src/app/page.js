@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import  "@sass";
+import  "../sass/main.scss";
 
 export default function Home() {
     const router = useRouter();

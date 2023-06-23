@@ -1,4 +1,4 @@
-(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[931],{8158:function(e,r,n){Promise.resolve().then(n.bind(n,6576))},6576:function(e,r,n){"use strict";n.r(r),n.d(r,{default:function(){return f}});var t=n(9268),o=n(6006),u=n(6008);function f(){let e=(0,u.useRouter)();return(0,o.useEffect)(()=>{e.push("/informacion")},[]),(0,t.jsx)(t.Fragment,{children:(0,t.jsx)("h1",{children:"Cargando..."})})}n(7223)},7223:function(){},3177:function(e,r,n){"use strict";/**
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[931],{8158:function(e,r,n){Promise.resolve().then(n.bind(n,6576))},6576:function(e,r,n){"use strict";n.r(r),n.d(r,{default:function(){return f}});var t=n(9268),o=n(6006),u=n(6008);function f(){return(0,u.useRouter)(),(0,o.useEffect)(()=>{},[]),(0,t.jsx)(t.Fragment,{children:(0,t.jsx)("h1",{children:"Cargando..."})})}n(7223)},7223:function(){},3177:function(e,r,n){"use strict";/**
  * @license React
  * react-jsx-runtime.production.min.js
  *
