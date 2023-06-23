@@ -8,7 +8,8 @@ import {
     InputGroup,
     Select,
     InputLeftAddon,
-    Icon
+    Icon,
+    
 } from "@chakra-ui/react";
 
 import { MdLibraryAdd } from "react-icons/md";
@@ -24,15 +25,15 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false, select, add }) {
+export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, textW = "100%" }) {
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
-            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left, title = "Evidencias: " }, index) => {
+            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left, title = "Evidencias: ", helper }, index) => {
                 return (
-                    <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index}>
-                        <Stack direction="row" w={`${half ? "50%" : "100%"}`} spacing={"30px"}>
-                            {text && <Text w="100%">{text}</Text>}
+                    <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} spacing={"20px"}>
+                        <Stack direction={`${column ? "column" : "row"}`} w={`${half ? "50%" : "100%"}`} spacing={"30px"}>
+                            {text && <Text w={textW}>{text}</Text>}
                             {
                                 dicotomic ?
                                     <Select>
@@ -55,17 +56,20 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                         (type && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
                             }
                         </Stack >
+                        {helper &&
+                            <Text as={"sub"} color={"gray.500"}>{helper}</Text>
+                        }
                         {evidence &&
-                            <DropImage title={title} />
+                            <DropImage title={title}/>
                         }
                     </Stack >
                 )
             })}
             {checkbox && <CustomCheckbox data={checkbox} area={area} />}
             {select && <CustomSelect data={select} />}
-            {add && <Stack direction={"column"} className="add-module" spacing={"30px"}>
+            {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}>
                 <Stack className="grid-center">
-                    <h4 className=" blue">Añadir otro modulo</h4>
+                    <h4 className=" blue">{addTitle}</h4>
                     <Stack spacing="30px" className="border-dashed">
 
                         <Icon as={MdLibraryAdd} role="button" fontSize="80px" className="blue icon-button" />

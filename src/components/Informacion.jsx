@@ -36,19 +36,30 @@ export default function Informacion() {
         >
             <h1 className="blue">Información</h1>
             <Stack spacing="30px" w="30%" padding="30px">
-            <ModuleInput title={"Datos de la dependencia"} elements={[{holder: "Nombre de la dependencia", type: 1}, {holder: "Direccion de la dependencia", type: 1}, {holder: "Nombre del responsable", type: 1}]} />
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Nombre del responsable", type: 1 }]} />
+            </Stack>
+            <Stack spacing="30px" w="100%" className="column-3">
+                <Stack>
+                    <ModuleInput title={"Departamentos y dependencias a reportar"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} />
+                </Stack>
+                <Stack >
+                    <ModuleInput add={true} addTitle="Añadir departamento"/>
+                </Stack>
+                <Stack>
+                    <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} />
+                </Stack>
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options}/>
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} />
             </Stack>
-            
+
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} area={true}/>
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} area={true} />
             </Stack>
-            
+
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Indique tipo de dependencia universitaria" select={options} elements={[{text: "¿Cuántas personas asisten a su entidad en promedio diariamente?",type: 2}]}/>
+                <ModuleInput title="Indique tipo de dependencia universitaria" select={options} elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
             </Stack>
 
             {/* <Stack spacing="10px" w="100%">
@@ -73,8 +84,8 @@ export default function Informacion() {
                     <DropImage title={"Fachadas"} />
                     <DropImage title={"Planos"} />
                 </VStack>
-            </Stack> 
-           {/*  <Stack spacing="10px" w="30%">
+            </Stack>
+            {/*  <Stack spacing="10px" w="30%">
                 <h3>Datos de la dependencia</h3>
                 <Stack>
                     <Input placeholder="Dependencia universitaria" h="35px" />

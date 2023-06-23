@@ -18,14 +18,14 @@ import { MdLibraryAdd } from 'react-icons/md';
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
 export default function Infraestructura() {
-    const [species, setSpecies] = useState(1);
+    const [species, setSpecies] = useState(2);
     const data =
         [
             { text: "Área total de su entidad o espacio de trabajo.", type: 5 },
             { text: "Área total de áreas verdes en su entidad o espacio de trabajo", type: 5, },
             { text: "Área total de cobertura plantada", type: 5, },
             { text: "Área total de cobertura forestal", type: 5, },
-            { text: "Área total de su entidad donde se lleven a cabo actividades académicas (incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos).", type: 5, evidence: true, title: "Actividades académicas" },
+            { text: "Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, title: "Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)" }, //(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)
             { text: "¿Cuántos edificios componen tu entidad?", type: 5, },
             { text: "Área total de la planta baja de los edificios de su entidad de trabajo.", type: 5, },
             { text: "Área total construida de su entidad de trabajo (tome en cuenta los distintos niveles que conforman las edificaciones).", type: 5, },
@@ -51,7 +51,10 @@ export default function Infraestructura() {
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
                 <h3 className="expand-2 blue">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} />
+                    <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} textW="40%" />
+                </Stack>
+                <Stack spacing="30px">
+                    <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} textW="40%"/>
                 </Stack>
                 <Stack spacing="30px" className="grid-3-rows">
                     <ModuleInput add={true} />
