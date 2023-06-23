@@ -1,12 +1,16 @@
 import { Select } from "@chakra-ui/react";
 
-function CustomSelect({ data, setSelected }) {
+
+
+function CustomSelect({ data, setSelected, classes }) {
 
     const handleSelected = (e) => {
-        setSelected(e.target.value || "Seleccione: ");
+        if(setSelected){
+            setSelected();
+        }
     };
     return (
-        <Select placeholder="Seleccionar Dependencia" onChange={handleSelected}>
+        <Select placeholder="Seleccionar Dependencia" onChange={handleSelected} className={...classes}>
             {data?.map((el, index) => {
                 return (
                     <option key={"el" + index} value={el}>

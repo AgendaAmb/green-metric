@@ -13,6 +13,7 @@ import DropImage from "./DropImage";
 
 
 import ModuleInput from "./ModuleInput";
+import { useState } from "react";
 
 export default function Informacion() {
     const options = [
@@ -25,6 +26,8 @@ export default function Informacion() {
         "Entidades de apoyo académico",
         "Servicios al público",
     ];
+
+    const [dependencia, setDependencia] = useState(1);
 
     return (
         <VStack
@@ -39,14 +42,15 @@ export default function Informacion() {
                 <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Nombre del responsable", type: 1 }]} />
             </Stack>
             <Stack spacing="30px" w="100%" className="column-3">
+                <h3 className="expand-3">Departamentos y dependencias a reportar</h3>
                 <Stack>
-                    <ModuleInput title={"Departamentos y dependencias a reportar"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} />
+                    <ModuleInput  elements={[{ holder: `Nombre de la dependencia ${dependencia}`, type: 1 }, { holder: `Direccion de la dependencia ${dependencia}`, type: 1 }]} />
                 </Stack>
                 <Stack >
-                    <ModuleInput add={true} addTitle="Añadir departamento"/>
+                    <ModuleInput add={true} addTitle={"\0"}/>
                 </Stack>
                 <Stack>
-                    <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} />
+                    {/* Agregar <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} /> */}
                 </Stack>
             </Stack>
 
@@ -59,7 +63,9 @@ export default function Informacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Indique tipo de dependencia universitaria" select={options} elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
+                <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
+                <ModuleInput  select={options} />
+                <ModuleInput  elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
             </Stack>
 
             {/* <Stack spacing="10px" w="100%">
