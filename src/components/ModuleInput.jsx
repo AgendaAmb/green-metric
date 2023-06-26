@@ -56,7 +56,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                             <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
                                             
                                         </InputGroup> :
-                                        (type && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
+                                        (type && <Input type={`${type > 1 ? "number" : "text"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
                             }
                             {helper &&
                                 <Text size={"3xs"} className="expand-4" w="100%" color={"gray.500"} textAlign={"justify"}>{helper}</Text>
