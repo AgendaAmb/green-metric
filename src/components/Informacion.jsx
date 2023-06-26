@@ -86,9 +86,9 @@ export default function Informacion() {
                 <h3>Fotografías</h3>
                 <li>Anexar fotografías de su entidad de trabajo.</li>
                 <VStack w="100%" className="grid-center column-3">
-                    <DropImage title={"Instalaciones interiores"} />
-                    <DropImage title={"Fachadas"} />
-                    <DropImage title={"Planos"} />
+                    <DropImage title={"Instalaciones interiores"} maxPhotos={3}/>
+                    <DropImage title={"Fachadas"} maxPhotos={3}/>
+                    <DropImage title={"Planos"} maxPhotos={3}/>
                 </VStack>
             </Stack>
             {/*  <Stack spacing="10px" w="30%">
