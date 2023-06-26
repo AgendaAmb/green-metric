@@ -31,7 +31,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0}, index) => {
+            {elements?.map(({ text, holder, type = -1, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0}, index) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`1.3fr 1fr 1fr 1fr`} display={"grid"}>
@@ -68,7 +68,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                     </Stack >
                 )
             })}
-            {checkbox && <CustomCheckbox data={checkbox} />}
+            {checkbox && <CustomCheckbox checkbox={checkbox} />}
             {select && <CustomSelect data={select} />}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}>
                 <Stack className="grid-center">

@@ -8,18 +8,20 @@ const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
 };
 
-export default function CustomCheckbox({ data}) {
+export default function CustomCheckbox({ checkbox}) {
+    const [content, setContent] = useState({});
     useEffect(() => {
-        
-    }, [data])
+        setContent(checkbox)
+    }, [content])
     return (
         <CheckboxGroup colorScheme="green" w={"100%"}>
             
-                {data?.map((element, index) => {
+                {content?.data?.map((element, index) => {
                     return (
                         <CheckboxItem
                             element={element}
                             key={"cb" + index}
+                            hasInput={content?.hasInput}
                         />
                     );
                     //return <h1 key={generateKey("checkbox")}>Hi</h1>;

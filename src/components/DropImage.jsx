@@ -11,15 +11,15 @@ import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = 1 }) {
+export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1 }) {
     const [images, setImages] = useState([]);
-    const [photos, setPhotos] = useState(0);
+    const [photos, setPhotos] = useState(1);
     const [reference, setReference] = useState(null);
     const handleImages = (e) => {
         let count = 0;
         let tmpImages = [...images];
         e.forEach((file) => {
-            if(photos > 0){
+            if(photos > 0 || photos == -1){
                 let url = URL.createObjectURL(file);
                 console.log("url", url)
                 console.log("ref", reference)
@@ -41,7 +41,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = 1
 
     useEffect(() => {
         setPhotos(maxPhotos)
-    }, [maxPhotos]);
+    }, []);
     return (
         <Stack direction={"column"} className="grid-center" spacing={"30px 0"}>
             <div className="drop-title">

@@ -55,17 +55,17 @@ export default function Informacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={["1. Infraestructura y escenarios.",
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={{data: ["1. Infraestructura y escenarios.",
                     "2. Energía y cambio climático",
                     "3. Residuos",
                     "4. Agua",
                     "5. Transporte",
                     "6. Educación",
-                ]} />
+                ], hasInput: true}} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} area={true} />
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={{data: options, hasInput: true}} area={true} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
