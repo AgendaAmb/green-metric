@@ -1,3 +1,14 @@
-export default function AguaMain() {
-    return <h1>Modulo en proceso</h1>;
+"use client";
+import Agua from "@components/Agua";
+
+export default function InformacionPage() {
+
+    return (
+        
+            <div className="overflow-y">
+                <Agua />
+            </div>
+            
+        
+    );
 }
