@@ -8,7 +8,7 @@ const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
 };
 
-export default function CustomCheckbox({ data , area}) {
+export default function CustomCheckbox({ data}) {
     useEffect(() => {
         
     }, [data])
@@ -20,7 +20,6 @@ export default function CustomCheckbox({ data , area}) {
                         <CheckboxItem
                             element={element}
                             key={"cb" + index}
-                            area={area}
                         />
                     );
                     //return <h1 key={generateKey("checkbox")}>Hi</h1>;

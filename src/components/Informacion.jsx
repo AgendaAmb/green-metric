@@ -10,10 +10,10 @@ import {
 
 import CustomSelect from "./CustomSelect";
 import DropImage from "./DropImage";
-
-
+import CustomInput from "./CustomInput";
+import ModuleInputTmp from "./ModuleInputTmp";
 import ModuleInput from "./ModuleInput";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Informacion() {
     const options = [
@@ -29,6 +29,14 @@ export default function Informacion() {
 
     const [dependencia, setDependencia] = useState(1);
 
+    useEffect(() => {
+        const file = () => {
+            return(
+                
+            )
+        }
+        let url = URL.createObjectURL((<div>Hello</div>));
+    }, [])
     return (
         <VStack
             w="100%"
@@ -38,16 +46,17 @@ export default function Informacion() {
             padding="30px"
         >
             <h1 className="blue">Información</h1>
+            
             <Stack spacing="30px" w="30%" padding="30px">
                 <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Nombre del responsable", type: 1 }]} />
             </Stack>
             <Stack spacing="30px" w="100%" className="column-3">
                 <h3 className="expand-3">Departamentos y dependencias a reportar</h3>
                 <Stack>
-                    <ModuleInput  elements={[{ holder: `Nombre de la dependencia ${dependencia}`, type: 1 }, { holder: `Direccion de la dependencia ${dependencia}`, type: 1 }]} />
+                    <ModuleInput elements={[{ holder: `Nombre de la dependencia ${dependencia}`, type: 1 }, { holder: `Direccion de la dependencia ${dependencia}`, type: 1 }]} />
                 </Stack>
                 <Stack >
-                    <ModuleInput add={true} addTitle={"\0"}/>
+                    <ModuleInput add={true} addTitle={"\0"} />
                 </Stack>
                 <Stack>
                     {/* Agregar <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} /> */}
@@ -55,7 +64,13 @@ export default function Informacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={options} />
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={["1. Infraestructura y escenarios.",
+                    "2. Energía y cambio climático",
+                    "3. Residuos",
+                    "4. Agua",
+                    "5. Transporte",
+                    "6. Educación",
+                ]} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
@@ -64,8 +79,8 @@ export default function Informacion() {
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
-                <ModuleInput  select={options} />
-                <ModuleInput  elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
+                <ModuleInput select={options} />
+                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
             </Stack>
 
             {/* <Stack spacing="10px" w="100%">
@@ -86,9 +101,9 @@ export default function Informacion() {
                 <h3>Fotografías</h3>
                 <li>Anexar fotografías de su entidad de trabajo.</li>
                 <VStack w="100%" className="grid-center column-3">
-                    <DropImage title={"Instalaciones interiores"} maxPhotos={3}/>
-                    <DropImage title={"Fachadas"} maxPhotos={3}/>
-                    <DropImage title={"Planos"} maxPhotos={3}/>
+                    <DropImage title={"Instalaciones interiores"} maxPhotos={3} />
+                    <DropImage title={"Fachadas"} maxPhotos={3} />
+                    <DropImage title={"Planos"} maxPhotos={3} />
                 </VStack>
             </Stack>
             {/*  <Stack spacing="10px" w="30%">

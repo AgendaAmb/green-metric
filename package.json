@@ -16,6 +16,7 @@
         "@chakra-ui/react": "^2.7.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
+        "canvas": "^2.11.2",
         "dotenv": "^16.3.1",
         "formik": "^2.4.1",
         "framer-motion": "^10.12.16",

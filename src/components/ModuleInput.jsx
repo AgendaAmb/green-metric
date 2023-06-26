@@ -17,6 +17,7 @@ import { MdLibraryAdd } from "react-icons/md";
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
+import CustomInput from "./CustomInput";
 /*
 * * Elementos
 * * Tipo 1: Texto
@@ -45,14 +46,15 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                     (type != null) ?
 
                                         <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} >
-                                            <InputLeftAddon
+                                            {type > 0 && <InputLeftAddon
 
                                                 pointerEvents="none"
                                                 color="gray.600"
                                                 fontSize="1.2em"
                                                 children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
-                                            />
-                                            <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />
+                                            />}
+                                            <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
+                                            
                                         </InputGroup> :
                                         (type && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
                             }
@@ -66,7 +68,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                     </Stack >
                 )
             })}
-            {checkbox && <CustomCheckbox data={checkbox} area={area} />}
+            {checkbox && <CustomCheckbox data={checkbox} />}
             {select && <CustomSelect data={select} />}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}>
                 <Stack className="grid-center">

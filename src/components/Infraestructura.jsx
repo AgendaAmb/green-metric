@@ -22,22 +22,22 @@ export default function Infraestructura() {
     const [species, setSpecies] = useState(2);
     const data =
         [
-            { text: "Área total de su entidad o espacio de trabajo.", type: 5 },
-            { text: "Área total de áreas verdes en su entidad o espacio de trabajo", type: 5, },
-            { text: "Área total de cobertura plantada", type: 5, },
-            { text: "Área total de cobertura forestal", type: 5, },
-            { text: "Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, title: "Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)" }, //(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)
-            { text: "¿Cuántos edificios componen tu entidad?", type: 5, },
-            { text: "Área total de la planta baja de los edificios de su entidad de trabajo.", type: 5, },
-            { text: "Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, },
-            { text: "Área correspondiente a jardines verticales.", type: 5, evidence: true, title: "Jardines verticales" },
-            { text: "Área de techos verdes.", type: 5, evidence: true, title: "Techos verdes" },
-            { text: "Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, title: "Azotes útiles" },
-            { text: "Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, title: "Siembra de alimentos y plantas medicinales" },
-            { text: "Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, title: "Siembra y polinización" },
-            { text: "Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, title: "Estacionamientos sin asfalto o concreto" },
-            { text: "Área total en el campus destinada para la absorción de agua; además de bosque y vegetación plantada.", helper: "(suelo, césped, bloque de hormigón, campo sintético, etc.)", type: 5, evidence: true, title: "Absorción de agua" },
-            { text: "Área de estacionamientos con sombreado natural.", type: 5, evidence: true, title: "Sombreado natural" },
+            { text: "1.2.1 Área total de su entidad o espacio de trabajo.", type: 5 },
+            { text: "1.2.2 Área total de áreas verdes en su entidad o espacio de trabajo", type: 5, },
+            { text: "1.2.3 Área total de cobertura plantada", type: 5, },
+            { text: "1.2.4 Área total de cobertura forestal", type: 5, },
+            { text: "1.2.5 Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, title: "Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)" }, //(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)
+            { text: "1.2.6 ¿Cuántos edificios componen tu entidad?", type: 5, },
+            { text: "1.2.7 Área total de la planta baja de los edificios de su entidad de trabajo.", type: 5, },
+            { text: "1.2.8 Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, },
+            { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, title: "Jardines verticales" },
+            { text: "1.2.10 Área de techos verdes.", type: 5, evidence: true, title: "Techos verdes" },
+            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, title: "Azotes útiles" },
+            { text: "1.2.12 Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, title: "Siembra de alimentos y plantas medicinales" },
+            { text: "1.2.13 Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, title: "Siembra y polinización" },
+            { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, title: "Estacionamientos sin asfalto o concreto" },
+            { text: "1.2.15 Área total en el campus destinada para la absorción de agua; además de bosque y vegetación plantada.", helper: "(suelo, césped, bloque de hormigón, campo sintético, etc.)", type: 5, evidence: true, title: "Absorción de agua" },
+            { text: "1.2.16 Área de estacionamientos con sombreado natural.", type: 5, evidence: true, title: "Sombreado natural" },
 
         ]
 
