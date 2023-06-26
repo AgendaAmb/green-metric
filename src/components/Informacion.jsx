@@ -27,14 +27,7 @@ export default function Informacion() {
 
     const [dependencia, setDependencia] = useState(1);
 
-    useEffect(() => {
-        const file = () => {
-            return(
-                
-            )
-        }
-        let url = URL.createObjectURL((<div>Hello</div>));
-    }, [])
+
     return (
         <VStack
             w="100%"

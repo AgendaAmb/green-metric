@@ -38,7 +38,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                             {text && <Text className={inputLarge ? ""  : "expand-2"} >{textTitle} {text}</Text>}
                             {
                                 dicotomic ?
-                                    <Select gridColumn={"span 2"}>
+                                    <Select gridColumn={"span 4"}>
                                         <option value="-1">Seleccione:</option>
                                         <option value="1">Si</option>
                                         <option value="0">No</option>
