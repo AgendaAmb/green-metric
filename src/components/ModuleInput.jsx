@@ -45,7 +45,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                     </Select> :
                                     (type != null) ?
 
-                                        <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} >
+                                        <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
                                             {type > 0 && <InputLeftAddon
 
                                                 pointerEvents="none"
@@ -53,13 +53,13 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                                 fontSize="1.2em"
                                                 children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                             />}
-                                            <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
+                                            <Input  type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
                                             
                                         </InputGroup> :
                                         (type && <Input type={`${type > 1 ? "number" : "text"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
                             }
                             {helper &&
-                                <Text size={"3xs"} className="expand-4" w="100%" color={"gray.500"} textAlign={"justify"}>{helper}</Text>
+                                <Text className="expand-4 sub-text" w="100%" color={"gray.500"} textAlign={"justify"}>{helper}</Text>
                             }
                         </Stack >
                         {evidence &&
