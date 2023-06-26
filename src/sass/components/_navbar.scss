@@ -1,22 +1,36 @@
 .navbar {
-    @extend .grid-center !optional;
     display: flex;
-    padding: 0 30px;
-    justify-items: center;
-    align-items: center;
-    flex-grow: 1;
+    flex-flow: column wrap;
+    align-items: stretch;
+    height: 30px;
     background-color: $tertiary-color;
     color: $secondary-color;
 
     width: 100%;
-    text-align: center;
-    * {
-        display: grid;
-        place-items: center;
-        width: 100%;
+    
+    user-select: none;
+    position: static;
+    
+    font-size: 15px;
+    
+    *{
+        @extend .grid-center;
         height: 100%;
     }
-    position: static;
-    /* font-weight: bold;
-    font-size: 14pt; */
+    
+
+    a {
+        box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.329);
+        *{
+            transition: all 0.3s ease;
+        }
+        &:hover{
+            background-color: green;
+            
+            > *{
+                transform: scale(0.9);
+            }
+        }
+        
+    }
 }

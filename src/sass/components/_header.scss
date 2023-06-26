@@ -4,11 +4,11 @@
         @extend .grid-center, .base-color;
         flex-grow: 1;
     }
-    height: 20dvh;
+    height: 300px;
     width: 100%;
     background-color: $secondary-color;
     color: $primary-color;
     display: flex;
     flex-flow: column nowrap;
-    flex-grow: 1;
+    
 }
