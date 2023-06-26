@@ -8,10 +8,8 @@ import {
     Input,
 } from "@chakra-ui/react";
 
-import CustomSelect from "./CustomSelect";
 import DropImage from "./DropImage";
-import CustomInput from "./CustomInput";
-import ModuleInputTmp from "./ModuleInputTmp";
+
 import ModuleInput from "./ModuleInput";
 import { useEffect, useState } from "react";
 
