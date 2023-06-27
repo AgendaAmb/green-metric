@@ -2,7 +2,7 @@ import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";
 
-export default function CheckboxItem({ element, area }) {
+export default function CheckboxItem({ element, area, hasInput = false }) {
     const [enabled, setEnabled] = useState(false);
     const handleEnabled = () => {
         setEnabled(!enabled);
@@ -23,7 +23,7 @@ export default function CheckboxItem({ element, area }) {
             >
                 {element}
             </Checkbox>
-            <Stack
+            {hasInput && (<Stack
                 className={`relative-container grid-center${area ? "-3" : ""}`}
                 spacing={"10px"}
                 w="100%"
@@ -36,7 +36,7 @@ export default function CheckboxItem({ element, area }) {
                     className="grid-center"
                 />
 
-            </Stack>
+            </Stack>)}
         </Stack>
     );
 }
