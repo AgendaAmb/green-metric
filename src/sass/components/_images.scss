@@ -1,0 +1,8 @@
+.generated-image{
+    @extend .grid-center;
+    border-radius: 30px;
+    font-size: 15px;
+    background-color: $secondary-color;
+    color: $primary-color
+
+}

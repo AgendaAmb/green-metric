@@ -79,6 +79,7 @@
 .no-gap {
     gap: 0 !important;
 }
+
 .hide-container {
     opacity: 0;
     transition: all ease-in-out 0.25s;
@@ -90,6 +91,27 @@
     }
 }
 
+
+.hover-container {
+        border-radius:30px;
+        width: 300px;
+        height: 100%;
+        text-shadow: 1px 1px 1px black;
+        color: $secondary-color;
+        opacity: 1 !important;
+        backdrop-filter: brightness(0.5);
+        z-index: 3 !important;
+        > *{
+            opacity: 1;
+            z-index: 300;
+        }
+        &:hover {
+            text-shadow: 1px 1px 1px black;
+            color: $secondary-color;
+            opacity: 1;
+            backdrop-filter: brightness(0.5);
+        }
+}
 .drop-title{
     
     text-align: left;
@@ -104,4 +126,7 @@
 
 .red {
     color: red;
+}
+.image-gallery {
+    z-index: 0 !important;
 }

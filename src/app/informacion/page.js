@@ -1,5 +1,7 @@
-"use client";
+
 import Main from "@components/Informacion";
+
+
 
 export default function InformacionPage() {
 
