@@ -31,10 +31,10 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = -1, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0}, index) => {
+            {elements?.map(({ text, holder, type = -1, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0}, index, vertical = false) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
-                        <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`1.3fr 1fr 1fr 1fr`} display={"grid"}>
+                        <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
                             {text && <Text className={inputLarge ? ""  : "expand-2"} >{textTitle} {text}</Text>}
                             {
                                 dicotomic ?

@@ -89,6 +89,11 @@ export default function Infraestructura() {
 
                     <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educacion ambiental, etc.)", type: 6 }]} />
                     </Stack>
+                    <Stack spacing="30px">
+                    <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
+                    <ModuleInput elements={[{ type: 2 }]} text= "1.3.4.1 Números de Espacio de estacionamiento adecuado" />
+                    <ModuleInput elements={[{ type: 2 }, {text: "Número de Baños adaptados", type: 2, vertical: true}]} />
+                    </Stack>
                 </Stack>
             </Stack>
 
