@@ -2,7 +2,7 @@ import { Select } from "@chakra-ui/react";
 
 
 
-function CustomSelect({ data, setSelected, classes }) {
+function CustomSelect({ data, setSelected, classes, holder = "Seleccione:" }) {
 
     const handleSelected = (e) => {
         if(setSelected){
@@ -10,7 +10,7 @@ function CustomSelect({ data, setSelected, classes }) {
         }
     };
     return (
-        <Select placeholder="Seleccionar Dependencia" onChange={handleSelected} className={...classes}>
+        <Select placeholder={holder} onChange={handleSelected} className={...classes}>
             {data?.map((el, index) => {
                 return (
                     <option key={"el" + index} value={el}>
