@@ -4,9 +4,9 @@ function Header() {
     return (
         <div className="header">
             <div className="titles">
-                <h3>Agenda Ambiental</h3>
-                <h1>Green Metric</h1>
-                <h3>Universidad Autónoma de San Luis Potosí</h3>
+                <h1>Universidad Autónoma de San Luis Potosí</h1>
+                <h2>Agenda Ambiental</h2>
+                <h2>Green Metric</h2>
             </div>
             <Navbar />
         </div>

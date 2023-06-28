@@ -4,25 +4,25 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <Link href="/informacion/">
-                <h5>Información</h5>
+                <h3>Información</h3>
             </Link>
             <Link href="/infraestructura/">
-                <h5>Infraestructura y escenarios</h5>
+                <h3>Infraestructura y escenarios</h3>
             </Link>
             <Link href="/energia/">
-                <h5>Energía y cambio climático</h5>
+                <h3>Energía y cambio climático</h3>
             </Link>
             <Link href="/residuos/">
-                <h5>Residuos</h5>
+                <h3>Residuos</h3>
             </Link>
             <Link href="/agua/">
-                <h5>Agua</h5>
+                <h3>Agua</h3>
             </Link> 
             <Link href="/transporte/">
-                <h5>Transporte</h5>
+                <h3>Transporte</h3>
             </Link>
             <Link href="/educacion/">
-                <h5>Educación</h5>
+                <h3>Educación</h3>
             </Link>
         </div>
     );

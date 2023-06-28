@@ -1,7 +1,7 @@
 "use client";
 import Agua from "@components/Agua";
 
-export default function InformacionPage() {
+export default function AguaPage() {
 
     return (
         
