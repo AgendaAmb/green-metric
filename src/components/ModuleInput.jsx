@@ -43,7 +43,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                         <option value="1">Si</option>
                                         <option value="0">No</option>
                                     </Select> :
-                                    (type != null) ?
+                                    (type != null) &&
 
                                         <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
                                             {type > 0 && <InputLeftAddon
@@ -54,9 +54,13 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                                 children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                             />}
                                             {type != 0 && <Input  type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>}
-                                            
-                                        </InputGroup> :
-                                        ((additional != null) && <Input type={`${additional.type > 1 ? "number" : "text"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} />)
+                                            {
+                                                additional != null && (
+                                                    <Input  type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
+                                                )
+                                            }
+                                        </InputGroup>
+                                        
                             }
                             {helper &&
                                 <Text className="expand-4 sub-text" w="100%" color={"gray.500"} textAlign={"justify"}>{helper}</Text>
