@@ -256,3 +256,7 @@
 .expand-4 {
     grid-column: span 4;
 }
+
+.grid-flow-column{
+    grid-auto-flow: column;
+}

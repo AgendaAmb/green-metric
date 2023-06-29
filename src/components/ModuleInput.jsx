@@ -26,7 +26,7 @@ import CustomInput from "./CustomInput";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text }) {
+export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text}) {
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
