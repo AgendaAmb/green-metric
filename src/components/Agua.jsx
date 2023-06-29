@@ -23,7 +23,8 @@ export default function Agua(){
         padding="30px"
         spacing={"30px"}
         >
-            <h1 className="blue"> 4.1 Programa de conservación del agua</h1>
+            <h1 className="blue"> Agua</h1>
+            <h2 className="blue"> 4.1 Programa de conservación del agua</h2>
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, span:true}]} />
 
@@ -132,7 +133,7 @@ export default function Agua(){
             </Stack>
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos. "
+                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
                 elements={[{type:1}]} />
             </Stack>
         </VStack>

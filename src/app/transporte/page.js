@@ -1,3 +1,12 @@
-export default function TransporteMain() {
-    return <h1>Modulo en proceso</h1>;
+"use client";
+import Transporte from "@/components/Transporte";
+export default function TransportePage() {
+    return (
+        
+            <div className="overflow-y">
+                <Transporte />
+            </div>
+           
+        
+    );
 }
