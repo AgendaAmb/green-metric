@@ -31,7 +31,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0, vertical = false, additional}, index, ) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0, vertical = false, additional, disabled = false}, index, ) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
@@ -53,10 +53,10 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                                 fontSize="1.2em"
                                                 children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                             />}
-                                            {type != 0 && <Input  type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>}
+                                            {type != 0 && <Input  type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled}/>}
                                             {
                                                 additional != null && (
-                                                    <Input  type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"}/>
+                                                    <Input  type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}/>
                                                 )
                                             }
                                         </InputGroup>
