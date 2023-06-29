@@ -1,3 +1,14 @@
-export default function EducacionMain() {
-    return <h1>Modulo en proceso</h1>;
+"use client";
+import Educacion from "@components/Educacion";
+
+export default function EducacionPage() {
+
+    return (
+        
+            <div className="overflow-y">
+                <Educacion />
+            </div>
+            
+        
+    );
 }

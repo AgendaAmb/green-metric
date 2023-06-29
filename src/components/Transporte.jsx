@@ -26,6 +26,7 @@ export default function Transporte() {
             <h2 className="blue">5.1 Número de vehículos oficiales con los que cuenta su entidad</h2>
             <ModuleInput title="5.1.1 Indica el número de vehículos oficiales con los que cuenta su entidad"
                 elements={[{type:2}]} /> 
+                {/* FALTA AGREGAR SUMA TOTAL*/}
             <ModuleInput title="5.1.2 Indicar el total de autos y clasificarlos en híbridos o a base de combustible." elements={[ 
             {text:'5.1.2.1 Total de autos ingresados', type:2}, {text:'5.1.2.2 Autos híbridos', type:2}, {text:'5.1.2.3 Vehículos de combustible', type:2}]} />
             <ModuleInput title="5.1.3 Indicar el número de motocicletas que ingresan diariamente"
@@ -39,6 +40,7 @@ export default function Transporte() {
         </Stack>
         
         <Stack spacing="30px" w="100%"   padding="30px">
+            {/* FALTA AGREGAR SUMA TOTAL*/}
             <h2 className="blue">5.3 Número de vehículos de cero emisiones que recibe diariamente</h2>
             <ModuleInput elements={[ 
             {text:'5.3.1 Bicicletas', type:2}, {text:'5.3.2 Patinetas', type:2}, {text:'5.3.3 Carros eléctricos', type:2}, {text:'5.3.4 Otros', type:2}]} />

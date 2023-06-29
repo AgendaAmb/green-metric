@@ -25,6 +25,7 @@ export default function Agua(){
         >
             <h1 className="blue"> Agua</h1>
             <h2 className="blue"> 4.1 Programa de conservación del agua</h2>
+            {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, span:true}]} />
 

@@ -101,7 +101,7 @@ export default function Energia(){
                     {text:'Institución que lo valida', type:1}, {evidence:true, maxPhotos:3}]} />
                 </Stack>
             </Stack>
-
+            {/* FALTA AGREGAR LA TABLA DE FUENTES DE EMISIÓN*/}
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <h4 className="expand-2 blue">2.2.3 Condición de la implementación de programas para reducir las emisiones de gases de efecto invernadero (biodigestores, compostaje, etc.).</h4>
                 <ModuleInput title="Determine la condición que refleje la situación actual de su entidad en la provisión de programas para reducir las emisiones de gases de efecto invernadero" select={[
