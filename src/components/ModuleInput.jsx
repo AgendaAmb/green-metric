@@ -31,7 +31,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = 0, vertical = false, additional, disabled = false }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = -1, vertical = false, additional, disabled = false }, index,) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
@@ -74,10 +74,10 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
             {select && <CustomSelect data={select} />}
-            {add && <Stack direction={"column"} className={`add-module `} spacing={"30px"}  height={"100%"} >
+            {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}  height={"100%"} >
                 
-                <Stack className="grid-center">
-                    <h4 className=" blue">{addTitle}</h4>
+                <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>
+                    {!span && <h4 className=" blue">{addTitle}</h4>}
                     <Stack spacing="30px" className="border-dashed">
 
                         <Icon as={MdLibraryAdd} role="button" fontSize="80px" className="blue icon-button" />

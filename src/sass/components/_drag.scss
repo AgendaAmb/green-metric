@@ -5,6 +5,11 @@
     border-radius: 30px;
     position: relative;
     opacity: 1;
+    
+    &:hover{
+        border-color: #0094FF;
+        color: #0094FF;
+    }
     > *{
         border-radius: 30px;
     }

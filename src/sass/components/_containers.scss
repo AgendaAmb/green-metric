@@ -181,23 +181,21 @@
     grid-column: span 3;
     border-radius: 30px;
     transition: all ease-in-out 0.3s;
-
+    svg {
+        height: 50%;
+    }
     &:hover {
         cursor: pointer;
         transition: all ease-in-out 0.3s;
-        transform: scale(0.98);
+        filter: brightness(2);
 
         svg {
-            transform: scale(1.1);
+            transform: scale(0.9);
 
         }
     }
 
-    svg {
-        &:hover {
-            filter: brightness(2);
-        }
-    }
+  
 
 }
 
@@ -236,22 +234,6 @@
         border-radius: 30px;
         transition: all ease-in-out 0.3s;
 
-        &:hover {
-            cursor: pointer;
-            transition: all ease-in-out 0.3s;
-            transform: scale(0.98);
-
-            svg {
-                transform: scale(1.1);
-
-            }
-        }
-
-        svg {
-            &:hover {
-                filter: brightness(2);
-            }
-        }
 
     }
 }

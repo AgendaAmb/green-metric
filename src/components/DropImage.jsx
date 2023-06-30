@@ -27,10 +27,9 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
             }
 
             e.forEach((file) => {
-                if(photos > 0 || photos == -1){
+                if(photos > 0 || maxPhotos == -1){
                     let url = URL.createObjectURL(file);
                     tmpImages.push({original: url});
-                    
                 }
                 count++;
             })

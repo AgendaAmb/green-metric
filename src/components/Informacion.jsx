@@ -27,23 +27,7 @@ export default function Informacion() {
     const [dependencia, setDependencia] = useState(1);
 
     useEffect(() => {
-        /* async function get(){
-            try {
-                const queryParams = new URLSearchParams({
-                    text: 'Hola Edmundo',
-                    parametro2: 'valor2',
-                  });
-                const res = await fetch(`/GreenMetric/api/get-image?${queryParams}`);
-                const data = await res.json();
-                console.log(data);
-
-            }
-            catch(e){
-                console.error("Error", e);
-            }
-        }
-
-        get(); */
+        
         
     },[])
 
@@ -66,7 +50,7 @@ export default function Informacion() {
                     <ModuleInput elements={[{ holder: `Nombre de la dependencia ${dependencia}`, type: 1 }, { holder: `Direccion de la dependencia ${dependencia}`, type: 1 }]} />
                 </Stack>
                 <Stack >
-                    <ModuleInput add={true} addTitle={"\0"} />
+                    <ModuleInput add={true} addTitle={"\0"} span={true} />
                 </Stack>
                 <Stack>
                     {/* Agregar <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} /> */}
