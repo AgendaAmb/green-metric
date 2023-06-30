@@ -1,5 +1,6 @@
 
-import "../sass/main.scss";
+import  "../sass/main.scss";
+
 import { Providers } from "./providers";
 
 import Header from "@components/Header";

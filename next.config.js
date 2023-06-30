@@ -1,9 +1,10 @@
 /** @type {import('next').NextConfig} */
 
-const config = process.env.PROD === "true" ? {
+const config = /* process.env.PROD === "true" ? */ {
+//Borrar para produccion
 basePath: "/GreenMetric",
 output: "export"
-} : {
+} /* : {
     basePath: "/GreenMetric",
     output: "standalone",
     async redirects() {
@@ -16,7 +17,7 @@ output: "export"
             }
         ]
     }
-}
+} */
 
 const nextConfig = config;
 
