@@ -183,7 +183,7 @@ export default function Energia(){
             </Stack>
             
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos. "
+                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
                 elements={[{type:1}]} />
             </Stack>
         </VStack>
