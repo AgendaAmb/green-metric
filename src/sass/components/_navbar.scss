@@ -19,7 +19,18 @@
         font-size: 14px;
 
     }
+    > *{
+        &:hover{
+            
+            
+            h3, img {
 
+                transform: scale(0.9);
+    
+    
+            }
+        }
+    }
     a {
         display: grid;
         
@@ -71,13 +82,6 @@
 
         * {
             transition: all 0.3s ease;
-        }
-
-        h3:hover {
-
-            transform: scale(0.9);
-
-
         }
 
     }
