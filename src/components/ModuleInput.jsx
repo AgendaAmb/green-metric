@@ -74,7 +74,8 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
             {select && <CustomSelect data={select} />}
-            {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}>
+            {add && <Stack direction={"column"} className={`add-module `} spacing={"30px"}  height={"100%"} >
+                
                 <Stack className="grid-center">
                     <h4 className=" blue">{addTitle}</h4>
                     <Stack spacing="30px" className="border-dashed">
