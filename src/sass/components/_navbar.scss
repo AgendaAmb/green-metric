@@ -1,36 +1,83 @@
 .navbar {
+
+    &,
+    * {
+        flex-grow: 1;
+    }
+
     display: flex;
-    flex-flow: column wrap;
-    align-items: stretch;
-    height: 30px;
+    flex-flow: row nowrap;
+
     background-color: $tertiary-color;
     color: $secondary-color;
 
     width: 100%;
-    
+
     user-select: none;
-    position: static;
-    
-    font-size: 15px;
-    
-    *{
+
+    h3 {
+        font-size: 14px;
+
+    }
+
+    a {
+        display: grid;
+        
+        &,
+        * {
+            height: clamp(45px, 45px, 45px);
+        }
+        img {
+            max-width: 45px;
+            max-height: 45px;
+            object-fit: contain;
+        }
+        >* {
+            
+            padding: 0 10px;
+            gap: 5px;
+            align-items: center;
+            h3 {
+                grid-column: 2;
+                max-width: 140px;
+            }
+
+            
+        }
+        flex-shrink: 1;
+        &:first-of-type {
+            flex-grow: 20;
+
+            >div:first-of-type {
+                grid-template-columns: 1fr;
+
+                h3 {
+                    grid-column: 1;
+                }
+            }
+        }
+
+    }
+
+    * {
         @extend .grid-center;
         height: 100%;
     }
-    
+
 
     a {
         box-shadow: 1px 1px 1px 1px rgba(255, 255, 255, 0.329);
-        *{
+
+        * {
             transition: all 0.3s ease;
         }
-        &:hover{
-            background-color: rgb(43, 50, 119);
-            
-            > *{
-                transform: scale(0.9);
-            }
+
+        h3:hover {
+
+            transform: scale(0.9);
+
+
         }
-        
+
     }
 }
