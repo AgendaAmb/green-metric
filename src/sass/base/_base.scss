@@ -49,9 +49,10 @@
     display: flex;
     padding: 30px;
 
-    overflow: hidden !important;
+    overflow: hidden;
 
     width: 100%;
+    
     place-items: center !important;
 
     >* {
