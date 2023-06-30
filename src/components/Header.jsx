@@ -1,12 +1,15 @@
+"use client";
 import Navbar from "./Navbar";
-
+import { Text } from "@chakra-ui/react";
 function Header() {
     return (
         <div className="header">
-            <div className="titles no-overflow">
-                <h1>Universidad Autónoma de San Luis Potosí</h1>
-                <h2>Agenda Ambiental</h2>
-                <h2>Green Metric</h2>
+            <div className="header-container">
+                <div className="titles no-overflow">
+                    <Text className="font-header">Universidad Autónoma de San Luis Potosí</Text>
+                    <Text className="font-header">Agenda Ambiental</Text>
+                    <Text className="font-header">Green Metric</Text>
+                </div>
             </div>
             <Navbar />
         </div>

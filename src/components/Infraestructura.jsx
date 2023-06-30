@@ -81,7 +81,6 @@ export default function Infraestructura() {
                 </Stack>
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
-
                         <ModuleInput elements={[{ type: 6, holder: year - 3 }, { type: 6, holder: year - 2 }, { type: 6, holder: year - 1 }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
 
                     </Stack>
@@ -91,25 +90,23 @@ export default function Infraestructura() {
                     </Stack>
                     <Stack spacing="30px" direction="column" className="expand-3 column-2">
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
-                            <ModuleInput  text= "1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2 },]} />
-                    <Stack direction={"column"} className="expand-3 ">
-                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[ { text: "1.3.4.2 Número de Baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true },{ text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true },{ text: "1.3.4.4 Número de Rampas de acceso", type: 2, vertical: true },{ text: "1.3.4.5 Número de Elevadores adaptados", type: 2, vertical: true },{ text: "1.3.4.6 Número de Carteles o anuncios en braille", type: 2, vertical: true },{ text: "1.3.4.7 Número de Salidas de emergencia", type: 2, vertical: true },{ text: "1.3.4.8 Otros", type: 1, vertical: true,holder: "¿Cuál?", additional: {
-                                type: 2,
-                                holder: "¿Cuantos?"
-                            }}, ]} />
+                        <ModuleInput
+                            text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2 },]} />
+                        <Stack direction={"column"} className="expand-3 ">
+                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de Baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.4 Número de Rampas de acceso", type: 2, vertical: true }, { text: "1.3.4.5 Número de Elevadores adaptados", type: 2, vertical: true }, { text: "1.3.4.6 Número de Carteles o anuncios en braille", type: 2, vertical: true }, { text: "1.3.4.7 Número de Salidas de emergencia", type: 2, vertical: true }, {
+                                text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
+                                    type: 2,
+                                    holder: "¿Cuantos?"
+                                }
+                            },]} />
                             <Stack className="column-2 grid-center">
-                            <ModuleInput elements={[{disabled: true, type: -1, text:"Total: ", holder: "Total"}, ]} />
-                            <ModuleInput elements={[{evidence: true, maxPhotos: 4} ]} />
-
+                                <ModuleInput elements={[{ disabled: true, type: -1, text: "Total: ", holder: "Total" },]} />
+                                <ModuleInput elements={[{ evidence: true, maxPhotos: 4 }]} />
                             </Stack>
-                    </Stack>
-                    
+                        </Stack>
                     </Stack>
                 </Stack>
             </Stack>
-
-
-
         </VStack>
     );
 }

@@ -1,14 +1,25 @@
 .header {
     position: static;
     > * {
-        @extend .grid-center, .base-color;
-        flex-grow: 1;
+        @extend .base-color;
+        *{
+            height: 100%;
+            @extend .grid-center;
+        }
+        
     }
     height: 175px;
     width: 100%;
     background-color: $secondary-color;
     color: $primary-color;
-    display: flex;
-    flex-flow: column nowrap;
+    display: grid;
     
+
+    .header-container{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        .titles{
+            grid-column: 2;
+        }
+    }
 }

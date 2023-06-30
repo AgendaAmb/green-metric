@@ -42,3 +42,12 @@ p {
 .sub-text{
     font-size: 11px;
 }
+
+.font-header{
+    font-size: 17px;
+    font-weight: 500;
+    &:first-of-type{
+        font-weight: 700;
+    }
+    
+}
