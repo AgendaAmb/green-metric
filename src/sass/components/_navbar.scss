@@ -47,7 +47,7 @@
         flex-shrink: 1;
         &:first-of-type {
             flex-grow: 20;
-
+            max-width: 350px;
             >div:first-of-type {
                 grid-template-columns: 1fr;
 
