@@ -1,4 +1,4 @@
-"use client";
+
 import Agua from "@components/Agua";
 
 export default function AguaPage() {

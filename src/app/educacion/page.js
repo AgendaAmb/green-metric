@@ -1,4 +1,4 @@
-"use client";
+
 import Educacion from "@components/Educacion";
 
 export default function EducacionPage() {

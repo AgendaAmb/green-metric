@@ -1,4 +1,4 @@
-"use client";
+
 import Transporte from "@/components/Transporte";
 export default function TransportePage() {
     return (

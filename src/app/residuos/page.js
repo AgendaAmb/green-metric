@@ -1,4 +1,4 @@
-"use client";
+
 import Residuos from "@/components/Residuos";
 export default function ResiduosPage() {
     return (

@@ -1,3 +1,4 @@
+"use client";
 import { CheckboxGroup, Stack } from "@chakra-ui/react";
 
 import { useEffect, useState } from "react";

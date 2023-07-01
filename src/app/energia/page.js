@@ -1,4 +1,3 @@
-"use client";
 import Energia from "@components/Energia";
 
 export default function EnergiaPage() {

@@ -1,5 +1,4 @@
 
-import  "../../sass/main.scss";
 import Main from "@components/Informacion";
 
 
