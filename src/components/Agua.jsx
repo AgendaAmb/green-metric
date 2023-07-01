@@ -72,7 +72,7 @@ export default function Agua(){
                     "Aprovechamiento de aguas grises.",
                     "Colectores pluviales.",
                     "Mantenimiento de áreas verdes asegurando áreas de recarga.",
-                    "Otros(especifíque)."
+                    "Otros (especifíque)."
                     ]}}/>
             </Stack>
             <Stack direction="column-3">
