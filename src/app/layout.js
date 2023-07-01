@@ -21,7 +21,7 @@ export default function RootLayout({ children }) {
             <body>
                 <div
                     className={`main  main-container body`}
-                    suppressHydrationWarning={false}
+                    suppressHydrationWarning={true}
                 >
                     <Header />
                     <div className="main ">

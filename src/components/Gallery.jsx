@@ -1,3 +1,4 @@
+"use client";
 import ImageGallery from "react-image-gallery";
 import "next/image";
 import { useEffect, useRef } from "react";

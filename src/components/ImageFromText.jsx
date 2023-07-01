@@ -1,4 +1,5 @@
 
+"use client";
 export default function ImageFromText({ text }) {  
     const lienzo = canvasRef.current;
     const contexto = lienzo.getContext('2d');

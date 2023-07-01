@@ -1,3 +1,4 @@
+"use client";
 import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { AddIcon } from "@chakra-ui/icons";

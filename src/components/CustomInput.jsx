@@ -1,3 +1,4 @@
+"use client";
 import { InputGroup, Input, Stack, Text, InputLeftAddon, FormLabel, FormControl, FormHelperText } from "@chakra-ui/react"
 
 export default function CustomInput({ title = null, items, type = -1, helper = "\0", shrink = 1 }) {

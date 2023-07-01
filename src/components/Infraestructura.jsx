@@ -1,3 +1,4 @@
+"use client";
 import {
     Input,
     Stack,
@@ -12,10 +13,6 @@ import {
 
 import { useEffect, useState } from 'react';
 
-import { MdLibraryAdd } from 'react-icons/md';
-
-
-import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
 export default function Infraestructura() {
     const [year, setYear] = useState(2013);
