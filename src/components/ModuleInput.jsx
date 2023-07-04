@@ -6,14 +6,17 @@ import {
     Text,
     StackDivider,
     InputLeftElement,
+    InputRightElement,
     InputGroup,
     Select,
     InputLeftAddon,
     Icon,
+    Button
 
 } from "@chakra-ui/react";
 
 import { MdLibraryAdd } from "react-icons/md";
+import { useField } from "formik";
 
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
@@ -27,12 +30,19 @@ import CustomInput from "./CustomInput";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text }) {
+export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule }) {
+    //const [field] = useField();
+    const handleClick = () => { addFunction() };
     return (
         <>
             {title && <h4 className="expand-2 blue">{title}</h4>}
+            {addModule && (
+                <Button className="add-button" size='sm' onClick={addModule.func}>
+                    {` + `}
+                </Button>
+            )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = -1, vertical = false, additional, disabled = false }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = -1, vertical = false, additional, disabled = false, name = "undefined"}, index,) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
@@ -57,15 +67,18 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                         {type != 0 && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
                                         {
                                             additional != null && (
-                                                <Input type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled} />
+                                                <Input name={name} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled} /* {...field} */ />
                                             )
                                         }
+
+
                                     </InputGroup>
 
                             }
                             {helper &&
                                 <Text className="expand-4 sub-text" w="100%" color={"gray.500"} textAlign={"justify"}>{helper}</Text>
                             }
+
                         </Stack >
                         {evidence &&
                             <DropImage title={`${title}`} maxPhotos={maxPhotos} />
@@ -75,8 +88,8 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
             {select && <CustomSelect data={select} />}
-            {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"}  height={"100%"} >
-                
+            {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
+
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>
                     {!span && <h4 className=" blue">{addTitle}</h4>}
                     <Stack spacing="30px" className="border-dashed">

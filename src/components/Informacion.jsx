@@ -1,18 +1,16 @@
 "use client";
 import {
-
     VStack,
     Stack,
     StackDivider,
-
+    Button,
 } from "@chakra-ui/react";
-
-import DropImage from "./DropImage";
-
-import ModuleInput from "./ModuleInput";
 import { useEffect, useState } from "react";
+import DropImage from "./DropImage";
+import ModuleInput from "./ModuleInput";
 
-export default function Informacion() {
+
+export default function Informacion({ hello }) {
     const options = [
         "Entidades Academicas",
         "Institutos y centros de investigación",
@@ -24,12 +22,20 @@ export default function Informacion() {
         "Servicios al público",
     ];
 
-    const [dependencia, setDependencia] = useState(1);
+    const [deps, setDeps] = useState([]);
 
+
+    const pushModule = () => {
+        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1 }];
+
+        setDeps([...newDeps]);
+    }
     useEffect(() => {
-        
-        
-    },[])
+        if (deps.length <= 1) {
+
+            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1 }])
+        }
+    }, [deps])
 
     return (
         <VStack
@@ -40,31 +46,36 @@ export default function Informacion() {
             padding="30px"
         >
             <h1 className="blue">Información</h1>
-            
-            <Stack spacing="30px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Nombre del responsable", type: 1 }]} />
+
+            <Stack spacing="5px" w="30%" padding="30px">
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, name: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable (Green Metric)", type: 1 }, { holder: "Responsable de la dependencia (Director)", type: 1 },]} />
             </Stack>
-            <Stack spacing="30px" w="100%" className="column-3">
-                <h3 className="expand-3">Departamentos y dependencias a reportar</h3>
-                <Stack>
-                    <ModuleInput elements={[{ holder: `Nombre de la dependencia ${dependencia}`, type: 1 }, { holder: `Direccion de la dependencia ${dependencia}`, type: 1 }]} />
+            <Stack spacing="30px" w="100%">
+                <Stack display={"grid"} width="500px" gridTemplateColumns={"1fr 0.2fr"} alignSelf={"center"}>
+                    <h3 >Departamentos y dependencias a reportar</h3>
+                    <Button className="add-button" onClick={pushModule}>+</Button>
                 </Stack>
-                <Stack >
-                    <ModuleInput add={true} addTitle={"\0"} span={true} />
+                <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
+                    <ModuleInput elements={deps} />
+
+
                 </Stack>
+
                 <Stack>
                     {/* Agregar <ModuleInput title={"\0"} elements={[{ holder: "Nombre de la dependencia", type: 1 }, { holder: "Direccion de la dependencia", type: 1 }]} /> */}
                 </Stack>
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
-                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={{data: ["1. Infraestructura y escenarios.",
-                    "2. Energía y cambio climático",
-                    "3. Residuos",
-                    "4. Agua",
-                    "5. Transporte",
-                    "6. Educación",
-                ], hasInput: true}} />
+                <ModuleInput title="Favor de indicar el nombre completo del responsable de cada sección" checkbox={{
+                    data: ["1. Infraestructura y escenarios.",
+                        "2. Energía y cambio climático",
+                        "3. Residuos",
+                        "4. Agua",
+                        "5. Transporte",
+                        "6. Educación",
+                    ], hasInput: true
+                }} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
@@ -73,7 +84,7 @@ export default function Informacion() {
                 <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
             </Stack>
 
-            
+
 
             <Stack spacing="10px" w="100%">
                 <h3>Fotografías</h3>
@@ -84,7 +95,7 @@ export default function Informacion() {
                     <DropImage title={"Planos"} maxPhotos={4} />
                 </VStack>
             </Stack>
-            
+            <button type="submit">Subir</button>
         </VStack>
     );
 }
