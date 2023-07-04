@@ -86,15 +86,15 @@ export default function Informacion({ hello }) {
 
 
 
-            <Stack spacing="10px" w="100%">
+            <VStack spacing="10px" w="100%">
                 <h3>Fotografías</h3>
                 <li>Anexar fotografías de su entidad de trabajo.</li>
-                <VStack w="100%" className="grid-center column-3">
+                <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
                     <DropImage title={"Instalaciones interiores"} maxPhotos={4} />
                     <DropImage title={"Fachadas"} maxPhotos={4} />
                     <DropImage title={"Planos"} maxPhotos={4} />
-                </VStack>
-            </Stack>
+                </Stack>
+            </VStack>
             <button type="submit">Subir</button>
         </VStack>
     );
