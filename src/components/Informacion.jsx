@@ -35,7 +35,7 @@ export default function Informacion({ hello }) {
 
             setDeps([{ holder: `Nombre de la dependencia 1`, type: 1 }])
         }
-    }, [deps])
+    }, [])
 
     return (
         <VStack
