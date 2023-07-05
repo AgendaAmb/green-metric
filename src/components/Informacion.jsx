@@ -48,7 +48,7 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, name: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable (Green Metric)", type: 1 }, { holder: "Responsable de la dependencia (Director)", type: 1 },]} />
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, name: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Director responsable de la dependencia", type: 1 },]} />
             </Stack>
             <Stack spacing="30px" w="100%">
                 <Stack display={"grid"} width="500px" gridTemplateColumns={"1fr 0.2fr"} alignSelf={"center"}>

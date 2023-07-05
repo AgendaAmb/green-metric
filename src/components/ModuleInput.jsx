@@ -30,12 +30,11 @@ import CustomInput from "./CustomInput";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule }) {
+export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue" }) {
     //const [field] = useField();
-    const handleClick = () => { addFunction() };
     return (
         <>
-            {title && <h4 className="expand-2 blue">{title}</h4>}
+            {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
             {addModule && (
                 <Button className="add-button" size='sm' onClick={addModule.func}>
                     {` + `}
