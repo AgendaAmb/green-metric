@@ -15,6 +15,7 @@ import { useEffect, useState } from 'react';
 
 import AddModule from "./AddModule";
 import ModuleInput from "./ModuleInput";
+import CustomTextArea from "./CustomTextArea";
 
 export default function Infraestructura() {
     const [year, setYear] = useState(2013);
@@ -152,14 +153,49 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
-                <ModuleInput elements={[{ dicotomic: true}, {type: 3, disabled:true}]} />
-                <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2},{ text: "1.3.10 Número de protocolos de bioética.", type: 2} ]} />
-                
-                <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algun protocolo. De se rel caso, indique especie y anexe evidencia." elements={[{type: 2}]}/>
-                <span></span>
-                <ModuleInput  elements={[{type: 1, evidence: true}]}/>
-                
+                <ModuleInput elements={[{ dicotomic: true }, { type: 3, disabled: true }]} />
+                <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2 }, { text: "1.3.10 Número de protocolos de bioética.", type: 2 }]} />
+
+                <Stack>
+                    <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algun protocolo. De se rel caso, indique especie y anexe evidencia." elements={[{ type: 2 }]} />
+                    <ModuleInput elements={[{ type: 1, evidence: true }]} />
+
+                </Stack>
+                <AddModule />
             </Stack>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+                <h3 className="expand-2 green"><strong>1.4 </strong>Seguridad en las instalaciones </h3>
+                <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true }, { text: "1.4.2 Indique el numero de extintores que tienen en total", type: 2, vertical: true }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunion, zona de alta tensión, etc). ", dicotomic: true, vertical: true }]} />
+                <Stack >
+                    <ModuleInput text="1.4.4 ¿Cuentan con dispositivos para detección de siniestros?" elements={[{ text: "Indique en la línea los dispositivos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
+                        data: [
+                            "Detectores de calor",
+                            "Detectores de humo",
+                            "Detectores de llama",
+                            " Otro (Especifique en la siguiente celda)"
+                        ]
+                    }} />
+
+                </Stack>
+                <Stack >
+                    <ModuleInput text="1.4.5 ¿Cuentan con personal capacitado o protocolos de emergencia?" elements={[{ text: "Indique en la línea los recursos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
+                        data: [
+                            "Plan de emergencia",
+                            "Plano de levantamiento de recursos de emergencia",
+                            "Unidades internas de Protección Civil",
+                            "Brigada de primeros auxilios"
+                        ]
+                    }} />
+                </Stack>
+                <Stack className="expand-2 column-2">
+                    <Text className="expand-2">1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). </Text>
+
+                    <ModuleInput text="Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño." elements={[{ type: 1, holder: "Nombre de la medida", evidence: true }]} />
+                    <AddModule />
+
+                </Stack>
+            </Stack>
+            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
 
         </VStack>
     );

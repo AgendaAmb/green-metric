@@ -21,7 +21,6 @@ import { useField } from "formik";
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
-import AddModule from "./AddModule";
 /*
 * * Elementos
 * * Tipo 1: Texto
