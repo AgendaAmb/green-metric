@@ -1,7 +1,7 @@
 
 import Main from "@components/Informacion";
 
-
+export const dynamic = 'auto'
 
 export default function InformacionPage() {
 
