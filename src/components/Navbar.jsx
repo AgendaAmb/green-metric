@@ -48,6 +48,11 @@ export default function Navbar() {
                     <h3>Educación e Investigación</h3>
                 </Box>
             </Link>
+            <Link href="/reporte/">
+                <Box w="100%" bgColor={"#66cfff"}>
+                    <h3>Reporte General</h3>
+                </Box>
+            </Link>
         </div>
     );
 }

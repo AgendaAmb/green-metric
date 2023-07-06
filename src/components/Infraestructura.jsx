@@ -25,18 +25,18 @@ export default function Infraestructura() {
             { text: "1.2.2 Área total de áreas verdes en su entidad o espacio de trabajo", type: 5, },
             { text: "1.2.3 Área total de cobertura plantada", type: 5, },
             { text: "1.2.4 Área total de cobertura forestal", type: 5, },
-            { text: "1.2.5 Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, title: "1.2.5 Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)" }, //(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)
+            { text: "1.2.5 Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.5 Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)" },
             { text: "1.2.6 ¿Cuántos edificios componen tu entidad?", type: 5, },
             { text: "1.2.7 Área total de la planta baja de los edificios de su entidad de trabajo.", type: 5, },
             { text: "1.2.8 Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, },
-            { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, title: "1.2.9 Jardines verticales" },
-            { text: "1.2.10 Área de techos verdes.", type: 5, evidence: true, title: "1.2.10 Techos verdes" },
-            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, title: "1.2.11 Azotes útiles" },
-            { text: "1.2.12 Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, title: "1.2.12 Siembra de alimentos y plantas medicinales" },
-            { text: "1.2.13 Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, title: "1.2.13 Siembra y polinización" },
-            { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, title: "1.2.14 Estacionamientos sin asfalto o concreto" },
-            { text: "1.2.15 Área total en el campus destinada para la absorción de agua; además de bosque y vegetación plantada.", helper: "(suelo, césped, bloque de hormigón, campo sintético, etc.)", type: 5, evidence: true, title: "1.2.15 Absorción de agua" },
-            { text: "1.2.16 Área de estacionamientos con sombreado natural.", type: 5, evidence: true, title: "1.2.16 Sombreado natural" },
+            { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.9 Jardines verticales" },
+            { text: "1.2.10 Área de techos verdes.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.10 Techos verdes" },
+            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, maxPhotos: 4, title: "1.2.11 Azotes útiles" },
+            { text: "1.2.12 Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, maxPhotos: 4, title: "1.2.12 Siembra de alimentos y plantas medicinales" },
+            { text: "1.2.13 Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.13 Siembra y polinización" },
+            { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.14 Estacionamientos sin asfalto o concreto" },
+            { text: "1.2.15 Área total en el campus destinada para la absorción de agua; además de bosque y vegetación plantada.", helper: "(suelo, césped, bloque de hormigón, campo sintético, etc.)", type: 5, evidence: true, maxPhotos: 4, title: "1.2.15 Absorción de agua" },
+            { text: "1.2.16 Área de estacionamientos con sombreado natural.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.16 Sombreado natural" },
 
         ]
 
@@ -58,10 +58,10 @@ export default function Infraestructura() {
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
 
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px" >
-                    <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px" className="grid-3-rows">
                     <ModuleInput add={true} />
@@ -156,6 +156,7 @@ export default function Infraestructura() {
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2},{ text: "1.3.10 Número de protocolos de bioética.", type: 2} ]} />
                 
                 <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algun protocolo. De se rel caso, indique especie y anexe evidencia." elements={[{type: 2}]}/>
+                <span></span>
                 <ModuleInput  elements={[{type: 1, evidence: true}]}/>
                 
             </Stack>

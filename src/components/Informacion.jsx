@@ -4,6 +4,7 @@ import {
     Stack,
     StackDivider,
     Button,
+    Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import DropImage from "./DropImage";
@@ -88,11 +89,14 @@ export default function Informacion({ hello }) {
 
             <VStack spacing="10px" w="100%">
                 <h3>Fotografías</h3>
-                <li>Anexar fotografías de su entidad de trabajo.</li>
+                <Text className="self-start">Anexar fotografías de su entidad de trabajo.</Text>
                 <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
                     <DropImage title={"Instalaciones interiores"} maxPhotos={4} />
                     <DropImage title={"Fachadas"} maxPhotos={4} />
+                    <Stack className="grid-center">
+                        <sub>Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad.</sub>
                     <DropImage title={"Planos"} maxPhotos={4} />
+                    </Stack>
                 </Stack>
             </VStack>
             <button type="submit">Subir</button>

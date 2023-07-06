@@ -85,7 +85,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 <h3 className="blue">{`${title} `}</h3>
                 {photos > 0 && <h3 className="red">({photos})</h3>}
             </div>
-            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover}>
+            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{"image/*" : ["*.*", ".pdf"]}}>
                 {({ getRootProps, getInputProps }) => (
                     <section  className="carousel-row">
                         {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
@@ -95,7 +95,10 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
                                     <MdOutlineUpload className="icon" />
                                 </div>
-                                <p>Seleccione un archivo o arrástrelo aquí</p>
+                                <p>Seleccione un archivo o arrástrelo aquí
+                                    <br/>
+                                <sub>Compatible (imágenes y .pdf)</sub></p>
+                                
                             </div>
                             <Gallery images={images} setReference={setReference} />
                             <input {...getInputProps()} />
