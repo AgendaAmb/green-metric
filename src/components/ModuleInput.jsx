@@ -29,9 +29,10 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue" }) {
-    //const [field] = useField();
-    return (
+export default function ModuleInput({ title, elements,selectName, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue" }) {
+    const [field] = useField(null);
+    const [inputField] = useField(null);
+    return (    
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
             {addModule && (
@@ -40,21 +41,21 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, name = "undefined"}, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName= "undefined"}, index,) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "repeat1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
                             {text && <Text className={inputLarge ? "" : "expand-2"} >{textTitle} {text}</Text>}
                             {
                                 dicotomic ?
-                                    <Select gridColumn={"span 4"}>
+                                    <Select gridColumn={"span 4" } >
                                         <option value="-1">Seleccione:</option>
                                         <option value="1">Si</option>
                                         <option value="0">No</option>
                                     </Select> :
                                     (type != null) &&
 
-                                    <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
+                                    <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"}>
                                         {type > 0 && <InputLeftAddon
 
                                             pointerEvents="none"
@@ -65,7 +66,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                                         {type != 0 && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
                                         {
                                             additional != null && (
-                                                <Input name={name} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled} /* {...field} */ />
+                                                <Input  name={customName} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  {...inputField}  />
                                             )
                                         }
 
@@ -85,7 +86,7 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                 )
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
-            {select && <CustomSelect data={select} />}
+            {select && <CustomSelect data={select} field = {field} nameSelect={selectName}/>}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>

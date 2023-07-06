@@ -3,7 +3,7 @@ import { Select } from "@chakra-ui/react";
 
 
 
-function CustomSelect({ data, setSelected, classes, holder = "Seleccione:" }) {
+function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", nameSelect = "select", field = [] }) {
 
     const handleSelected = (e) => {
         if(setSelected){
@@ -11,7 +11,7 @@ function CustomSelect({ data, setSelected, classes, holder = "Seleccione:" }) {
         }
     };
     return (
-        <Select placeholder={holder} onChange={handleSelected} className={...classes}>
+        <Select placeholder={holder} onChange={handleSelected} className={...classes} {...field} name = {nameSelect}>
             {data?.map((el, index) => {
                 return (
                     <option key={"el" + index} value={el}>

@@ -18,7 +18,7 @@ export function Providers({ children }) {
 
     
     return (
-        <Formik onSubmit={submit} initialValues={{data:data, route: "/", handleFunction: console.log("hello")}}>
+        <Formik onSubmit={submit} initialValues={{ route: "/", handleFunction: console.log("hello")}}>
         {(props) => (
             <Stack onSubmit={props.handleSubmit} as={"form"}>
                 <DndProvider backend={HTML5Backend}>
