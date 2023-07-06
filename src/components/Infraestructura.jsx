@@ -13,7 +13,9 @@ import {
 
 import { useEffect, useState } from 'react';
 
+import AddModule from "./AddModule";
 import ModuleInput from "./ModuleInput";
+
 export default function Infraestructura() {
     const [year, setYear] = useState(2013);
     const [species, setSpecies] = useState(2);
@@ -51,10 +53,10 @@ export default function Infraestructura() {
         >
             <h1>Infraestructura y escenarios</h1>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
-            <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
-                
+                <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
+
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
-                
+
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1 }, { text: "Nombre científico: ", type: 1 }, { evidence: true }]} inputLarge={true} />
                 </Stack>
@@ -68,7 +70,7 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2 expand-2">
                 <h3 className="expand-2 green">1.2 Indique en el recuadro punteado el área (m2) de los espacios mencionados a continuación:</h3>
-                <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."}  />
+                <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."} />
             </Stack>
             <Stack spacing="30px" padding="30px" className="column-3">
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
@@ -108,6 +110,56 @@ export default function Infraestructura() {
                     </Stack>
                 </Stack>
             </Stack>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+                <Text className="expand-2">1.3.5 Indique el número de espacios destinados para cada caso, y el porcentaje será calculado automaticamente.
+                </Text>
+                <ModuleInput elements={[{
+                    text: "1.3.5.1 Estudiantes", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                        type: 2,
+                        holder: "(0% - 100%)"
+                    }
+                }, {
+                    text: "1.3.5.2 Profesores", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                        type: 2,
+                        holder: "(0% - 100%)"
+                    }
+                }, {
+                    text: "1.3.5.3 Administrativos", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                        type: 2,
+                        holder: "(0% - 100%)"
+                    }
+                }, {
+                    text: "1.3.5.4 Staff", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                        type: 2,
+                        holder: "(0% - 100%)"
+                    }
+                },]} />
+            </Stack>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+                <Text className="expand-2">1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público).
+                </Text>
+                <ModuleInput elements={[{ type: -1, holder: "Nombre de la instalación", evidence: true }]} />
+                <AddModule />
+            </Stack>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+                <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y manetenimeinto de sus instalaciones en el 2022.
+                </Text>
+                <Text className="expand-2">El porcentaje se define como (Área total de construcción operada y con mantenimiento / Área total de edificios de su entidad) × 100%.
+                </Text>
+
+                <ModuleInput title="Áreas de tu entidad en mantenimiento este año" elements={[{ type: 5, evidence: true, maxPhotos: 5 }]} />
+                <AddModule />
+            </Stack>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+                <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
+                <ModuleInput elements={[{ dicotomic: true}, {type: 3, disabled:true}]} />
+                <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2},{ text: "1.3.10 Número de protocolos de bioética.", type: 2} ]} />
+                
+                <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algun protocolo. De se rel caso, indique especie y anexe evidencia." elements={[{type: 2}]}/>
+                <ModuleInput  elements={[{type: 1, evidence: true}]}/>
+                
+            </Stack>
+
         </VStack>
     );
 }

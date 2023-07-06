@@ -21,7 +21,7 @@ import { useField } from "formik";
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
-import CustomInput from "./CustomInput";
+import AddModule from "./AddModule";
 /*
 * * Elementos
 * * Tipo 1: Texto
@@ -41,10 +41,10 @@ export default function ModuleInput({ title, elements, checkbox, area = false, s
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", maxPhotos = -1, vertical = false, additional, disabled = false, name = "undefined"}, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, name = "undefined"}, index,) => {
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
-                        <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
+                        <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "repeat1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
                             {text && <Text className={inputLarge ? "" : "expand-2"} >{textTitle} {text}</Text>}
                             {
                                 dicotomic ?
