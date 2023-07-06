@@ -23,7 +23,7 @@ export default function Educacion() {
         >
             <h1 className="blue">Educación</h1>
             <Stack spacing="30px" w="100%" padding="30px" direction="column">
-                <h2 className="blue">6.1 Cursos y asignaturas</h2>
+                <h2 className="green">6.1 Cursos y asignaturas</h2>
                 <ModuleInput title="6.1.1 Números de cursos/asignaturas totales, contenidos en el plan curricular de cada programa educativo que ofrece la entidad."
                     elements={[{type:2}]} /> 
                 <ModuleInput title="6.1.2 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
@@ -34,7 +34,7 @@ export default function Educacion() {
             </Stack>
 
             <Stack spacing="30px" className="column-3">
-                <h2>6.2 Número de eventos relacionados con la sostenibilidad.</h2>
+                <h2 className="green">6.2 Número de eventos relacionados con la sostenibilidad.</h2>
                 <ModuleInput title="6.1.2 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
                     elements={[{text:'Nombre del evento',type:2}, {text:'Responsable',type:1}, {evidence:true, maxPhotos:3}]}/>
                 <ModuleInput
@@ -44,7 +44,7 @@ export default function Educacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-              <h2 className="blue">6.3 Actividades extracurriculares</h2>
+              <h2 className="green">6.3 Actividades extracurriculares</h2>
               <h3 className="blue">6.3.1.1 Foros</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del foro', type: 1 }, { text: "Asistentes", type: 1 }, { evidence: true }]} inputLarge={true} />
@@ -127,7 +127,7 @@ export default function Educacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px"  className="column-3">
-                <h2>6.4 Publicaciones académicas sobre sostenibilidad.</h2>
+                <h2 className="green">6.4 Publicaciones académicas sobre sostenibilidad.</h2>
                     <Stack spacing="30px">
                     <ModuleInput title="6.4.1 Indica el nombre de la publicación, autor (es) y lugar donde se publicó."
                         elements={[{text:'Nombre de la publicación',type:1}, {text:'Autor(es)',type:1}, {text:'Sitio de publicación',type:1}]}/>
@@ -168,7 +168,7 @@ export default function Educacion() {
                     </Stack>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px"  className="column-3">
-                <h2>6.5 Investigación relacionada a la sostenibilidad.</h2>
+                <h2 className="green">6.5 Investigación relacionada a la sostenibilidad.</h2>
                     <Stack spacing="30px">
                         <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
                         elements={[{text:'Número de programas',type:2}, {evidence:true}]}/>
@@ -265,7 +265,7 @@ export default function Educacion() {
                     </Stack>
             </Stack>
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
+                <ModuleInput title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
                 elements={[{type:1}]} />
             </Stack>
         </VStack>

@@ -25,7 +25,7 @@ export default function Agua(){
         spacing={"30px"}
         >
             <h1 className="blue"> Agua</h1>
-            <h2 className="blue"> 4.1 Programa de conservación del agua</h2>
+            <h2 className="green"> 4.1 Programa de conservación del agua</h2>
             {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, span:true}]} />
@@ -80,7 +80,7 @@ export default function Agua(){
                  <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
             </Stack>
 
-            <h1 className="blue"> 4.2 Programa de reciclaje de agua.</h1>
+            <h1 className="green"> 4.2 Programa de reciclaje de agua.</h1>
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.2.1 Favor de indicar si cuenta con programa de reciclaje del agua" elements={[{dicotomic:true, span:true}]} />
             </Stack>
@@ -119,7 +119,7 @@ export default function Agua(){
                 </Stack>
             </Stack>
 
-            <h1 className="blue"> 4.3 Control de la contaminación del agua en su entidad.</h1>
+            <h1 className="green"> 4.3 Control de la contaminación del agua en su entidad.</h1>
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput select={[
                 "Los programas de control de la contaminación del agua no son considerados. (0%)",
@@ -135,7 +135,7 @@ export default function Agua(){
             </Stack>
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
+                <ModuleInput title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
                 elements={[{type:1}]} />
             </Stack>
         </VStack>
