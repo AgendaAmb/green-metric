@@ -26,7 +26,8 @@ export default function Energia(){
             <h1>Energía y cambio climático</h1>
             
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-                <h3 className="expand-2 blue">2.1 Indicar en cada espacio, la cantidad de forma numérica de mobiliario de eficiencia energética y el número de aplicaciones convencionales que usa</h3>
+                <h3 className="expand-2 green">2.1 Indicar en cada espacio, la cantidad de forma numérica de mobiliario de eficiencia energética y el número de aplicaciones convencionales que usa</h3>
+                
                 <Stack spacing="30px">
                     <ModuleInput title="Iluminación" elements={[{text: '2.1.1 Descarga de alta intensidad', type:2}, 
                     {text:'2.1.2 LED', type:2}, {text:'2.1.3 Fluorescente', type:2}, {text:'2.1.4 Inducción', type:2}, {evidence:true, maxPhotos:3}]} />
@@ -46,7 +47,7 @@ export default function Energia(){
                     {text:'2.1.12 Con tecnología inverter', type:2}, {text:'2.1.13 Aire lavado', type:2},{evidence:true, maxPhotos:3}]} />
                 </Stack>
             </Stack>
-            <Stack spacing="30px" w="100%" className="column-3" padding="30px">
+            <Stack spacing="30px" w="100%" className="column-2">
                 <ModuleInput title="2.1.14 En referencia a los edificios inteligentes, marcar si se cumple con las especificaciones siguientes dentro de cada uno de sus edificios" 
                 checkbox={{data: [
                     "Presencia de Building Management System (BMS)/Building Information Modelling (BIM)/Building Automation System (BAS)/Facility Management System (FMS).",
@@ -73,10 +74,11 @@ export default function Energia(){
             <ModuleInput title="2.1.15 Área total ocupada por Smart Buildings dentro de su entidad o espacio de trabajo"
                 elements={[{type:5}]} /> 
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-            <h3 className="expand-2 blue">2.2 Responda los siguientes requerimentos</h3>
+            <Stack spacing="30px" w="100%">
+            <h3 className="expand-2 green">2.2 Responda los siguientes requerimentos</h3>
             <h4 className="expand-2 blue">2.2.1 Número de fuentes de energía renovable en su campus y su capacidad en kW/h para cada tipo que tenga (energía solar, eólica, geotérmica, hidroeléctrica, biodiesel y biomasa limpia).</h4>
-            <h5 className="expand-2 blue">Coloque la información solicitada en los recuadros y añada evidencia fotográfica den el recueadro de mayor tamaño</h5>
+            <h5 className="expand-2 blue">Coloque la información solicitada en los recuadros y añada evidencia fotográfica del recuadro de mayor tamaño</h5>
+            <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{text: 'Tipo de energía renovable', type:1}, 
                     {text:'Cantidad de equipos', type:2}, {text:'Capacidad de kW/h', type:2}, {evidence:true, maxPhotos:1}]} />
@@ -89,6 +91,7 @@ export default function Energia(){
                     <ModuleInput elements={[{text: 'Tipo de energía renovable', type:1}, 
                     {text:'Cantidad de equipos', type:2}, {text:'Capacidad de kW/h', type:2}, {evidence:true, maxPhotos:1}]} />
                 </Stack>
+            </Stack>
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2">
@@ -114,13 +117,10 @@ export default function Energia(){
                 ]}/>
             </Stack>
 
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2">
+            <Stack spacing="30px" w="100%" padding="30px">
             <h4 className="expand-2 blue">2.2.4 Número de programas de innovación en energía y cambio climático (Implementación de programas de seguridad energética, programas de ahorro de energía, programa de eficiencia energética, sosteibilidd energética, etc).</h4>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{type:2}]} />
-                 </Stack>
-                 <Stack spacing="30px">
-                    <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>
+                    <ModuleInput elements={[{type:2}, {evidence:true, maxPhotos:3}]} />
                  </Stack>
             </Stack>
 
@@ -184,7 +184,7 @@ export default function Energia(){
             </Stack>
             
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
+                <ModuleInput title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
                 elements={[{type:1}]} />
             </Stack>
         </VStack>
