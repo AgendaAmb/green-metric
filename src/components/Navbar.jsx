@@ -6,7 +6,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <Link href="/informacion/">
-                <Box w="100%" bgColor={"#fbba00"}>
+                <Box className="one-col" w="100%" bgColor={"#fbba00"}>
                     <h3 >Información</h3>
                 </Box>
             </Link>
@@ -49,8 +49,8 @@ export default function Navbar() {
                 </Box>
             </Link>
             <Link href="/reporte/">
-                <Box w="100%" bgColor={"#66cfff"}>
-                    <h3>Reporte General</h3>
+                <Box className="one-col" w="100%" bgColor={"#66cfff"}>
+                    <h3 >Reporte General</h3>
                 </Box>
             </Link>
         </div>

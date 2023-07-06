@@ -60,7 +60,7 @@
         &:first-of-type {
             flex-grow: 20;
             max-width: 350px;
-            >div:first-of-type {
+            >.one-col {
                 grid-template-columns: 1fr;
 
                 h3 {
