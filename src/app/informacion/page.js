@@ -1,7 +1,6 @@
 
 import Main from "@components/Informacion";
 
-export const dynamic = 'force-static'
 
 export default function InformacionPage() {
 
