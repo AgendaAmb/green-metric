@@ -41,7 +41,6 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
                     name={`checkbox.${index} .value`}
                     onKeyUp={form.handleChange}
                 />
-
             </Stack>)}
         </Stack>
     );
