@@ -56,7 +56,7 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                                     </Select> :
                                     (type != null) &&
 
-                                    <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
+                                    <InputGroup onKeyUp={form.handleChange} w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
                                         {type > 0 && <InputLeftAddon
 
                                             pointerEvents="none"
@@ -64,10 +64,10 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                                             fontSize="1.2em"
                                             children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                         />}
-                                        {type != 0 && <Input onChange={form.handleChange} name={`input`} id="input" type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
+                                        {type != 0 && <Input  name={`input`} id="input" type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
                                         {
                                             additional != null && (
-                                                <Input  name={"none"} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  {...inputField}  />
+                                                <Input  name={"none"} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  />
                                             )
                                         }
 
