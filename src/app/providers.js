@@ -34,7 +34,7 @@ function FormBase({ children, handleSubmit, handleChange, values }) {
 
 
 export const Providers = withFormik({
-    mapPropsToValues: () => ({ name: ''}),
+    mapPropsToValues: () => ({}),
 
     // Custom sync validation
     validate: values => {
