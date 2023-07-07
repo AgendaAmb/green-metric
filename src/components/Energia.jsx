@@ -14,6 +14,7 @@ import {
 
 
 import ModuleInput from "./ModuleInput";
+import CustomTextArea from "./CustomTextArea";
 
 export default function Energia(){
     return(
@@ -182,11 +183,9 @@ export default function Energia(){
                 <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>            
                 </Stack>
             </Stack>
-            
-            <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
-                elements={[{type:1}]} />
-            </Stack>
+
+            <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+
         </VStack>
     )
 }

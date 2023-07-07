@@ -1,10 +1,12 @@
 "use client";
 import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import { AddIcon } from "@chakra-ui/icons";
+import { useEffect, useState, useContext } from "react";
+import { FormContext } from "@/app/providers";
 
-export default function CheckboxItem({ element, area, hasInput = false }) {
+export default function CheckboxItem({ element, area, hasInput = false, index = 1}) {
     const [enabled, setEnabled] = useState(false);
+    const form = useContext(FormContext);
+
     const handleEnabled = () => {
         setEnabled(!enabled);
     };
@@ -17,10 +19,11 @@ export default function CheckboxItem({ element, area, hasInput = false }) {
             className="grid-center-2"
         >
             <Checkbox
-                value={`${element}`}
                 onChange={handleEnabled}
+                name={`checkbox.${index}.selected`}
                 h="35px"
                 w="100%"
+                onSelect={form.handleChange}
             >
                 {element}
             </Checkbox>
@@ -35,8 +38,9 @@ export default function CheckboxItem({ element, area, hasInput = false }) {
                     placeholder={`${area ? "Investigador" : "Representante"}`}
                     w={"100%"}
                     className="grid-center"
+                    name={`checkbox.${index} .value`}
+                    onKeyUp={form.handleChange}
                 />
-
             </Stack>)}
         </Stack>
     );

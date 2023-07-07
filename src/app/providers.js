@@ -4,23 +4,21 @@ import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Formik } from "formik";
+import { Formik, useFormik, withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
-import { useState, cloneElement } from "react";
+import { useState, createContext } from "react";
 
-export function Providers({ children }) {
-    const [data , setData] = useState({});
+export const FormContext = createContext(null);  
 
-    const submit = (e) => {
-        console.log(e);
-        e.handleFunction();
-    }
+function FormBase({ children, handleSubmit, handleChange, values }) {
+    const [data, setData] = useState({values, handleChange});
 
-    
+
+
     return (
-        <Formik onSubmit={submit} initialValues={{ route: "/", handleFunction: console.log("hello")}}>
-        {(props) => (
-            <Stack onSubmit={props.handleSubmit} as={"form"}>
+
+        <FormContext.Provider value={data}>
+            <Stack onSubmit={handleSubmit} as={"form"}>
                 <DndProvider backend={HTML5Backend}>
                     <CacheProvider>
                         <ChakraProvider>
@@ -29,7 +27,34 @@ export function Providers({ children }) {
                     </CacheProvider>
                 </DndProvider>
             </Stack>
-        )}
-        </Formik>
+        </FormContext.Provider>
+
     );
 }
+
+
+export const Providers = withFormik({
+    mapPropsToValues: () => ({}),
+
+    // Custom sync validation
+    validate: values => {
+        const errors = {};
+
+        /* if (!values.name) {
+            errors.name = 'Required';
+        } */
+
+        return errors;
+    },
+
+    handleSubmit: (values, { setSubmitting }) => {
+        console.log("Printing")
+        setTimeout(() => {
+            console.log(values);
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+        }, 1000);
+    },
+
+    displayName: 'BasicForm',
+})(FormBase);

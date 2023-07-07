@@ -2,8 +2,6 @@
 
 const tSlash = (process.env.PROD === "true" ? true : false);
 
-console.log(typeof tSlash, "tSlash");
-
 const config = {
 
     basePath: "/GreenMetric",

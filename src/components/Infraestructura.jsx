@@ -1,14 +1,10 @@
 "use client";
 import {
-    Input,
     Stack,
     VStack,
     Text,
     StackDivider,
-    InputLeftElement,
-    InputGroup,
-    Select,
-    Icon
+    Button
 } from "@chakra-ui/react";
 
 import { useEffect, useState } from 'react';
@@ -196,7 +192,7 @@ export default function Infraestructura() {
                 </Stack>
             </Stack>
             <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
-
+            <Button type="submit">Subir</Button>
         </VStack>
     );
 }
