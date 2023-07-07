@@ -12,6 +12,7 @@ import {
 
 
 import ModuleInput from "./ModuleInput";
+import CustomTextArea from "./CustomTextArea";
 
 export default function Residuos() {
     return (
@@ -83,6 +84,7 @@ export default function Residuos() {
 
             </Stack>
 
+            <CustomTextArea title="Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
 
 
 

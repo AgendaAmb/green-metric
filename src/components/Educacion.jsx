@@ -12,6 +12,7 @@ import {
 
 
 import ModuleInput from "./ModuleInput";
+import CustomTextArea from "./CustomTextArea";
 
 export default function Educacion() {
     return (
@@ -264,10 +265,9 @@ export default function Educacion() {
                         <ModuleInput title="6.5.10 Número total de empresas o emprendimientos que han surgido en su entidad con productos o proyectos sostenibles" elements={[{type:2}, {evidence:true}]}/>
                     </Stack>
             </Stack>
-            <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
-                elements={[{type:1}]} />
-            </Stack>
+
+            <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+
         </VStack>
     )
 }

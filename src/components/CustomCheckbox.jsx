@@ -9,13 +9,13 @@ const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
 };
 
-export default function CustomCheckbox({ checkbox}) {
+export default function CustomCheckbox({ checkbox}, nameCheckBox = "CheckBox", field = []) {
     const [content, setContent] = useState({});
     useEffect(() => {
         setContent(checkbox)
     }, [content])
     return (
-        <CheckboxGroup colorScheme="green" w={"100%"}>
+        <CheckboxGroup colorScheme="green" w={"100%"} {...field} name = {nameCheckBox}>
             
                 {content?.data?.map((element, index) => {
                     return (

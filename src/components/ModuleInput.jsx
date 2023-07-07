@@ -29,9 +29,11 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements,selectName, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue" }) {
-    const [field] = useField(null);
-    const [inputField] = useField(null);
+export default function ModuleInput({ title, elements,selectName, inputname2, selectedName="null", checkboxName="null", inputName="null", checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue"}) {
+    const [Selectfield] = useField({name:selectedName});
+    const [CheckBoxField] = useField({name:checkboxName});
+    const [inputField] = useField({name:inputName});
+    
     return (    
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
@@ -63,10 +65,10 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                                             fontSize="1.2em"
                                             children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                         />}
-                                        {type != 0 && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
+                                        {type != 0 && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} field = {inputField} name={inputname2}/>}
                                         {
                                             additional != null && (
-                                                <Input  name={customName} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  {...inputField}  />
+                                                <Input  name={customName} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  />
                                             )
                                         }
 
@@ -85,8 +87,8 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                     </Stack >
                 )
             })}
-            {checkbox && <CustomCheckbox checkbox={checkbox} />}
-            {select && <CustomSelect data={select} field = {field} nameSelect={selectName}/>}
+            {checkbox && <CustomCheckbox checkbox={checkbox} field = {CheckBoxField}/>}
+            {select && <CustomSelect data={select} field = {Selectfield} nameSelect={selectName}/>}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>
