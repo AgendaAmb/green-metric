@@ -10,6 +10,7 @@ import {
     Select,
     CheckboxGroup,
     Checkbox,
+    Button,
 } from "@chakra-ui/react";
 
 
@@ -29,7 +30,7 @@ export default function Agua(){
             <h2 className="green"> 4.1 Programa de conservación del agua</h2>
             {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, span:true}]} />
+                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, questionDicotomic: '4-1-1',span:true}]} />
 
             </Stack>
 
@@ -136,7 +137,7 @@ export default function Agua(){
             </Stack>
             
             <CustomTextArea title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
-
+            <Button type="submit">Subir</Button>
         </VStack>
     );
 

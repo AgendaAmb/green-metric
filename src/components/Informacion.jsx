@@ -29,14 +29,14 @@ export default function Informacion({ hello }) {
 
 
     const pushModule = () => {
-        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1 }];
+        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question:`0-2-${deps.length + 1}` }];
 
         setDeps([...newDeps]);
     }
     useEffect(() => {
         if (deps.length <= 1) {
 
-            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1 }])
+            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question:`0-2-${deps.length + 1}`}])
         }
     }, [])
 
@@ -51,7 +51,7 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Director responsable de la dependencia", type: 1 },]} inputName={'inputField'} />
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question:'0-1-1' }, { holder: "Dirección de la dependencia", type: 1, question:'0-1-2' }, { holder: "Nombre del responsable de Green Metric", type: 1, question:'0-1-3' }, { holder: "Director responsable de la dependencia", type: 1, question:'0-1-4'}]} inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
                 <Stack display={"grid"} width="500px" gridTemplateColumns={"1fr 0.2fr"} alignSelf={"center"}>
@@ -60,8 +60,6 @@ export default function Informacion({ hello }) {
                 </Stack>
                 <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
                     <ModuleInput elements={deps} />
-
-
                 </Stack>
 
                 <Stack>
@@ -78,13 +76,13 @@ export default function Informacion({ hello }) {
                         "5. Transporte",
                         "6. Educación",
                     ], hasInput: true 
-                }} checkboxName={'CheckBoxField'} />
+                }} checkboxName={'CheckBoxField'}/>
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
-                <ModuleInput select = {options} selectedName={'SelectField'}/>
-                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
+                <ModuleInput select = {options} questionSelect={'0-4-1'}/>
+                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2, question:'0-4-2' }]} />
             </Stack>
 
 
