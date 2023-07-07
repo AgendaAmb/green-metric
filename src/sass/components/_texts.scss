@@ -12,8 +12,8 @@ h2 {
     font-weight: bolder;
 }
 h3 {
-    font-size: 15px ;
-    font-weight: bolder ;
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 h4 {
@@ -24,34 +24,42 @@ h4 {
 p {
     font-size: 13px;
 }
+
 .blue {
     color: $primary-color;
 }
 
-.green{
+.green {
     color: green;
 }
 
-.text-start{
+.text-start {
     text-align: justify;
 }
 
 .drop-title {
-
     .blue {
         min-width: 238px;
     }
 }
 
-.sub-text{
+.sub-text {
     font-size: 11px;
 }
 
-.font-header{
+.font-header {
     font-size: 17px;
     font-weight: 500;
-    &:first-of-type{
+    &:first-of-type {
         font-weight: 700;
     }
+}
+
+.character-count {
     
+    position: absolute;
+    font-size: 10px;
+    padding: 5px;
+    bottom: 0;
+    right: 20px;
 }

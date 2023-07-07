@@ -31,6 +31,14 @@ export default function Informacion({ hello }) {
 
         setDeps([...newDeps]);
     }
+
+    const popModule = () => {
+        if (deps.length > 0) {
+            const updatedDeps = deps.slice(0, deps.length - 1);
+            setDeps(updatedDeps);
+        }
+    }
+
     useEffect(() => {
         if (deps.length <= 1) {
 
@@ -49,12 +57,15 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Director responsable de la dependencia", type: 1 },]} />
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Responsable de la dependencia (Director(a))", type: 1 },]} />
             </Stack>
             <Stack spacing="30px" w="100%">
-                <Stack display={"grid"} width="500px" gridTemplateColumns={"1fr 0.2fr"} alignSelf={"center"}>
-                    <h3 >Departamentos y dependencias a reportar</h3>
-                    <Button className="add-button" onClick={pushModule}>+</Button>
+                <Stack width="100%" gridTemplateColumns={"1fr 0.2fr"} position={"relative"} alignSelf={"center"}>
+                    <h3>Departamentos y dependencias a reportar</h3>
+                    <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                        <Button className="delete-button" onClick={popModule}>-</Button>
+                        <Button className="add-button" onClick={pushModule}>+</Button>
+                    </Stack>
                 </Stack>
                 <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
                     <ModuleInput elements={deps} />
