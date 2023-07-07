@@ -1,7 +1,10 @@
 "use client";
+
 import { InputGroup, Input, Stack, Text, InputLeftAddon, FormLabel, FormControl, FormHelperText } from "@chakra-ui/react"
 
+
 export default function CustomInput({ title = null, items, type = -1, helper = "\0", shrink = 1 }) {
+
     return (
         <Stack direction={"row"} w="90%" className="expand-4">
             {title != null && <Text textAlign="left" padding={`${helper == "\0" ? "0 8px" : "0px"}`}>{title}</Text>}

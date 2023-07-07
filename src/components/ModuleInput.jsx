@@ -16,7 +16,8 @@ import {
 } from "@chakra-ui/react";
 
 import { MdLibraryAdd } from "react-icons/md";
-import { useField } from "formik";
+import { useContext } from "react";
+import { FormContext } from "@/app/providers";
 
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
@@ -30,8 +31,8 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 5: Metros Cuadrados
 */
 export default function ModuleInput({ title, elements,selectName, checkbox, area = false, select, add, addTitle = "Añadir otro modulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue" }) {
-    const [field] = useField(null);
-    const [inputField] = useField(null);
+    const form = useContext(FormContext);
+    
     return (    
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
@@ -55,7 +56,7 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                                     </Select> :
                                     (type != null) &&
 
-                                    <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"}>
+                                    <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size={"sm"} >
                                         {type > 0 && <InputLeftAddon
 
                                             pointerEvents="none"
@@ -63,10 +64,10 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                                             fontSize="1.2em"
                                             children={`${left ? left : type == 1 ? "abc" : type == 2 ? "123" : type == 3 ? "%" : type == 4 ? "kg" : type == 5 ? "m2" : type == 6 ? "MXN" : "in"}`}
                                         />}
-                                        {type != 0 && <Input type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
+                                        {type != 0 && <Input onChange={form.handleChange} name={`input`} id="input" type={`${type == 1 ? "text" : "number"}`} placeholder={`${holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={disabled} />}
                                         {
                                             additional != null && (
-                                                <Input  name={customName} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  {...inputField}  />
+                                                <Input  name={"none"} type={`${additional.type == 1 ? "text" : "number"}`} placeholder={`${additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}`} marginRight={"15px"} disabled={additional.disabled}  {...inputField}  />
                                             )
                                         }
 
@@ -86,7 +87,7 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                 )
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
-            {select && <CustomSelect data={select} field = {field} nameSelect={selectName}/>}
+            {select && <CustomSelect data={select} />}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>
