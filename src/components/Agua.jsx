@@ -14,6 +14,7 @@ import {
 
 
 import ModuleInput from "./ModuleInput";
+import CustomTextArea from "./CustomTextArea";
 
 export default function Agua(){
 
@@ -133,11 +134,9 @@ export default function Agua(){
                     <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
                 </Stack>
             </Stack>
+            
+            <CustomTextArea title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
 
-            <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. te lo agradecemos. "
-                elements={[{type:1}]} />
-            </Stack>
         </VStack>
     );
 

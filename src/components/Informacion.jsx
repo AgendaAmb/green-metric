@@ -9,6 +9,7 @@ import {
 import { useEffect, useState } from "react";
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
+import { useField, Form, FormikProps, Formik } from 'formik';
 
 
 export default function Informacion({ hello }) {
@@ -22,6 +23,7 @@ export default function Informacion({ hello }) {
         "Entidades de apoyo académico",
         "Servicios al público",
     ];
+    
 
     const [deps, setDeps] = useState([]);
 
@@ -49,7 +51,7 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Director responsable de la dependencia", type: 1 },]} />
+                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency" }, { holder: "Dirección de la dependencia", type: 1 }, { holder: "Nombre del responsable de Green Metric", type: 1 }, { holder: "Director responsable de la dependencia", type: 1 },]} inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
                 <Stack display={"grid"} width="500px" gridTemplateColumns={"1fr 0.2fr"} alignSelf={"center"}>
@@ -75,13 +77,13 @@ export default function Informacion({ hello }) {
                         "4. Agua",
                         "5. Transporte",
                         "6. Educación",
-                    ], hasInput: true
-                }} />
+                    ], hasInput: true 
+                }} checkboxName={'CheckBoxField'} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
-                <ModuleInput select={options} />
+                <ModuleInput select = {options} selectedName={'SelectField'}/>
                 <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2 }]} />
             </Stack>
 
