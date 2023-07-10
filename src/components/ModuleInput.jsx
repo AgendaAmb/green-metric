@@ -30,7 +30,8 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements,selectName, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect="undefined", questionEvidence = "undefined" }) {
+export default function ModuleInput({ title, elements,selectName, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", 
+questionSelect="undefined", questionEvidence = "undefined" }) {
     const form = useContext(FormContext);
     
     return (    
@@ -85,7 +86,7 @@ export default function ModuleInput({ title, elements,selectName, checkbox, area
                 )
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} />}
-            {select && <CustomSelect data={select} name={questionSelect}/>}
+            {select && <CustomSelect data={select} nameSelect={questionSelect}/>}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>

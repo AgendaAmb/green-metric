@@ -59,7 +59,9 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-                <ModuleInput title={"Datos de la dependencia"} elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question:'0-1-1' }, { holder: "Dirección de la dependencia", type: 1, question:'0-1-2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question:'0-1-3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question:'0-1-4'}]} inputName={'inputField'} />
+            <ModuleInput title={"Datos de la dependencia"} 
+            elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question:'0-1-1' }, { holder: "Dirección de la dependencia", type: 1, question:'0-1-2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question:'0-1-3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question:'0-1-4'}]} 
+            inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
                 <Stack width="100%" gridTemplateColumns={"1fr 0.2fr"} position={"relative"} alignSelf={"center"}>
@@ -110,7 +112,7 @@ export default function Informacion({ hello }) {
                     </Stack>
                 </Stack>
             </VStack>
-            <button type="submit">Subir</button>
+            <Button type="submit">Subir</Button>
         </VStack>
     );
 }

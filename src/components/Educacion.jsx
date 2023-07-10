@@ -8,6 +8,7 @@ import {
     InputLeftElement,
     InputGroup,
     Select,
+    Button,
 } from "@chakra-ui/react";
 
 
@@ -267,7 +268,7 @@ export default function Educacion() {
             </Stack>
 
             <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
-
+            <Button type="submit">Subir</Button>
         </VStack>
     )
 }

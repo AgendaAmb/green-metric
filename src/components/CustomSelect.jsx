@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { FormContext } from "@/app/providers";
 
 
-function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", nameSelect }) {
+function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", nameSelect="undefined" }) {
     
     const form = useContext(FormContext);
     const handleSelected = (e) => {
