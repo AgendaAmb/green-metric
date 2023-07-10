@@ -97,14 +97,16 @@ export default function Infraestructura() {
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
                         <ModuleInput
                             text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2 },]} />
-                        <Stack direction={"column"} className="expand-3">
-                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true }, {
-                                text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
-                                    type: 2,
-                                    holder: "¿Cuantos?"
-                                }
-                            },]} />
-                            <Stack className="column-2 grid-center">
+                        <Stack className="expand-3" direction={"column"}>
+                            <Stack direction={"column"}>
+                                <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true }, {
+                                    text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
+                                        type: 2,
+                                        holder: "¿Cuantos?"
+                                    }
+                                },]} />
+                            </Stack>
+                            <Stack className="column-2 expand-2">
                                 <ModuleInput elements={[{ disabled: true, type: -1, text: "Total: ", holder: "Total" },]} />
                                 <ModuleInput elements={[{ evidence: true, maxPhotos: 4 }]} />
                             </Stack>
@@ -154,7 +156,14 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
-                <ModuleInput elements={[{ dicotomic: true }, { type: 3, disabled: true }]} hasSelect={true}/>
+                <ModuleInput elements={[{ dicotomic: true }]} /*hasSelect={true}*//>
+                <ModuleInput select={[
+                "0%",
+                "1 - 25%",
+                "26 - 50%",
+                "51 - 75%",
+                "76 - 100%",
+                ]}/>
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2 }, { text: "1.3.10 Número de protocolos de bioética.", type: 2 }]}/>
 
                 <Stack>
