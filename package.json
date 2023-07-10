@@ -16,10 +16,12 @@
         "@chakra-ui/react": "^2.7.0",
         "@emotion/react": "^11.11.1",
         "@emotion/styled": "^11.11.0",
+        "axios": "^1.4.0",
         "canvas": "^2.11.2",
         "dotenv": "^16.3.1",
         "formik": "^2.4.1",
         "framer-motion": "^10.12.16",
+        "mysql2": "^3.5.1",
         "next": "13.4.5",
         "react": "18.2.0",
         "react-dnd": "^16.0.1",
@@ -30,6 +32,7 @@
         "react-icons": "^4.9.0",
         "react-image-gallery": "^1.2.12",
         "sass": "^1.63.3",
+        "serverless-mysql": "^1.5.5",
         "sweetalert2": "^11.7.12"
     }
 }

@@ -1,46 +1,30 @@
-import { NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import {axios} from 'axios';
+import NextResponse from "next/server";
+import { headers } from 'next/headers'
 
-export async function GET() {
-    
-    console.log("Inside fn")
+export const dynamic = 'force-static'
 
-    let data;
-    try {
-      data = cookies.get('data');
-    }
-    catch (e) {
-      data = "No data";
-      console.log("Error", e);
-    }
-    
-    return NextResponse.json({ data:  data});
-  }
+export async function GET(req, res) {
+  //console.log(res);
+  return new Response('Hello, Next.js!', {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  })
+};
 
-  export async function POST(req, {params}) {
-    // //const body = await req.body.json();
-    // new Promise((resolve, reject) => {
-    //   const body = await params;
-    //   resolve(body);
-    //   reject("Error");
-    // }).then((res) => {
-    //   console.log("Body", res);
-    //   cookies.set('data', res.data );
-    //   return NextResponse.json({ message: 'Data Set!' });
-    // }).catch((e) => {
-    //   console.log("Error", e);
-    //   return NextResponse.json({ message: 'Error!' });
-    // })
+export async function POST(req, res) {
+  const a = await req;
+  getParams();
+  return new Response('Hello, Next.js!', {
+    status: 200,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+    },
+  })
+};
 
-    try{
-      const body = await params;
-      console.log("Body", body);
-
-     // cookies.set(res.data);
-      return NextResponse.json({ message: 'Data Set!' });
-    }catch(error){
-      console.log("Error", error);
-    }
-
-  }
