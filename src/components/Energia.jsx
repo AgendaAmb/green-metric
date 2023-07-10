@@ -10,6 +10,7 @@ import {
     Select,
     CheckboxGroup,
     Checkbox,
+    Button,
 } from "@chakra-ui/react";
 
 
@@ -192,6 +193,7 @@ export default function Energia(){
                 </Stack>
             </Stack>
             <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <Button type="submit">Subir</Button>
         </VStack>
     )
 }
