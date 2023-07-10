@@ -93,6 +93,11 @@ export default function Energia(){
                     {text:'Cantidad de equipos', type:2}, {text:'Capacidad de kW/h', type:2}, {evidence:true, maxPhotos:1}]} />
                 </Stack>
             </Stack>
+            <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
+            <Stack spacing="30px" className="grid-3-rows">
+                    <ModuleInput add={true} />
+            </Stack>
+            </Stack>
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2">
@@ -104,6 +109,9 @@ export default function Energia(){
                 <Stack spacing="30px">
                     <ModuleInput elements={[{text: 'Nombre de política', type:1}, 
                     {text:'Institución que lo valida', type:1}, {evidence:true, maxPhotos:3}]} />
+                </Stack>
+                <Stack spacing="30px" className="grid-3-rows">
+                    <ModuleInput add={true} />
                 </Stack>
             </Stack>
             {/* FALTA AGREGAR LA TABLA DE FUENTES DE EMISIÓN*/}
@@ -180,7 +188,7 @@ export default function Energia(){
                 "Capacitación y material educativo a nivel local y nacional",
                 "Capacitación y material educativo a nivel local, nacional y internacional",
                 ]}/>
-                <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>            
+                <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>
                 </Stack>
             </Stack>
 

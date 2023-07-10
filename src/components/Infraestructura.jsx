@@ -72,9 +72,9 @@ export default function Infraestructura() {
             <Stack spacing="30px" padding="30px" className="column-3">
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
-                <Text className="blue text-start expand-3">Coloque la cantidad producida mensualmente de cada uno de los productos (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
+                <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)" }, { type: 1, holder: "Nombre del producto" }, { evidence: true }]} />
+                    <ModuleInput elements={[{ type: 1, holder: "Nombre del producto" },{ type: 4, holder: "Cantidad (kg)" }, { evidence: true }]} />
                 </Stack>
                 <Stack spacing="30px" className="grid-3-rows">
                     <ModuleInput add={true} addTitle="Añadir producto" />
@@ -93,7 +93,7 @@ export default function Infraestructura() {
                         <ModuleInput
                             text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2 },]} />
                         <Stack direction={"column"} className="expand-3">
-                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de Baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.3 Número de Espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.4 Número de Rampas de acceso", type: 2, vertical: true }, { text: "1.3.4.5 Número de Elevadores adaptados", type: 2, vertical: true }, { text: "1.3.4.6 Número de Carteles o anuncios en braille", type: 2, vertical: true }, { text: "1.3.4.7 Número de Salidas de emergencia", type: 2, vertical: true }, {
+                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true }, {
                                 text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
                                     type: 2,
                                     holder: "¿Cuantos?"
@@ -153,7 +153,7 @@ export default function Infraestructura() {
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2 }, { text: "1.3.10 Número de protocolos de bioética.", type: 2 }]} />
 
                 <Stack>
-                    <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algun protocolo. De se rel caso, indique especie y anexe evidencia." elements={[{ type: 2 }]} />
+                    <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2 }]} />
                     <ModuleInput elements={[{ type: 1, evidence: true }]} />
 
                 </Stack>
@@ -163,7 +163,7 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.4 </strong>Seguridad en las instalaciones </h3>
                 <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true }, { text: "1.4.2 Indique el numero de extintores que tienen en total", type: 2, vertical: true }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunion, zona de alta tensión, etc). ", dicotomic: true, vertical: true }]} />
                 <Stack >
-                    <ModuleInput text="1.4.4 ¿Cuentan con dispositivos para detección de siniestros?" elements={[{ text: "Indique en la línea los dispositivos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
+                    <ModuleInput text="1.4.4 ¿Cuentan con dispositivos para detección de siniestros?" elements={[{ text: "Seleccione los dispositivos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
                         data: [
                             "Detectores de calor",
                             "Detectores de humo",
@@ -174,7 +174,7 @@ export default function Infraestructura() {
 
                 </Stack>
                 <Stack >
-                    <ModuleInput text="1.4.5 ¿Cuentan con personal capacitado o protocolos de emergencia?" elements={[{ text: "Indique en la línea los recursos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
+                    <ModuleInput text="1.4.5 ¿Cuentan con personal capacitado o protocolos de emergencia?" elements={[{ text: "Seleccione los recursos con los que cuenta su entidad" }, { dicotomic: true }]} checkbox={{
                         data: [
                             "Plan de emergencia",
                             "Plano de levantamiento de recursos de emergencia",
