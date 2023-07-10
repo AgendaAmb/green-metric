@@ -88,7 +88,7 @@ export default function Informacion({ hello }) {
                         "4. Agua",
                         "5. Transporte",
                         "6. Educación",
-                    ], hasInput: true 
+                    ], hasInput: true
                 }} checkboxName={'CheckBoxField'}/>
             </Stack>
 
