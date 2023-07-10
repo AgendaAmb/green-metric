@@ -8,10 +8,10 @@ import { Formik, useFormik, withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext } from "react";
 
-export const FormContext = createContext(null);  
+export const FormContext = createContext(null);
 
 function FormBase({ children, handleSubmit, handleChange, values }) {
-    const [data, setData] = useState({values, handleChange});
+    const [data, setData] = useState({ values, handleChange });
 
 
 
@@ -49,9 +49,13 @@ export const Providers = withFormik({
 
     handleSubmit: (values, { setSubmitting }) => {
         console.log("Printing")
+        let data = [];
         setTimeout(() => {
-            console.log(values);
-            alert(JSON.stringify(values, null, 2));
+            for (const [key, value] of Object.entries(values)) {
+                data.push({ question: key, value: value });
+            }
+            console.log(data);
+            //alert(JSON.stringify(values, null, 2));
             setSubmitting(false);
         }, 1000);
     },
