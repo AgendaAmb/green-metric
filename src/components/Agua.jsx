@@ -76,7 +76,7 @@ export default function Agua(){
                     "Colectores pluviales.",
                     "Mantenimiento de áreas verdes asegurando áreas de recarga.",
                     "Otros (especifíque)."
-                    ]}}/>
+                    ]}} questionCheckBox={'4-1-4'}/>
             </Stack>
             <Stack direction="column-3">
                  <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
@@ -130,7 +130,7 @@ export default function Agua(){
                 "Los programas de control de la contaminación del agua están en la etapa inicial de implementación. (31-50%) ",
                 "Los programas de control de la contaminación del agua se implementan por completo y se supervisan ocasionalmente. (51-80%)",
                 "Los programas de control de la contaminación del agua se implementan en su totalidad y se supervisan con regularidad. (81-100%)"
-                ]}n questionSelect="4-3"/>
+                ]} questionSelect="4-3"/>
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
                 </Stack>

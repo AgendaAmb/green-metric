@@ -58,7 +58,7 @@ export default function Transporte() {
             "Grava",
             "Otro",
             "Ninguno"
-            ]}}/>
+            ]}} questionCheckBox={'5-4-1'}/>
         </Stack>
 
         <Stack spacing="30px" w="100%" padding="30px" direction="column">

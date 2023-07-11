@@ -89,7 +89,7 @@ export default function Informacion({ hello }) {
                         "5. Transporte",
                         "6. Educación",
                     ], hasInput: true
-                }} checkboxName={'CheckBoxField'}/>
+                }} checkboxName={'CheckBoxField'} questionCheckBox={'0-3-1'}/>
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
