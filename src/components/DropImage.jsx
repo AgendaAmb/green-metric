@@ -1,6 +1,6 @@
 "use client"
 import {
-    Icon, Stack
+    Icon, Stack, Input
 } from "@chakra-ui/react";
 
 import { useEffect, useState, useRef } from "react";
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1 }) {
+export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename }) {
     const [images, setImages] = useState([]);
     const [photos, setPhotos] = useState(1);
     const [reference, setReference] = useState(null);
@@ -85,25 +85,25 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 <h3 className="blue">{`${title} `}</h3>
                 {photos > 0 && <h3 className="red">({photos})</h3>}
             </div>
-            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{"image/*" : ["*.*", ".pdf"]}}>
-                {({ getRootProps, getInputProps }) => (
+            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} name={'evidence1'} accept={{"image/*" : ["*.*", ".pdf"]}}>
+                {({ getRootProps, getInputProps}) => (
                     <section  className="carousel-row">
-                        {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
-                        <div {...getRootProps()} className="drag-and-drop">
-                            <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button">
+                        {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" name={'evidence8'} /> : <div></div>}
+                        <div {...getRootProps()} className="drag-and-drop" name={'evidence9'}>
+                            <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" name={'evidence3'}> 
                                 <div>
 
-                                    <MdOutlineUpload className="icon" />
+                                    <MdOutlineUpload className="icon" name={'evidence4'}/>
                                 </div>
                                 <p>Seleccione un archivo o arrástrelo aquí
                                     <br/>
                                 <sub>Compatible (imágenes y .pdf)</sub></p>
                                 
                             </div>
-                            <Gallery images={images} setReference={setReference} />
-                            <input {...getInputProps()} />
+                            <Gallery images={images} setReference={setReference} name={'evidence5'}/>
+                            <Input {...getInputProps()} name = {'evidence6'}/>
                         </div>
-                        {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
+                        {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" name={'evidence7'} /> : <div></div>}
 
                     </section>
                 )}
