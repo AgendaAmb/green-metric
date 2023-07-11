@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         "paths": {
-            "@/*": ["/GreenMetricTest/src/*"],
-            "@sass": ["/GreenMetricTest/src/sass/main.scss"],
-            "@components/*": ["/GreenMetricTest/src/components/*"]
+            "@/*": ["/src/*"],
+            "@sass": ["/src/sass/main.scss"],
+            "@components/*": ["/src/components/*"]
         }
     }
 }
