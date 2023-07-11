@@ -7,8 +7,8 @@ function Header() {
         <div className="header">
             <div className="header-container">
                 <div className="header-logo">
-                    <Image src="/GreenMetric/agenda-white.svg" alt="logo" />
-                    <Image src="/GreenMetric/green-metric.svg" alt="logo" />
+                    <Image src="/agenda-white.svg" alt="logo" />
+                    <Image src="/green-metric.svg" alt="logo" />
                 </div>
                 <div className="titles no-overflow">
                     <Text className="font-header">Universidad Autónoma de San Luis Potosí</Text>

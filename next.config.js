@@ -3,8 +3,8 @@
 const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
-
-    basePath: "/GreenMetricTest",
+    output: "standalone",
+    /* basePath: "/GreenMetricTest", */
     trailingSlash: tSlash,
     distDir: 'build',
 }
