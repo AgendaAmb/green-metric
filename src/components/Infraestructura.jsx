@@ -34,10 +34,19 @@ export default function Infraestructura() {
             { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.14 Estacionamientos sin asfalto o concreto",question:'1-2-14' },
             { text: "1.2.15 Área total en el campus destinada para la absorción de agua; además de bosque y vegetación plantada.", helper: "(suelo, césped, bloque de hormigón, campo sintético, etc.)", type: 5, evidence: true, maxPhotos: 4, title: "1.2.15 Absorción de agua",question:'1-2-15' },
             { text: "1.2.16 Área de estacionamientos con sombreado natural.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.16 Sombreado natural",question:'1-2-16' },
-
         ]
 
+    const [components, setComponents] = useState([]);
+
+    const item = () => {
+        const newMod = [...components, {evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1' }];
+        setComponents([...newMod]);
+    }
+
     useEffect(() => {
+        if (components.length <= 1) {
+            setComponents([{ evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1', text: "Nombre científico: ", type: 1, question:'1-1-2' }])
+        }
         setYear(new Date().getFullYear());
     }, [year]);
 
@@ -60,10 +69,10 @@ export default function Infraestructura() {
                 <Stack spacing="30px" >
                     <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1, question:'1-1-3' }, { text: "Nombre científico: ", type: 1, question:'1-1-4' }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Button className="add-module" onClick={item}>Añadir otro módulo</Button>
+                <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
+                    <ModuleInput elements={components} />
                 </Stack>
-
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2 expand-2">
                 <h3 className="expand-2 green">1.2 Indique en el recuadro punteado el área (m2) de los espacios mencionados a continuación:</h3>

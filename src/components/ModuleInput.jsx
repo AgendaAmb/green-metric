@@ -32,7 +32,6 @@ import CustomSelect from "./CustomSelect";
 */
 export default function ModuleInput({ title, elements,selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect="undefined", questionEvidence = "undefined", questionCheckBox="undefined", hasSelect}) {
     const form = useContext(FormContext);
-    
     return (    
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
@@ -103,7 +102,6 @@ export default function ModuleInput({ title, elements,selectValue, checkbox, are
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>
                     {!span && <h4 className=" blue">{addTitle}</h4>}
                     <Stack spacing="30px" className="border-dashed">
-
                         <Icon as={MdLibraryAdd} role="button" fontSize="80px" className="blue icon-button" />
                     </Stack>
                 </Stack>
