@@ -3,7 +3,7 @@
 const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
-    trailingSlash: tSlash,
+    //trailingSlash: tSlash,
 }
 
 const nextConfig = config;
