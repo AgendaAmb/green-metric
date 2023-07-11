@@ -5,6 +5,10 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 const config = {
     //trailingSlash: tSlash,
     basePath: "/GreenMetricTest",
+    redirects: {
+        source: '/GreenMetricTest',
+        destination: '/GreenMetricTest/informacion',
+    }
 }
 
 const nextConfig = config;
