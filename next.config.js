@@ -5,9 +5,8 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 const config = {
 
     basePath: "/GreenMetric",
-    output: "export",
     trailingSlash: tSlash,
-    
+    distDir: 'build',
 }
 
 const nextConfig = config;

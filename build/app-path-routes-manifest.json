@@ -1,0 +1,14 @@
+{
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/agua/page": "/agua",
+  "/api/route": "/api",
+  "/educacion/page": "/educacion",
+  "/energia/page": "/energia",
+  "/home/page": "/home",
+  "/informacion/page": "/informacion",
+  "/infraestructura/page": "/infraestructura",
+  "/reporte/page": "/reporte",
+  "/transporte/page": "/transporte",
+  "/residuos/page": "/residuos"
+}

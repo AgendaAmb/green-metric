@@ -10,7 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         //router.push("/informacion");
-        /* axios.post('/GreenMetric/api?first=Ros', {
+        axios.post('/GreenMetric/api?first=Ros', {
             firstName: 'Fred',
             lastName: 'Flintstone'
         })
@@ -19,7 +19,7 @@ export default function Home() {
             })
             .catch(function (error) {
                 console.log(error);
-            }); */
+            });
     }, []);
     return (
         <>
