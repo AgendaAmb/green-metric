@@ -4,7 +4,7 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
     
-    basePath: "/GreenMetricTest", //Comentar para produccion
+    //basePath: "/GreenMetricTest", //Comentar para produccion
     trailingSlash: tSlash,
     distDir: 'build',
 }
