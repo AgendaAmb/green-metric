@@ -10,7 +10,7 @@ export default function Home() {
 
     useEffect(() => {
         //router.push("/informacion");
-        axios.post('/GreenMetric/api?first=Ros', {
+        axios.post('/GreenMetricTest/api?first=Ros', {
             firstName: 'Fred',
             lastName: 'Flintstone'
         })

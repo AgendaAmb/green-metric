@@ -268,7 +268,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 25611:
+/***/ 55631:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -329,7 +329,7 @@ __webpack_require__.r(__webpack_exports__);
         children: ['__PAGE__', {}, {
           page: [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 76217)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\page.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 56427))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -340,7 +340,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21191)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\layout.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 56427))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -409,7 +409,7 @@ function Home() {
     const router = (0,next_navigation__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
     (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(()=>{
         //router.push("/informacion");
-        axios__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z.post("/GreenMetric/api?first=Ros", {
+        axios__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z.post("/GreenMetricTest/api?first=Ros", {
             firstName: "Fred",
             lastName: "Flintstone"
         }).then(function(response) {
@@ -468,7 +468,7 @@ const __default__ = proxy.default;
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,783,248,472], () => (__webpack_exec__(25611)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,783,248,385], () => (__webpack_exec__(55631)));
 module.exports = __webpack_exports__;
 
 })();

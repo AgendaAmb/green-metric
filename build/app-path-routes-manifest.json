@@ -2,13 +2,13 @@
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
   "/agua/page": "/agua",
-  "/api/route": "/api",
   "/educacion/page": "/educacion",
+  "/api/route": "/api",
   "/energia/page": "/energia",
   "/home/page": "/home",
   "/informacion/page": "/informacion",
-  "/reporte/page": "/reporte",
   "/infraestructura/page": "/infraestructura",
-  "/residuos/page": "/residuos",
-  "/transporte/page": "/transporte"
+  "/transporte/page": "/transporte",
+  "/reporte/page": "/reporte",
+  "/residuos/page": "/residuos"
 }

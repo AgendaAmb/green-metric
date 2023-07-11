@@ -188,7 +188,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 27553:
+/***/ 52889:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -257,7 +257,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 56427))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -269,7 +269,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21191)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\layout.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 56427))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -399,7 +399,7 @@ function ReportePage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,693,472,765], () => (__webpack_exec__(27553)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,693,385,765], () => (__webpack_exec__(52889)));
 module.exports = __webpack_exports__;
 
 })();
