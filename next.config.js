@@ -5,10 +5,13 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 const config = {
     //trailingSlash: tSlash,
     basePath: "/GreenMetricTest",
-    redirects: {
-        source: '/GreenMetricTest',
-        destination: '/GreenMetricTest/informacion',
-    }
+    async rewrites() {
+        return [
+          {
+            source: '/',
+            destination: '/GreenMetricTest/informacion',
+          },
+        ]
 }
 
 const nextConfig = config;
