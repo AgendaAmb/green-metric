@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
+        
         "paths": {
             "@/*": ["./src/*"],
             "@sass": ["./src/sass/main.scss"],
