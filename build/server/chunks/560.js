@@ -18,6 +18,8 @@ var jsx_runtime_ = __webpack_require__(56786);
 var chunk_WKZT7ZXJ = __webpack_require__(28068);
 // EXTERNAL MODULE: ./node_modules/@chakra-ui/icon/dist/chunk-DKFDJSXF.mjs
 var chunk_DKFDJSXF = __webpack_require__(77288);
+// EXTERNAL MODULE: ./node_modules/@chakra-ui/input/dist/chunk-GYFRIY2Z.mjs
+var chunk_GYFRIY2Z = __webpack_require__(19878);
 // EXTERNAL MODULE: external "next/dist/compiled/react"
 var react_ = __webpack_require__(18038);
 // EXTERNAL MODULE: ./node_modules/react-icons/md/index.esm.js
@@ -67,7 +69,7 @@ function Gallery({ images , setReference  }) {
 
 
 
-function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1  }) {
+function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1 , evidencename  }) {
     const [images, setImages] = (0,react_.useState)([]);
     const [photos, setPhotos] = (0,react_.useState)(1);
     const [reference, setReference] = (0,react_.useState)(null);
@@ -148,6 +150,7 @@ function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1  }) {
                 multiple: true,
                 onDragEnter: enableHover,
                 onDragLeave: disableHover,
+                name: "evidence1",
                 accept: {
                     "image/*": [
                         "*.*",
@@ -161,20 +164,24 @@ function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1  }) {
                                 as: index_esm/* MdOutlineSkipPrevious */.k9B,
                                 className: "icon-hover",
                                 onClick: prev,
-                                role: "button"
+                                role: "button",
+                                name: "evidence8"
                             }) : /*#__PURE__*/ jsx_runtime_.jsx("div", {}),
                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                 ...getRootProps(),
                                 className: "drag-and-drop",
+                                name: "evidence9",
                                 children: [
                                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
                                         ref: ref,
                                         className: `drop-container ${images?.length == 0 ? "" : "hide-container"}`,
                                         role: "button",
+                                        name: "evidence3",
                                         children: [
                                             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                                                 children: /*#__PURE__*/ jsx_runtime_.jsx(index_esm/* MdOutlineUpload */.EuP, {
-                                                    className: "icon"
+                                                    className: "icon",
+                                                    name: "evidence4"
                                                 })
                                             }),
                                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)("p", {
@@ -190,10 +197,12 @@ function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1  }) {
                                     }),
                                     /*#__PURE__*/ jsx_runtime_.jsx(Gallery, {
                                         images: images,
-                                        setReference: setReference
+                                        setReference: setReference,
+                                        name: "evidence5"
                                     }),
-                                    /*#__PURE__*/ jsx_runtime_.jsx("input", {
-                                        ...getInputProps()
+                                    /*#__PURE__*/ jsx_runtime_.jsx(chunk_GYFRIY2Z/* Input */.I, {
+                                        ...getInputProps(),
+                                        name: "evidence6"
                                     })
                                 ]
                             }),
@@ -201,7 +210,8 @@ function DropImage({ title ="Agregar Evidencia: " , maxPhotos =-1  }) {
                                 as: index_esm/* MdOutlineSkipNext */.Hcn,
                                 className: "icon-hover",
                                 onClick: next,
-                                role: "button"
+                                role: "button",
+                                name: "evidence7"
                             }) : /*#__PURE__*/ jsx_runtime_.jsx("div", {})
                         ]
                     })
@@ -257,7 +267,7 @@ var chunk_VFYM6BU6 = __webpack_require__(53567);
 
 
 
-function CheckboxItem({ element , area , hasInput =false , index =1  }) {
+function CheckboxItem({ element , area , hasInput =false , index =1 , questioncheckbox  }) {
     const [enabled, setEnabled] = (0,react_.useState)(false);
     const form = (0,react_.useContext)(providers.FormContext);
     const handleEnabled = ()=>{
@@ -297,7 +307,7 @@ function CheckboxItem({ element , area , hasInput =false , index =1  }) {
                         placeholder: `${area ? "Investigador" : "Representante"}`,
                         w: "100%",
                         className: "grid-center",
-                        name: `checkbox.${index} .value`,
+                        name: `${questioncheckbox}.${index} .value`,
                         onKeyUp: form.handleChange
                     })
                 ]
@@ -314,7 +324,7 @@ function CheckboxItem({ element , area , hasInput =false , index =1  }) {
 const generateKey = (pre)=>{
     return `${pre}_${new Date().getTime()}`;
 };
-function CustomCheckbox({ checkbox  }, nameCheckBox = "CheckBox") {
+function CustomCheckbox({ checkbox , question  }) {
     const [content, setContent] = (0,react_.useState)({});
     (0,react_.useEffect)(()=>{
         setContent(checkbox);
@@ -328,7 +338,8 @@ function CustomCheckbox({ checkbox  }, nameCheckBox = "CheckBox") {
             return /*#__PURE__*/ jsx_runtime_.jsx(CheckboxItem, {
                 element: element,
                 hasInput: content?.hasInput,
-                index: index
+                index: index,
+                questioncheckbox: question
             }, "cb" + index);
         //return <h1 key={generateKey("checkbox")}>Hi</h1>;
         })
@@ -340,7 +351,7 @@ function CustomCheckbox({ checkbox  }, nameCheckBox = "CheckBox") {
 
 
 
-function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , nameSelect ="undefined"  }) {
+function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , nameSelect  }) {
     const form = (0,react_.useContext)(providers.FormContext);
     const handleSelected = (e)=>{
         if (setSelected) {
@@ -379,7 +390,7 @@ function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , n
 * * Tipo 3: Porcentaje
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
-*/ function ModuleInput({ title , elements , /*selectValue,*/ checkbox , area =false , select , add , addTitle ="A\xf1adir otro m\xf3dulo" , column =false , span =false , inputLarge =false , text , addModule , colorTitle ="blue" , questionSelect ="undefined" , questionEvidence ="undefined"  }) {
+*/ function ModuleInput({ title , elements , selectValue , checkbox , area =false , select , add , addTitle ="A\xf1adir otro m\xf3dulo" , column =false , span =false , inputLarge =false , text , addModule , colorTitle ="blue" , questionSelect ="undefined" , questionEvidence ="undefined" , questionCheckBox ="undefined" , hasSelect  }) {
     const form = (0,react_.useContext)(providers.FormContext);
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
@@ -397,8 +408,8 @@ function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , n
                 className: "expand-2 blue",
                 children: text
             }),
-            elements?.map(({ text , holder , type =0 , evidence , span , half , dicotomic , left , title ="Evidencias " , helper , textTitle ="" , leftTitle =false , maxPhotos =-1 , vertical =false , additional , disabled =false , customName ="undefined" , question ="undefinied" , questionDicotomic ="undefined" , questionCheckBox ="undefined"  }, index)=>{
-                //const isInputEnable = hasSelect && dicotomic && selectValue === '1';
+            elements?.map(({ text , holder , type =0 , evidence , span , half , dicotomic , left , title ="Evidencias " , helper , textTitle ="" , leftTitle =false , maxPhotos =-1 , vertical =false , additional , disabled =false , customName ="undefined" , question ="undefinied" , questionDicotomic ="undefined"  }, index)=>{
+                const isInputEnable = hasSelect && dicotomic && selectValue === "1";
                 return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_WKZT7ZXJ/* Stack */.K, {
                     direction: "column",
                     className: `${span ? "expand-2" : ""}`,
@@ -417,10 +428,11 @@ function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , n
                                         text
                                     ]
                                 }),
-                                dicotomic ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_GJO77I2I/* Select */.P, {
+                                hasSelect && dicotomic ? /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_GJO77I2I/* Select */.P, {
                                     gridColumn: "span 4",
                                     onChange: form.handleChange,
                                     name: questionDicotomic,
+                                    value: selectValue,
                                     children: [
                                         /*#__PURE__*/ jsx_runtime_.jsx("option", {
                                             value: "-1",
@@ -480,11 +492,12 @@ function CustomSelect({ data , setSelected , classes , holder ="Seleccione:" , n
                 }, index);
             }),
             checkbox && /*#__PURE__*/ jsx_runtime_.jsx(CustomCheckbox, {
-                checkbox: checkbox
+                checkbox: checkbox,
+                question: questionCheckBox
             }),
             select && /*#__PURE__*/ jsx_runtime_.jsx(components_CustomSelect, {
                 data: select,
-                name: questionSelect
+                nameSelect: questionSelect
             }),
             add && /*#__PURE__*/ jsx_runtime_.jsx(chunk_WKZT7ZXJ/* Stack */.K, {
                 direction: "column",

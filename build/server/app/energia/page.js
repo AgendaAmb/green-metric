@@ -260,7 +260,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 71045:
+/***/ 27174:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -329,7 +329,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -341,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21191)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\layout.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -571,7 +571,8 @@ function Energia() {
                             "Ajuste de protecci\xf3n solar (ventanas polarizadas,pergolas).",
                             "Sistemas pasivos para el aprovechamiento de la luz natural (Ventanas y tragaluces)."
                         ]
-                    }
+                    },
+                    questionCheckBox: "2-1-14"
                 })
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__/* .Stack */ .K, {
@@ -1066,7 +1067,7 @@ function EnergiaPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,106,560,765], () => (__webpack_exec__(71045)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,472,560,765], () => (__webpack_exec__(27174)));
 module.exports = __webpack_exports__;
 
 })();

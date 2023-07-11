@@ -260,7 +260,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 2440:
+/***/ 57445:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -329,7 +329,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -341,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21191)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\layout.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -454,28 +454,28 @@ var CustomTextArea = __webpack_require__(22765);
 
 
 function Infraestructura() {
-    const [selectValue, setSelectValue] = (0,react_.useState)("");
-    const handleSelectChange = (event)=>{
-        setSelectValue(event.target.value); // Actualizar el valor del Select en el estado
-    };
     const [year, setYear] = (0,react_.useState)(2013);
     const [species, setSpecies] = (0,react_.useState)(2);
     const data = [
         {
             text: "1.2.1 \xc1rea total de su entidad o espacio de trabajo.",
-            type: 5
+            type: 5,
+            question: "1-2-1"
         },
         {
             text: "1.2.2 \xc1rea total de \xe1reas verdes en su entidad o espacio de trabajo",
-            type: 5
+            type: 5,
+            question: "1-2-2"
         },
         {
             text: "1.2.3 \xc1rea total de cobertura plantada",
-            type: 5
+            type: 5,
+            question: "1-2-3"
         },
         {
             text: "1.2.4 \xc1rea total de cobertura forestal",
-            type: 5
+            type: 5,
+            question: "1-2-4"
         },
         {
             text: "1.2.5 \xc1rea total de su entidad donde se lleven a cabo actividades acad\xe9micas.",
@@ -483,62 +483,72 @@ function Infraestructura() {
             evidence: true,
             maxPhotos: 4,
             title: "1.2.5 Actividades acad\xe9micas",
-            helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines \xfanicamente con fines acad\xe9micos)"
+            helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines \xfanicamente con fines acad\xe9micos)",
+            question: "1-2-5"
         },
         {
             text: "1.2.6 \xbfCu\xe1ntos edificios componen tu entidad?",
-            type: 5
+            type: 5,
+            question: "1-2-6"
         },
         {
             text: "1.2.7 \xc1rea total de la planta baja de los edificios de su entidad de trabajo.",
-            type: 5
+            type: 5,
+            question: "1-2-7"
         },
         {
             text: "1.2.8 \xc1rea total construida de su entidad de trabajo.",
             helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)",
-            type: 5
+            type: 5,
+            question: "1-2-8"
         },
         {
             text: "1.2.9 \xc1rea correspondiente a jardines verticales.",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.9 Jardines verticales"
+            title: "1.2.9 Jardines verticales",
+            question: "1-2-9"
         },
         {
             text: "1.2.10 \xc1rea de techos verdes.",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.10 Techos verdes"
+            title: "1.2.10 Techos verdes",
+            question: "1-2-10"
         },
         {
             text: "1.2.11 \xc1rea de azoteas \xfatiles (con accesos seguros, multiusos, etc).",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.11 Azotes \xfatiles"
+            title: "1.2.11 Azotes \xfatiles",
+            question: "1-2-11"
         },
         {
             text: "1.2.12 \xc1rea destinada a la siembra de alimentos y plantas medicinales",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.12 Siembra de alimentos y plantas medicinales"
+            title: "1.2.12 Siembra de alimentos y plantas medicinales",
+            question: "1-2-12"
         },
         {
             text: "1.2.13 \xc1rea destinada a la siembra de plantas que promueven la polinizaci\xf3n.",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.13 Siembra y polinizaci\xf3n"
+            title: "1.2.13 Siembra y polinizaci\xf3n",
+            question: "1-2-13"
         },
         {
             text: "1.2.14 \xc1rea de estacionamientos sin asfalto o concreto; pueden tener grava, adoqu\xedn o asfalto permeable.",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.14 Estacionamientos sin asfalto o concreto"
+            title: "1.2.14 Estacionamientos sin asfalto o concreto",
+            question: "1-2-14"
         },
         {
             text: "1.2.15 \xc1rea total en el campus destinada para la absorci\xf3n de agua; adem\xe1s de bosque y vegetaci\xf3n plantada.",
@@ -546,14 +556,16 @@ function Infraestructura() {
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.15 Absorci\xf3n de agua"
+            title: "1.2.15 Absorci\xf3n de agua",
+            question: "1-2-15"
         },
         {
             text: "1.2.16 \xc1rea de estacionamientos con sombreado natural.",
             type: 5,
             evidence: true,
             maxPhotos: 4,
-            title: "1.2.16 Sombreado natural"
+            title: "1.2.16 Sombreado natural",
+            question: "1-2-16"
         }
     ];
     (0,react_.useEffect)(()=>{
@@ -597,11 +609,13 @@ function Infraestructura() {
                             elements: [
                                 {
                                     text: `Especie ${species - 1}:`,
-                                    type: 1
+                                    type: 1,
+                                    question: "1-1-1"
                                 },
                                 {
                                     text: "Nombre cient\xedfico: ",
-                                    type: 1
+                                    type: 1,
+                                    question: "1-1-2"
                                 },
                                 {
                                     evidence: true,
@@ -617,11 +631,13 @@ function Infraestructura() {
                             elements: [
                                 {
                                     text: `Especie ${species}:`,
-                                    type: 1
+                                    type: 1,
+                                    question: "1-1-3"
                                 },
                                 {
                                     text: "Nombre cient\xedfico: ",
-                                    type: 1
+                                    type: 1,
+                                    question: "1-1-4"
                                 },
                                 {
                                     evidence: true,
@@ -683,12 +699,14 @@ function Infraestructura() {
                         children: /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
                             elements: [
                                 {
-                                    type: 1,
-                                    holder: "Nombre del producto"
+                                    type: 4,
+                                    holder: "Cantidad (kg)",
+                                    question: "1-3-1-1"
                                 },
                                 {
-                                    type: 4,
-                                    holder: "Cantidad (kg)"
+                                    type: 1,
+                                    holder: "Nombre del producto",
+                                    question: "1-3-1-2"
                                 },
                                 {
                                     evidence: true
@@ -716,15 +734,18 @@ function Infraestructura() {
                                     elements: [
                                         {
                                             type: 6,
-                                            holder: year - 3
+                                            holder: year - 3,
+                                            question: "1-3-2-1"
                                         },
                                         {
                                             type: 6,
-                                            holder: year - 2
+                                            holder: year - 2,
+                                            question: "1-3-2-2"
                                         },
                                         {
                                             type: 6,
-                                            holder: year - 1
+                                            holder: year - 1,
+                                            question: "1-3-2-2"
                                         }
                                     ],
                                     text: "1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los \xfaltimos 3 a\xf1os."
@@ -738,6 +759,7 @@ function Infraestructura() {
                                     elements: [
                                         {
                                             text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.",
+                                            question: "1-3-3-1",
                                             helper: "(P.e. Disposici\xf3n de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educacion ambiental, etc.)",
                                             type: 6
                                         }
@@ -756,64 +778,75 @@ function Infraestructura() {
                                         text: "1.3.4.1 N\xfameros de Espacio de estacionamiento adecuado",
                                         elements: [
                                             {
-                                                type: 2
+                                                type: 2,
+                                                question: "1-3-4-1"
                                             }
                                         ]
                                     }),
                                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_WKZT7ZXJ/* Stack */.K, {
-                                        className: "expand-3",
                                         direction: "column",
+                                        className: "expand-3",
                                         children: [
-                                            /*#__PURE__*/ jsx_runtime_.jsx(chunk_WKZT7ZXJ/* Stack */.K, {
-                                                direction: "column",
-                                                children: /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
-                                                    title: "Infraestructura y equipos adecuados y/o adaptados",
-                                                    elements: [
-                                                        {
-                                                            text: "1.3.4.2 N\xfamero de ba\xf1os adaptados",
+                                            /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
+                                                title: "Infraestructura y equipos adecuados y/o adaptados",
+                                                elements: [
+                                                    {
+                                                        text: "1.3.4.2 N\xfamero de ba\xf1os adaptados",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-2"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.3 N\xfamero de espacios de lactancia",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-3"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.4 N\xfamero de espacios de lactancia",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-4"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.5 N\xfamero de rampas de acceso",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-5"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.6 N\xfamero de elevadores adaptados",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-6"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.7 N\xfamero de carteles o anuncios en braille",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-7"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.8 N\xfamero de salidas de emergencia",
+                                                        type: 2,
+                                                        vertical: true,
+                                                        question: "1-3-4-8"
+                                                    },
+                                                    {
+                                                        text: "1.3.4.9 Otros",
+                                                        type: 1,
+                                                        vertical: true,
+                                                        holder: "\xbfCu\xe1l?",
+                                                        additional: {
                                                             type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.3 N\xfamero de espacios de lactancia",
-                                                            type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.4 N\xfamero de rampas de acceso",
-                                                            type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.5 N\xfamero de elevadores adaptados",
-                                                            type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.6 N\xfamero de carteles o anuncios en braille",
-                                                            type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.7 N\xfamero de salidas de emergencia",
-                                                            type: 2,
-                                                            vertical: true
-                                                        },
-                                                        {
-                                                            text: "1.3.4.8 Otros",
-                                                            type: 1,
-                                                            vertical: true,
-                                                            holder: "\xbfCu\xe1l?",
-                                                            additional: {
-                                                                type: 2,
-                                                                holder: "\xbfCuantos?"
-                                                            }
+                                                            holder: "\xbfCuantos?",
+                                                            question: "1-3-4-9"
                                                         }
-                                                    ]
-                                                })
+                                                    }
+                                                ]
                                             }),
                                             /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_WKZT7ZXJ/* Stack */.K, {
-                                                className: "column-2 expand-2",
+                                                className: "column-2 grid-center",
                                                 children: [
                                                     /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
                                                         elements: [
@@ -821,7 +854,8 @@ function Infraestructura() {
                                                                 disabled: true,
                                                                 type: -1,
                                                                 text: "Total: ",
-                                                                holder: "Total"
+                                                                holder: "Total",
+                                                                question: "1-3-4-10"
                                                             }
                                                         ]
                                                     }),
@@ -862,7 +896,8 @@ function Infraestructura() {
                                 holder: "N\xfamero de espacios",
                                 additional: {
                                     type: 2,
-                                    holder: "(0% - 100%)"
+                                    holder: "(0% - 100%)",
+                                    question: "1-3-5-1"
                                 }
                             },
                             {
@@ -872,7 +907,8 @@ function Infraestructura() {
                                 holder: "N\xfamero de espacios",
                                 additional: {
                                     type: 2,
-                                    holder: "(0% - 100%)"
+                                    holder: "(0% - 100%)",
+                                    question: "1-3-5-2"
                                 }
                             },
                             {
@@ -882,7 +918,8 @@ function Infraestructura() {
                                 holder: "N\xfamero de espacios",
                                 additional: {
                                     type: 2,
-                                    holder: "(0% - 100%)"
+                                    holder: "(0% - 100%)",
+                                    question: "1-3-5-3"
                                 }
                             },
                             {
@@ -892,7 +929,8 @@ function Infraestructura() {
                                 holder: "N\xfamero de espacios",
                                 additional: {
                                     type: 2,
-                                    holder: "(0% - 100%)"
+                                    holder: "(0% - 100%)",
+                                    question: "1-3-5-4"
                                 }
                             }
                         ]
@@ -914,7 +952,8 @@ function Infraestructura() {
                             {
                                 type: -1,
                                 holder: "Nombre de la instalaci\xf3n",
-                                evidence: true
+                                evidence: true,
+                                question: "1-3-6-1"
                             }
                         ]
                     }),
@@ -941,7 +980,8 @@ function Infraestructura() {
                             {
                                 type: 5,
                                 evidence: true,
-                                maxPhotos: 5
+                                maxPhotos: 5,
+                                question: "1-3-7-1"
                             }
                         ]
                     }),
@@ -961,28 +1001,27 @@ function Infraestructura() {
                     /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
                         elements: [
                             {
-                                dicotomic: true
+                                dicotomic: true,
+                                questionDicotomic: "1-3-8-1"
+                            },
+                            {
+                                type: 3,
+                                disabled: true,
+                                question: "1-3-8-2"
                             }
-                        ]
-                    }),
-                    /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
-                        select: [
-                            "0%",
-                            "1 - 25%",
-                            "26 - 50%",
-                            "51 - 75%",
-                            "76 - 100%"
                         ]
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx(ModuleInput/* default */.Z, {
                         elements: [
                             {
                                 text: "1.3.9 N\xfamero de protocolos para cuidar bioseguridad (OGM, pat\xf3genos, RPBI, otros).",
-                                type: 2
+                                type: 2,
+                                question: "1-3-9-2"
                             },
                             {
                                 text: "1.3.10 N\xfamero de protocolos de bio\xe9tica.",
-                                type: 2
+                                type: 2,
+                                question: "1-3-10-1"
                             }
                         ]
                     }),
@@ -992,7 +1031,8 @@ function Infraestructura() {
                                 text: "1.3.11 N\xfamero de animales reubicados, apoyados y conservados de acuerdo a alg\xfan protocolo. De ser el caso, indique especie y anexe evidencia.",
                                 elements: [
                                     {
-                                        type: 2
+                                        type: 2,
+                                        question: "1-3-11-1"
                                     }
                                 ]
                             }),
@@ -1000,7 +1040,8 @@ function Infraestructura() {
                                 elements: [
                                     {
                                         type: 1,
-                                        evidence: true
+                                        evidence: true,
+                                        question: "1-3-11-2"
                                     }
                                 ]
                             })
@@ -1029,17 +1070,20 @@ function Infraestructura() {
                             {
                                 text: "1.4.1 \xbfCuentan con programas para clasificaci\xf3n y uso de extintores? ",
                                 dicotomic: true,
-                                vertical: true
+                                vertical: true,
+                                questionDicotomic: "1-4-1-1"
                             },
                             {
                                 text: "1.4.2 Indique el numero de extintores que tienen en total",
                                 type: 2,
-                                vertical: true
+                                vertical: true,
+                                question: "1-4-1-2"
                             },
                             {
                                 text: "1.4.3 \xbfCuentan con se\xf1al\xe9tica de seguridad? (salida de emergencia, punto de reunion, zona de alta tensi\xf3n, etc). ",
                                 dicotomic: true,
-                                vertical: true
+                                vertical: true,
+                                questionDicotomic: "1-4-3-1"
                             }
                         ]
                     }),
@@ -1051,7 +1095,8 @@ function Infraestructura() {
                                     text: "Seleccione los dispositivos con los que cuenta su entidad"
                                 },
                                 {
-                                    dicotomic: true
+                                    dicotomic: true,
+                                    questionDicotomic: "1-4-4-1"
                                 }
                             ],
                             checkbox: {
@@ -1061,7 +1106,8 @@ function Infraestructura() {
                                     "Detectores de llama",
                                     " Otro (Especifique en la siguiente celda)"
                                 ]
-                            }
+                            },
+                            questionCheckBox: "1-4-4"
                         })
                     }),
                     /*#__PURE__*/ jsx_runtime_.jsx(chunk_WKZT7ZXJ/* Stack */.K, {
@@ -1072,7 +1118,8 @@ function Infraestructura() {
                                     text: "Seleccione los recursos con los que cuenta su entidad"
                                 },
                                 {
-                                    dicotomic: true
+                                    dicotomic: true,
+                                    questionDicotomic: "1-4-5-1"
                                 }
                             ],
                             checkbox: {
@@ -1082,7 +1129,8 @@ function Infraestructura() {
                                     "Unidades internas de Protecci\xf3n Civil",
                                     "Brigada de primeros auxilios"
                                 ]
-                            }
+                            },
+                            questionCheckBox: "1-4-5"
                         })
                     }),
                     /*#__PURE__*/ (0,jsx_runtime_.jsxs)(chunk_WKZT7ZXJ/* Stack */.K, {
@@ -1098,7 +1146,8 @@ function Infraestructura() {
                                     {
                                         type: 1,
                                         holder: "Nombre de la medida",
-                                        evidence: true
+                                        evidence: true,
+                                        question: "1-4-6-1"
                                     }
                                 ]
                             }),
@@ -1170,7 +1219,7 @@ function InfraestructuraPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,106,560,765], () => (__webpack_exec__(2440)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,472,560,765], () => (__webpack_exec__(57445)));
 module.exports = __webpack_exports__;
 
 })();

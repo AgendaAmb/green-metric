@@ -260,7 +260,7 @@ module.exports = require("url");
 
 /***/ }),
 
-/***/ 50952:
+/***/ 87325:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -329,7 +329,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -341,7 +341,7 @@ __webpack_require__.r(__webpack_exports__);
         {
           'layout': [() => Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 21191)), "C:\\Users\\EdwinSaucedoMX\\Projects\\green-metric\\src\\app\\layout.js"],
           metadata: {
-    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 1773))).default(props))],
+    icon: [(async (props) => (await Promise.resolve(/* import() eager */).then(__webpack_require__.bind(__webpack_require__, 82819))).default(props))],
     apple: [],
     openGraph: [],
     twitter: [],
@@ -538,7 +538,8 @@ function Agua() {
                             "Mantenimiento de \xe1reas verdes asegurando \xe1reas de recarga.",
                             "Otros (especif\xedque)."
                         ]
-                    }
+                    },
+                    questionCheckBox: "4-1-4"
                 })
             }),
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__/* .Stack */ .K, {
@@ -712,7 +713,6 @@ function Agua() {
                             "Los programas de control de la contaminaci\xf3n del agua se implementan por completo y se supervisan ocasionalmente. (51-80%)",
                             "Los programas de control de la contaminaci\xf3n del agua se implementan en su totalidad y se supervisan con regularidad. (81-100%)"
                         ],
-                        n: true,
                         questionSelect: "4-3"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_chakra_ui_react__WEBPACK_IMPORTED_MODULE_5__/* .Stack */ .K, {
@@ -800,7 +800,7 @@ function AguaPage() {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,106,560,765], () => (__webpack_exec__(50952)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,783,73,774,693,472,560,765], () => (__webpack_exec__(87325)));
 module.exports = __webpack_exports__;
 
 })();
