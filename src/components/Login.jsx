@@ -16,14 +16,19 @@ export default function Login() {
             padding="30px"
             spacing={"30px"}
         >
-            <h1>Iniciar sesión</h1>
+            <h1>Bienvenido a Green Metric</h1>
             <Stack>
-            <LoginInput title={"RPE/Clave única"} 
-            elements={[{ holder: "example@mail", type: "text", inputName: "cve_rpe"}]}/>
+            <LoginInput 
+                title={"RPE/Clave única"}
+                elements={[{ holder: "example@mail", type: "text", inputName: "cve_rpe"}]}
+            />
 
-            <LoginInput title={"Contraseña"}
-            elements={[{ type: "password", inputName: "password"}]}/>
+            <LoginInput 
+                title={"Contraseña"}
+                elements={[{ type: "password", inputName: "password"}]}/>
             </Stack>
+
+            <Button className="login-button">Iniciar sesión</Button>
         </VStack>
     );
 }

@@ -7,20 +7,20 @@ import {
     Select,
     InputLeftAddon,
     InputRightElement,
-    Button
+    Button,
+    IconButton
 } from "@chakra-ui/react";
 
 import { useContext, useState } from "react";
 import { FormContext } from "@/app/providers";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 export default function LoginInput({ title, elements, column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue"}) {
+    
     const form = useContext(FormContext);
-
-   
     const [show, setShow] = useState(false)
     const handleClick = () => setShow(!show)
-    
-    
+
     return (    
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
@@ -34,19 +34,23 @@ export default function LoginInput({ title, elements, column = false, span = fal
                                         pointerEvents="none"
                                         color="gray.600"
                                         fontSize="1.2em"
-                                        children={`${left ? left : type == "text" ? "@" : type == "password" ? "**" : "in"}`}
+                                        children={`${left ? left : type == "text" ? "@" : "***"}`}
                                     />
                                     <Input
                                         name={inputName}
-                                        type={show ? 'text' : 'password'}
+                                        type={show ? "text" : type}
                                         placeholder={holder}
                                         marginRight="15px"
                                     />
+
                                     {type == "password" && (
                                         <InputRightElement>
-                                            <Button h='1.75rem' size='sm' onClick={handleClick}>
-                                            {show ? 'Hide' : 'Show'}
-                                            </Button>
+                                            <IconButton
+                                                h='1.75rem'
+                                                size='sm'
+                                                onClick={handleClick}
+                                                icon={show ? <FaEyeSlash /> : <FaEye />}
+                                            />             
                                         </InputRightElement>
                                     )}
                                 </InputGroup>
