@@ -1,5 +1,5 @@
+import "./sass/main.scss";
 
-import "@sass";
 
 import { Providers } from "./providers";
 
