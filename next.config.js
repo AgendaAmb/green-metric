@@ -3,7 +3,7 @@
 const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
-    basePath: '/page',
+    basePath: '/GreemMetricTest',
     trailingSlash: tSlash,
 }
 
