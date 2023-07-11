@@ -4,7 +4,7 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
     
-    basePath: "/page", //Comentar para produccion
+    basePath: "./", //Comentar para produccion
     trailingSlash: tSlash,
     distDir: 'build',
 }
