@@ -3,6 +3,7 @@
 const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
+    basePath: '/GM',
     trailingSlash: tSlash,
 }
 
