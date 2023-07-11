@@ -3,6 +3,7 @@
 const tSlash = (process.env.PROD === "true" ? true : false);
 
 const config = {
+    basePath: '/page',
     trailingSlash: tSlash,
 }
 
