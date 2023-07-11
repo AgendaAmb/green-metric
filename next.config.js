@@ -6,7 +6,6 @@ const config = {
     assetPrefix: '/GreenMetric',
     basePath: '/GreenMetric',
     trailingSlash: tSlash,
-    distDir: 'build',
 }
 
 const nextConfig = config;

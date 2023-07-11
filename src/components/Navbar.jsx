@@ -12,13 +12,13 @@ export default function Navbar() {
             </Link>
             <Link href="/infraestructura/">
                 <Box w="100%" bgColor={"#008037"}>
-                    <Image src="/GreenMetricTest/page/navbar/edificio.png"/>
+                    <Image src="/navbar/edificio.png"/>
                     <h3>Entorno e Infraestructura</h3>
                 </Box>
             </Link>
             <Link href="/energia/">
                 <Box w="100%" bgColor={"#cfaf2e"}>
-                    <Image src="/GreenMetricTest/page/navbar/climatico.png"/>
+                    <Image src="/navbar/climatico.png"/>
                     <h3>Energía y Cambio Climático</h3>
                 </Box>
 
@@ -26,25 +26,25 @@ export default function Navbar() {
             <Link href="/residuos/">
 
                 <Box w="100%" bgColor={"#e09d9a"}>
-                    <Image src="/GreenMetricTest/page/navbar/basura.png"/>
+                    <Image src="/navbar/basura.png"/>
                     <h3>Gestión de Residuos</h3>
                 </Box>
             </Link>
             <Link href="/agua/">
                 <Box w="100%" bgColor={"#5271ff"}>
-                    <Image src="/GreenMetricTest/page/navbar/agua.png"/>
+                    <Image src="/navbar/agua.png"/>
                     <h3>Uso de Agua</h3>
                 </Box>
             </Link>
             <Link href="/transporte/">
                 <Box w="100%" bgColor={"#ff1616"}>
-                    <Image src="/GreenMetricTest/page/navbar/transporte.png"/>
+                    <Image src="/navbar/transporte.png"/>
                     <h3>Transporte</h3>
                 </Box>
             </Link>
             <Link href="/educacion/">
                 <Box w="100%" bgColor={"#ff914d"}>
-                    <Image src="/GreenMetricTest/page/navbar/investigacion.png"/>
+                    <Image src="/navbar/investigacion.png"/>
                     <h3>Educación e Investigación</h3>
                 </Box>
             </Link>
