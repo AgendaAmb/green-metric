@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import "../sass/main.scss";
 import axios from "axios";
+import Login from "@/components/Login";
 
 
 export default function Home() {
@@ -22,8 +23,6 @@ export default function Home() {
             });
     }, []);
     return (
-        <>
-            <h1>Cargando...</h1>
-        </>
+            <Login />
     );
 }

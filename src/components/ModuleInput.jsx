@@ -48,7 +48,7 @@ export default function ModuleInput({ title, elements,selectValue, checkbox, are
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "repeat1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
                             {text && <Text className={inputLarge ? "" : "expand-2"} >{textTitle} {text}</Text>}
-                            {hasSelect && dicotomic ? (
+                            {dicotomic ? (
                                 <Select gridColumn={"span 4"} onChange={form.handleChange} name={questionDicotomic} value={selectValue}>
                                     <option value="-1">Seleccione:</option>
                                     <option value="1">Si</option>
