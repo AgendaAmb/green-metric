@@ -1,9 +1,9 @@
 {
     "compilerOptions": {
         "paths": {
-            "@/*": ["/src/*"],
-            "@sass": ["/src/sass/main.scss"],
-            "@components/*": ["/src/components/*"]
+            "@/*": ["./src/*"],
+            "@sass": ["./src/sass/main.scss"],
+            "@components/*": ["./src/components/*"]
         }
     }
 }
