@@ -9000,7 +9000,7 @@ Object.defineProperty(exports, "addBasePath", ({
 }));
 const _addpathprefix = __webpack_require__(11751);
 const _normalizetrailingslash = __webpack_require__(16089);
-const basePath = "/GreenMetricTest" || 0;
+const basePath =  false || "";
 function addBasePath(path, required) {
     if (false) {}
     return (0, _normalizetrailingslash.normalizePathTrailingSlash)((0, _addpathprefix.addPathPrefix)(path, basePath));
@@ -13429,7 +13429,7 @@ Object.defineProperty(exports, "getDomainLocale", ({
         return getDomainLocale;
     }
 }));
-const basePath = (/* unused pure expression or super */ null && ("/GreenMetricTest" || 0));
+const basePath = (/* unused pure expression or super */ null && ( false || ""));
 function getDomainLocale(path, locale, locales, domainLocales) {
     if (false) {} else {
         return false;

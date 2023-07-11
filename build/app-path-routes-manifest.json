@@ -8,7 +8,7 @@
   "/home/page": "/home",
   "/informacion/page": "/informacion",
   "/infraestructura/page": "/infraestructura",
-  "/transporte/page": "/transporte",
   "/reporte/page": "/reporte",
-  "/residuos/page": "/residuos"
+  "/residuos/page": "/residuos",
+  "/transporte/page": "/transporte"
 }

@@ -8,7 +8,7 @@
   "/home/page": "app/home/page.js",
   "/informacion/page": "app/informacion/page.js",
   "/infraestructura/page": "app/infraestructura/page.js",
-  "/transporte/page": "app/transporte/page.js",
   "/reporte/page": "app/reporte/page.js",
-  "/residuos/page": "app/residuos/page.js"
+  "/residuos/page": "app/residuos/page.js",
+  "/transporte/page": "app/transporte/page.js"
 }
