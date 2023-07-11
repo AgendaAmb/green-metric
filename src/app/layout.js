@@ -1,9 +1,9 @@
 
-import "../sass/main.scss";
+import "@sass";
 
 import { Providers } from "./providers";
 
-import Header from "@components/Header";
+import Header from "../components/Header";
 
 export const metadata = {
     title: "Green Metric",
