@@ -13,7 +13,7 @@
 
 
 # production
-# /build //Commentar para cargar a produccion
+/build
 
 # misc
 .DS_Store
