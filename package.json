@@ -2,7 +2,7 @@
     "name": "green-metric",
     "version": "0.1.0",
     "private": false,
-    
+    "homepage": "/GreenMetricTest",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
