@@ -47,7 +47,7 @@ module.exports = import("next/dist/compiled/@vercel/og/index.node.js");;
 
 /***/ }),
 
-/***/ 91299:
+/***/ 71632:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 // ESM COMPAT FLAG
@@ -99,7 +99,7 @@ async function GET(req, res) {
 }
 ;
 
-;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Froute&name=app%2Fapi%2Froute&pagePath=private-next-app-dir%2Fapi%2Froute.js&appDir=C%3A%5CUsers%5CEdwinSaucedoMX%5CProjects%5Cgreen-metric%5Csrc%5Capp&appPaths=%2Fapi%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=&assetPrefix=&nextConfigOutput=&preferredRegion=!
+;// CONCATENATED MODULE: ./node_modules/next/dist/build/webpack/loaders/next-app-loader.js?page=%2Fapi%2Froute&name=app%2Fapi%2Froute&pagePath=private-next-app-dir%2Fapi%2Froute.js&appDir=C%3A%5CUsers%5CEdwinSaucedoMX%5CProjects%5Cgreen-metric%5Csrc%5Capp&appPaths=%2Fapi%2Froute&pageExtensions=tsx&pageExtensions=ts&pageExtensions=jsx&pageExtensions=js&basePath=%2FGreenMetricTest&assetPrefix=%2FGreenMetricTest&nextConfigOutput=&preferredRegion=!
 
     
 
@@ -146,7 +146,7 @@ async function GET(req, res) {
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [405,572], () => (__webpack_exec__(91299)));
+var __webpack_exports__ = __webpack_require__.X(0, [405,572], () => (__webpack_exec__(71632)));
 module.exports = __webpack_exports__;
 
 })();

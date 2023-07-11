@@ -1,14 +1,14 @@
 {
   "/favicon.ico/route": "/favicon.ico",
   "/page": "/",
+  "/api/route": "/api",
   "/agua/page": "/agua",
   "/educacion/page": "/educacion",
-  "/api/route": "/api",
   "/home/page": "/home",
   "/energia/page": "/energia",
   "/informacion/page": "/informacion",
   "/infraestructura/page": "/infraestructura",
+  "/transporte/page": "/transporte",
   "/reporte/page": "/reporte",
-  "/residuos/page": "/residuos",
-  "/transporte/page": "/transporte"
+  "/residuos/page": "/residuos"
 }

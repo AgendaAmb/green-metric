@@ -1,14 +1,14 @@
 {
   "/favicon.ico/route": "app/favicon.ico/route.js",
   "/page": "app/page.js",
+  "/api/route": "app/api/route.js",
   "/agua/page": "app/agua/page.js",
   "/educacion/page": "app/educacion/page.js",
-  "/api/route": "app/api/route.js",
   "/home/page": "app/home/page.js",
   "/energia/page": "app/energia/page.js",
   "/informacion/page": "app/informacion/page.js",
   "/infraestructura/page": "app/infraestructura/page.js",
+  "/transporte/page": "app/transporte/page.js",
   "/reporte/page": "app/reporte/page.js",
-  "/residuos/page": "app/residuos/page.js",
-  "/transporte/page": "app/transporte/page.js"
+  "/residuos/page": "app/residuos/page.js"
 }
