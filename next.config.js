@@ -7,13 +7,14 @@ const config = {
     basePath: "/GreenMetricTest",
     async rewrites() {
         return [
-          {
-            source: '/',
-            destination: '/GreenMetricTest/informacion',
-          },
+            {
+                source: '/',
+                destination: '/GreenMetricTest/informacion',
+            },
         ]
+    }
 }
 
 const nextConfig = config;
 
-module.exports = nextConfig;
+    module.exports = nextConfig;
