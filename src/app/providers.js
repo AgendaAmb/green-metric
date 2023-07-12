@@ -53,7 +53,7 @@ export const Providers = withFormik({
         console.log("Printing", values)
         let data = [];
         setTimeout(() => {
-            for (const [key, value] of Object.entries(values)) {
+            /* for (const [key, value] of Object.entries(values)) {
                 axios.post('/GreenMetric/api/sendAnswer', {
                     value: value,
                     question: key
@@ -64,7 +64,7 @@ export const Providers = withFormik({
                     .catch(function (error) {
                         console.log(error);
                     });
-            }
+            } */
             /* const mysql = require('mysql2');
             const connection = mysql.createConnection({
                 host: 'localhost',
