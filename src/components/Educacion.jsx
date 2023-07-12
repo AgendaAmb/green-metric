@@ -14,8 +14,68 @@ import {
 
 import ModuleInput from "./ModuleInput";
 import CustomTextArea from "./CustomTextArea";
+import { useEffect, useState } from 'react';
 
 export default function Educacion() {
+
+    const [components,setComponents] = useState([]);
+    const [components2,setComponents2] = useState([]);
+    const [components3,setComponents3] = useState([]);
+    const [components4,setComponents4] = useState([]);
+    const [components5,setComponents5] = useState([]);
+    const [components6,setComponents6] = useState([]);
+    const [components7,setComponents7] = useState([]); 
+    const [components8,setComponents8] = useState([]);
+    const [components9,setComponents9] = useState([]);
+
+
+
+    
+    const item = () => {
+        const newMod = [...components, { text: 'Nombre del foro', type: 1, question:'6-3-1-1-3' }, { text: "Asistentes", type: 1, question:'6-3-1-1-4' }, { evidence: true }];
+        setComponents([...newMod]);
+    }
+
+    const item2 = () => {
+        const newMod2 = [...components2,{ text: 'Nombre de la rodada', type: 1, question:'6-3-1-2-1' }, { text: "Asistentes", type: 1 , question:'6-3-1-2-2'}, { evidence: true }];
+        setComponents2([...newMod2]);
+    }
+
+    const item3 = () => {
+        const newMod3 = [...components3, { text: 'Nombre de la feria', type: 1, question:'6-3-1-3-1' }, { text: "Asistentes", type: 1, question:'6-3-1-3-2' }, { evidence: true }];
+        setComponents3([...newMod3]);
+    }
+    
+    const item4 = () => {
+        const newMod4 = [...components4, { text: 'Nombre de la charla', type: 1, question:'6-3-1-4-1' }, { text: "Asistentes", type: 1, question:'6-3-1-4-2' }, { evidence: true }];
+        setComponents4([...newMod4]);
+    }
+    const item5 = () => {
+        const newMod5 = [...components5, { text: 'Nombre del seminario', type: 1, question:'6-3-1-5-1' }, { text: "Asistentes", type: 1, question:'6-3-1-5-2' }, { evidence: true }];
+        setComponents5([...newMod5]);
+    }
+
+   
+    const item6 = () => {
+        const newMod6 = [...components6,{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-6-1' }, { text: "Asistentes", type: 1, question:'6-3-1-6-2' }, { evidence: true }];
+        setComponents6([...newMod6]);
+    }
+
+    const item7 = () => {
+        const newMod7 = [...components7,{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'6-3-1-7-2' }, { evidence: true }];
+        setComponents7([...newMod7]);
+    }
+    
+    const item8 = () => {
+        const newMod8 = [...components8,{ text: 'Número de programas', type: 2, question:'6-5-1-1' }, { evidence: true }];
+        setComponents8([...newMod8]);
+    }
+    
+    const item9 = () => {
+        const newMod9 = [...components9,{ text: 'Nombre del proyecto', type: 1, question:'6-5-3-4' }, { text: 'Cantidad destinada ($)', type: 6, question:'6-5-3-5' }, { text: 'Fuente de recurso', type: 1, question:'6-5-3-6' }, { evidence: true }];
+        setComponents9([...newMod9]);
+    }
+    
     return (
         <VStack
             w="100%"
@@ -46,6 +106,7 @@ export default function Educacion() {
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
+            <Button className="add-button" onClick={item}>+</Button>
                 <h2 className="green">6.3 Actividades extracurriculares</h2>
                 <h3 className="blue">6.3.1.1 Foros</h3>
                 <Stack spacing="30px">
@@ -54,10 +115,10 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question:'6-3-1-1-3' }, { text: "Asistentes", type: 1, question:'6-3-1-1-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                    <ModuleInput elements={components}/>
                 </Stack>
-
+                <Button className="add-button" onClick={item2}>+</Button>
                 <h3 className="blue">6.3.1.2 Rodadas</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question:'6-3-1-2-1' }, { text: "Asistentes", type: 1 , question:'6-3-1-2-2'}, { evidence: true }]} inputLarge={true} />
@@ -65,10 +126,10 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question:'6-3-1-2-3'}, { text: "Asistentes", type: 1, question:'6-3-1-2-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                <ModuleInput elements={components2}/>
                 </Stack>
-
+                <Button className="add-button" onClick={item3}>+</Button>
                 <h3 className="blue">6.3.1.3 Ferias (cualquier tipo)</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question:'6-3-1-3-1' }, { text: "Asistentes", type: 1, question:'6-3-1-3-2' }, { evidence: true }]} inputLarge={true} />
@@ -76,11 +137,11 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del feria', type: 1, question:'6-3-1-3-3' }, { text: "Asistentes", type: 1, question:'6-3-1-3-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px" >
+                <ModuleInput elements={components3}/>
                 </Stack>
 
-
+                <Button className="add-button" onClick={item4}>+</Button>
                 <h3 className="blue">6.3.1.4 Charlas</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question:'6-3-1-4-1' }, { text: "Asistentes", type: 1, question:'6-3-1-4-2' }, { evidence: true }]} inputLarge={true} />
@@ -88,11 +149,11 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question:'6-3-1-4-3' }, { text: "Asistentes", type: 1, question:'6-3-1-4-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                <ModuleInput elements={components4}/>
                 </Stack>
 
-
+                <Button className="add-button" onClick={item5}>+</Button>
                 <h3 className="blue">6.3.1.5 Seminarios</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question:'6-3-1-5-1' }, { text: "Asistentes", type: 1, question:'6-3-1-5-2' }, { evidence: true }]} inputLarge={true} />
@@ -100,11 +161,11 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question:'6-3-1-5-3' }, { text: "Asistentes", type: 1, question:'6-3-1-5-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px" >
+                <ModuleInput elements={components5}/>
                 </Stack>
 
-
+                <Button className="add-button" onClick={item6}>+</Button>
                 <h3 className="blue">6.3.1.6 Conferencias</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-6-1' }, { text: "Asistentes", type: 1, question:'6-3-1-6-2' }, { evidence: true }]} inputLarge={true} />
@@ -112,10 +173,10 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-6-3' }, { text: "Asistentes", type: 1, question:'6-3-1-6-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                <ModuleInput elements={components6}/>
                 </Stack>
-
+                <Button className="add-button" onClick={item7}>+</Button>
                 <h3 className="blue">6.3.1.7 Eventos culturales (festivales, teatro, evento musical, exhibiciones artísticas,etc.)</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'6-3-1-7-2' }, { evidence: true }]} inputLarge={true} />
@@ -123,8 +184,8 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-7-3' }, { text: "Asistentes", type: 1, question:'6-3-1-7-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                <ModuleInput elements={components7}/>
                 </Stack>
             </Stack>
 
@@ -170,6 +231,7 @@ export default function Educacion() {
                 </Stack>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
+            <Button className="add-button" onClick={item8}>+</Button>
                 <h2 className="green">6.5 Investigación relacionada a la sostenibilidad.</h2>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
@@ -179,8 +241,8 @@ export default function Educacion() {
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
                         elements={[{ text: 'Número de programas', type: 2, question:'6-5-1-2' }, { evidence: true }]} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales" elements={components8}/>
                 </Stack>
 
                 <Stack spacing="30px">
@@ -207,9 +269,9 @@ export default function Educacion() {
                     <ModuleInput title="6.5.3 Cantidad monetaria destinada a proyectos relacionados con la sostenibilidad en los últimos 3 años"
                         elements={[{ text: 'Nombre del proyecto', type: 1, question:'6-5-3-4' }, { text: 'Cantidad destinada ($)', type: 6, question:'6-5-3-5' }, { text: 'Fuente de recurso', type: 1, question:'6-5-3-6' }, { evidence: true }]} />
                 </Stack>
-
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Button className="add-button" onClick={item9}>+</Button>
+                <Stack spacing="30px" >
+                <ModuleInput elements={components9}/>
                 </Stack>
 
                 <h3>6.5.4 Indique si en su entidad se realiza investigación relacionada con la sostenibilidad, y de ser así, indicar el nombre del investigador o investigadora, su área de investigación y proyectos de investigación.</h3>
