@@ -94,7 +94,7 @@ export default function Infraestructura() {
             <h1>Infraestructura y escenarios</h1>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
-            <Button className="add-button" onClick={item}>+</Button>
+            <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
 
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
 

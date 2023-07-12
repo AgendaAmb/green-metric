@@ -67,8 +67,8 @@ export default function Informacion({ hello }) {
                 <Stack width="100%" gridTemplateColumns={"1fr 0.2fr"} position={"relative"} alignSelf={"center"}>
                     <h3>Departamentos y dependencias a reportar</h3>
                     <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
-                        <Button className="delete-button" onClick={popModule}>-</Button>
                         <Button className="add-button" onClick={pushModule}>+</Button>
+                        <Button className="delete-button" onClick={popModule}>-</Button>
                     </Stack>
                 </Stack>
                 <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
