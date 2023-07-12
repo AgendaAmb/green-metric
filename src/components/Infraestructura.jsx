@@ -162,7 +162,12 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
-                <ModuleInput elements={[{ dicotomic: true, questionDicotomic:'1-3-8-1' }, { type: 3, disabled: true, question:'1-3-8-2' }]} />
+                <ModuleInput elements={[{question: '1-3-8-2', vertical: true}]} select={["0%",
+                "1 - 25%",
+                "26 - 50%",
+                "51 - 75%",
+                "76 - 100%",
+                ]} />
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question:'1-3-9-2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question:'1-3-10-1' }]} />
                 <Stack>
                     <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question:'1-3-11-1'}]} />

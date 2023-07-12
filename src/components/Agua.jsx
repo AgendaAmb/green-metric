@@ -77,6 +77,8 @@ export default function Agua(){
                     "Mantenimiento de áreas verdes asegurando áreas de recarga.",
                     "Otros (especifíque)."
                     ]}} questionCheckBox={'4-1-4'}/>
+                <ModuleInput
+                elements={[{holder: "Especifique", type:1, question:'4-1-4-1'}]} />
             </Stack>
             <Stack direction="column-3">
                  <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
