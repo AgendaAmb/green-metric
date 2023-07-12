@@ -80,6 +80,10 @@
     color: $primary-color;
     width: 100%;
     position: relative;
+
+    svg{
+        z-index: 1;
+    }
 }
 
 .no-gap {
