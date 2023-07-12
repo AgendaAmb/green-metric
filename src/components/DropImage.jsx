@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename }) {
+export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename , pdf = false}) {
     const [images, setImages] = useState([]);
     const [photos, setPhotos] = useState(1);
     const [reference, setReference] = useState(null);
@@ -23,33 +23,33 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
         let tmpImages = [...images];
 
         try {
-            if(maxPhotos != -1 && e.length > photos){
+            if (maxPhotos != -1 && e.length > photos) {
                 throw `No puedes agregar más de ${maxPhotos} archivos.`;
             }
 
             e.forEach((file) => {
-                if(photos > 0 || maxPhotos == -1){
+                if (photos > 0 || maxPhotos == -1) {
                     let url = URL.createObjectURL(file);
-                    tmpImages.push({original: url});
+                    tmpImages.push({ original: url });
                 }
                 count++;
             })
             setPhotos(photos - count);
             setImages(tmpImages);
         }
-        catch(e){
+        catch (e) {
             Swal.fire(
                 '¡Error!',
                 e,
                 'error'
-              )
+            )
         }
         finally {
             disableHover();
 
         }
-    
-        
+
+
     }
     const prev = (e) => {
         const index = reference?.current?.getCurrentIndex();
@@ -64,8 +64,8 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
         let node = ref?.current;
         let classN = node?.className;
         classN ??= "";
-        
-        if(!node?.className.includes("hover-container")){
+
+        if (!node?.className.includes("hover-container")) {
             node.className = `${classN} hover-container`;
         }
 
@@ -76,7 +76,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     }
 
     useEffect(() => {
-    
+
         setPhotos(maxPhotos)
     }, []);
     return (
@@ -85,26 +85,30 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 <h3 className="blue">{`${title} `}</h3>
                 {photos > 0 && <h3 className="red">({photos})</h3>}
             </div>
-            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{"image/*" : ["*.*", ".pdf"]}}>
-                {({ getRootProps, getInputProps}) => (
-                    <section  className="carousel-row">
-                        {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button"  /> : <div></div>}
+            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{ "image/*": ["*.*", ".pdf"] }}>
+                {({ getRootProps, getInputProps }) => (
+                    <section className="carousel-row">
+                        {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
                         <div {...getRootProps()} className="drag-and-drop">
-                            <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" > 
+                            <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
                                 <div>
 
-                                    <MdOutlineUpload className="icon"/>
+                                    <MdOutlineUpload className="icon" />
                                 </div>
                                 <p>Seleccione un archivo o arrástrelo aquí
-                                    <br/>
-                                <sub>Compatible (imágenes y .pdf)</sub></p>
-                                
+                                    <br />
+                                   { <sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
+                                    </p>
+
                             </div>
                             <Gallery images={images} setReference={setReference} />
                             <Input {...getInputProps()} />
                         </div>
                         {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
+                        <div className="delete-top-right">
+                            <span role="button" onClick={console.log}><p>x</p></span>
+                        </div>
                     </section>
                 )}
             </Dropzone>

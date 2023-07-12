@@ -108,7 +108,7 @@ export default function Informacion({ hello }) {
                     <DropImage title={"Fachadas"} maxPhotos={4} />
                     <Stack className="grid-center">
                         <sub>Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad.</sub>
-                    <DropImage title={"Planos"} maxPhotos={4} />
+                    <DropImage title={"Planos"} maxPhotos={4} pdf = {true}/>
                     </Stack>
                 </Stack>
             </VStack>

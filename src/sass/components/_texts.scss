@@ -63,3 +63,32 @@ p {
     bottom: 0;
     right: 20px;
 }
+
+.delete-top-right{
+    color: red;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    padding: 0 15px;
+    span {
+        z-index: 300;
+        display: grid;
+        
+        place-items: center;
+        p{
+            display: grid;
+            place-items: center;
+            width: clamp(30px, 30px, 30px) !important;
+            height: clamp(30px, 30px, 30px) !important;
+            
+            font-size: 20px;
+            font-weight: bolder;
+            z-index: 300;
+            &:hover{
+                filter: brightness(0.7);
+                cursor: pointer;
+            }
+        }
+    }
+}
