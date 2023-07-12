@@ -73,7 +73,8 @@
 
 .carousel-row {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
     place-items: center;
     font-size: 3rem;
     color: $primary-color;
