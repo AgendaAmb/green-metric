@@ -1,5 +1,5 @@
 "use client";
-import { VStack, StackDivider,Stack } from "@chakra-ui/react"
+import { VStack, StackDivider,Stack, Button } from "@chakra-ui/react"
 import CustomTextArea from "./CustomTextArea";
 
 export default function Reporte() {
@@ -15,6 +15,8 @@ export default function Reporte() {
                 w="100%">
                 <CustomTextArea maxCharacters={5000} title={"Escriba un reporte general que indique las generalidades de la dependencia"} />
             </Stack>
+            <Button type="submit">Subir</Button>
+
         </VStack>
     )
 }
