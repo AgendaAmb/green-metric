@@ -28,7 +28,7 @@ export default function Infraestructura() {
             { text: "1.2.8 Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, question:'1-2-8'},
             { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.9 Jardines verticales",question:'1-2-9'},
             { text: "1.2.10 Área de techos verdes.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.10 Techos verdes",question:'1-2-10' },
-            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, maxPhotos: 4, title: "1.2.11 Azotes útiles",question:'1-2-11' },
+            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, maxPhotos: 4, title: "1.2.11 Azoteas útiles",question:'1-2-11' },
             { text: "1.2.12 Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, maxPhotos: 4, title: "1.2.12 Siembra de alimentos y plantas medicinales",question:'1-2-12' },
             { text: "1.2.13 Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.13 Siembra y polinización",question:'1-2-13' },
             { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.14 Estacionamientos sin asfalto o concreto",question:'1-2-14' },
@@ -36,17 +36,51 @@ export default function Infraestructura() {
             { text: "1.2.16 Área de estacionamientos con sombreado natural.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.16 Sombreado natural",question:'1-2-16' },
         ]
 
-    const [components, setComponents] = useState([]);
+    const [components,setComponents] = useState([]);
+    const [components2,setComponents2] = useState([]);
+    const [components3,setComponents3] = useState([]);
+    const [components4,setComponents4] = useState([]);
+    const [components5,setComponents5] = useState([]);
+    const [components6,setComponents6] = useState([]);
 
     const item = () => {
-        const newMod = [...components, {evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1' }];
+        const newMod = [...components, { text: "Especie: ", type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }];
         setComponents([...newMod]);
     }
 
-    useEffect(() => {
-        if (components.length <= 1) {
-            setComponents([{ evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1', text: "Nombre científico: ", type: 1, question:'1-1-2' }])
+    const item2 = () => {
+        const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }];
+        setComponents2([...newMod2]);
+    }
+
+    const item3 = () => {
+        const newMod3 = [...components3, { type: -1, holder: "Nombre de la instalación", evidence: true ,question:'1-3-6-1' }];
+        setComponents3([...newMod3]);
+    }
+    
+    const item4 = () => {
+        const newMod4 = [...components4, { type: 5, evidence: true, maxPhotos: 5 ,question:'1-3-7-1'}];
+        setComponents4([...newMod4]);
+    }
+    const item5 = () => {
+        const newMod5 = [...components5, { type: 1, question:'1-3-11-2' },{ type: 2, question:'1-3-11-1'}, {evidence:true}];
+        setComponents5([...newMod5]);
+    }
+
+   
+    const item6 = () => {
+        const newMod6 = [...components6,{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }];
+        setComponents6([...newMod6]);
+    }
+   
+    const popModule1 = () => {
+        if (components.length > 1) {
+            const updatedComponents = components.slice(0, components.length - 1);
+            setComponents(updatedComponents);
         }
+    }
+
+    useEffect(() => {
         setYear(new Date().getFullYear());
     }, [year]);
 
@@ -58,7 +92,10 @@ export default function Infraestructura() {
             spacing={"30px"}
         >
             <h1>Infraestructura y escenarios</h1>
+
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
+            <Button className="add-button" onClick={item}>+</Button>
+
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
 
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
@@ -69,44 +106,44 @@ export default function Infraestructura() {
                 <Stack spacing="30px" >
                     <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1, question:'1-1-3' }, { text: "Nombre científico: ", type: 1, question:'1-1-4' }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
                 </Stack>
-                <Button className="add-module" onClick={item}>Añadir otro módulo</Button>
-                <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
+
+                <Stack spacing="30px">
                     <ModuleInput elements={components} />
                 </Stack>
             </Stack>
+
             <Stack spacing="30px" w="100%" padding="30px" className="column-2 expand-2">
                 <h3 className="expand-2 green">1.2 Indique en el recuadro punteado el área (m2) de los espacios mencionados a continuación:</h3>
                 <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."} />
             </Stack>
-            <Stack spacing="30px" padding="30px" className="column-3">
+            <Stack spacing="30px" padding="30px" className="column-2">
+            <Button className="add-button" onClick={item2}>+</Button>
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }]} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} addTitle="Añadir producto" />
+                <Stack spacing="30px">
+                    <ModuleInput elements={components2} />
                 </Stack>
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ type: 6, holder: year - 3, question:'1-3-2-1'}, { type: 6, holder: year - 2, question:'1-3-2-2'}, { type: 6, holder: year - 1,question:'1-3-2-2' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
-
                     </Stack>
                     <Stack spacing="30px" w="100%" className="expand-2" >
-
-                        <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", question:'1-3-3-1', helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educacion ambiental, etc.)", type: 6 }]} />
+                        <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", question:'1-3-3-1', helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educación ambiental, etc.)", type: 6 }]} />
                     </Stack>
                     <Stack spacing="30px" direction="column" className="expand-3 column-2">
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
                         <ModuleInput
                             text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2,question:'1-3-4-1' },]} />
                         <Stack direction={"column"} className="expand-3">
-                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true,question:'1-3-4-2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-3' }, { text: "1.3.4.4 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-4' }, { text: "1.3.4.5 Número de rampas de acceso", type: 2, vertical: true,question:'1-3-4-5' }, { text: "1.3.4.6 Número de elevadores adaptados", type: 2, vertical: true,question:'1-3-4-6' }, { text: "1.3.4.7 Número de carteles o anuncios en braille", type: 2, vertical: true,question:'1-3-4-7' }, { text: "1.3.4.8 Número de salidas de emergencia", type: 2, vertical: true,question:'1-3-4-8' }, {
-                                text: "1.3.4.9 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
+                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true,question:'1-3-4-2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-3' }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true,question:'1-3-4-4' }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true,question:'1-3-4-5' }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true,question:'1-3-4-6' }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true,question:'1-3-4-7' }, {
+                                text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
                                     type: 2,
                                     holder: "¿Cuantos?",
-                                    question:'1-3-4-9',
+                                    question:'1-3-4-8',
                                 }
                             },]} />
                             <Stack className="column-2 grid-center">
@@ -146,42 +183,51 @@ export default function Infraestructura() {
                     }
                 },]} />
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >+
+                <Button className="add-button" onClick={item3}>+</Button>
+
                 <Text className="expand-2">1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público).
                 </Text>
                 <ModuleInput elements={[{ type: -1, holder: "Nombre de la instalación", evidence: true ,question:'1-3-6-1' }]} />
-                <AddModule />
+                <ModuleInput elements={components3}/>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-                <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y manetenimeinto de sus instalaciones en el 2022.
+            <Button className="add-button" onClick={item4}>+</Button>
+                <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y mantenimiento de sus instalaciones en el 2022.
                 </Text>
                 <Text className="expand-2">El porcentaje se define como (Área total de construcción operada y con mantenimiento / Área total de edificios de su entidad) × 100%.
                 </Text>
-
                 <ModuleInput title="Áreas de tu entidad en mantenimiento este año" elements={[{ type: 5, evidence: true, maxPhotos: 5 ,question:'1-3-7-1'}]} />
-                <AddModule />
+                <ModuleInput elements={components4}/>
             </Stack>
+           
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+            <Button className="add-button" onClick={item5}>+</Button>
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
-                <ModuleInput elements={[{ dicotomic: true, questionDicotomic:'1-3-8-1' }, { type: 3, disabled: true, question:'1-3-8-2' }]} />
+                <ModuleInput elements={[{question: '1-3-8-2', vertical: true}]} select={["0%",
+                "1 - 25%",
+                "26 - 50%",
+                "51 - 75%",
+                "76 - 100%",
+                ]} />
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question:'1-3-9-2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question:'1-3-10-1' }]} />
-                <Stack>
+                <Stack spacing="30px" className="column">
                     <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question:'1-3-11-1'}]} />
                     <ModuleInput elements={[{ type: 1, evidence: true, question:'1-3-11-2' }]} />
-
+                    <ModuleInput elements={components5}/>
                 </Stack>
-                <AddModule />
+ 
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
                 <h3 className="expand-2 green"><strong>1.4 </strong>Seguridad en las instalaciones </h3>
-                <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true, questionDicotomic:'1-4-1-1' }, { text: "1.4.2 Indique el numero de extintores que tienen en total", type: 2, vertical: true, question:'1-4-1-2' }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunion, zona de alta tensión, etc). ", dicotomic: true, vertical: true, questionDicotomic:'1-4-3-1' }]} />
+                <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true, questionDicotomic:'1-4-1-1' }, { text: "1.4.2 Indique el número de extintores que tienen en total", type: 2, vertical: true, question:'1-4-1-2' }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunión, zona de alta tensión, etc). ", dicotomic: true, vertical: true, questionDicotomic:'1-4-3-1' }]} />
                 <Stack >
                     <ModuleInput text="1.4.4 ¿Cuentan con dispositivos para detección de siniestros?" elements={[{ text: "Seleccione los dispositivos con los que cuenta su entidad" }, { dicotomic: true, questionDicotomic:'1-4-4-1' }]} checkbox={{
                         data: [
                             "Detectores de calor",
                             "Detectores de humo",
                             "Detectores de llama",
-                            " Otro (Especifique en la siguiente celda)"
+                            " Otro (Especifique)" //Agrregar celda para este campo, cambiar letra a tamano de la instruccion
                         ]
                     }} questionCheckBox={'1-4-4'}/>
 
@@ -197,13 +243,14 @@ export default function Infraestructura() {
                     }} questionCheckBox={'1-4-5'} />
                 </Stack>
                 <Stack className="expand-2 column-2">
+                <Button className="add-button" onClick={item6}>+</Button>
                     <Text className="expand-2">1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). </Text>
                     <ModuleInput text="Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño." elements={[{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }]} />
-                    <AddModule />
+                    <ModuleInput elements={components6}/>
 
                 </Stack>
             </Stack>
-            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
             <Button type="submit">Subir</Button>
         </VStack>
     );
