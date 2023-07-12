@@ -5,30 +5,33 @@
     border-radius: 30px;
     position: relative;
     opacity: 1;
-    
-    &:hover{
+
+    &:hover {
         border-color: #0094FF;
         color: #0094FF;
     }
-    > *{
+
+    >* {
         border-radius: 30px;
     }
-    > .input {
-            position: absolute;
-            overflow: hidden;
-            opacity: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
+
+    >.input {
+        position: absolute;
+        overflow: hidden;
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+
         * {
             width: 100%;
             height: 100%;
         }
     }
 
-    &:not(.overlay){
-        
-        
+    &:not(.overlay) {
+
+
         * {
             overflow: hidden !important;
             width: 100%;
@@ -38,38 +41,66 @@
     }
 
     .drop-container {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: space-between;
-        flex-flow: column nowrap;
-        position: absolute;
-        
-        
 
-        > div {
+        &,
+        * {
+            box-sizing: border-box !important;
+        }
+
+        display: grid;
+        place-items: center;
+        text-align: center;
+        width: 100%;
+        position: absolute;
+        padding: 30px;
+
+
+        >div {
             display: grid;
             align-items: end;
             justify-content: center;
-            width: 300px;
+            width: 100%;
             height: 100%;
+
             svg {
                 align-self: end;
                 justify-self: center;
                 width: 100%;
                 font-size: 70px;
                 height: fit-content;
-                
+
             }
         }
+
+        .head {
+            grid-template-columns: 1fr;
+            padding: 5px;
+            display: grid;
+            place-items: center;
+
+            p {
+                width: 100%;
+                text-align: center;
+                word-spacing: 2px;
+                font-size: 13px;
+                color: rgb(172, 172, 172);
+            }
+
+            .icon {
+                max-width: 70px;
+                max-height: 70px;
+            }
+        }
+
         p {
             width: 150px;
             font-size: 15px;
             flex-shrink: 1;
-            
+
         }
+
         z-index: 1;
-        
+
     }
 }
 
@@ -83,7 +114,7 @@
     width: 100%;
     position: relative;
 
-    svg{
+    svg {
         z-index: 1;
     }
 }
@@ -95,6 +126,7 @@
 .hide-container {
     opacity: 0;
     transition: all ease-in-out 0.25s;
+
     &:hover {
         text-shadow: 1px 1px 1px black;
         color: $secondary-color;
@@ -105,32 +137,36 @@
 
 
 .hover-container {
-        border-radius:30px;
-        width: 300px;
-        height: 100%;
+    border-radius: 30px;
+    width: 300px;
+    height: 100%;
+    text-shadow: 1px 1px 1px black;
+    color: $secondary-color;
+    opacity: 1 !important;
+    backdrop-filter: brightness(0.5);
+    z-index: 3 !important;
+
+    >* {
+        opacity: 1;
+        z-index: 300;
+    }
+
+    &:hover {
         text-shadow: 1px 1px 1px black;
         color: $secondary-color;
-        opacity: 1 !important;
+        opacity: 1;
         backdrop-filter: brightness(0.5);
-        z-index: 3 !important;
-        > *{
-            opacity: 1;
-            z-index: 300;
-        }
-        &:hover {
-            text-shadow: 1px 1px 1px black;
-            color: $secondary-color;
-            opacity: 1;
-            backdrop-filter: brightness(0.5);
-        }
+    }
 }
-.drop-title{
-    
+
+.drop-title {
+
     text-align: left;
     display: flex;
     align-items: center;
     justify-content: center;
-    > * {
+
+    >* {
         width: 100%;
         padding: 5px;
     }
@@ -139,6 +175,7 @@
 .red {
     color: red;
 }
+
 .image-gallery {
     z-index: 0 !important;
 }

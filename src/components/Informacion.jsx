@@ -23,13 +23,13 @@ export default function Informacion({ hello }) {
         "Entidades de apoyo académico",
         "Servicios al público",
     ];
-    
+
 
     const [deps, setDeps] = useState([]);
 
 
     const pushModule = () => {
-        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question:`0-2-${deps.length + 1}` }];
+        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question: `0-2-${deps.length + 1}` }];
 
         setDeps([...newDeps]);
     }
@@ -44,7 +44,7 @@ export default function Informacion({ hello }) {
     useEffect(() => {
         if (deps.length <= 1) {
 
-            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question:`0-2-${deps.length + 1}`}])
+            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question: `0-2-${deps.length + 1}` }])
         }
     }, [])
 
@@ -59,9 +59,9 @@ export default function Informacion({ hello }) {
             <h1 className="blue">Información</h1>
 
             <Stack spacing="5px" w="30%" padding="30px">
-            <ModuleInput title={"Datos de la dependencia"} 
-            elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question:'0-1-1' }, { holder: "Dirección de la dependencia", type: 1, question:'0-1-2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question:'0-1-3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question:'0-1-4'}]} 
-            inputName={'inputField'} />
+                <ModuleInput title={"Datos de la dependencia"}
+                    elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question: '0-1-1' }, { holder: "Dirección de la dependencia", type: 1, question: '0-1-2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question: '0-1-3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question: '0-1-4' }]}
+                    inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
                 <Stack width="100%" gridTemplateColumns={"1fr 0.2fr"} position={"relative"} alignSelf={"center"}>
@@ -89,13 +89,13 @@ export default function Informacion({ hello }) {
                         "5. Transporte",
                         "6. Educación",
                     ], hasInput: true
-                }} checkboxName={'CheckBoxField'} questionCheckBox={'0-3-1'}/>
+                }} checkboxName={'CheckBoxField'} questionCheckBox={'0-3-1'} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
-                <ModuleInput select = {options} questionSelect={'0-4-1'}/>
-                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2, question:'0-4-2' }]} />
+                <ModuleInput select={options} questionSelect={'0-4-1'} />
+                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2, question: '0-4-2' }]} />
             </Stack>
 
 
@@ -107,8 +107,8 @@ export default function Informacion({ hello }) {
                     <DropImage title={"Instalaciones interiores"} maxPhotos={4} />
                     <DropImage title={"Fachadas"} maxPhotos={4} />
                     <Stack className="grid-center">
-                        <sub>Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad.</sub>
-                    <DropImage title={"Planos"} maxPhotos={4} pdf = {true}/>
+
+                        <DropImage title={"Planos"} maxPhotos={4} pdf={true} sub="Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad." />
                     </Stack>
                 </Stack>
             </VStack>
