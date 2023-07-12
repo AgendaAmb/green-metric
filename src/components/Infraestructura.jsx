@@ -39,14 +39,11 @@ export default function Infraestructura() {
     const [components, setComponents] = useState([]);
 
     const item = () => {
-        const newMod = [...components, {evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1' }];
+        const newMod = [...components, { text: "Especie: ", type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }];
         setComponents([...newMod]);
     }
 
     useEffect(() => {
-        if (components.length <= 1) {
-            setComponents([{ evidence:true, maxPhotos: 1, text: "Especie", type: 1, question:'1-1-1', text: "Nombre científico: ", type: 1, question:'1-1-2' }])
-        }
         setYear(new Date().getFullYear());
     }, [year]);
 
@@ -69,8 +66,10 @@ export default function Infraestructura() {
                 <Stack spacing="30px" >
                     <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1, question:'1-1-3' }, { text: "Nombre científico: ", type: 1, question:'1-1-4' }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
                 </Stack>
+
                 <Button className="add-module" onClick={item}>Añadir otro módulo</Button>
-                <Stack direction={"column"} className="expand-3 column-3" gridAutoFlow={"row"} w={"100%"}>
+
+                <Stack spacing="30px" className="column">
                     <ModuleInput elements={components} />
                 </Stack>
             </Stack>
