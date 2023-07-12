@@ -20,7 +20,7 @@ export default function Login() {
             <Stack>
             <LoginInput 
                 title={"RPE/Clave única"}
-                elements={[{ holder: "example@mail", type: "text", inputName: "cve_rpe"}]}
+                elements={[{ holder: "Ingrese su usuario", type: "text", inputName: "cve_rpe"}]}
             />
 
             <LoginInput 

@@ -34,7 +34,7 @@ export default function LoginInput({ title, elements, column = false, span = fal
                                         pointerEvents="none"
                                         color="gray.600"
                                         fontSize="1.2em"
-                                        children={`${left ? left : type == "text" ? "@" : "***"}`}
+                                        children={`${left ? left : type == "text" ? "123" : "***"}`}
                                     />
                                     <Input
                                         name={inputName}

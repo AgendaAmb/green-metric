@@ -107,7 +107,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                         {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
                         <div className="delete-top-right">
-                            <span role="button" onClick={console.log}><p>x</p></span>
+                            <span role="button" ><p>x</p></span>
                         </div>
                     </section>
                 )}
