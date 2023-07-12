@@ -7,6 +7,8 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Formik, useFormik, withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext } from "react";
+import axios from "axios";
+
 
 export const FormContext = createContext(null);
 
@@ -48,11 +50,20 @@ export const Providers = withFormik({
     },
 
     handleSubmit: (values, { setSubmitting }) => {
-        console.log("Printing")
+        console.log("Printing", values)
         let data = [];
         setTimeout(() => {
             for (const [key, value] of Object.entries(values)) {
-                data.push({ question: key, value: value });
+                axios.post('/GreenMetric/api/sendAnswer', {
+                    value: value,
+                    question: key
+                })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
             /* const mysql = require('mysql2');
             const connection = mysql.createConnection({

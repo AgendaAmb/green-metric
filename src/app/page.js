@@ -11,16 +11,6 @@ export default function Home() {
 
     useEffect(() => {
         //router.push("/informacion");
-        axios.post('/GreenMetric/api/sendAnswer', {
-            value: 'Fred',
-            question: '1-2-3'
-        })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
     }, []);
     return (
             <Login />

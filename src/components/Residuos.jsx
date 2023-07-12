@@ -36,8 +36,8 @@ export default function Residuos() {
                     , evidence: true, maxPhotos: 3, question:'3-2-1'
                 }, { text: "3.2.2 Cantidad de residuos orgánicos tratados por semana (Compostaje en casa, servicio particular, jardines, Unihuerto, etc. (kg)).", type: 2, evidence: true, maxPhotos: 3, question:'3-2-2' }]}/>
                 <ModuleInput elements={[{
-                    text: "3.2.3.1 ¿Cuenta con un programa de tratamiento de residuos orgánicos?", type: 4, dicotomic: true, questionDicotomic:'3-2-3-1'
-                }, { text: "3.2.3.2 Nombre del programa implementado", holder: "Nombre del programa", type: 1, question:'3-2-3-2', vertical: false}]}/>
+                    text: "3.2.3.1 ¿Cuenta con un programa de tratamiento de residuos orgánicos?", type: 4, dicotomic: true, questionDicotomic:'3-2-3-1', vertical: true
+                }, { text: "3.2.3.2 Nombre del programa implementado", holder: "Nombre del programa", type: 1, question:'3-2-3-2', vertical: true, span: false}]}/>
                 <ModuleInput elements={[{text: "3.2.3.3 Indicar el porcentaje de residuos orgánicos que son tratados con el programa.", half: true, question: '3-2-3-3', vertical: true, }]} select={["0%",
                 "1 - 25%",
                 "26 - 50%",
