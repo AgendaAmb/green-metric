@@ -13,12 +13,27 @@ import {
     Button,
 } from "@chakra-ui/react";
 
-
+import { useEffect, useState } from 'react';
 import ModuleInput from "./ModuleInput";
 import CustomTextArea from "./CustomTextArea";
 import { Box, Image } from "@chakra-ui/react"
 
 export default function Energia(){
+    const [components,setComponents] = useState([]);
+    const [components2,setComponents2] = useState([]);
+
+    const item = () => {
+        const newMod = [...components,{text: 'Tipo de energía renovable', type:1, question:'2-2-1-7'}, 
+        {text:'Cantidad de equipos', type:2, question:'2-2-1-8'}, {text:'Capacidad de kW/h', type:2, question:'2-2-1-9'}, {evidence:true, maxPhotos:1}];
+        setComponents([...newMod]);
+    }
+    
+     const item2 = () => {
+        const newMod2 = [...components2,{text: 'Nombre de política', type:1, question:'2-2-2-3'}, 
+        {text:'Institución que lo valida', type:1, question:'2-2-2-4'}, {evidence:true, maxPhotos:3}];
+        setComponents2([...newMod2]);
+    }
+
     return(
         <VStack
         w="100%"
@@ -78,6 +93,7 @@ export default function Energia(){
                 elements={[{type:5, question:'2-1-15'}]} /> 
             </Stack>
             <Stack spacing="30px" w="100%">
+            <Button className="add-button" onClick={item}>+</Button>
             <h3 className="expand-2 green">2.2 Responda los siguientes requerimentos</h3>
             <h4 className="expand-2 blue">2.2.1 Número de fuentes de energía renovable en su campus y su capacidad en kW/h para cada tipo que tenga (energía solar, eólica, geotérmica, hidroeléctrica, biodiesel y biomasa limpia).</h4>
             <h5 className="expand-2 blue">Coloque la información solicitada en los recuadros y añada evidencia fotográfica del recuadro de mayor tamaño</h5>
@@ -94,15 +110,15 @@ export default function Energia(){
                     <ModuleInput elements={[{text: 'Tipo de energía renovable', type:1, question:'2-2-1-7'}, 
                     {text:'Cantidad de equipos', type:2, question:'2-2-1-8'}, {text:'Capacidad de kW/h', type:2, question:'2-2-1-9'}, {evidence:true, maxPhotos:1}]} />
                 </Stack>
-            </Stack>
-            <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
-            <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+
+                <Stack spacing="30px">
+                    <ModuleInput elements={components}/>
             </Stack>
             </Stack>
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2">
+            <Button className="add-button" onClick={item2}>+</Button>
             <h4 className="expand-2 blue">2.2.2 Certificación nacional o internacional sobre políticas en la implementación de edificios verdes. Adjuntar evidencia que lo valide</h4>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{text: 'Nombre de política', type:1, question:'2-2-2-1'}, 
@@ -112,8 +128,8 @@ export default function Energia(){
                     <ModuleInput elements={[{text: 'Nombre de política', type:1, question:'2-2-2-3'}, 
                     {text:'Institución que lo valida', type:1, question:'2-2-2-4'}, {evidence:true, maxPhotos:3}]} />
                 </Stack>
-                <Stack spacing="30px" className="grid-3-rows">
-                    <ModuleInput add={true} />
+                <Stack spacing="30px">
+                    <ModuleInput elements={components2}/>
                 </Stack>
             </Stack>
             {/* FALTA AGREGAR LA TABLA DE FUENTES DE EMISIÓN*/}
