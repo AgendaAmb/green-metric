@@ -10,10 +10,10 @@ export async function POST(req, res) {
     body = await req.json();
     if(body.hasOwnProperty("value") && body.hasOwnProperty("question")){
       const {value, question} = body;
-      connection.query('SELECT * FROM users', function(err, results, fields){
+      /* connection.query('SELECT * FROM users', function(err, results, fields){
         console.log("Results", results);
         console.log("Fields", fields);
-      })
+      }) */
     }
   }
   catch(e){
