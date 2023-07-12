@@ -33,6 +33,6 @@
         "react-image-gallery": "^1.2.12",
         "sass": "^1.63.3",
         "serverless-mysql": "^1.5.5",
-        "sweetalert2": "^11.7.12"
+        "sweetalert2": "^11.6.13"
     }
 }

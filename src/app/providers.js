@@ -6,7 +6,7 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { Formik, useFormik, withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
-import { useState, createContext } from "react";
+import { useState, createContext, useEffect } from "react";
 import axios from "axios";
 
 
@@ -15,7 +15,22 @@ export const FormContext = createContext(null);
 function FormBase({ children, handleSubmit, handleChange, values }) {
     const [data, setData] = useState({ values, handleChange });
 
-
+    const fetchData = async () => {
+        try {
+          const response = await axios.get('/GreenMetric/api/getAnswer', {
+            params: { value: 1 } // Pasar los parámetros como parte del objeto `params`
+          });
+          const data = response.data;
+          console.log(data);
+        } catch (error) {
+          console.error(error);
+        }
+      };
+    
+      useEffect(() => {
+        fetchData();
+      }, []);
+    
 
     return (
 
@@ -34,7 +49,6 @@ function FormBase({ children, handleSubmit, handleChange, values }) {
     );
 }
 
-
 export const Providers = withFormik({
     mapPropsToValues: () => ({}),
 
@@ -48,12 +62,22 @@ export const Providers = withFormik({
 
         return errors;
     },
+    
+    fetchData: async () => {
+        try {
+          const response = await axios.get('/GreenMetric/api/getAnswer',{value: 1}) // Reemplaza '/api/endpoint' por tu ruta de API correcta
+          const data = response.data;
+          console.log(data); // Haz algo con los datos obtenidos de la API
+        } catch (error) {
+          console.error(error);
+        }
+      },
 
     handleSubmit: (values, { setSubmitting }) => {
         console.log("Printing", values)
         let data = [];
         setTimeout(() => {
-            /* for (const [key, value] of Object.entries(values)) {
+            for (const [key, value] of Object.entries(values)) {
                 axios.post('/GreenMetric/api/sendAnswer', {
                     value: value,
                     question: key
@@ -64,17 +88,17 @@ export const Providers = withFormik({
                     .catch(function (error) {
                         console.log(error);
                     });
-            } */
+            } 
             
 
-            // simple query
-            connection.query(
-                'SELECT * FROM `users`',
-                function (err, results, fields) {
-                    console.log(results); // results contains rows returned by server
-                    console.log(fields); // fields contains extra meta data about results, if available
-                }
-            ); */
+            // // simple query
+            // connection.query(
+            //     'SELECT * FROM `users`',
+            //     function (err, results, fields) {
+            //         console.log(results); // results contains rows returned by server
+            //         console.log(fields); // fields contains extra meta data about results, if available
+            //     }
+            // ); 
 
             console.log(data);
             //alert(JSON.stringify(values, null, 2));

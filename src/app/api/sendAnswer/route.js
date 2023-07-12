@@ -11,12 +11,12 @@ export async function POST(req, res) {
     if (body.hasOwnProperty("value") && body.hasOwnProperty("question")) {
       const { value, question } = body;
       connection.query(`
-  INSERT INTO answers (dependency_id, answer, question_id)
-  VALUES (?, ?, ?)
-  ON DUPLICATE KEY UPDATE
-      dependency_id = VALUES(dependency_id),
-      answer = VALUES(answer),
-      question_id = VALUES(question_id);`,
+        INSERT INTO answers (dependency_id, answer, question_id)
+        VALUES (?, ?, ?)
+        ON DUPLICATE KEY UPDATE
+            dependency_id = VALUES(dependency_id),
+            answer = VALUES(answer),
+            question_id = VALUES(question_id);`,
         [1, value, question],
         function (err, results, fields) {
           if (err) {
