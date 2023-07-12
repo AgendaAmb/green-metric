@@ -103,7 +103,7 @@ export default function Energia(){
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2">
-            <h4 className="expand-2 blue">2.2.2 Certificación nacional o internacional sobre políticas en la implementación de edificion verdes. Adjuntar evidencia que lo valide</h4>
+            <h4 className="expand-2 blue">2.2.2 Certificación nacional o internacional sobre políticas en la implementación de edificios verdes. Adjuntar evidencia que lo valide</h4>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{text: 'Nombre de política', type:1, question:'2-2-2-1'}, 
                     {text:'Institución que lo valida', type:1, question:'2-2-2-2'}, {evidence:true, maxPhotos:3}]} />
@@ -185,7 +185,7 @@ export default function Energia(){
                 <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>            
                 </Stack>
                 <Stack spacing="30px">
-                <ModuleInput title="2.2.5.5 3R Advertencia temprana del cambio climático" elements={[{dicotomic:true, span:true, questionDicotomic:'2-2-5-5'}]} />
+                <ModuleInput title="2.2.5.5 Advertencia temprana del cambio climático" elements={[{dicotomic:true, span:true, questionDicotomic:'2-2-5-5'}]} />
                 <ModuleInput select={[
                 "Sin programa implementado",
                 "Programa en preparación",
@@ -196,7 +196,7 @@ export default function Energia(){
                 <ModuleInput elements={[{evidence:true, maxPhotos:3}]}/>
                 </Stack>
             </Stack>
-            <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
             <Button type="submit">Subir</Button>
         </VStack>
     )

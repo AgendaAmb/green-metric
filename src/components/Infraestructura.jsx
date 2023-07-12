@@ -28,7 +28,7 @@ export default function Infraestructura() {
             { text: "1.2.8 Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, question:'1-2-8'},
             { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.9 Jardines verticales",question:'1-2-9'},
             { text: "1.2.10 Área de techos verdes.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.10 Techos verdes",question:'1-2-10' },
-            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, maxPhotos: 4, title: "1.2.11 Azotes útiles",question:'1-2-11' },
+            { text: "1.2.11 Área de azoteas útiles (con accesos seguros, multiusos, etc).", type: 5, evidence: true, maxPhotos: 4, title: "1.2.11 Azoteas útiles",question:'1-2-11' },
             { text: "1.2.12 Área destinada a la siembra de alimentos y plantas medicinales", type: 5, evidence: true, maxPhotos: 4, title: "1.2.12 Siembra de alimentos y plantas medicinales",question:'1-2-12' },
             { text: "1.2.13 Área destinada a la siembra de plantas que promueven la polinización.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.13 Siembra y polinización",question:'1-2-13' },
             { text: "1.2.14 Área de estacionamientos sin asfalto o concreto; pueden tener grava, adoquín o asfalto permeable.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.14 Estacionamientos sin asfalto o concreto",question:'1-2-14' },
@@ -94,18 +94,18 @@ export default function Infraestructura() {
                     </Stack>
                     <Stack spacing="30px" w="100%" className="expand-2" >
 
-                        <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", question:'1-3-3-1', helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educacion ambiental, etc.)", type: 6 }]} />
+                        <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", question:'1-3-3-1', helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educación ambiental, etc.)", type: 6 }]} />
                     </Stack>
                     <Stack spacing="30px" direction="column" className="expand-3 column-2">
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
                         <ModuleInput
                             text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2,question:'1-3-4-1' },]} />
                         <Stack direction={"column"} className="expand-3">
-                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true,question:'1-3-4-2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-3' }, { text: "1.3.4.4 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-4' }, { text: "1.3.4.5 Número de rampas de acceso", type: 2, vertical: true,question:'1-3-4-5' }, { text: "1.3.4.6 Número de elevadores adaptados", type: 2, vertical: true,question:'1-3-4-6' }, { text: "1.3.4.7 Número de carteles o anuncios en braille", type: 2, vertical: true,question:'1-3-4-7' }, { text: "1.3.4.8 Número de salidas de emergencia", type: 2, vertical: true,question:'1-3-4-8' }, {
-                                text: "1.3.4.9 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
+                            <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true,question:'1-3-4-2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true,question:'1-3-4-3' }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true,question:'1-3-4-4' }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true,question:'1-3-4-5' }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true,question:'1-3-4-6' }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true,question:'1-3-4-7' }, {
+                                text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
                                     type: 2,
                                     holder: "¿Cuantos?",
-                                    question:'1-3-4-9',
+                                    question:'1-3-4-8',
                                 }
                             },]} />
                             <Stack className="column-2 grid-center">
@@ -152,7 +152,7 @@ export default function Infraestructura() {
                 <AddModule />
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-                <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y manetenimeinto de sus instalaciones en el 2022.
+                <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y mantenimiento de sus instalaciones en el 2022.
                 </Text>
                 <Text className="expand-2">El porcentaje se define como (Área total de construcción operada y con mantenimiento / Área total de edificios de su entidad) × 100%.
                 </Text>
@@ -173,14 +173,14 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
                 <h3 className="expand-2 green"><strong>1.4 </strong>Seguridad en las instalaciones </h3>
-                <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true, questionDicotomic:'1-4-1-1' }, { text: "1.4.2 Indique el numero de extintores que tienen en total", type: 2, vertical: true, question:'1-4-1-2' }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunion, zona de alta tensión, etc). ", dicotomic: true, vertical: true, questionDicotomic:'1-4-3-1' }]} />
+                <ModuleInput elements={[{ text: "1.4.1 ¿Cuentan con programas para clasificación y uso de extintores? ", dicotomic: true, vertical: true, questionDicotomic:'1-4-1-1' }, { text: "1.4.2 Indique el número de extintores que tienen en total", type: 2, vertical: true, question:'1-4-1-2' }, { text: "1.4.3 ¿Cuentan con señalética de seguridad? (salida de emergencia, punto de reunión, zona de alta tensión, etc). ", dicotomic: true, vertical: true, questionDicotomic:'1-4-3-1' }]} />
                 <Stack >
                     <ModuleInput text="1.4.4 ¿Cuentan con dispositivos para detección de siniestros?" elements={[{ text: "Seleccione los dispositivos con los que cuenta su entidad" }, { dicotomic: true, questionDicotomic:'1-4-4-1' }]} checkbox={{
                         data: [
                             "Detectores de calor",
                             "Detectores de humo",
                             "Detectores de llama",
-                            " Otro (Especifique en la siguiente celda)"
+                            " Otro (Especifique)" //Agrregar celda para este campo, cambiar letra a tamano de la instruccion
                         ]
                     }} questionCheckBox={'1-4-4'}/>
 
@@ -202,7 +202,7 @@ export default function Infraestructura() {
 
                 </Stack>
             </Stack>
-            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
             <Button type="submit">Subir</Button>
         </VStack>
     );
