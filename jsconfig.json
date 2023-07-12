@@ -4,7 +4,8 @@
         "paths": {
             "@/*": ["./src/*"],
             "@sass": ["./src/sass/main.scss"],
-            "@components/*": ["./src/components/*"]
+            "@components/*": ["./src/components/*"],
+            "@lib/*": ["./src/lib/*"]
         }
     }
 }

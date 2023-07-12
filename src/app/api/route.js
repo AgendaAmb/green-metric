@@ -1,14 +1,13 @@
 import NextResponse from "next/server";
 import { headers } from 'next/headers'
 
-export const dynamic = 'force-static'
 
 
 
-export async function GET(req, res) {
-  const data = await req;
-  console.log(data.nextUrl.pathname);
-  return new Response('Hello, Next.js!', {
+export async function POST(req, res) {
+  const data = await req.json();
+  console.log(data);
+  return new Response('Ok', {
     status: 200,
     headers: {
       'Access-Control-Allow-Origin': '*',
