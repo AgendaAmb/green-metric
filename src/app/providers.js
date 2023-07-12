@@ -65,12 +65,7 @@ export const Providers = withFormik({
                         console.log(error);
                     });
             } */
-            /* const mysql = require('mysql2');
-            const connection = mysql.createConnection({
-                host: 'localhost',
-                user: 'root',
-                database: 'green-metric'
-            });
+            
 
             // simple query
             connection.query(
