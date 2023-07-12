@@ -1,6 +1,6 @@
 "use client"
 import {
-    Icon, Stack, Input
+    Icon, Stack, Input, Text
 } from "@chakra-ui/react";
 
 import { useEffect, useState, useRef } from "react";
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2'
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename , pdf = false}) {
+export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename , pdf = false, sub}) {
     const [images, setImages] = useState([]);
     const [photos, setPhotos] = useState(1);
     const [reference, setReference] = useState(null);
@@ -92,7 +92,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                         <div {...getRootProps()} className="drag-and-drop">
                             <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
                                 <div>
-
+                                    {sub && <Text>{sub}</Text>}
                                     <MdOutlineUpload className="icon" />
                                 </div>
                                 <p>Seleccione un archivo o arrástrelo aquí
