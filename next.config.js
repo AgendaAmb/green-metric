@@ -5,7 +5,7 @@ const tSlash = (process.env.PROD === "true" ? true : false);
 const config = {
     assetPrefix: '/GreenMetric',
     basePath: '/GreenMetric',
-    trailingSlash: tSlash,
+    trailingSlash: true,
     skipTrailingSlashRedirect: true,
 }
 
