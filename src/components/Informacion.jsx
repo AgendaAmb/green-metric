@@ -9,7 +9,6 @@ import {
 import { useEffect, useState } from "react";
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
-import { useField, Form, FormikProps, Formik } from 'formik';
 
 
 export default function Informacion({ hello }) {

@@ -1,6 +1,6 @@
 "use client";
 import { Select } from "@chakra-ui/react";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormContext } from "@/app/providers";
 
 
@@ -13,6 +13,10 @@ function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", name
             
         }
     };
+
+    useEffect(() => {
+        console.log("Select", form);
+    })
     return (
         <Select placeholder={holder}  className={...classes} name={nameSelect}  onClick={form.handleChange} onChange={handleSelected}>
             {data?.map((el, index) => {
