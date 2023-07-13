@@ -12,9 +12,13 @@ import axios from "axios";
 
 export default function Login() {
     const router = useRouter();
+    /* const auth = async () => {
+        console.log("Hello");
+        router.replace('/login?dependency_id=1');
+    } */
     const auth = async () => {
-        const res = axios.get("/GreenMetric/api/auth");
-        console.log("res", res);
+        axios.get("/GreenMetric/api/auth", {params: {user_id: 7440, password: "N3yEz56"}});
+        //console.log("res", res);
     }
     return (
         <VStack

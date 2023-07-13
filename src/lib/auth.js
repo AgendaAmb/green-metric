@@ -1,20 +1,22 @@
+
 import { NextRequest, NextResponse } from 'next/server'
-import { getCookies, getCookie, setCookies, removeCookies, setCookie } from 'cookies-next';
 
 export const auth = (request) => {
+    console.log(request.nextUrl.searchParams.get("password"));
     if( isAuth(request)){
-        console.log(1);
-        return NextResponse.redirect(res.nextUrl.pathname, request.url);
+        const path = request.nextUrl.pathname;
+        //return NextResponse.redirect(path, request.url);
     }
     else{
-        setCookie("session", true, {
-            path: "/"
-        });
+        const url = request.nextUrl.clone()
+        url.pathname = '/login'        
+        //return NextResponse.redirect(url);
     }
 }
 
 export const isAuth = (request) => {
-    const hasSession = getCookies();
-    console.log("cokkie", hasSession);
+    if(request.cookies.get("user") != null){
+        return true;
+    }
     return false;
 }
