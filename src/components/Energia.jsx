@@ -42,6 +42,7 @@ export default function Energia(){
         spacing={"30px"}
         >
             <h1>Energía y cambio climático</h1>
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información respecto a la atención que cada entidad brinda al tema del uso de la energía y el cambio climático. Se espera que las entidades aumenten el esfuerzo en eficiencia energética en sus edificios, naturaleza y recursos.</Text>
             
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
                 <h3 className="expand-2 green">2.1 Indicar en cada espacio, la cantidad de forma numérica de mobiliario de eficiencia energética y el número de aplicaciones convencionales que usa</h3>

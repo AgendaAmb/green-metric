@@ -24,6 +24,7 @@ export default function Residuos() {
             spacing={"30px"}
         >
             <h1>Residuos</h1>
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información en torno a los programas de tratamiento y reciclaje de residuos que cada una de las entidades posee o implementa de modelos existentes en la UASLP, ya que se trata de un factor importante en la creación del entorno sostenible. Todas las personas somos consumidores, en consecuencia, somos generadoras de residuos al igual que se producen tras el ejercicio de nuestras actividades laborales, en distintas medidas, por lo que las entidades deben tomar nota de su producción de residuos, así como de los esfuerzos de reciclaje.</Text>
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
         
             <h3 className="expand-2 green">3.1 Cantidad de residuos sólidos urbanos (RSU).</h3>

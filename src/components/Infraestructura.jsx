@@ -44,10 +44,15 @@ export default function Infraestructura() {
     const [components6,setComponents6] = useState([]);
 
     const item = () => {
-        const newMod = [...components, { text: "Especie: ", type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }];
-        setComponents([...newMod]);
-    }
-
+        const newMod = [
+          ...components,
+          { text: "Especie: ", type: 1, question: '1-1-1' },
+          { text: "Nombre científico: ", type: 1, question: '1-1-2' },
+          { evidence: true, maxPhotos: 1 }
+        ];
+        setComponents(newMod);
+      }
+    
     const item2 = () => {
         const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }];
         setComponents2([...newMod2]);
@@ -75,17 +80,15 @@ export default function Infraestructura() {
    
     
     const popModule = (componentnumber) => {
-        switch(componentnumber)
-        {
-            case 1:
-                if(components.length > 1)
-                {
-                  const updatedComponents = components.slice(0, components.length - 1);
-                    setComponents(updatedComponents);
-                }
+        switch (componentnumber) {
+          case 1:
+            if (components.length > 1) {
+              const updatedComponents = components.slice(0, components.length - 1);
+              setComponents(updatedComponents);
+            }
             break;
-        } 
-    }
+        }
+      }
 
     useEffect(() => {
         setYear(new Date().getFullYear());
@@ -99,9 +102,10 @@ export default function Infraestructura() {
             spacing={"30px"}
         >
             <h1>Infraestructura y escenarios</h1>
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información básica relacionada con las políticas internas de cada una de las entidades en materia de sustentabilidad y medio ambiente. Además, incluye apartados para conocer sobre la biodiversidad presente en nuestros espacios de trabajo (vegetación y fauna), así como acciones y medidas que se toman con enfoque de salvaguarda de medio ambiente y en torno al desarrollo de energía sostenible.</Text>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
             <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
+            <Button className="delete-button" onClick={popModule(1)} justifySelf={"self-end"} gridColumn={3}>-</Button>
 
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
 

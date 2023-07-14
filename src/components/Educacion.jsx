@@ -84,13 +84,13 @@ export default function Educacion() {
             spacing={"30px"}
         >
             <h1 className="blue">Educación</h1>
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información de todos los esfuerzos que se realizaron en crear y apoyar la preocupación de las nuevas generaciones por los temas de sostentabilidad y cuidado del medio ambiente desde el enfoque de los talentos y aptitudes que cada uno de los miembros de nuestra comunidad posee.</Text>
             <Stack spacing="30px" w="100%" padding="30px" direction="column">
                 <h2 className="green">6.1 Cursos y asignaturas</h2>
                 <ModuleInput title="6.1.1 Números de cursos/asignaturas totales, contenidos en el plan curricular de cada programa educativo que ofrece la entidad."
                     elements={[{ type: 2, question:'6-1-1' }]} />
-                <ModuleInput title="6.1.2 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
+                <ModuleInput title="6.1.2 Indicar el número de cursos/asignaturas relacionado con la sostenibilidad."
                     elements={[{ text: 'Número de cursos y asignaturas', type: 2, question:'6-1-2-1' }, { text: 'Nombre del curso o asignatura', type: 1, question:'6-1-2-2' }, { text: 'Nombre del programa educativo', type: 1, question:'6-1-2-3' }]} />
-                <ModuleInput elements={[{ disabled: true, type: -1, text: "Total: ", holder: "Total", question:'6-1-2-4' },]} />
                 <ModuleInput title="6.1.3 Número de alumnos que tomaron materias ambientales y sostenibilidad."
                     elements={[{ type: 2, question:'6-1-3' }]} />
             </Stack>
