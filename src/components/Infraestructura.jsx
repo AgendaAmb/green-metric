@@ -99,7 +99,6 @@ export default function Infraestructura() {
             spacing={"30px"}
         >
             <h1>Infraestructura y escenarios</h1>
-
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
             <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
             <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
@@ -116,7 +115,7 @@ export default function Infraestructura() {
                 </Stack>
 
                 <Stack spacing="30px">
-                    <ModuleInput elements={components} />
+                    <ModuleInput elements={components} inputLarge={true}/>
                 </Stack>
             </Stack>
 
@@ -125,16 +124,13 @@ export default function Infraestructura() {
                 <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."} />
             </Stack>
             <Stack spacing="30px" padding="30px" className="column-2">
-            <Button className="add-button" onClick={item2}>+</Button>
+            <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
-                <Stack spacing="30px">
                     <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }]} />
-                </Stack>
-                <Stack spacing="30px">
                     <ModuleInput elements={components2} />
-                </Stack>
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ type: 6, holder: year - 3, question:'1-3-2-1'}, { type: 6, holder: year - 2, question:'1-3-2-2'}, { type: 6, holder: year - 1,question:'1-3-2-2' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
@@ -191,8 +187,9 @@ export default function Infraestructura() {
                     }
                 },]} />
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >+
-                <Button className="add-button" onClick={item3}>+</Button>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+            <Button className="add-button" onClick={item3} justifySelf={"self-end"} gridColumn={2}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={2}>-</Button>
 
                 <Text className="expand-2">1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público).
                 </Text>
@@ -200,7 +197,8 @@ export default function Infraestructura() {
                 <ModuleInput elements={components3}/>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-            <Button className="add-button" onClick={item4}>+</Button>
+            <Button className="add-button" onClick={item4} justifySelf={"self-end"} gridColumn={2}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={2}>-</Button>
                 <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y mantenimiento de sus instalaciones en el 2022.
                 </Text>
                 <Text className="expand-2">El porcentaje se define como (Área total de construcción operada y con mantenimiento / Área total de edificios de su entidad) × 100%.
@@ -210,7 +208,8 @@ export default function Infraestructura() {
             </Stack>
            
             <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-            <Button className="add-button" onClick={item5}>+</Button>
+            <Button className="add-button" onClick={item5} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
                 <ModuleInput elements={[{question: '1-3-8-2', vertical: true}]} select={["0%",
                 "1 - 25%",
@@ -251,7 +250,8 @@ export default function Infraestructura() {
                     }} questionCheckBox={'1-4-5'} />
                 </Stack>
                 <Stack className="expand-2 column-2">
-                <Button className="add-button" onClick={item6}>+</Button>
+                <Button className="add-button" onClick={item6} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
                     <Text className="expand-2">1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). </Text>
                     <ModuleInput text="Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño." elements={[{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }]} />
                     <ModuleInput elements={components6}/>
