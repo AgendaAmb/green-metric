@@ -73,11 +73,18 @@ export default function Infraestructura() {
         setComponents6([...newMod6]);
     }
    
-    const popModule1 = () => {
-        if (components.length > 1) {
-            const updatedComponents = components.slice(0, components.length - 1);
-            setComponents(updatedComponents);
-        }
+    
+    const popModule = (componentnumber) => {
+        switch(componentnumber)
+        {
+            case 1:
+                if(components.length > 1)
+                {
+                  const updatedComponents = components.slice(0, components.length - 1);
+                    setComponents(updatedComponents);
+                }
+            break;
+        } 
     }
 
     useEffect(() => {
@@ -95,6 +102,7 @@ export default function Infraestructura() {
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
             <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
 
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
 
