@@ -19,6 +19,7 @@ export default function Login() {
     const auth = async () => {
         axios.get("/GreenMetric/api/auth", {params: {user_id: 7440, password: "N3yEz56"}});
         //console.log("res", res);
+        router.push("/home");
     }
     return (
         <VStack

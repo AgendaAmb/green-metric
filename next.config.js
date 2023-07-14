@@ -7,6 +7,9 @@ const config = {
     basePath: '/GreenMetric',
     trailingSlash: true,
     skipTrailingSlashRedirect: true,
+    experimental: {
+        serverActions: true,
+    }
 }
 
 const nextConfig = config;

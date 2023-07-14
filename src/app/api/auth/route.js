@@ -1,12 +1,13 @@
 import { NextResponse } from "next/server";
 import { connection } from "@lib/db"
-import { headers } from 'next/headers';
+import { cookies } from 'next/headers';
 
 
 
 export async function GET(req, res) {
     const [password, user_id] = [await req.nextUrl.searchParams.get("password"), await req.nextUrl.searchParams.get("user_id")];
     let results, user;
+
     try {
         results = await new Promise((resolve, reject) => {
             connection.query(
@@ -23,16 +24,11 @@ export async function GET(req, res) {
     } catch (error) {
         console.error("Error con la conexion a la BD");
     }
-
     if (results[0].password === password) {
-
         user = { dependency_id: results[0].dependency_id, user_id: results[0].user_id };
-        console.log(req.cookies.get("user"));
-        /* const response = NextResponse.next()
-        return response; */
+        
     }
-    //console.log("route api", results)
-    return new Response('OK', {
+    return new NextResponse('OK', {
         status: 200,
         headers: { 'Set-Cookie': `user=${JSON.stringify(user)}}` },
     })
