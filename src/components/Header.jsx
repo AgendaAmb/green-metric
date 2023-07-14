@@ -11,9 +11,10 @@ function Header() {
     const router = useRouter();
     const close = () => {
         deleteCookie('user');
-        setTimeout(()=>{
-            router.push('/home');
-        }, 100);
+        setLogout(false);
+        setTimeout(() => {
+            window.location.reload();
+        }, 1000);
     }
 
     useEffect(()=> {
