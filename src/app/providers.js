@@ -7,7 +7,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo } from "react";
-import { getCookie, deleteCookie } from 'cookies-next';
+import { usePathname } from "next/navigation";
 import axios from "axios";
 
 
@@ -90,9 +90,7 @@ export const Providers = withFormik({
     },
  */
     handleSubmit: (values, { setSubmitting }) => {
-        const path = getCookie("path");
-        console.log("Path:  ", path);
-        
+        console.log("PAth param", path);
         setTimeout(() => {
             for (const [key, value] of Object.entries(values)) {
                 axios.post('/GreenMetric/api/answers', {
