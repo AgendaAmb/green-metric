@@ -4,17 +4,19 @@ import { CacheProvider } from "@chakra-ui/next-js";
 import { ChakraProvider } from "@chakra-ui/react";
 import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { Formik, useFormik, withFormik } from "formik";
+import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 
 
 export const FormContext = createContext(null);
 
 function FormBase({ children, handleSubmit, handleChange, values, setFieldValue }) {
-    const [data, setData] = useState({ values, handleChange, setFieldValue });
-    
+    const[valuesFunction, setValuesFunction] = useState(setFieldValue);
+    const [submitFunction, setSubmitFunction] = useState(handleSubmit);
+    const [data, setData] = useState({ values, handleChange, setValuesFunction, setSubmitFunction, submitFunction });
     const fetchData = () => {
         try {
             const response = axios.get('/GreenMetric/api/answers', {
@@ -85,7 +87,8 @@ export const Providers = withFormik({
     },
  */
     handleSubmit: (values, { setSubmitting }) => {
-        console.log("Printing", values)
+        const router = useRouter();
+        console.log("Val: ", values);
         setTimeout(() => {
             for (const [key, value] of Object.entries(values)) {
                 axios.post('/GreenMetric/api/answers', {
