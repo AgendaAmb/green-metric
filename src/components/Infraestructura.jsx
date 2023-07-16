@@ -82,10 +82,7 @@ export default function Infraestructura() {
     const popModule = (componentnumber) => {
         switch (componentnumber) {
           case 1:
-            if (components.length > 1) {
-              const updatedComponents = components.slice(0, components.length - 1);
-              setComponents(updatedComponents);
-            }
+ 
             break;
         }
       }
@@ -111,16 +108,11 @@ export default function Infraestructura() {
 
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
 
-                <Stack spacing="30px">
                     <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
-                </Stack>
-                <Stack spacing="30px" >
+        
                     <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1, question:'1-1-3' }, { text: "Nombre científico: ", type: 1, question:'1-1-4' }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
-                </Stack>
-
-                <Stack spacing="30px">
-                    <ModuleInput elements={components} inputLarge={true}/>
-                </Stack>
+              
+                    <ModuleInput elements={components} inputLarge={true}/>            
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2 expand-2">
