@@ -12,10 +12,15 @@ import {
 import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
+import { usePathname } from "next/navigation";
+import { setCookie } from "cookies-next";
 export default function Login() {
     const form = useContext(FormContext);
+    const pathname = usePathname()
     const [spin, setSpin] = useState(false);
-    
+    const setPath = () => {
+        setCookie("path", pathname);
+    }
     const auth = async () => {
         /*  const [user, pwd] = [document.getElementsByName("cve_rpe"), document.getElementsByName("pwd_login")];
          console.log(user, pwd);
@@ -32,9 +37,7 @@ export default function Login() {
     }
 
     useEffect(() => {
-        form.setSubmitFunction()
-    
-    })
+    },[]);
     return (
         <VStack
             w="100%"
@@ -52,6 +55,8 @@ export default function Login() {
                         name={"cve_rpe"}
                         placeholder={"Usuario"}
                         marginRight="15px"
+                        type="number"
+                        onChange={form.handleChange}
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su RPE/CVE única</FormHelperText>
 
@@ -62,10 +67,11 @@ export default function Login() {
                         placeholder={"********************"}
                         marginRight="15px"
                         type="password"
+                        onChange={form.handleChange}
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su contraseña</FormHelperText>
                 </FormControl>
-                <Button type="submit" className="login-button">{spin ? <Spinner /> : "Iniciar sesión"}</Button>
+                <Button type="submit" onClick={setPath} className="login-button">{spin ? <Spinner /> : "Iniciar sesión"}</Button>
             </Stack>
 
 

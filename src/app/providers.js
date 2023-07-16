@@ -7,7 +7,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo } from "react";
-import { useRouter } from "next/navigation";
+import { getCookie, deleteCookie } from 'cookies-next';
 import axios from "axios";
 
 
@@ -42,6 +42,7 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
 
     useEffect(() => {
         fetchData();
+
     }, []);
 
     const contextValue = useMemo(() => data, [data]);
@@ -68,7 +69,9 @@ export const Providers = withFormik({
     // Custom sync validation
     validate: values => {
         const errors = {};
+        
 
+        
         /* if (!values.name) {
             errors.name = 'Required';
         } */
@@ -87,8 +90,9 @@ export const Providers = withFormik({
     },
  */
     handleSubmit: (values, { setSubmitting }) => {
-        const router = useRouter();
-        console.log("Val: ", values);
+        const path = getCookie("path");
+        console.log("Path:  ", path);
+        
         setTimeout(() => {
             for (const [key, value] of Object.entries(values)) {
                 axios.post('/GreenMetric/api/answers', {
