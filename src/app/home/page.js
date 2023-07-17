@@ -15,8 +15,19 @@ import {
 
 import { useEffect, useState } from 'react';
 import { Box, Image } from "@chakra-ui/react"
-
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter();
+
+  const [refresh, setRefresh] = useState(false);
+
+
+  useEffect(() => {
+    if (!refresh) {
+      setRefresh(true);
+      router.refresh();
+    }
+  }, [refresh]);
     return (
         <VStack
         w="100%"

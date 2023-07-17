@@ -13,7 +13,7 @@ function Header() {
         deleteCookie('user');
         setLogout(false);
         setTimeout(() => {
-            window.location.reload();
+            router.refresh();
         }, 1000);
     }
 

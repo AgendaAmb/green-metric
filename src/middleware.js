@@ -21,7 +21,6 @@ export async function middleware(request) {
     }
     else if (path === '/api/auth') {
         const user = request.cookies?.get("user")?.value;
-        console.log("Api user", user);
         if (user != null) {
             const resp = NextResponse.next();
             resp.cookies.set("user", user);
@@ -31,6 +30,9 @@ export async function middleware(request) {
     else {
         if (!isAuth(request)) {
             return NextResponse.redirect(new URL('/GreenMetric/login', request.url))
+        }
+        else {
+            return NextResponse.next()
         }
     }
 }

@@ -23,7 +23,7 @@ export default function Login() {
         setTimeout(() => {
             router.push("/home");
             setSpin(false);
-        }, 4000);
+        }, 3000);
     }
 
     useEffect(() => {
