@@ -7,14 +7,13 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo } from "react";
-import { usePathname } from "next/navigation";
 import axios from "axios";
 
 
 export const FormContext = createContext(null);
 
 function FormBase({ children, handleSubmit, handleChange, values, setFieldValue }) {
-    const[valuesFunction, setValuesFunction] = useState(setFieldValue);
+    const [valuesFunction, setValuesFunction] = useState(setFieldValue);
     const [submitFunction, setSubmitFunction] = useState(handleSubmit);
     const [data, setData] = useState({ values, handleChange, setValuesFunction, setSubmitFunction, submitFunction });
     const fetchData = () => {
@@ -25,16 +24,16 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
                 //console.log(res.data);
                 let result = [];
                 let i = 0;
-                for(let el of res.data){
+                for (let el of res.data) {
                     let obj = {};
                     obj[el.question_id] = el.answer
                     result[i++] = obj;
                 }
                 setData(...data, result);
             })
-            .catch((e)=>{
-                console.log("Error con la BD");
-            })
+                .catch((e) => {
+                    console.log("Error con la BD");
+                })
         } catch (error) {
             console.log("Error con la request");
         }
@@ -69,9 +68,9 @@ export const Providers = withFormik({
     // Custom sync validation
     validate: values => {
         const errors = {};
-        
 
-        
+
+
         /* if (!values.name) {
             errors.name = 'Required';
         } */
@@ -90,23 +89,29 @@ export const Providers = withFormik({
     },
  */
     handleSubmit: (values, { setSubmitting }) => {
-        console.log("PAth param", path);
         setTimeout(() => {
-            for (const [key, value] of Object.entries(values)) {
-                axios.post('/GreenMetric/api/answers', {
-                    value: value,
-                    question: key
-                })
-                    .then(function (response) {
-                        //console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log(error);
-                    });
+            //Checking if form is login
+            const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
+            console.log(isLogin);
+            if (isLogin) {
+                axios.post("/GreenMetric/api/auth", { params: { user_id: values.cve_rpe, password: values.pwd_login } });
             }
-
+            else {
+                for (const [key, value] of Object.entries(values)) {
+                    axios.post('/GreenMetric/api/answers', {
+                        value: value,
+                        question: key
+                    })
+                        .then(function (response) {
+                            //console.log(response);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
+                }
+            }
             setSubmitting(false);
-        }, 1000);
+        }, 100);
     },
 
     displayName: 'GreenMetricForm',

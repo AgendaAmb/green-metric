@@ -9,30 +9,25 @@ import {
     FormHelperText,
     FormControl,
 } from "@chakra-ui/react";
-import axios from "axios";
 import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
+import { useRouter } from "next/navigation";
+
+
 export default function Login() {
     const form = useContext(FormContext);
-    
+    const router = useRouter();
     const [spin, setSpin] = useState(false);
     const auth = async () => {
-        /*  const [user, pwd] = [document.getElementsByName("cve_rpe"), document.getElementsByName("pwd_login")];
-         console.log(user, pwd);
-         let userParam = user;
-         let pwdParam = pwd;
-         pwdParam ??= "";
-         userParam ??= "";
-         axios.get("/GreenMetric/api/auth", { params: { user_id: userParam, password: pwdParam } });
-         //console.log("res", res);
-         setSpin(true);
-         setTimeout(() => {
-             //window.location.reload();
-         }, 2000); */
+        setSpin(true);
+        setTimeout(() => {
+            router.push("/home");
+            setSpin(false);
+        }, 4000);
     }
 
     useEffect(() => {
-    },[]);
+    }, []);
     return (
         <VStack
             w="100%"
@@ -58,7 +53,7 @@ export default function Login() {
                 </FormControl>
                 <FormControl>
                     <Input
-                        name={"pwd-login"}
+                        name={"pwd_login"}
                         placeholder={"********************"}
                         marginRight="15px"
                         type="password"
@@ -66,7 +61,7 @@ export default function Login() {
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su contraseña</FormHelperText>
                 </FormControl>
-                <Button type="submit" className="login-button">{spin ? <Spinner /> : "Iniciar sesión"}</Button>
+                <Button type="submit" className="login-button" onClick={auth}>{spin ? <Spinner /> : "Iniciar sesión"}</Button>
             </Stack>
 
 
