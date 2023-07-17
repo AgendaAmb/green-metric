@@ -14,7 +14,6 @@ export const auth = (request) => {
 
 export const isAuth = (request) => {
     try {
-        console.log("isAuth", request?.cookies?.get("user")?.value);
         if (request?.cookies?.get("user") != null) {
             return true;
         }
