@@ -24,7 +24,7 @@ export default function Transporte() {
         spacing={"30px"}>
 
         <h1 className="blue">Transporte</h1>
-        
+        <Text className="blue text-start expand-3">En este apartado se busca recopilar la información relacionada con políticas internas de cada entidad las cuales busquen el fortalecimiento de la movilidad urbana sostenible. Estas van desde establecer límites en cuanto a la cantidad de vehículos motorizados en el campus, el uso de autobuses y bicicletas para fomentar un entorno más saludable y contribuir con la reducción de la huella de carbono.</Text>
         <Stack spacing="30px" w="100%"   padding="30px">
             <h2 className="green">5.1 Número de vehículos oficiales con los que cuenta su entidad</h2>
             <ModuleInput title="5.1.1 Indica el número de vehículos oficiales con los que cuenta su entidad"

@@ -27,6 +27,8 @@ export default function Educacion() {
     const [components7,setComponents7] = useState([]); 
     const [components8,setComponents8] = useState([]);
     const [components9,setComponents9] = useState([]);
+    const [components10,setComponents10] = useState([]);
+    const [components11,setComponents11] = useState([]);
 
 
 
@@ -75,7 +77,89 @@ export default function Educacion() {
         const newMod9 = [...components9,{ text: 'Nombre del proyecto', type: 1, question:'6-5-3-4' }, { text: 'Cantidad destinada ($)', type: 6, question:'6-5-3-5' }, { text: 'Fuente de recurso', type: 1, question:'6-5-3-6' }, { evidence: true }];
         setComponents9([...newMod9]);
     }
+    const item10 = () => {
+        const newMod10 = [...components10,{ text: 'Nombre del curso o asignatura', type: 1, question:'6-1-2-2' }, { text: 'Nombre del programa educativo', type: 1, question:'6-1-2-3' }];
+        setComponents10([...newMod10]);
+    }
+    const item11 = () => {
+        const newMod11 = [...components11,{ text: 'Nombre del evento', type: 2, question:'6-2-1-1' }, { text: 'Responsable', type: 1, question:'6-2-1-2' }, { evidence: true, maxPhotos: 3 }];
+        setComponents11([...newMod11]);
+    }
     
+    const popModule = (componentnumber) => {
+        switch (componentnumber) {
+             case 1:
+                if (components.length > 1) {
+                const updatedComps = components.filter((_, index) => index > 2);
+                setComponents(updatedComps);
+                }
+            break;        
+            case 2:
+                if (components2.length > 1) {
+                const updatedComps = components2.filter((_, index) => index > 2);
+                setComponents2(updatedComps);
+                }
+                break;       
+            case 3:
+                if (components3.length > 1) {
+                    const updatedComps = components3.filter((_, index) => index > 2);
+                    setComponents3(updatedComps);
+                    }
+                    break;   
+            case 4:
+                if (components4.length > 1) {
+                    const updatedComps = components4.filter((_, index) => index > 2);
+                    setComponents4(updatedComps);
+                    }
+                    break;  
+            case 5:
+                if (components5.length > 1) {
+                const updatedComps = components5.filter((_, index) => index > 2);
+                setComponents5(updatedComps);
+                }
+                break;
+            case 6:
+                if (components6.length > 1) {
+                    const updatedComps = components6.filter((_, index) => index > 2);
+                    setComponents6(updatedComps);
+                    }
+                    break;  
+            case 7:
+                if (components7.length > 1) {
+                    const updatedComps = components7.filter((_, index) => index > 2);
+                    setComponents7(updatedComps);
+                    }
+                    break;  
+            case 8:
+                if (components8.length > 0) {
+                    const updatedComps = components8.slice(0, components8.length - 1);
+                    setComponents8([...updatedComps]);
+                    console.log("Eliminado");
+                  }
+              case 9:
+                if (components9.length > 1) {
+                    const updatedComps = components9.filter((_, index) => index > 3);
+                    setComponents9(updatedComps);
+                    }
+                    break;  
+            case 10:
+                if (components10.length > 0) {
+                    const updatedComps = components10.slice(0, components10.length - 1);
+                    setComponents10([...updatedComps]);
+                    console.log("Eliminado");
+                  }
+                break;
+             case 11:
+                if (components11.length > 1) {
+                    const updatedComps = components11.filter((_, index) => index > 2);
+                    setComponents11(updatedComps);
+                    }
+                break;
+                    
+
+      };
+    }
+
     return (
         <VStack
             w="100%"
@@ -84,31 +168,34 @@ export default function Educacion() {
             spacing={"30px"}
         >
             <h1 className="blue">Educación</h1>
-            <Stack spacing="30px" w="100%" padding="30px" direction="column">
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información de todos los esfuerzos que se realizaron en crear y apoyar la preocupación de las nuevas generaciones por los temas de sostentabilidad y cuidado del medio ambiente desde el enfoque de los talentos y aptitudes que cada uno de los miembros de nuestra comunidad posee.</Text>
+            <Stack spacing="30px" w="100%" padding="30px">
                 <h2 className="green">6.1 Cursos y asignaturas</h2>
                 <ModuleInput title="6.1.1 Números de cursos/asignaturas totales, contenidos en el plan curricular de cada programa educativo que ofrece la entidad."
                     elements={[{ type: 2, question:'6-1-1' }]} />
-                <ModuleInput title="6.1.2 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
+                    <Button className="add-button" onClick={item10} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(10)} gridColumn={3}>-</Button>
+                <ModuleInput title="6.1.2 Indicar el número de cursos/asignaturas relacionado con la sostenibilidad."
                     elements={[{ text: 'Número de cursos y asignaturas', type: 2, question:'6-1-2-1' }, { text: 'Nombre del curso o asignatura', type: 1, question:'6-1-2-2' }, { text: 'Nombre del programa educativo', type: 1, question:'6-1-2-3' }]} />
-                <ModuleInput elements={[{ disabled: true, type: -1, text: "Total: ", holder: "Total", question:'6-1-2-4' },]} />
+                    <ModuleInput elements={components10}/>
                 <ModuleInput title="6.1.3 Número de alumnos que tomaron materias ambientales y sostenibilidad."
                     elements={[{ type: 2, question:'6-1-3' }]} />
             </Stack>
 
             <Stack spacing="30px" className="column-3">
                 <h2 className="green">6.2 Número de eventos relacionados con la sostenibilidad.</h2>
+                <Button className="add-button" onClick={item11} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(11)} gridColumn={3}>-</Button>
                 <ModuleInput title="6.2.1 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
                     elements={[{ text: 'Nombre del evento', type: 2, question:'6-2-1-1' }, { text: 'Responsable', type: 1, question:'6-2-1-2' }, { evidence: true, maxPhotos: 3 }]} />
-                <ModuleInput
-                    elements={[{ text: 'Nombre del evento', type: 2, question:'6-2-1-3' }, { text: 'Responsable', type: 1, question:'6-2-1-4' }, { evidence: true, maxPhotos: 3 }]} />
-                <ModuleInput
-                    elements={[{ text: 'Nombre del evento', type: 2, question:'6-2-1-5' }, { text: 'Responsable', type: 1, question:'6-2-1-6' }, { evidence: true, maxPhotos: 3 }]} />
+                <ModuleInput elements={components11}/>
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-            <Button className="add-button" onClick={item}>+</Button>
                 <h2 className="green">6.3 Actividades extracurriculares</h2>
                 <h3 className="blue">6.3.1.1 Foros</h3>
+                <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(1)} gridColumn={3}>-</Button>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question:'6-3-1-1-1' }, { text: "Asistentes", type: 1, question:'6-3-1-1-2' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
@@ -118,8 +205,9 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput elements={components}/>
                 </Stack>
-                <Button className="add-button" onClick={item2}>+</Button>
                 <h3 className="blue">6.3.1.2 Rodadas</h3>
+                <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(2)} gridColumn={3}>-</Button>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question:'6-3-1-2-1' }, { text: "Asistentes", type: 1 , question:'6-3-1-2-2'}, { evidence: true }]} inputLarge={true} />
                 </Stack>
@@ -129,7 +217,8 @@ export default function Educacion() {
                 <Stack spacing="30px">
                 <ModuleInput elements={components2}/>
                 </Stack>
-                <Button className="add-button" onClick={item3}>+</Button>
+                <Button className="add-button" onClick={item3} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(3)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.3 Ferias (cualquier tipo)</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question:'6-3-1-3-1' }, { text: "Asistentes", type: 1, question:'6-3-1-3-2' }, { evidence: true }]} inputLarge={true} />
@@ -141,7 +230,8 @@ export default function Educacion() {
                 <ModuleInput elements={components3}/>
                 </Stack>
 
-                <Button className="add-button" onClick={item4}>+</Button>
+                <Button className="add-button" onClick={item4} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"}  onClick={() => popModule(4)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.4 Charlas</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question:'6-3-1-4-1' }, { text: "Asistentes", type: 1, question:'6-3-1-4-2' }, { evidence: true }]} inputLarge={true} />
@@ -153,7 +243,8 @@ export default function Educacion() {
                 <ModuleInput elements={components4}/>
                 </Stack>
 
-                <Button className="add-button" onClick={item5}>+</Button>
+                <Button className="add-button" onClick={item5} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(5)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.5 Seminarios</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question:'6-3-1-5-1' }, { text: "Asistentes", type: 1, question:'6-3-1-5-2' }, { evidence: true }]} inputLarge={true} />
@@ -165,7 +256,8 @@ export default function Educacion() {
                 <ModuleInput elements={components5}/>
                 </Stack>
 
-                <Button className="add-button" onClick={item6}>+</Button>
+                <Button className="add-button" onClick={item6} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(6)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.6 Conferencias</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-6-1' }, { text: "Asistentes", type: 1, question:'6-3-1-6-2' }, { evidence: true }]} inputLarge={true} />
@@ -176,7 +268,8 @@ export default function Educacion() {
                 <Stack spacing="30px">
                 <ModuleInput elements={components6}/>
                 </Stack>
-                <Button className="add-button" onClick={item7}>+</Button>
+                <Button className="add-button" onClick={item7} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(7)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.7 Eventos culturales (festivales, teatro, evento musical, exhibiciones artísticas,etc.)</h3>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'6-3-1-7-2' }, { evidence: true }]} inputLarge={true} />
@@ -231,7 +324,8 @@ export default function Educacion() {
                 </Stack>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-            <Button className="add-button" onClick={item8}>+</Button>
+            <Button className="add-button" onClick={item8} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(8)} gridColumn={3}>-</Button>
                 <h2 className="green">6.5 Investigación relacionada a la sostenibilidad.</h2>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
@@ -269,7 +363,8 @@ export default function Educacion() {
                     <ModuleInput title="6.5.3 Cantidad monetaria destinada a proyectos relacionados con la sostenibilidad en los últimos 3 años"
                         elements={[{ text: 'Nombre del proyecto', type: 1, question:'6-5-3-4' }, { text: 'Cantidad destinada ($)', type: 6, question:'6-5-3-5' }, { text: 'Fuente de recurso', type: 1, question:'6-5-3-6' }, { evidence: true }]} />
                 </Stack>
-                <Button className="add-button" onClick={item9}>+</Button>
+                <Button className="add-button" onClick={item9} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(9)} gridColumn={3}>-</Button>
                 <Stack spacing="30px" >
                 <ModuleInput elements={components9}/>
                 </Stack>

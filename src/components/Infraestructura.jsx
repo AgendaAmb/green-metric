@@ -44,13 +44,21 @@ export default function Infraestructura() {
     const [components6,setComponents6] = useState([]);
 
     const item = () => {
-        const newMod = [...components, { text: "Especie: ", type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }];
-        setComponents([...newMod]);
-    }
-
+        const newMod = [
+          ...components,
+          { text: "Especie: ", type: 1, question: '1-1-1' },
+          { text: "Nombre científico: ", type: 1, question: '1-1-2' },
+          { evidence: true, maxPhotos: 1 }
+        ];
+        setComponents(newMod);
+        console.log(newMod);
+      }
+      
+    
     const item2 = () => {
         const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }];
         setComponents2([...newMod2]);
+        console.log(newMod2);
     }
 
     const item3 = () => {
@@ -71,20 +79,52 @@ export default function Infraestructura() {
     const item6 = () => {
         const newMod6 = [...components6,{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }];
         setComponents6([...newMod6]);
+        console.log(newMod6);
     }
    
     
     const popModule = (componentnumber) => {
-        switch(componentnumber)
-        {
-            case 1:
-                if(components.length > 1)
-                {
-                  const updatedComponents = components.slice(0, components.length - 1);
-                    setComponents(updatedComponents);
+        switch (componentnumber) {
+             case 1:
+                if (components.length > 1) {
+                const updatedComps = components.filter((_, index) => index > 2);
+                setComponents(updatedComps);
                 }
-            break;
-        } 
+            break;        
+            case 2:
+                if (components2.length > 1) {
+                const updatedComps = components2.filter((_, index) => index > 2);
+                setComponents2(updatedComps);
+                }
+                break;       
+            case 3:
+                if (components3.length > 0) {
+                    const updatedComps = components3.slice(0, components3.length - 1);
+                    setComponents3([...updatedComps]);
+                    console.log("Eliminado");
+                  }
+                break;
+            case 4:
+                if (components4.length > 0) {
+                    const updatedComps = components4.slice(0, components4.length - 1);
+                    setComponents4([...updatedComps]);
+                    console.log("Eliminado");
+                  }
+                break;
+            case 5:
+                if (components5.length > 1) {
+                const updatedComps = components5.filter((_, index) => index > 2);
+                setComponents5(updatedComps);
+                }
+                break;
+            case 6:
+                if (components6.length > 0) {
+                    const updatedComps = components6.slice(0, components6.length - 1);
+                    setComponents6([...updatedComps]);
+                    console.log("Eliminado");
+                  }
+                break;
+      };
     }
 
     useEffect(() => {
@@ -99,24 +139,20 @@ export default function Infraestructura() {
             spacing={"30px"}
         >
             <h1>Infraestructura y escenarios</h1>
+            <Text className="blue text-start expand-3">En este apartado se busca recopilar la información básica relacionada con las políticas internas de cada una de las entidades en materia de sustentabilidad y medio ambiente. Además, incluye apartados para conocer sobre la biodiversidad presente en nuestros espacios de trabajo (vegetación y fauna), así como acciones y medidas que se toman con enfoque de salvaguarda de medio ambiente y en torno al desarrollo de energía sostenible.</Text>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
-            <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
+            <Button className="add-button" onClick={item} justifySelf="self-end" gridColumn={3}>+</Button>
+            <Button className="delete-button" onClick={() => popModule(1)} justifySelf="self-end" gridColumn={3}>-</Button>
 
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
-
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
-
-                <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
-                </Stack>
-                <Stack spacing="30px" >
+      
+                    <ModuleInput elements={[{ text: `Especie ${species - 1}:`, type: 1, question:'1-1-1' }, { text: "Nombre científico: ", type: 1, question:'1-1-2'}, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />           
+          
                     <ModuleInput elements={[{ text: `Especie ${species}:`, type: 1, question:'1-1-3' }, { text: "Nombre científico: ", type: 1, question:'1-1-4' }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
-                </Stack>
-
-                <Stack spacing="30px">
-                    <ModuleInput elements={components} inputLarge={true}/>
-                </Stack>
+          
+                    <ModuleInput elements={components}/>
+        
             </Stack>
 
             <Stack spacing="30px" w="100%" padding="30px" className="column-2 expand-2">
@@ -125,7 +161,7 @@ export default function Infraestructura() {
             </Stack>
             <Stack spacing="30px" padding="30px" className="column-2">
             <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
+            <Button className="delete-button" onClick={() => popModule(2)} justifySelf="self-end" gridColumn={3}>-</Button>
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
@@ -187,18 +223,15 @@ export default function Infraestructura() {
                     }
                 },]} />
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-            <Button className="add-button" onClick={item3} justifySelf={"self-end"} gridColumn={2}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={2}>-</Button>
-
-                <Text className="expand-2">1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público).
-                </Text>
-                <ModuleInput elements={[{ type: -1, holder: "Nombre de la instalación", evidence: true ,question:'1-3-6-1' }]} />
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
+            <Button className="add-button" onClick={item3} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" onClick={() => popModule(3)} justifySelf="self-end" gridColumn={3}>-</Button>
+                <ModuleInput elements={[{ type: -1, holder: "Nombre de la instalación", evidence: true ,question:'1-3-6-1' }]} title={"1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público)."}/>
                 <ModuleInput elements={components3}/>
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
-            <Button className="add-button" onClick={item4} justifySelf={"self-end"} gridColumn={2}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={2}>-</Button>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
+            <Button className="add-button" onClick={item4} justifySelf={"self-end"} gridColumn={3}>+</Button>
+            <Button className="delete-button" onClick={() => popModule(4)} justifySelf="self-end" gridColumn={3}>-</Button>
                 <Text className="expand-2">1.3.7 Porcentaje de actividades de operación y mantenimiento de sus instalaciones en el 2022.
                 </Text>
                 <Text className="expand-2">El porcentaje se define como (Área total de construcción operada y con mantenimiento / Área total de edificios de su entidad) × 100%.
@@ -207,9 +240,9 @@ export default function Infraestructura() {
                 <ModuleInput elements={components4}/>
             </Stack>
            
-            <Stack spacing="30px" w="100%" padding="30px" className="column-2" >
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
             <Button className="add-button" onClick={item5} justifySelf={"self-end"} gridColumn={3}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
+            <Button className="delete-button" onClick={() => popModule(5)} justifySelf="self-end" gridColumn={3}>-</Button>
                 <Text className="expand-2">1.3.8 Porcentaje de implementación de programa para la conservación de plantas, animales, vida silvestre y recursos genéticos.</Text>
                 <ModuleInput elements={[{question: '1-3-8-2', vertical: true}]} select={["0%",
                 "1 - 25%",
@@ -218,7 +251,7 @@ export default function Infraestructura() {
                 "76 - 100%",
                 ]} />
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question:'1-3-9-2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question:'1-3-10-1' }]} />
-                <Stack spacing="30px" className="column">
+                <Stack spacing="30px" className="row">
                     <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question:'1-3-11-1'}]} />
                     <ModuleInput elements={[{ type: 1, evidence: true, question:'1-3-11-2' }]} />
                     <ModuleInput elements={components5}/>
@@ -249,13 +282,11 @@ export default function Infraestructura() {
                         ]
                     }} questionCheckBox={'1-4-5'} />
                 </Stack>
-                <Stack className="expand-2 column-2">
+                <Stack className="expand-2 column-3">
                 <Button className="add-button" onClick={item6} justifySelf={"self-end"} gridColumn={3}>+</Button>
-            <Button className="delete-button" justifySelf={"self-end"} gridColumn={3}>-</Button>
-                    <Text className="expand-2">1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). </Text>
-                    <ModuleInput text="Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño." elements={[{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }]} />
+                <Button className="delete-button" onClick={() => popModule(6)} justifySelf="self-end" gridColumn={3}>-</Button>
+                    <ModuleInput text="Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño." elements={[{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }]} title="1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). "/>
                     <ModuleInput elements={components6}/>
-
                 </Stack>
             </Stack>
             <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />

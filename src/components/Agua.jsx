@@ -28,6 +28,7 @@ export default function Agua(){
         >
             <h1 className="blue"> Agua</h1>
             <h2 className="green"> 4.1 Programa de conservación del agua</h2>
+             <Text className="blue text-start expand-3">El abasto de agua potable alcanza niveles de alarma para la población de las cuatro regiones del estado de San Luis Potosí. Por esta razón, la Universidad, tiene como objetivo abordar de manera integral los retos y problemáticas asociadas al recurso hídrico en el estado. Por ello, en este apartado se busca recopilar la información en torno a los programas y acciones que cada una de las entidades implementa con la finalidad de optimizar el uso del agua, aumentar su conservación y medir el uso de agua que se hace en las entidades.</Text>
             {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, questionDicotomic: '4-1-1',span:true}]} />
