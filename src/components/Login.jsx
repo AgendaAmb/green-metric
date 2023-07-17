@@ -18,15 +18,19 @@ export default function Login() {
     const form = useContext(FormContext);
     const router = useRouter();
     const [spin, setSpin] = useState(false);
-    const auth = async () => {
+    const auth = () => {
         setSpin(true);
         setTimeout(() => {
-            router.push("/home");
             setSpin(false);
-        }, 3000);
+        }, 4000);
+
+        setTimeout(() => {
+            router.push("/home");
+        }, 4500);
     }
 
     useEffect(() => {
+        router.refresh();
     }, []);
     return (
         <VStack
@@ -34,9 +38,12 @@ export default function Login() {
             divider={<StackDivider borderColor="gray.200" />}
             padding="30px"
             spacing={"30px"}
-
+            placeItems={"center"}
+            className="grid-center"
+            alignSelf={"center"}
+            
         >
-            <h1>Bienvenido a Green Metric</h1>
+            <h1 width="100%">Bienvenid@ a Green Metric</h1>
 
             <Stack
             >
@@ -61,7 +68,7 @@ export default function Login() {
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su contraseña</FormHelperText>
                 </FormControl>
-                <Button type="submit" className="login-button" onClick={auth}>{spin ? <Spinner /> : "Iniciar sesión"}</Button>
+                <Button type="submit" className="login-button" alignSelf="center" onClick={auth}>{spin ? <Spinner /> : "Iniciar sesión"}</Button>
             </Stack>
 
 

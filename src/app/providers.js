@@ -40,7 +40,7 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
     };
 
     useEffect(() => {
-        fetchData();
+        //fetchData();
 
     }, []);
 
@@ -48,7 +48,7 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
     return (
 
         <FormContext.Provider value={contextValue}>
-            <Stack onSubmit={handleSubmit} as={"form"}>
+            <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
                 <DndProvider backend={HTML5Backend}>
                     <CacheProvider>
                         <ChakraProvider>
@@ -92,9 +92,14 @@ export const Providers = withFormik({
         setTimeout(() => {
             //Checking if form is login
             const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
-            console.log(isLogin);
+            //console.log("Values: ", values);
+            //console.log(isLogin);
             if (isLogin) {
-                axios.post("/GreenMetric/api/auth", { params: { user_id: values.cve_rpe, password: values.pwd_login } });
+                const id = values.cve_rpe || "";
+                const pwd = values.pwd_login || "";
+                /* console.log(id);
+                console.log(pwd); */
+                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } });
             }
             else {
                 for (const [key, value] of Object.entries(values)) {

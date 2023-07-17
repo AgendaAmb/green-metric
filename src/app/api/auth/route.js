@@ -5,21 +5,36 @@ import { cookies, Headers } from 'next/headers';
 
 
 export async function POST(req, res) {
-    console.log("Api auth")
-    const {params} = await req.json();
-    const {user_id, password} = params;
-    let user, headers;
-    if(
-        (user_id === 262482 || user_id === 11007) && password == "@g3nd4@mb13nt4l"
-    ){
-        user = { dependency_id: 1, user_id: user_id };
-        console.log("superadmin");
+    let params;
+    try {
+        const body = await req.json();
+        params = body.params;
+    }
+    catch (e) {
+        console.log("No hay cuerpo en la request")
     }
 
-    if(user != null){
+    const { user_id, password } = params;
+    let user, headers;
+    if (
+        user_id === 262482 && password == "@g3nd4@mb13nt4l" || user_id === 11007 && password == "@g3nd4@mb13nt4l"
+    ) {
+        user = { dependency_id: 1, user_id: user_id };
+    }
+
+
+    user ??= null;
+    if (user != null) {
+        console.log(user);
         return new NextResponse('OK', {
             status: 200,
             headers: { 'Set-Cookie': `user=${JSON.stringify(user)}}` },
+        });
+    }
+    else {
+        console.log("unauthorized")
+        return new NextResponse('Unauthorized', {
+            status: 401,
         });
     }
     /* const password = await req.nextUrl.searchParams.get("password");
