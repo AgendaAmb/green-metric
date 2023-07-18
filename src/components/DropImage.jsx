@@ -10,6 +10,7 @@ import Swal from 'sweetalert2'
 
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
+import axios from 'axios';
 
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "" }) {
     const [images, setImages] = useState([]);
@@ -18,26 +19,37 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
     const ref = useRef(null);
 
-  
-    const handleImages = (e) => {
+const handleImages = async (e) => {
+  try {
+    if (maxPhotos !== -1 && e.length > photos) {
+      throw `No puedes agregar más de ${maxPhotos} archivos.`;
+    }
+
+    const newImages = e.map((file, index) => ({
+      original: URL.createObjectURL(file),
+      name: `${title}-${index + 1}`,
+    }));
+
+    // Enviar las imágenes al servidor
+    await Promise.all(
+      newImages.map(async (image) => {
         try {
-          if (maxPhotos !== -1 && e.length > photos) {
-            throw `No puedes agregar más de ${maxPhotos} archivos.`;
-          }
-      
-          const newImages = e.map((file, index) => ({
-            original: URL.createObjectURL(file), // Use 'original' instead of 'url'
-            name: `${title}-${index + 1}`,
-          }));
-      
-          setImages([...images, ...newImages]);
-          setPhotos((prevPhotos) => prevPhotos - e.length);
+          const response = await axios.post("/GreenMetric/images/upload", { image });
+          console.log(response.data.message);
         } catch (error) {
-          Swal.fire("¡Error!", error, "error");
-        } finally {
-          disableHover();
+          console.error('Error al subir la imagen:', error);
         }
-      }      
+      })
+    );
+    // Actualizar el estado con las nuevas imágenes
+    setImages([...images, ...newImages]);
+    setPhotos((prevPhotos) => prevPhotos - e.length);
+  } catch (error) {
+    Swal.fire('¡Error!', error, 'error');
+  } finally {
+    disableHover();
+  }
+};
 
       const deleteImage = (index) => {
         const updatedImages = [...images];
@@ -134,7 +146,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
           <div></div>
         )}
 
-        {images.length > 0 && ( // Show the delete button only if there are images
+        {images.length > 0 && (
           <div className="delete-top-right">
             <span role="button" onClick={() => deleteImage(0)}>
               <p>x</p>
