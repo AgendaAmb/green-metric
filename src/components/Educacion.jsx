@@ -169,12 +169,14 @@ export default function Educacion() {
         >
             <h1 className="blue">Educación</h1>
             <Text className="blue text-start expand-3">En este apartado se busca recopilar la información de todos los esfuerzos que se realizaron en crear y apoyar la preocupación de las nuevas generaciones por los temas de sostentabilidad y cuidado del medio ambiente desde el enfoque de los talentos y aptitudes que cada uno de los miembros de nuestra comunidad posee.</Text>
-            <Stack spacing="30px" w="100%" padding="30px">
+            <Stack spacing="30px" w="100%" padding="30px" position={"relative"}>
                 <h2 className="green">6.1 Cursos y asignaturas</h2>
                 <ModuleInput title="6.1.1 Números de cursos/asignaturas totales, contenidos en el plan curricular de cada programa educativo que ofrece la entidad."
                     elements={[{ type: 2, question:'6-1-1' }]} />
-                    <Button className="add-button" onClick={item10} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(10)} gridColumn={3}>-</Button>
+                               <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item10}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(10)}>-</Button>
+            </Stack>
                 <ModuleInput title="6.1.2 Indicar el número de cursos/asignaturas relacionado con la sostenibilidad."
                     elements={[{ text: 'Número de cursos y asignaturas', type: 2, question:'6-1-2-1' }, { text: 'Nombre del curso o asignatura', type: 1, question:'6-1-2-2' }, { text: 'Nombre del programa educativo', type: 1, question:'6-1-2-3' }]} />
                     <ModuleInput elements={components10}/>
@@ -182,20 +184,24 @@ export default function Educacion() {
                     elements={[{ type: 2, question:'6-1-3' }]} />
             </Stack>
 
-            <Stack spacing="30px" className="column-3">
+            <Stack spacing="30px" className="column-3" position={"relative"}>
                 <h2 className="green">6.2 Número de eventos relacionados con la sostenibilidad.</h2>
-                <Button className="add-button" onClick={item11} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(11)} gridColumn={3}>-</Button>
+                <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item11}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(11)}>-</Button>
+            </Stack>
                 <ModuleInput title="6.2.1 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
                     elements={[{ text: 'Nombre del evento', type: 2, question:'6-2-1-1' }, { text: 'Responsable', type: 1, question:'6-2-1-2' }, { evidence: true, maxPhotos: 3 }]} />
                 <ModuleInput elements={components11}/>
             </Stack>
 
-            <Stack spacing="30px" w="100%" padding="30px" className="column-3">
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" position={"relative"}>
                 <h2 className="green">6.3 Actividades extracurriculares</h2>
                 <h3 className="blue">6.3.1.1 Foros</h3>
-                <Button className="add-button" onClick={item} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(1)} gridColumn={3}>-</Button>
+                <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(1)}>-</Button>
+            </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question:'6-3-1-1-1' }, { text: "Asistentes", type: 1, question:'6-3-1-1-2' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
@@ -206,8 +212,8 @@ export default function Educacion() {
                     <ModuleInput elements={components}/>
                 </Stack>
                 <h3 className="blue">6.3.1.2 Rodadas</h3>
-                <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(2)} gridColumn={3}>-</Button>
+                    <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
+                        <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(2)} gridColumn={3}>-</Button>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question:'6-3-1-2-1' }, { text: "Asistentes", type: 1 , question:'6-3-1-2-2'}, { evidence: true }]} inputLarge={true} />
                 </Stack>
@@ -323,9 +329,11 @@ export default function Educacion() {
                         elements={[{ text: 'Nombre de agrupación', type: 1, question:'6-4-3-3-1' }, { text: ' Objetivo de agrupacion', type: 1, question:'6-4-3-3-2' }, { text: 'Integrantes', type: 2, question:'6-4-3-3-3' }]} />
                 </Stack>
             </Stack>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-            <Button className="add-button" onClick={item8} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(8)} gridColumn={3}>-</Button>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" position={"relative"}>
+            <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item8}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(8)}>-</Button>
+            </Stack>
                 <h2 className="green">6.5 Investigación relacionada a la sostenibilidad.</h2>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
@@ -362,13 +370,14 @@ export default function Educacion() {
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.3 Cantidad monetaria destinada a proyectos relacionados con la sostenibilidad en los últimos 3 años"
                         elements={[{ text: 'Nombre del proyecto', type: 1, question:'6-5-3-4' }, { text: 'Cantidad destinada ($)', type: 6, question:'6-5-3-5' }, { text: 'Fuente de recurso', type: 1, question:'6-5-3-6' }, { evidence: true }]} />
+                    <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                        <Button className="add-button" onClick={item9}>+</Button>
+                        <Button className="delete-button" onClick={() => popModule(9)}>-</Button>
+                    </Stack>
                 </Stack>
-                <Button className="add-button" onClick={item9} justifySelf={"self-end"} gridColumn={3}>+</Button>
-                    <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(9)} gridColumn={3}>-</Button>
-                <Stack spacing="30px" >
+                <Stack spacing="30px" marginTop={"78px"}>
                 <ModuleInput elements={components9}/>
                 </Stack>
-
                 <h3>6.5.4 Indique si en su entidad se realiza investigación relacionada con la sostenibilidad, y de ser así, indicar el nombre del investigador o investigadora, su área de investigación y proyectos de investigación.</h3>
                 <Stack spacing="30px">
                     <ModuleInput

@@ -112,9 +112,11 @@ export default function Energia(){
             <ModuleInput title="2.1.15 Área total ocupada por Smart Buildings dentro de su entidad o espacio de trabajo"
                 elements={[{type:5, question:'2-1-15'}]} /> 
             </Stack>
-            <Stack spacing="30px" w="100%" className="column">
-            <Button className="add-button" onClick={item} justifySelf="self-end" gridColumn={3}>+</Button>
-            <Button className="delete-button" onClick={() => popModule(1)} justifySelf="self-end" gridColumn={3}>-</Button>
+            <Stack spacing="30px" w="100%" className="column" position={"relative"}>
+            <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(1)}>-</Button>
+            </Stack>
             <h3 className="expand-2 green">2.2 Responda los siguientes requerimentos</h3>
             <h4 className="expand-2 blue">2.2.1 Número de fuentes de energía renovable en su campus y su capacidad en kW/h para cada tipo que tenga (energía solar, eólica, geotérmica, hidroeléctrica, biodiesel y biomasa limpia).</h4>
             <h5 className="expand-2 blue">Coloque la información solicitada en los recuadros y añada evidencia fotográfica del recuadro de mayor tamaño</h5>
@@ -138,9 +140,11 @@ export default function Energia(){
             </Stack>
             </Stack>
 
-            <Stack spacing="30px" w="100%" padding="30px" className="column-3">
-            <Button className="add-button" onClick={item2} justifySelf="self-end" gridColumn={3}>+</Button>
-            <Button className="delete-button" onClick={() => popModule(2)} justifySelf="self-end" gridColumn={3}>-</Button>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" position={"relative"}>
+            <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item2}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(2)}>-</Button>
+            </Stack>
             <h4 className="expand-2 blue">2.2.2 Certificación nacional o internacional sobre políticas en la implementación de edificios verdes. Adjuntar evidencia que lo valide</h4>
                 <Stack spacing="30px">
                     <ModuleInput elements={[{text: 'Nombre de política', type:1, question:'2-2-2-1'}, 
