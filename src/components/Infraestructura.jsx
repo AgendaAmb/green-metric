@@ -51,14 +51,12 @@ export default function Infraestructura() {
           { evidence: true, maxPhotos: 1 }
         ];
         setComponents(newMod);
-        console.log(newMod);
       }
       
     
     const item2 = () => {
         const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question:'1-3-1-1' }, { type: 1, holder: "Nombre del producto",question:'1-3-1-2' }, { evidence: true }];
         setComponents2([...newMod2]);
-        console.log(newMod2);
     }
 
     const item3 = () => {
@@ -79,7 +77,6 @@ export default function Infraestructura() {
     const item6 = () => {
         const newMod6 = [...components6,{ type: 1, holder: "Nombre de la medida", evidence: true, question:'1-4-6-1' }];
         setComponents6([...newMod6]);
-        console.log(newMod6);
     }
    
     
@@ -140,9 +137,11 @@ export default function Infraestructura() {
         >
             <h1>Infraestructura y escenarios</h1>
             <Text className="blue text-start expand-3">En este apartado se busca recopilar la información básica relacionada con las políticas internas de cada una de las entidades en materia de sustentabilidad y medio ambiente. Además, incluye apartados para conocer sobre la biodiversidad presente en nuestros espacios de trabajo (vegetación y fauna), así como acciones y medidas que se toman con enfoque de salvaguarda de medio ambiente y en torno al desarrollo de energía sostenible.</Text>
-            <Stack spacing="30px" w="100%" padding="30px" className="column-3" >
-            <Button className="add-button" onClick={item} justifySelf="self-end" gridColumn={3}>+</Button>
-            <Button className="delete-button" onClick={() => popModule(1)} justifySelf="self-end" gridColumn={3}>-</Button>
+            <Stack spacing="30px" w="100%" padding="30px" className="column-3" position={"relative"}>
+            <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
+                <Button className="add-button" onClick={item}>+</Button>
+                <Button className="delete-button" onClick={() => popModule(1)}>-</Button>
+            </Stack>
 
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
