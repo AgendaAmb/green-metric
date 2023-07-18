@@ -18,39 +18,35 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
     const ref = useRef(null);
 
+  
     const handleImages = (e) => {
-        let count = 0;
-        let tmpImages = [...images];
-
         try {
-            if (maxPhotos != -1 && e.length > photos) {
-                throw `No puedes agregar más de ${maxPhotos} archivos.`;
-            }
-
-            e.forEach((file) => {
-                if (photos > 0 || maxPhotos == -1) {
-                    let url = URL.createObjectURL(file);
-                    tmpImages.push({ original: url });
-                }
-                count++;
-            })
-            setPhotos(photos - count);
-            setImages(tmpImages);
+          if (maxPhotos !== -1 && e.length > photos) {
+            throw `No puedes agregar más de ${maxPhotos} archivos.`;
+          }
+      
+          const newImages = e.map((file, index) => ({
+            original: URL.createObjectURL(file), // Use 'original' instead of 'url'
+            name: `${title}-${index + 1}`,
+          }));
+      
+          setImages([...images, ...newImages]);
+          setPhotos((prevPhotos) => prevPhotos - e.length);
+        } catch (error) {
+          Swal.fire("¡Error!", error, "error");
+        } finally {
+          disableHover();
         }
-        catch (e) {
-            Swal.fire(
-                '¡Error!',
-                e,
-                'error'
-            )
-        }
-        finally {
-            disableHover();
+      }      
 
-        }
-
-
-    }
+      const deleteImage = (index) => {
+        const updatedImages = [...images];
+        updatedImages.splice(index, 1);
+        setImages(updatedImages);
+        setPhotos((prevPhotos) => prevPhotos + 1);
+      };
+      
+    
     const prev = (e) => {
         const index = reference?.current?.getCurrentIndex();
         reference?.current?.slideToIndex(index - 1);
@@ -80,40 +76,75 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
         setPhotos(maxPhotos)
     }, []);
     return (
-        <Stack direction={"column"} className="grid-center" spacing={"30px 0"}>
-            <div className="drop-title">
-                <h3 className="blue">{`${title} `}</h3>
-                {photos > 0 && <h3 className="red">({photos})</h3>}
+        <Stack direction="column" className="grid-center" spacing="30px 0">
+  <div className="drop-title">
+    <h3 className="blue">{`${title} `}</h3>
+    {photos > 0 && <h3 className="red">({photos})</h3>}
+  </div>
+  <Dropzone
+    onDrop={handleImages}
+    multiple={true}
+    onDragEnter={enableHover}
+    onDragLeave={disableHover}
+    accept={{ "image/*": ["*.*", ".pdf"] }}
+  >
+    {({ getRootProps, getInputProps }) => (
+      <section className="carousel-row">
+        {images?.length > 1 ? (
+          <Icon
+            as={MdOutlineSkipPrevious}
+            className="icon-hover"
+            onClick={prev}
+            role="button"
+          />
+        ) : (
+          <div></div>
+        )}
+        <div {...getRootProps()} className="drag-and-drop">
+          <div
+            ref={ref}
+            className={`drop-container ${
+              images?.length === 0 ? "" : "hide-container"
+            }`}
+            role="button"
+          >
+            <div className="head">
+              <Text>{sub}</Text>
+              <div className="icon">
+                <MdOutlineUpload className="icon" />
+              </div>
             </div>
-            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{ "image/*": ["*.*", ".pdf"] }}>
-                {({ getRootProps, getInputProps }) => (
-                    <section className="carousel-row">
-                        {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
-                        <div {...getRootProps()} className="drag-and-drop">
-                            <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
-                                <div className="head">
-                                    <Text>{sub}</Text>
-                                    <div className="icon">
-                                        <MdOutlineUpload className="icon" />
-                                    </div>
-                                </div>
-                                <p>Seleccione un archivo o arrástrelo aquí
-                                    <br />
-                                    {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
-                                </p>
+            <p>
+              Seleccione un archivo o arrástrelo aquí
+              <br />
+              {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
+            </p>
+          </div>
+          <Gallery images={images} setReference={setReference} />
+          <Input {...getInputProps()} />
+        </div>
+        {images?.length > 1 ? (
+          <Icon
+            as={MdOutlineSkipNext}
+            className="icon-hover"
+            onClick={next}
+            role="button"
+          />
+        ) : (
+          <div></div>
+        )}
 
-                            </div>
-                            <Gallery images={images} setReference={setReference} />
-                            <Input {...getInputProps()} />
-                        </div>
-                        {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
+        {images.length > 0 && ( // Show the delete button only if there are images
+          <div className="delete-top-right">
+            <span role="button" onClick={() => deleteImage(0)}>
+              <p>x</p>
+            </span>
+          </div>
+        )}
+      </section>
+    )}
+  </Dropzone>
+</Stack>
 
-                        <div className="delete-top-right">
-                            <span role="button" ><p>x</p></span>
-                        </div>
-                    </section>
-                )}
-            </Dropzone>
-        </Stack>
     )
 }
