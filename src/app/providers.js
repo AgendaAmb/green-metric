@@ -115,7 +115,8 @@ export const Providers = withFormik({
                         });
                 }
             }
-            setSubmitting(false);
+            //window.alert(JSON.stringify(values, null, 2));
+            setSubmitting(true);
         }, 100);
     },
 

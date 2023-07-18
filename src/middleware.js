@@ -2,6 +2,8 @@ export const runtime = 'nodejs'
 import { NextResponse } from "next/server"
 import { isAuth } from '@lib/auth';
 export async function middleware(request) {
+
+
     const path = request.nextUrl.pathname;
     //console.log(path)
     if (path === '/') {
@@ -9,12 +11,16 @@ export async function middleware(request) {
 
     }
     else if (path == '/login') {
-        setTimeout(() => {
             const isConnected = isAuth(request);
+            console.log("isConnected", isConnected)
             if (isConnected) {
                 return NextResponse.redirect(new URL('/GreenMetric/home', request.url));
             }
-        }, 0);
+            else {
+                
+                return NextResponse.next();
+            }
+
     }
     else if (path === '/api/auth') {
         const user = request.cookies?.get("user")?.value;
@@ -22,7 +28,7 @@ export async function middleware(request) {
         if (user != null) {
             resp.cookies.set("user", user);
         }
-        else{
+        else {
             resp.cookies.delete("user");
         }
         return resp;

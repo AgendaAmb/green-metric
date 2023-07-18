@@ -22,17 +22,17 @@ export async function POST(req, res) {
         user = { dependency_id: 1, user_id: user_id };
     }
 
-
     user ??= null;
     if (user != null) {
-        console.log(user);
+        //console.log(user);
         return new NextResponse('OK', {
             status: 200,
             headers: { 'Set-Cookie': `user=${JSON.stringify(user)}}` },
         });
     }
     else {
-        console.log("unauthorized")
+        //console.log("unauthorized")
+        
         return new NextResponse('Unauthorized', {
             status: 401,
         });

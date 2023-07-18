@@ -12,9 +12,7 @@ function Header() {
     const close = () => {
         deleteCookie('user');
         setLogout(false);
-        setTimeout(() => {
-            router.refresh();
-        }, 1000);
+        router.refresh();
     }
 
     useEffect(()=> {
