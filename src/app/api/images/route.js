@@ -11,8 +11,7 @@ export async function GET(req, res) {
 };
 
 export async function POST(req, res) {
-    const body = await req.json();
-    console.log(body);
+    
 
     return new Response('Ok', {
         status: 200,

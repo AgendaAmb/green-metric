@@ -19,10 +19,9 @@ export async function POST(req, res) {
     const { user_id, password } = params;
     let user, headers;
     if (
-        (user_id == 262482 && password == "@g3nd4@mb13nt4l") || (user_id == 11007 && password == "@g3nd4@mb13nt4l")
-        ) {
-            user = { dependency_id: 1, user_id: user_id };
-            console.log("Authorized");
+        user_id === 262482 && password == "@g3nd4@mb13nt4l" || user_id === 11007 && password == "@g3nd4@mb13nt4l"
+    ) {
+        user = { dependency_id: 1, user_id: user_id };
     }
 
     user ??= null;
@@ -34,7 +33,7 @@ export async function POST(req, res) {
         });
     }
     else {
-        console.log("unauthorized")
+        //console.log("unauthorized")
         
         return new NextResponse('Unauthorized', {
             status: 200,

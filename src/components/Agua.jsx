@@ -31,7 +31,7 @@ export default function Agua(){
              <Text className="blue text-start expand-3">El abasto de agua potable alcanza niveles de alarma para la población de las cuatro regiones del estado de San Luis Potosí. Por esta razón, la Universidad, tiene como objetivo abordar de manera integral los retos y problemáticas asociadas al recurso hídrico en el estado. Por ello, en este apartado se busca recopilar la información en torno a los programas y acciones que cada una de las entidades implementa con la finalidad de optimizar el uso del agua, aumentar su conservación y medir el uso de agua que se hace en las entidades.</Text>
             {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, questionDicotomic: '4-1-1',span:true}]} />
+                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, questionDicotomic: 'a-4-1-1',span:true}]} />
 
             </Stack>
 
@@ -49,7 +49,7 @@ export default function Agua(){
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.3 ¿Con cuantos sistemas de conservación de agua cuenta?"
-                elements={[{type:3, question:'4-1-3'}]} />
+                elements={[{type:3, question:'a-4-1-3'}]} />
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
                 </Stack>
@@ -77,9 +77,9 @@ export default function Agua(){
                     "Colectores pluviales.",
                     "Mantenimiento de áreas verdes asegurando áreas de recarga.",
                     "Otros (especifíque)."
-                    ]}} questionCheckBox={'4-1-4'}/>
+                    ]}} questionCheckBox={'a-4-1-4'}/>
                 <ModuleInput
-                elements={[{holder: "Especifique", type:1, question:'4-1-4-1'}]} />
+                elements={[{holder: "Especifique", type:1, question:'a-4-1-4-1'}]} />
             </Stack>
             <Stack direction="column-3">
                  <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
@@ -87,17 +87,17 @@ export default function Agua(){
 
             <h1 className="green"> 4.2 Programa de reciclaje de agua.</h1>
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.2.1 Favor de indicar si cuenta con programa de reciclaje del agua" elements={[{dicotomic:true, span:true, questionDicotomic:'4-2-1'}]} />
+                <ModuleInput title="4.2.1 Favor de indicar si cuenta con programa de reciclaje del agua" elements={[{dicotomic:true, span:true, questionDicotomic:'a-4-2-1'}]} />
             </Stack>
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.2.2 ¿Cuenta su entidad con un método de tratamiento de aguas residuales?" elements={[{dicotomic:true, span:true, questionDicotomic:'4-2-2-1'}]} />
+                <ModuleInput title="4.2.2 ¿Cuenta su entidad con un método de tratamiento de aguas residuales?" elements={[{dicotomic:true, span:true, questionDicotomic:'a-4-2-2-1'}]} />
                 <ModuleInput select={[
                 "Tratamiento Preliminar: consiste en cribado para eliminar sólidos grandes, eliminación de arena para eliminar arena y otros materiales pesados, y eliminación de aceites y grasas.",
                 "Tratamiento Primario: incluye sedimentación y coagulación-floculación",
                 "Tratamiento Secundario: sistemas de crecimiento adjunto o sistemas de crecimiento suspendido",
                 "Tratamiento Terciario: ofrece opciones de reutilización como desinfección, filtración y oxidación avanzada para purificar aún más el agua para su reutilización en procesos industriales o riego.",
-                ]} questionSelect="4-2-2-2"/>
+                ]} questionSelect="a-4-2-2-2"/>
                  <Stack direction="column-3">
                      <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
                  </Stack>
@@ -110,7 +110,7 @@ export default function Agua(){
                 "El programa ya está implementado pero se encuentra  en etapa inicial (11-25%)",
                 "El programa ya tiene capacidad de reciclar agua en porcentajes (25-50%) ",
                 "El programa ya tiene capacidad de reciclar porcentajes 50% >",
-                ]} questionSelect="4-2-3"/>
+                ]} questionSelect="a-4-2-3"/>
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
                 </Stack>
@@ -118,7 +118,7 @@ export default function Agua(){
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.2.4 ¿Con cuantas acciones de reciclaje de agua cuenta?"
-                elements={[{type:3, question:'4-2-4'}]} />
+                elements={[{type:3, question:'a-4-2-4'}]} />
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
                 </Stack>
@@ -133,7 +133,7 @@ export default function Agua(){
                 "Los programas de control de la contaminación del agua están en la etapa inicial de implementación. (31-50%) ",
                 "Los programas de control de la contaminación del agua se implementan por completo y se supervisan ocasionalmente. (51-80%)",
                 "Los programas de control de la contaminación del agua se implementan en su totalidad y se supervisan con regularidad. (81-100%)"
-                ]} questionSelect="4-3"/>
+                ]} questionSelect="a-4-3"/>
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
                 </Stack>

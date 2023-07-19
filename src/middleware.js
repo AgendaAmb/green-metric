@@ -30,7 +30,9 @@ export async function middleware(request) {
         if (user != null) {
             resp.cookies.set("user", user);
         }
-        
+        else {
+            resp.cookies.delete("user");
+        }
         return resp;
     }
     else {

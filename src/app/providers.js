@@ -106,9 +106,7 @@ export const Providers = withFormik({
                 const pwd = values.pwd_login || "";
                 /* console.log(id);
                 console.log(pwd); */
-                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => {}).catch((e) =>{
-                    console.log("error")
-                });
+                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } });
             }
             else {
                 //alert(JSON.stringify(values, null, 2));
