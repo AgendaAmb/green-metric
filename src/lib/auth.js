@@ -7,11 +7,7 @@ export const auth = (request) => {
         const path = request.nextUrl.pathname;
         return NextResponse.redirect(path, request.url);
     }
-    else {
-        const url = request.nextUrl.clone()
-        url.pathname = '/login'
-        return NextResponse.redirect(url);
-    }
+    return NextResponse.next();
 }
 
 export const isAuth = (request) => {
