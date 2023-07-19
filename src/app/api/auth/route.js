@@ -36,7 +36,7 @@ export async function POST(req, res) {
         //console.log("unauthorized")
         
         return new NextResponse('Unauthorized', {
-            status: 401,
+            status: 200,
         });
     }
     /* const password = await req.nextUrl.searchParams.get("password");
