@@ -30,6 +30,7 @@ export default function Login() {
     }
 
     useEffect(() => {
+        console.log(form);
         setTimeout(() => {
             router.refresh();
         }, 1000);
@@ -52,6 +53,7 @@ export default function Login() {
                 <FormControl>
                     <Input
                         name={"cve_rpe"}
+                        value={form.values.cve_rpe}
                         placeholder={"Usuario"}
                         marginRight="15px"
                         type="number"

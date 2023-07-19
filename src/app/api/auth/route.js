@@ -5,6 +5,8 @@ import { cookies, Headers } from 'next/headers';
 
 
 export async function POST(req, res) {
+    console.log("auth api");
+
     let params;
     try {
         const body = await req.json();

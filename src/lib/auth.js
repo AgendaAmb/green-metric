@@ -1,6 +1,8 @@
 
 "use server"
 export const auth = (request) => {
+    console.log("auth lib");
+
     if (isAuth(request)) {
         const path = request.nextUrl.pathname;
         return NextResponse.redirect(path, request.url);

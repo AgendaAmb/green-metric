@@ -11,8 +11,8 @@ export async function middleware(request) {
 
     }
     else if (path == '/login') {
+        console.log("login");
             const isConnected = isAuth(request);
-            console.log("isConnected", isConnected)
             if (isConnected) {
                 return NextResponse.redirect(new URL('/GreenMetric/home', request.url));
             }
@@ -22,7 +22,9 @@ export async function middleware(request) {
             }
 
     }
-    else if (path === '/api/auth') {
+    else if (path.endsWith('/api/auth')) {
+        console.log("auth");
+
         const user = request.cookies?.get("user")?.value;
         const resp = NextResponse.next();
         if (user != null) {

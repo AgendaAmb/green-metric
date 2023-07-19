@@ -16,13 +16,17 @@ export async function GET(req, res) {
                     }
                     resolve(results);
                 }
-            );
+            ).then((res) =>{}).catch((err)=>{console.log("Error con la BD")});
         });
     } catch (error) {
         console.error("Error con la conexion a la BD");
     }
-
-    return NextResponse.json(results);
+    if(results != "Error con la busqueda de datos/consulta"){
+        return NextResponse.json(results);
+    }
+    else{
+        NextResponse.next();
+    }
 
 
 };

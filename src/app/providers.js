@@ -16,6 +16,7 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
     const [valuesFunction, setValuesFunction] = useState(setFieldValue);
     const [submitFunction, setSubmitFunction] = useState(handleSubmit);
     const [data, setData] = useState({ values, handleChange, setValuesFunction, setSubmitFunction, submitFunction });
+    console.log(values);
     const fetchData = () => {
         try {
             const response = axios.get('/GreenMetric/api/answers', {
@@ -63,7 +64,13 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
 }
 
 export const Providers = withFormik({
-    mapPropsToValues: () => ({}),
+    mapPropsToValues: (props) => {
+        return {
+            cve_rpe: "262482",
+            pwd_login: "",
+            "0-1": "0",
+        };
+    },
 
     // Custom sync validation
     validate: values => {
@@ -102,6 +109,8 @@ export const Providers = withFormik({
                 axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } });
             }
             else {
+                //alert(JSON.stringify(values, null, 2));
+                console.log(values);
                 for (const [key, value] of Object.entries(values)) {
                     axios.post('/GreenMetric/api/answers', {
                         value: value,
@@ -111,12 +120,12 @@ export const Providers = withFormik({
                             //console.log(response);
                         })
                         .catch(function (error) {
-                            console.log(error);
+                            console.log("Error con la BD");
                         });
                 }
             }
             //window.alert(JSON.stringify(values, null, 2));
-            setSubmitting(true);
+            setSubmitting(false);
         }, 100);
     },
 
