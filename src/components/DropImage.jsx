@@ -26,7 +26,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       }
 
       const newImages = e.map((file, index) => {
-        axios.post("/GreenMetric/images", { file });
+        axios.post("/GreenMetric/api/images", JSON.stringify(file));
         return ({
           original: URL.createObjectURL(file),
           name: `${title}-${index + 1}`,

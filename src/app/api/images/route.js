@@ -11,9 +11,10 @@ export async function GET(req, res) {
 };
 
 export async function POST(req, res) {
+    console.log("Posting img");
     const body = await req.json();
+    const { name, data } = body;
     console.log(body);
-
     return new Response('Ok', {
         status: 200,
         headers: {
