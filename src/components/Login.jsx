@@ -30,6 +30,7 @@ export default function Login() {
     }
 
     useEffect(() => {
+        console.log(form);
         setTimeout(() => {
             router.refresh();
         }, 1000);
