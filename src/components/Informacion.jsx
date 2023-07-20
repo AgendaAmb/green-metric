@@ -28,7 +28,7 @@ export default function Informacion({ hello }) {
 
 
     const pushModule = () => {
-        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question: `a-0-2-${deps.length + 1}` }];
+        const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question: `a_0_2_${deps.length + 1}` }];
 
         setDeps([...newDeps]);
     }
@@ -43,7 +43,7 @@ export default function Informacion({ hello }) {
     useEffect(() => {
         if (deps.length <= 1) {
 
-            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question: `a-0-2-${deps.length + 1}` }])
+            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question: `a_0_2_${deps.length + 1}` }])
         }
     }, [])
 
@@ -59,7 +59,7 @@ export default function Informacion({ hello }) {
 
             <Stack spacing="5px" w="30%" padding="30px">
                 <ModuleInput title={"Datos de la dependencia"}
-                    elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question: 'a_0_1_1' }, { holder: "Dirección de la dependencia", type: 1, question: 'a-0-1-2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question: 'a-0-1-3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question: 'a-0-1-4' }]}
+                    elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question: 'a_0_1_1' }, { holder: "Dirección de la dependencia", type: 1, question: 'a_0_1_2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question: '0_1_3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question: 'a_0_1_4' }]}
                     inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
@@ -88,13 +88,13 @@ export default function Informacion({ hello }) {
                         "5. Transporte",
                         "6. Educación",
                     ], hasInput: true
-                }} checkboxName={'CheckBoxField'} questionCheckBox={'a-0-3-1'} />
+                }} checkboxName={'CheckBoxField'} questionCheckBox={'a_0_3_1'} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-3">Indique el tipo de dependencia universitaria</h3>
-                <ModuleInput select={options} questionSelect={'a-0-4-1'} />
-                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2, question: 'a-0-4-2' }]} />
+                <ModuleInput select={options} questionSelect={'a_0_4_1'} />
+                <ModuleInput elements={[{ text: "¿Cuántas personas asisten a su entidad en promedio diariamente?", type: 2, question: 'a_0_4_2' }]} />
             </Stack>
 
 
