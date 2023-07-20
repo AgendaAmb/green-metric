@@ -36,6 +36,8 @@ export default function Residuos() {
                     text: "3.2.1 Cantidad de residuos orgánicos producidos por semana(kg).", type: 4
                     , evidence: true, maxPhotos: 3, question:'a-3-2-1'
                 }, { text: "3.2.2 Cantidad de residuos orgánicos tratados por semana (Compostaje en casa, servicio particular, jardines, Unihuerto, etc. (kg)).", type: 2, evidence: true, maxPhotos: 3, question:'a-3-2-2' }]}/>
+                <h3 className="expand-2">3.2.3 Porcentaje de implementación de programa para
+                tratamiento de residuos orgánicos.</h3>
                 <ModuleInput elements={[{
                     text: "3.2.3.1 ¿Cuenta con un programa de tratamiento de residuos orgánicos?", type: 4, dicotomic: true, questionDicotomic:'a-3-2-3-1', vertical: true
                 }, { text: "3.2.3.2 Nombre del programa implementado", holder: "Nombre del programa", type: 1, question:'a-3-2-3-2', vertical: true, span: false}]}/>
@@ -45,8 +47,7 @@ export default function Residuos() {
                 "51 - 75%",
                 "76 - 100%",
                 ]} />
-                <ModuleInput elements={[{ evidence: true, span: true }]} title="3.2.3 Porcentaje de implementación de programa para
-                tratamiento de residuos orgánicos." />
+                <ModuleInput elements={[{ evidence: true, span: true }]} />
             </Stack>
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-2 green">

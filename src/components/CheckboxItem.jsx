@@ -21,6 +21,7 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
             <Checkbox
                 onChange={handleEnabled}
                 name={`checkbox.${index}.selected`}
+                value={form.values[questioncheckbox]}
                 h="35px"
                 w="100%"
                 onSelect={form.handleChange}

@@ -18,7 +18,6 @@ import {
 import { MdLibraryAdd } from "react-icons/md";
 import { useContext, useState } from "react";
 import { FormContext } from "@/app/providers";
-
 import DropImage from "./DropImage";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
@@ -41,7 +40,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined" }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied",questionDicotomic = "undefined" }, index,) => {
                 const isInputEnable = hasSelect && dicotomic && selectValue === '1';
                 return (
                     <Stack direction="column" className={`${span ? "expand-2" : ""}`} key={index} >
@@ -66,6 +65,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                     {type != 0 && (
                                         <Input
                                             name={question}
+                                            value={form.values[question]}
                                             id="input"
                                             type={type == 1 ? "text" : "number"}
                                             placeholder={holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}
@@ -80,6 +80,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                             placeholder={additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}
                                             marginRight="15px"
                                             disabled={additional.disabled}
+                                            
                                         />
                                     )}
                                 </InputGroup>

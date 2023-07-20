@@ -64,7 +64,7 @@ export default function Educacion() {
     }
 
     const item7 = () => {
-        const newMod7 = [...components7,{ text: 'Nombre de la conferencia', type: 1, question:'a-6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-2' }, { evidence: true }];
+        const newMod7 = [...components7,{ text: 'Evento', type: 1, question:'a-6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-2' }, { evidence: true }];
         setComponents7([...newMod7]);
     }
     
@@ -278,10 +278,10 @@ export default function Educacion() {
                     <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(7)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.7 Eventos culturales (festivales, teatro, evento musical, exhibiciones artísticas,etc.)</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'a-6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-2' }, { evidence: true }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Evento', type: 1, question:'a-6-3-1-7-1' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-2' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question:'a-6-3-1-7-3' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-4' }, { evidence: true }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Evento', type: 1, question:'a-6-3-1-7-3' }, { text: "Asistentes", type: 1, question:'a-6-3-1-7-4' }, { evidence: true }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                 <ModuleInput elements={components7}/>
@@ -381,27 +381,27 @@ export default function Educacion() {
                 <h3>6.5.4 Indique si en su entidad se realiza investigación relacionada con la sostenibilidad, y de ser así, indicar el nombre del investigador o investigadora, su área de investigación y proyectos de investigación.</h3>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '1. Infraestructura y escenarios', dicotomic: true, questionDicotomic:'a-6-5-4-1' }, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-1-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-1-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-1-3' }]} />
+                        elements={[{ text: '1. Infraestructura y escenarios', dicotomic: true, questionDicotomic:'a-6-5-4-1' }, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-1-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-1-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-1-3' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '2. Energía y cambio climático', dicotomic: true, questionDicotomic:'a-6-5-4-2' }, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-2-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-2-2'}, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-2-3' }]} />
+                        elements={[{ text: '2. Energía y cambio climático', dicotomic: true, questionDicotomic:'a-6-5-4-2' }, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-2-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-2-2'}, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-2-3' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '3. Residuos', dicotomic: true, questionDicotomic:'a-6-5-4-3' }, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-3-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-3-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-3-3' }]} />
+                        elements={[{ text: '3. Residuos', dicotomic: true, questionDicotomic:'a-6-5-4-3' }, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-3-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-3-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-3-3' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '4. Agua', dicotomic: true, questionDicotomic:'a-6-5-4-4' }, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-4-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-4-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-4-3' }]} />
+                        elements={[{ text: '4. Agua', dicotomic: true, questionDicotomic:'a-6-5-4-4' }, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-4-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-4-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-4-3' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '5. Transporte', dicotomic: true, questionDicotomic:'a-6-5-4-5'}, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-5-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-5-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-5-3' }]} />
+                        elements={[{ text: '5. Transporte', dicotomic: true, questionDicotomic:'a-6-5-4-5'}, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-5-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-5-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-5-3' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput
-                        elements={[{ text: '6. Educación', dicotomic: true, questionDicotomic:'a-6-5-4-6' }, { text: 'Nombre del investigado', type: 1, question:'a-6-5-4-6-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-6-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-6-3' }]} />
+                        elements={[{ text: '6. Educación', dicotomic: true, questionDicotomic:'a-6-5-4-6' }, { text: 'Nombre del investigador', type: 1, question:'a-6-5-4-6-1' }, { text: 'Área de investigación', type: 1, question:'a-6-5-4-6-2' }, { text: 'Proyectos de investigación', type: 1, question:'a-6-5-4-6-3' }]} />
                 </Stack>
 
                 <h3>6.5.5 Indica los cuerpos académicos que tienen línea de investigación relacionada con sostenibilidad</h3>

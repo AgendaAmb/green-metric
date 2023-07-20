@@ -49,7 +49,7 @@ export default function Agua(){
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.1.3 ¿Con cuantos sistemas de conservación de agua cuenta?"
-                elements={[{type:3, question:'a-4-1-3'}]} />
+                elements={[{type:2, question:'a-4-1-3'}]} />
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
                 </Stack>
@@ -118,7 +118,7 @@ export default function Agua(){
 
             <Stack spacing="30px" w="100%" align="center" direction="column">
                 <ModuleInput title="4.2.4 ¿Con cuantas acciones de reciclaje de agua cuenta?"
-                elements={[{type:3, question:'a-4-2-4'}]} />
+                elements={[{type:2, question:'a-4-2-4'}]} />
                  <Stack spacing="30px" direction="column-3">
                     <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
                 </Stack>

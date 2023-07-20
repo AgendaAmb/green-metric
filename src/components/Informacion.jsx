@@ -6,7 +6,7 @@ import {
     Button,
     Text,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState} from "react";
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
 

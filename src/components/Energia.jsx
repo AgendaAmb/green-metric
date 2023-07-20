@@ -86,7 +86,8 @@ export default function Energia(){
                 </Stack>
             </Stack>
             <Stack spacing="30px" w="100%" className="column-2">
-                <ModuleInput title="2.1.14 En referencia a los edificios inteligentes, marcar si se cumple con las especificaciones siguientes dentro de cada uno de sus edificios" 
+                <h3 className="expand-2">2.1.14 En referencia a los edificios inteligentes, marcar si se cumple con las especificaciones siguientes dentro de cada uno de sus edificios</h3>
+                <ModuleInput
                 checkbox={{data: [
                     "Presencia de Building Management System (BMS)/Building Information Modelling (BIM)/Building Automation System (BAS)/Facility Management System (FMS).",
                     "Soporte interactivo para usuarios a través de la APP o servicio en línea",
