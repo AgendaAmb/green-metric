@@ -4,28 +4,27 @@ import { connection } from "@lib/db";
 
 export async function GET(req, res) {
 
-    let results;
-    try {
-        results = await new Promise((resolve, reject) => {
-            connection.query(
-                `SELECT * FROM answers WHERE dependency_id = ?`,
-                [1],
-                function (err, results, fields) {
-                    if (err) {
-                        reject("Error con la busqueda de datos/consulta");
-                    }
-                    resolve(results);
+    let results = await new Promise((resolve, reject) => {
+        connection.query(
+            `SELECT * FROM answers WHERE dependency_id = ?`,
+            [1],
+            function (err, results, fields) {
+                if (err) {
+                    reject([]);
                 }
-            ).then((res) =>{}).catch((err)=>{console.log("Error con la BD")});
+                resolve(results);
+            }
+        );
+    });
+    if (results.length > 0) {
+        let data = {};
+        results.forEach((el) => {
+            data[el.question_id] = el.answer;
         });
-    } catch (error) {
-        console.error("Error con la conexion a la BD");
+        return NextResponse.json(data);
     }
-    if(results != "Error con la busqueda de datos/consulta"){
-        return NextResponse.json(results);
-    }
-    else{
-        NextResponse.next();
+    else {
+        NextResponse.json({ error: "Error" });
     }
 
 

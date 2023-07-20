@@ -12,11 +12,10 @@ import axios from "axios";
 
 export const FormContext = createContext(null);
 
-function FormBase({ children, handleSubmit, handleChange, values, setFieldValue }) {
-    const [valuesFunction, setValuesFunction] = useState(setFieldValue);
+function FormBase({ children, handleSubmit, handleChange, values }) {
+    console.log("valores", values);
     const [submitFunction, setSubmitFunction] = useState(handleSubmit);
-    const [data, setData] = useState({ values, handleChange, setValuesFunction, setSubmitFunction, submitFunction });
-    console.log(values);
+    const [data, setData] = useState({ values, handleChange, setSubmitFunction, submitFunction });
     const fetchData = () => {
         try {
             const response = axios.get('/GreenMetric/api/answers', {
@@ -64,12 +63,12 @@ function FormBase({ children, handleSubmit, handleChange, values, setFieldValue 
 }
 
 export const Providers = withFormik({
-    mapPropsToValues: (props) => {
-        return {
-            cve_rpe: "262482",
-            pwd_login: "",
-            "0-1": "0",
-        };
+    mapPropsToValues: async(props) => {
+        const response = axios.get('/GreenMetric/api/answers', {
+            params: { value: 1 } // Pasar los parámetros como parte del objeto `params`
+        });
+        const data = await response.data;
+        return data;
     },
 
     // Custom sync validation
@@ -106,7 +105,7 @@ export const Providers = withFormik({
                 const pwd = values.pwd_login || "";
                 /* console.log(id);
                 console.log(pwd); */
-                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => {}).catch((e) =>{
+                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => { }).catch((e) => {
                     console.log("error")
                 });
             }
