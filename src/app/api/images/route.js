@@ -2,12 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { headers } from 'next/headers';
 import { connection } from "@lib/db";
+import * as FilePond from 'filepond';
 
 const fs = require('fs');
 const path = require('path');
 
 export async function GET(req, res) {
-    return NextResponse.json({message: "Hello World"});
+
+    return NextResponse.json({message: pond});
 };
 
 export async function POST(req, res) {
@@ -15,6 +17,7 @@ export async function POST(req, res) {
     const body = await req.json();
     const { name, data } = body;
     console.log(body);
+    const pond = FilePond.create();
     return new Response('Ok', {
         status: 200,
         headers: {

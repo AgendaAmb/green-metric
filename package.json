@@ -19,6 +19,7 @@
         "canvas": "^2.11.2",
         "cookies-next": "^2.1.2",
         "dotenv": "^16.3.1",
+        "filepond": "^4.30.4",
         "formik": "^2.4.1",
         "framer-motion": "^10.12.18",
         "fs": "^0.0.1-security",
