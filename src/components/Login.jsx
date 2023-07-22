@@ -22,9 +22,9 @@ export default function Login() {
         setSpin(true);
         setTimeout(() => {
             setSpin(false);
-            setTimeout(() => {
+            /* setTimeout(() => {
                 router.refresh();
-            }, 100);
+            }, 100); */
         }, 3000);
     }
 

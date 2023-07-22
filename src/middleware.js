@@ -11,34 +11,35 @@ export async function middleware(request) {
 
     }
     else if (path == '/login') {
-        console.log("login");
-            const isConnected = isAuth(request);
-            if (isConnected) {
-                return NextResponse.redirect(new URL('/GreenMetric/home', request.url));
-            }
-            else {
-                
-                return NextResponse.next();
-            }
+        const isConnected = isAuth(request);
+        if (isConnected) {
+            return NextResponse.redirect(new URL('/GreenMetric/home', request.url));
+        }
+        else {
+
+            return NextResponse.next();
+        }
 
     }
     else if (path.endsWith('/api/auth')) {
-        setTimeout(() => {
-            const user = request.cookies?.get("user")?.value;
-            console.log("usuario: ", user);
-            const resp = NextResponse.next();
-            if (user != null) {
-                resp.cookies.set("user", user);
-            }
-            
-            return resp;
+        const user = request.cookies?.get("user").value;
 
-        }, 100);
-        
+        if (user != null) {
+            const resp = NextResponse.next();
+            resp.cookies.set("user", user);
+            return resp;
+        }
+
+
     }
     else {
         if (!isAuth(request)) {
             return NextResponse.redirect(new URL('/GreenMetric/login', request.url))
+        }
+        else {
+            let us = request.cookies?.get("user").value;
+            console.log("user", us);
+            return NextResponse.next();
         }
     }
 }

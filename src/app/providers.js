@@ -17,16 +17,16 @@ function FormBase({ children, handleSubmit, handleChange, values }) {
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
 
-    useEffect( () => {
+    useEffect(() => {
         //fetchData();
-        const getVals = async()=>{
+        const getVals = async () => {
             return await values;
         }
         const vals = getVals();
-        vals.then((res)=>{
+        vals.then((res) => {
             console.log("res", res);
         })
-    
+
         setData({ values: vals, handleChange, setSubmitFunction, submitFunction });
         setLoading(false);
     }, []);
@@ -76,7 +76,7 @@ export const Providers = withFormik({
     },
 
     handleSubmit: (values, { setSubmitting }) => {
-        
+
         setTimeout(() => {
             //Checking if form is login
             const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
@@ -85,9 +85,8 @@ export const Providers = withFormik({
                 const id = values.cve_rpe || "";
                 const pwd = values.pwd_login || "";
                 axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => { }).catch((e) => {
-                    console.log("error")
+                    //console.log(res);
                 });
-
             }
             else {
                 //alert(JSON.stringify(values, null, 2));
@@ -106,7 +105,7 @@ export const Providers = withFormik({
                 }
             }
             setSubmitting(false);
-        }, 100);
+        }, 0);
     },
 
     displayName: 'GreenMetricForm',
