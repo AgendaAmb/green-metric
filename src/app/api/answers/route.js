@@ -3,8 +3,11 @@ import { headers } from 'next/headers';
 import { connection } from "@lib/db";
 
 export async function GET(req, res) {
-
-    let results = await new Promise((resolve, reject) => {
+    let results = [];
+    let cookies = req.cookies.get("user");
+    console.log(cookies.value);
+    try {
+        results = await new Promise((resolve, reject) => {
         connection.query(
             `SELECT * FROM answers WHERE dependency_id = ?`,
             [1],
@@ -12,10 +15,13 @@ export async function GET(req, res) {
                 if (err) {
                     reject([]);
                 }
+                
                 resolve(results);
             }
-        );
-    });
+            );
+        });
+    } catch (error) {
+    } 
     if (results.length > 0) {
         let data = {};
         results.forEach((el) => {
@@ -24,10 +30,8 @@ export async function GET(req, res) {
         return NextResponse.json(data);
     }
     else {
-        NextResponse.json({ error: "Error" });
+        return NextResponse.json({ message: "No hay datos" });
     }
-
-
 };
 
 export async function POST(req, res) {

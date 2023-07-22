@@ -23,15 +23,18 @@ export async function middleware(request) {
 
     }
     else if (path.endsWith('/api/auth')) {
-        console.log("auth");
+        setTimeout(() => {
+            const user = request.cookies?.get("user")?.value;
+            console.log("usuario: ", user);
+            const resp = NextResponse.next();
+            if (user != null) {
+                resp.cookies.set("user", user);
+            }
+            
+            return resp;
 
-        const user = request.cookies?.get("user")?.value;
-        const resp = NextResponse.next();
-        if (user != null) {
-            resp.cookies.set("user", user);
-        }
+        }, 100);
         
-        return resp;
     }
     else {
         if (!isAuth(request)) {

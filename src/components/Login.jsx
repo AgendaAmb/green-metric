@@ -22,18 +22,13 @@ export default function Login() {
         setSpin(true);
         setTimeout(() => {
             setSpin(false);
+            setTimeout(() => {
+                router.refresh();
+            }, 100);
         }, 3000);
-
-        setTimeout(() => {
-            router.push("/");
-        }, 3500);
     }
 
     useEffect(() => {
-        console.log(form);
-        setTimeout(() => {
-            router.refresh();
-        }, 1000);
     }, []);
     return (
         <VStack

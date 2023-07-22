@@ -7,17 +7,27 @@ import { useEffect, useState, useRef } from "react";
 
 import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react-icons/md"
 import Swal from 'sweetalert2'
-
+import { getDroppedOrSelectedFiles } from 'html5-file-selector'
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 import axios from 'axios';
 
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "" }) {
   const [images, setImages] = useState([]);
+  const [arr, setArr] = useState([]);
   const [photos, setPhotos] = useState(1);
   const [reference, setReference] = useState(null);
 
   const ref = useRef(null);
+
+  const convertBlobToBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result.split(',')[1]);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
+  };
 
   const handleImages = async (e) => {
     try {
@@ -25,10 +35,15 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
         throw `No puedes agregar más de ${maxPhotos} archivos.`;
       }
 
-      const newImages = e.map((file, index) => {
-        axios.post("/GreenMetric/api/images", JSON.stringify(file));
+      const newImages = e.map(async (file, index) => {
+        const url = URL.createObjectURL(file);
+        const response = await fetch(url);
+        const val = await response.blob();
+        const base64Image = await convertBlobToBase64(val);
+        console.log("responseimg", val);
+        axios.post("/GreenMetric/api/images", { img: base64Image });
         return ({
-          original: URL.createObjectURL(file),
+          original: url,
           name: `${title}-${index + 1}`,
         })
       });
@@ -86,6 +101,25 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     node.className = `drop-container ${images?.length == 0 ? "" : "hide-container"}`;
   }
 
+  const getUploadParams = ({ meta }) => {
+    console.log(meta);
+    return { url: 'https://httpbin.org/post' }
+  }
+
+  const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
+
+  const handleSubmit = (files, allFiles) => {
+    console.log(files.map(f => f.meta))
+    allFiles.forEach(f => f.remove())
+  }
+
+  const getFilesFromEvent = e => {
+    return new Promise(resolve => {
+      getDroppedOrSelectedFiles(e).then(chosenFiles => {
+        resolve(chosenFiles.map(f => f.fileObject))
+      })
+    })
+  }
   useEffect(() => {
 
     setPhotos(maxPhotos)
@@ -99,6 +133,9 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       <Dropzone
         onDrop={handleImages}
         multiple={true}
+        getFilesFromEvent={getFilesFromEvent}
+        onChangeStatus={handleChangeStatus}
+        getUploadParams={getUploadParams}
         onDragEnter={enableHover}
         onDragLeave={disableHover}
         accept={{ "image/*": ["*.*", ".pdf"] }}
@@ -135,7 +172,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 </p>
               </div>
               <Gallery images={images} setReference={setReference} />
-              <Input {...getInputProps()} />
+              <Input onChange={e => getFilesFromEvent(e).then(chosenFiles => { console.log("fi", chosenFiles) })} {...getInputProps()} />
             </div>
             {images?.length > 1 ? (
               <Icon

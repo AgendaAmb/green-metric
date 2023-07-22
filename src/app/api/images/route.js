@@ -1,23 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
-
-import { headers } from 'next/headers';
-import { connection } from "@lib/db";
-import * as FilePond from 'filepond';
-
-const fs = require('fs');
+import formidable from 'formidable';
 const path = require('path');
 
 export async function GET(req, res) {
 
-    return NextResponse.json({message: pond});
+    return NextResponse.json({ message: pond });
 };
 
 export async function POST(req, res) {
-    console.log("Posting img");
-    const body = await req.json();
-    const { name, data } = body;
-    console.log(body);
-    const pond = FilePond.create();
+    const { img } = await req.json();
+
+    if (img != null) {
+        const options = formidable.Options = {};
+        options.uploadDir = '/GreenMetric/images';
+        options.fileName = "image.jpg"
+        
+        const form = formidable(options);
+        try {
+            console.log('¡Imagen guardada correctamente!');
+            return NextResponse.json({ message: '¡Imagen guardada correctamente!' });
+        } catch (error) {
+            console.log('Error al guardar la imagen:');
+            return NextResponse.json({ message: 'Error al guardar la imagen:' });
+        }
+    }
     return new Response('Ok', {
         status: 200,
         headers: {

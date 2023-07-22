@@ -13,24 +13,29 @@ import axios from "axios";
 export const FormContext = createContext(null);
 
 function FormBase({ children, handleSubmit, handleChange, values }) {
-    console.log("valores", values.get);
     const [submitFunction, setSubmitFunction] = useState(handleSubmit);
     const [data, setData] = useState();
     const [loading, setLoading] = useState(true);
 
-    useEffect(async() => {
+    useEffect( () => {
         //fetchData();
-        const vals = await values;
-        console.log("vals", vals);
-        setData({ values :vals, handleChange, setSubmitFunction, submitFunction });
+        const getVals = async()=>{
+            return await values;
+        }
+        const vals = getVals();
+        vals.then((res)=>{
+            console.log("res", res);
+        })
+    
+        setData({ values: vals, handleChange, setSubmitFunction, submitFunction });
         setLoading(false);
     }, []);
 
     const contextValue = useMemo(() => data, [data]);
-    if(loading) return (<div>Loading...</div>)
-    else{
+    if (loading) return (<div>Loading...</div>)
+    else {
         return (
-    
+
             <FormContext.Provider value={contextValue}>
                 <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
                     <DndProvider backend={HTML5Backend}>
@@ -42,14 +47,14 @@ function FormBase({ children, handleSubmit, handleChange, values }) {
                     </DndProvider>
                 </Stack>
             </FormContext.Provider>
-    
+
         );
 
     }
 }
 
 export const Providers = withFormik({
-    mapPropsToValues: async(props) => {
+    mapPropsToValues: async (props) => {
         const response = axios.get('/GreenMetric/api/answers', {
             params: { value: 1 } // Pasar los parámetros como parte del objeto `params`
         });
@@ -71,17 +76,18 @@ export const Providers = withFormik({
     },
 
     handleSubmit: (values, { setSubmitting }) => {
+        
         setTimeout(() => {
             //Checking if form is login
             const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
-            
+
             if (isLogin) {
                 const id = values.cve_rpe || "";
                 const pwd = values.pwd_login || "";
-                
                 axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => { }).catch((e) => {
                     console.log("error")
                 });
+
             }
             else {
                 //alert(JSON.stringify(values, null, 2));

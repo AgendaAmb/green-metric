@@ -1,7 +1,6 @@
 "use server"
 import { cookies } from 'next/headers'
 export const deleteCookie = () => {
-    console.log("server")
     cookies().set({
         name: 'user',
         value: '',
