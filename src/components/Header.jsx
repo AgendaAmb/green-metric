@@ -10,9 +10,11 @@ function Header() {
     const [logout, setLogout] = useState(false);
     const router = useRouter();
     const close = () => {
-        deleteCookie('user');
-        setLogout(false);
-        router.refresh();
+        setTimeout(() => {
+            setLogout(false);
+            deleteCookie('user');
+            router.refresh();
+        }, 100)
     }
 
     useEffect(()=> {

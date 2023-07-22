@@ -12,6 +12,7 @@ export async function middleware(request) {
     }
     else if (path == '/login') {
         const isConnected = isAuth(request);
+
         if (isConnected) {
             return NextResponse.redirect(new URL('/GreenMetric/home', request.url));
         }
@@ -30,16 +31,10 @@ export async function middleware(request) {
             return resp;
         }
 
-
     }
     else {
         if (!isAuth(request)) {
             return NextResponse.redirect(new URL('/GreenMetric/login', request.url))
-        }
-        else {
-            let us = request.cookies?.get("user").value;
-            console.log("user", us);
-            return NextResponse.next();
         }
     }
 }
