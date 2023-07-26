@@ -13,7 +13,7 @@ export async function POST(req, res) {
     catch (e) {
         console.log("No hay cuerpo en la request")
     }
-
+    console.log("api")
     const { user_id, password } = params;
     /* let user, headers;
     if (

@@ -23,13 +23,21 @@ export async function middleware(request) {
 
     }
     else if (path.endsWith('/api/auth')) {
-        const user = request.cookies?.get("user").value;
+        let user;
+        try {
+            user = request.cookies?.get("user").value;
+            console.log("user", user)
+        }
+        catch (e) {
+            console.log("No hay cookies")
+        }
 
         if (user != null) {
             const resp = NextResponse.next();
             resp.cookies.set("user", user);
             return resp;
         }
+    
 
     }
     else {
