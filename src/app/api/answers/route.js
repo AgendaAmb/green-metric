@@ -5,12 +5,13 @@ import { connection } from "@lib/db";
 export async function GET(req, res) {
     let results = [];
     let cookies = req.cookies.get("user");
-    console.log(cookies.value);
+    
     try {
+        let module = JSON.parse(cookies.value);
         results = await new Promise((resolve, reject) => {
         connection.query(
             `SELECT * FROM answers WHERE dependency_id = ?`,
-            [1],
+            [module.dependency_id],
             function (err, results, fields) {
                 if (err) {
                     reject([]);
@@ -36,7 +37,9 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
     let body;
+    let cookies = req.cookies.get("user");
     try {
+        let module = JSON.parse(cookies.value);
         body = await req.json();
         if (body.hasOwnProperty("value") && body.hasOwnProperty("question")) {
             const { value, question } = body;
@@ -47,7 +50,7 @@ export async function POST(req, res) {
             dependency_id = VALUES(dependency_id),
             answer = VALUES(answer),
             question_id = VALUES(question_id);`,
-                [1, value, question],
+                [module.dependency_id, value, question],
                 function (err, results, fields) {
                     if (err) {
                         console.error(err);
