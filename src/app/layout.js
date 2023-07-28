@@ -10,7 +10,7 @@ import { hasCookie, getCookie } from "cookies-next";
 import axios from "axios";
 import Login from "../components/Login";
 
-export const metadata = {
+const metadata = {
     title: "Green Metric",
     description: "Green Metric App",
 
