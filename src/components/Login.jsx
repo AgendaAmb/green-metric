@@ -24,11 +24,12 @@ export default function Login() {
             setSpin(false);
             setTimeout(() => {
                 router.refresh();
-            }, 100);
+            }, 1000);
         }, 3000);
     }
 
     useEffect(() => {
+        //router.refresh();
     }, []);
     return (
         <VStack

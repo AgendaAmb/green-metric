@@ -8,6 +8,7 @@ import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo } from "react";
 import axios from "axios";
+import { hasCookie } from 'cookies-next';
 
 
 export const FormContext = createContext(null);
@@ -77,35 +78,42 @@ export const Providers = withFormik({
 
     handleSubmit: (values, { setSubmitting }) => {
 
-        setTimeout(() => {
-            //Checking if form is login
-            const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
 
-            if (isLogin) {
-                const id = values.cve_rpe || "";
-                const pwd = values.pwd_login || "";
-                axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } }).then((res) => { }).catch((e) => {
-                    //console.log(res);
-                });
-            }
-            else {
-                //alert(JSON.stringify(values, null, 2));
-                //console.log(values);
-                for (const [key, value] of Object.entries(values)) {
-                    axios.post('/GreenMetric/api/answers', {
-                        value: value,
-                        question: key
-                    })
-                        .then(function (response) {
-                            //console.log(response);
-                        })
-                        .catch(function (error) {
-                            console.log("Error con la BD");
-                        });
+        //Checking if form is login
+        const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
+
+        if (isLogin) {
+            const id = values.cve_rpe || "";
+            const pwd = values.pwd_login || "";
+
+            const interval = setInterval(() => {
+                if (hasCookie("user")) {
+                    clearInterval(interval);
                 }
+                else {
+                    axios.post("/GreenMetric/api/auth", { params: { user_id: id, password: pwd } });
+                }
+            }, 1000);
+            
+        }
+        else {
+            //alert(JSON.stringify(values, null, 2));
+            //console.log(values);
+            for (const [key, value] of Object.entries(values)) {
+                axios.post('/GreenMetric/api/answers', {
+                    value: value,
+                    question: key
+                })
+                    .then(function (response) {
+                        //console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log("Error con la BD");
+                    });
             }
-            setSubmitting(false);
-        }, 0);
+        }
+        setSubmitting(false);
+
     },
 
     displayName: 'GreenMetricForm',
