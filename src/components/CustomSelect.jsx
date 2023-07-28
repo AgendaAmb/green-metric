@@ -14,11 +14,20 @@ function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", name
         }
     };
 
+    let val;
+
+    try{
+        val = form.values[nameSelect];
+    }
+    catch(e){
+        val = "";
+    }
+
     useEffect(() => {
         console.log("Select", form);
     })
     return (
-        <Select placeholder={holder}  className={...classes} name={nameSelect}  value={form.values[nameSelect]} onClick={form.handleChange} onChange={handleSelected}>
+        <Select placeholder={holder}  className={...classes} name={nameSelect}  value={val} onClick={form.handleChange} onChange={handleSelected}>
             {data?.map((el, index) => {
                 return (
                     <option key={"el" + index} value={el}>

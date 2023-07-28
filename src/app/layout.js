@@ -19,18 +19,19 @@ export default function RootLayout({ children }) {
                 <link rel='icon' href='/favicon.ico' />
             </head>
             <body>
-                <div
-                    className={`main  main-container body`}
-                    suppressHydrationWarning={false}
-                >
-                    <Header />
-                    <div className="main ">
-                        <div className="main-info-container">
-                            <Providers>{children}</Providers>
+                <Providers>
+                    <div
+                        className={`main  main-container body`}
+                        suppressHydrationWarning={false}
+                    >
+                        <Header />
+                        <div className="main ">
+                            <div className="main-info-container">
+                                {children}
+                            </div>
                         </div>
                     </div>
-                </div>
-
+                </Providers>
             </body>
         </html>
     );

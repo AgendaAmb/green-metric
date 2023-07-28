@@ -6,6 +6,16 @@ import { FormContext } from "@/app/providers";
 export default function CheckboxItem({ element, area, hasInput = false, index = 1, questioncheckbox}) {
     const [enabled, setEnabled] = useState(false);
     const form = useContext(FormContext);
+    console.log(form);
+    let val;
+
+    try{
+        val = form.values[questioncheckbox];
+    }
+    catch(e){
+        val = "";
+    }
+
 
     const handleEnabled = () => {
         setEnabled(!enabled);
@@ -21,7 +31,7 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
             <Checkbox
                 onChange={handleEnabled}
                 name={`checkbox.${index}.selected`}
-                value={form.values[questioncheckbox]}
+                value={val}
                 h="35px"
                 w="100%"
                 onSelect={form.handleChange}
