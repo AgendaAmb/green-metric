@@ -6,11 +6,11 @@ export async function middleware(request) {
 
     const path = request.nextUrl.pathname;
     //console.log(path)
-    if (path === '/') {
+    /* if (path === '/') {
         return NextResponse.redirect(new URL('/GreenMetric/login', request.url))
 
-    }
-    else if (path == '/login') {
+    } else*/
+    if (path == '/') {
         const isConnected = isAuth(request);
 
         if (isConnected) {
@@ -37,12 +37,12 @@ export async function middleware(request) {
             resp.cookies.set("user", user);
             return resp;
         }
-    
+
 
     }
     else {
         if (!isAuth(request)) {
-            return NextResponse.redirect(new URL('/GreenMetric/login', request.url))
+            return NextResponse.redirect(new URL('/GreenMetric/', request.url))
         }
     }
 }

@@ -9,16 +9,42 @@ import {
     FormHelperText,
     FormControl,
 } from "@chakra-ui/react";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { FormContext } from "@/app/providers";
 import { useRouter } from "next/navigation";
-
-
+import axios from "axios";
+import { hasCookie } from "cookies-next";
 export default function Login() {
     const form = useContext(FormContext);
+    const passRef = useRef(null);
+    const userRef = useRef(null);
     const router = useRouter();
     const [spin, setSpin] = useState(false);
     const auth = () => {
+        let password, user;
+
+        if (passRef?.current) {
+            password = passRef.current.value;
+        }
+        if (userRef?.current) {
+            user = userRef.current.value;
+        }
+
+        if(!user || !password){
+    
+        }else{
+
+            const interval = setInterval(() => {
+                if (hasCookie("user")) {
+                    clearInterval(interval);
+                    window.location.href = "/GreenMetric/home";
+                }
+                else {
+                    axios.post("/GreenMetric/api/auth", { params: { user_id: user, password: password } });
+                }
+            }, 1000);
+        }
+
         setSpin(true);
         setTimeout(() => {
             setSpin(false);
@@ -37,7 +63,7 @@ export default function Login() {
             placeItems={"center"}
             className="grid-center"
             alignSelf={"center"}
-            
+
         >
             <h1 width="100%">Bienvenid@ a Green Metric</h1>
 
@@ -46,26 +72,27 @@ export default function Login() {
                 <FormControl>
                     <Input
                         name={"cve_rpe"}
-                        value={form.values.cve_rpe}
+                        ref={userRef}
                         placeholder={"Usuario"}
                         marginRight="15px"
                         type="number"
-                        onChange={form.handleChange}
+
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su RPE/CVE única</FormHelperText>
 
                 </FormControl>
                 <FormControl>
                     <Input
+                        ref={passRef}
                         name={"pwd_login"}
                         placeholder={"********************"}
                         marginRight="15px"
                         type="password"
-                        onChange={form.handleChange}
+
                     />
                     <FormHelperText color={"gray.400"}>Ingrese su contraseña</FormHelperText>
                 </FormControl>
-                <Button type="submit" className="login-button" alignSelf="center" onClick={auth}>{spin ? <Spinner /> : "Iniciar sesión"}</Button>
+                <Button className="login-button" alignSelf="center" onClick={auth}>{spin ? <Spinner /> : "Iniciar sesión"}</Button>
             </Stack>
 
 

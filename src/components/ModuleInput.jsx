@@ -75,7 +75,9 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                     {type != 0 && (
                                         <Input
                                             name={question}
-                                            value={answer}
+                                            value={form?.values[question]}
+                                            onChange={form.handleChange}
+                                            onBlur={form.handleBlur}
                                             id="input"
                                             type={type == 1 ? "text" : "number"}
                                             placeholder={holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}

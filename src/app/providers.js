@@ -14,31 +14,24 @@ import { getCookie, hasCookie } from 'cookies-next';
 export const FormContext = createContext(null);
 
 
-function PreRender({ children, handleSubmit, handleChange, values }) {
-    const [data, setData] = useState();
-    const [loading, setLoading] = useState(true);
-    const fetchData = async () => {
-        console.log(values);
-        
-    };
+function PreRender({ children, handleSubmit, handleBlur, handleChange, values }) {
+    const [data, setData] = useState({ handleSubmit, handleChange,handleBlur, values: values });
 
-    useEffect(() => {
-        fetchData();
-    }, []);
+
 
     return (
         <>
-            {!loading &&
+            
                 <FormBase data={data} handleSubmit={handleSubmit}>
                     {children}
                 </FormBase>
-            }
+            
         </>
     );
 }
 
 
-function FormBase({ children, handleSubmit, data }) {
+function FormBase({ children, handleSubmit,data }) {
     const [loading, setLoading] = useState(true);
 
     /* const fetchData = useCallback(async () => {
@@ -60,7 +53,7 @@ function FormBase({ children, handleSubmit, data }) {
     else {
         return (
 
-            <FormContext.Provider value={data}>
+            <FormContext.Provider value={...data}>
                 <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
                     <DndProvider backend={HTML5Backend}>
                         <CacheProvider>
@@ -78,26 +71,11 @@ function FormBase({ children, handleSubmit, data }) {
 }
 
 export const Providers = withFormik({
-    mapPropsToValues: async (props) => {
-        const interval = setInterval(async () => {
-            if (hasCookie("user")) {
-                let user = getCookie("user");
-                try {
-                    user = JSON.parse(user);
-                }
-                catch (e) {
-                    console.log("Error al parsear cookie");
-                }
-                
-                clearInterval(interval);
-                const response = axios.get('/GreenMetric/api/answers', {
-                    params: { user } // Pasar los parámetros como parte del objeto `params`
-                });
-                const results = await response;
-                const data = await results;
-                return data;
-            }
-        }, 1000);
+    mapPropsToValues: (props) => {
+        let values = {};
+        values = { ...props.data.data };
+
+        return values;
     },
 
     // Custom sync validation
@@ -116,7 +94,7 @@ export const Providers = withFormik({
     handleSubmit: (values, { setSubmitting }) => {
 
 
-        //Checking if form is login
+        /* //Checking if form is login
         const isLogin = values?.hasOwnProperty("cve_rpe") && values?.hasOwnProperty("pwd_login");
 
         if (isLogin) {
@@ -134,20 +112,20 @@ export const Providers = withFormik({
             }, 1000);
 
         }
-        else {
-            for (const [key, value] of Object.entries(values)) {
-                axios.post('/GreenMetric/api/answers', {
-                    value: value,
-                    question: key
+        else { */
+        for (const [key, value] of Object.entries(values)) {
+            axios.post('/GreenMetric/api/answers', {
+                value: value,
+                question: key
+            })
+                .then(function (response) {
+                    //console.log(response);
                 })
-                    .then(function (response) {
-                        //console.log(response);
-                    })
-                    .catch(function (error) {
-                        console.log("Error con la BD");
-                    });
-            }
+                .catch(function (error) {
+                    console.log("Error con la BD");
+                });
         }
+        //}
         setSubmitting(false);
 
     },
