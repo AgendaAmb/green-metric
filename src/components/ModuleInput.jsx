@@ -30,7 +30,13 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 5: Metros Cuadrados
 */
 export default function ModuleInput({ title, elements, selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect = "undefined", questionEvidence = "undefined", questionCheckBox = "undefined", hasSelect }) {
+    
     const form = useContext(FormContext);
+    const handleChange = (e) => {
+        setTimeout(()  => {
+            form.handleChange(e);
+        }, 10000);
+    }
     return (
         <>
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
@@ -40,15 +46,15 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied",questionDicotomic = "undefined" }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined" }, index,) => {
                 const isInputEnable = hasSelect && dicotomic && selectValue === '1';
 
-                let answer; 
-
+                let answer;
+                
                 try {
                     answer = form?.values[question]
                 }
-                catch(e){
+                catch (e) {
                     answer = "";
                 }
 
@@ -63,7 +69,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                     <option value="0">No</option>
                                 </Select>
                             ) : (type != null) && (
-                                <InputGroup onKeyUp={form.handleChange} w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size="sm">
+                                <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size="sm" onChange={form.handleChange} onBlur={form.handleBlur}>
                                     {type > 0 && (
                                         <InputLeftAddon
                                             pointerEvents="none"
@@ -75,9 +81,8 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                     {type != 0 && (
                                         <Input
                                             name={question}
-                                            value={form?.values[question]}
-                                            onChange={form.handleChange}
-                                            onBlur={form.handleBlur}
+                                            value={answer}
+                                            
                                             id="input"
                                             type={type == 1 ? "text" : "number"}
                                             placeholder={holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}
@@ -89,10 +94,12 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                         <Input
                                             name="none"
                                             type={additional.type == 1 ? "text" : "number"}
+                                            onChange={form.handleChange}
+                                            onBlur={form.handleBlur}
                                             placeholder={additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}
                                             marginRight="15px"
                                             disabled={additional.disabled}
-                                            
+
                                         />
                                     )}
                                 </InputGroup>
@@ -105,7 +112,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                         {evidence &&
                             <DropImage title={`${title}`} maxPhotos={maxPhotos} />
                         }
-                        
+
                     </Stack >
                 )
             })}

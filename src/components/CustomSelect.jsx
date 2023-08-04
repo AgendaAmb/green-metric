@@ -24,7 +24,7 @@ function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", name
     }
 
     useEffect(() => {
-        console.log("Select", form);
+        //console.log("Select", form);
     })
     return (
         <Select placeholder={holder}  className={...classes} name={nameSelect}  value={form.values[nameSelect]} onClick={form.handleChange} onChange={handleSelected}>

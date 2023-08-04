@@ -19,6 +19,7 @@ const metadata = {
 export default function RootLayout({ children }) {
     const [data, setData] = useState({});
     const [load, setLoad] = useState(true);
+    const [reload, setReload] = useState(false);
     useEffect(() => {
         const interval = setInterval(async () => {
             if (hasCookie("user")) {
@@ -38,6 +39,9 @@ export default function RootLayout({ children }) {
                 const final = await results;
                 setData(final);
                 setLoad(false);
+                setTimeout(() => {
+                    setReload(true);
+                }, 100);
             }
         }, 1000);
     }, [load])
@@ -55,7 +59,11 @@ export default function RootLayout({ children }) {
                     <Header />
                     <div className="main ">
                         <div className="main-info-container">
-                            {load ? <Login /> : <Providers data={data}>{children}</Providers>}
+                            {load ?
+                                <Providers data={data}>
+                                    <Login />
+                                </Providers> :
+                                reload && <Providers data={data}>{children}</Providers>}
                         </div>
                     </div>
                 </div>

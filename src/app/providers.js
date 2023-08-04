@@ -15,23 +15,23 @@ export const FormContext = createContext(null);
 
 
 function PreRender({ children, handleSubmit, handleBlur, handleChange, values }) {
-    const [data, setData] = useState({ handleSubmit, handleChange,handleBlur, values: values });
+    const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values });
 
 
 
     return (
         <>
-            
-                <FormBase data={data} handleSubmit={handleSubmit}>
-                    {children}
-                </FormBase>
-            
+
+            <FormBase data={data} handleSubmit={handleSubmit}>
+                {children}
+            </FormBase>
+
         </>
     );
 }
 
 
-function FormBase({ children, handleSubmit,data }) {
+function FormBase({ children, handleSubmit, data }) {
     const [loading, setLoading] = useState(true);
 
     /* const fetchData = useCallback(async () => {
@@ -53,17 +53,17 @@ function FormBase({ children, handleSubmit,data }) {
     else {
         return (
 
-            <FormContext.Provider value={...data}>
-                <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
-                    <DndProvider backend={HTML5Backend}>
-                        <CacheProvider>
-                            <ChakraProvider>
+            <DndProvider backend={HTML5Backend}>
+                <CacheProvider>
+                    <ChakraProvider>
+                        <FormContext.Provider value={...data}>
+                            <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
                                 {children}
-                            </ChakraProvider>
-                        </CacheProvider>
-                    </DndProvider>
-                </Stack>
-            </FormContext.Provider>
+                            </Stack>
+                        </FormContext.Provider>
+                    </ChakraProvider>
+                </CacheProvider>
+            </DndProvider>
 
         );
 
@@ -74,7 +74,6 @@ export const Providers = withFormik({
     mapPropsToValues: (props) => {
         let values = {};
         values = { ...props.data.data };
-
         return values;
     },
 
@@ -126,7 +125,7 @@ export const Providers = withFormik({
                 });
         }
         //}
-        setSubmitting(false);
+        setSubmitting(true);
 
     },
 

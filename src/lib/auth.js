@@ -16,6 +16,7 @@ export const isAuth = (request) => {
         }
 
     } catch (error) {
+        
         return false;
     }
     return false;
