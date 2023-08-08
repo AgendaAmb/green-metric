@@ -29,7 +29,7 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect = "undefined", questionEvidence = "undefined", questionCheckBox = "undefined", hasSelect }) {
+export default function ModuleInput({ title, elements, selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect = "undefined", questionEvidence = "undefined", questionCheckBox = "undefined", hasSelect, noColumn = false}) {
     
     const form = useContext(FormContext);
     const handleChange = (e) => {

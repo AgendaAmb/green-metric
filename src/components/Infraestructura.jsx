@@ -18,6 +18,7 @@ import { FormContext } from "../app/providers";
 export default function Infraestructura() {
     const [year, setYear] = useState(2013);
     const [species, setSpecies] = useState(2);
+    const [products, setProducts] = useState(2);
     const context = useContext(FormContext);
     const data =
         [
@@ -59,8 +60,9 @@ export default function Infraestructura() {
 
 
     const item2 = () => {
-        const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1' }, { type: 1, holder: "Nombre del producto", question: 'a_1_3_1_2' }, { evidence: true }];
+        const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question: `a_1_3_${products}_1` }, { type: 1, holder: `Nombre del producto ${products}`, question: `a_1_3_${products}_2` }, { evidence: true }];
         setComponents2([...newMod2]);
+        setProducts(products + 1);
     }
 
     const item3 = () => {
@@ -134,13 +136,21 @@ export default function Infraestructura() {
         const { values: answers } = context;
         if (answers) {
             const regex_1 = /^a_1_1_(?!1|2|0).*_1$/;
-            let filteredFirst = Object.keys(answers).filter((el) => el.startsWith("a_1_1_"));
-            let checkItem = filteredFirst.filter((el) => regex_1.test(el)).length;
-
+            let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
+            
             for(let i = 0; i < checkItem; i++){
                 item();
+                checkItem = 0;
             }
-
+            
+            const regex_2 = /^a_1_3_(?!1|2|0).*_1$/;
+            checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
+            
+            for(let i = 0; i < checkItem; i++){
+                item2();
+                checkItem = 0;
+            }
+            
 
         }
     }, [year]);
@@ -175,7 +185,7 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green">1.2 Indique en el recuadro punteado el área (m2) de los espacios mencionados a continuación:</h3>
                 <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."} />
             </Stack>
-            <Stack spacing="30px" padding="30px" className="column-2" position={"relative"}>
+            <Stack spacing="30px" padding="30px"  position={"relative"}>
                 <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
                     <Button className="add-button" onClick={item2}>+</Button>
                     <Button className="delete-button" onClick={() => popModule(2)}>-</Button>
@@ -183,8 +193,8 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
-                <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1' }, { type: 1, holder: "Nombre del producto", question: 'a_1_3_1_2' }, { evidence: true }]} />
-                <ModuleInput elements={components2} />
+                <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1' }, { type: 1, holder: "Nombre del producto 1", question: 'a_1_3_1_2' }, { evidence: true }] } noColumn ={true} />
+                <ModuleInput elements={components2} noColumn ={true} />
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ type: 6, holder: year - 3, question: 'a_1_3_2_1' }, { type: 6, holder: year - 2, question: 'a_1_3_2_2' }, { type: 6, holder: year - 1, question: 'a_1_3_2_2' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
@@ -195,7 +205,7 @@ export default function Infraestructura() {
                     <Stack spacing="30px" direction="column" className="expand-3 column-2">
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
                         <ModuleInput
-                            text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2, question: 'a_1_3_4_1' },]} />
+                            text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2, question: 'a_1_3_4_1' } ,]} />
                         <Stack direction={"column"} className="expand-3">
                             <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true, question: 'a_1_3_4_2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true, question: 'a_1_3_4_3' }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true, question: 'a_1_3_4_4' }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true, question: 'a_1_3_4_5' }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true, question: 'a_1_3_4_6' }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true, question: 'a_1_3_4_7' }, {
                                 text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
