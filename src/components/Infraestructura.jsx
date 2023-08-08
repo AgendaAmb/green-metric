@@ -19,6 +19,10 @@ export default function Infraestructura() {
     const [year, setYear] = useState(2013);
     const [species, setSpecies] = useState(2);
     const [products, setProducts] = useState(2);
+    const [facilities, setFacilities] = useState(2);
+    const [maintanances, setMaintainances] = useState(2);
+    const [animals, setAnimals] = useState(2);
+    const [measure, setMeasure] = useState(2);
     const context = useContext(FormContext);
     const data =
         [
@@ -50,7 +54,7 @@ export default function Infraestructura() {
     const item = () => {
         const newMod = [
             ...components,
-            { text: `Especie: ${species + 1}`, type: 1, question: `a_1_1_${species + 1}_1` },
+            { text: `Nombre común especie: ${species + 1}`, type: 1, question: `a_1_1_${species + 1}_1` },
             { text: "Nombre científico: ", type: 1, question: `a_1_1_${species + 1}_2` },
             { evidence: true, maxPhotos: 1 }
         ];
@@ -60,29 +64,33 @@ export default function Infraestructura() {
 
 
     const item2 = () => {
-        const newMod2 = [...components2, { type: 4, holder: "Cantidad (kg)", question: `a_1_3_${products}_1` }, { type: 1, holder: `Nombre del producto ${products}`, question: `a_1_3_${products}_2` }, { evidence: true }];
+        const newMod2 = [...components2, { type: 1, holder: `Nombre del producto ${products}`, question: `a_1_3_1_${products}_2` }, { type: 4, holder: "Cantidad (kg)", question: `a_1_3_1_${products}_1` }, { evidence: true }];
         setComponents2([...newMod2]);
         setProducts(products + 1);
     }
 
     const item3 = () => {
-        const newMod3 = [...components3, { type: -1, holder: "Nombre de la instalación", evidence: true, question: 'a_1_3_6_1' }];
+        const newMod3 = [...components3, {noAddon: true, type: 1,  holder: `Nombre de la instalación ${facilities}`, evidence: true, question: `a_1_3_6_${facilities}` }];
         setComponents3([...newMod3]);
+        setFacilities(facilities + 1);
     }
 
     const item4 = () => {
-        const newMod4 = [...components4, { type: 5, evidence: true, maxPhotos: 5, question: 'a_1_3_7_1' }];
+        const newMod4 = [...components4, { type: 5, evidence: true, maxPhotos: 5, question: `a_1_3_7_${maintanances}` }];
         setComponents4([...newMod4]);
+        setMaintainances(maintanances + 1)
     }
     const item5 = () => {
-        const newMod5 = [...components5, { type: 1, question: 'a_1_3_11_2' }, { type: 2, question: 'a_1_3_11_1' }, { evidence: true }];
+        const newMod5 = [...components5, { type: 1, question: `a_1_3_11_${animals}_2` }, { type: 2, question: `a_1_3_11_${animals}_1` }, { evidence: true }];
         setComponents5([...newMod5]);
+        setAnimals(animals + 1)
     }
 
 
     const item6 = () => {
-        const newMod6 = [...components6, { type: 1, holder: "Nombre de la medida", evidence: true, question: 'a_1_4_6_1' }];
+        const newMod6 = [...components6, { type: 1, holder: "Nombre de la medida", evidence: true, question: `a_1_4_6_${measure}` }];
         setComponents6([...newMod6]);
+        setMeasure(measure + 1);
     }
 
 
@@ -92,18 +100,22 @@ export default function Infraestructura() {
                 if (components.length > 1) {
                     const updatedComps = components.filter((_, index) => index > 2);
                     setComponents(updatedComps);
+                    setSpecies(species - 1);
                 }
                 break;
             case 2:
                 if (components2.length > 1) {
                     const updatedComps = components2.filter((_, index) => index > 2);
                     setComponents2(updatedComps);
+                    setProducts(products - 1);
+
                 }
                 break;
             case 3:
                 if (components3.length > 0) {
                     const updatedComps = components3.slice(0, components3.length - 1);
                     setComponents3([...updatedComps]);
+                    setFacilities(facilities - 1);
                     console.log("Eliminado");
                 }
                 break;
@@ -111,20 +123,21 @@ export default function Infraestructura() {
                 if (components4.length > 0) {
                     const updatedComps = components4.slice(0, components4.length - 1);
                     setComponents4([...updatedComps]);
-                    console.log("Eliminado");
+                    setMaintainances(maintanances - 1);
                 }
                 break;
             case 5:
                 if (components5.length > 1) {
                     const updatedComps = components5.filter((_, index) => index > 2);
                     setComponents5(updatedComps);
+                    setAnimals(animals - 1);
                 }
                 break;
             case 6:
                 if (components6.length > 0) {
                     const updatedComps = components6.slice(0, components6.length - 1);
                     setComponents6([...updatedComps]);
-                    console.log("Eliminado");
+                    setMeasure(measure - 1);
                 }
                 break;
         };
@@ -137,21 +150,47 @@ export default function Infraestructura() {
         if (answers) {
             const regex_1 = /^a_1_1_(?!1|2|0).*_1$/;
             let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
-            
-            for(let i = 0; i < checkItem; i++){
+
+            for (let i = 0; i < checkItem; i++) {
                 item();
                 checkItem = 0;
             }
+
+            const regex_2 = /^a_1_3_1_(?!1|0).*_1$/;
+            checkItem = Object.keys(answers).filter((el) => regex_2.test(el)).length;
             
-            const regex_2 = /^a_1_3_(?!1|2|0).*_1$/;
-            checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
-            
-            for(let i = 0; i < checkItem; i++){
+            for (let i = 0; i < checkItem; i++) {
                 item2();
                 checkItem = 0;
             }
+            const regex_3 = /^a_1_3_6_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_3.test(el)).length;
             
-
+    
+            for (let i = 0; i < checkItem; i++) {
+                item3();
+                checkItem = 0;
+            }
+            const regex_4 = /^a_1_3_7_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_4.test(el)).length;
+            for (let i = 0; i < checkItem; i++) {
+                item4();
+                checkItem = 0;
+            }
+            const regex_5 = /^a_1_3_11_(?!0|1)\d+_1$/;
+            checkItem = Object.keys(answers).filter((el) => regex_5.test(el)).length;
+            console.log(checkItem);
+            for (let i = 0; i < checkItem; i++) {
+                item5();
+                checkItem = 0;
+            }
+            const regex_6 = /^a_1_4_6_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_6.test(el)).length;
+            console.log(checkItem);
+            for (let i = 0; i < checkItem; i++) {
+                item6();
+                checkItem = 0;
+            }
         }
     }, [year]);
 
@@ -173,9 +212,9 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
 
-                <ModuleInput elements={[{ text: `Especie 1:`, type: 1, question: `a_1_1_1_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_1_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
+                <ModuleInput elements={[{ text: `Nombre común especie 1:`, type: 1, question: `a_1_1_1_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_1_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
 
-                <ModuleInput elements={[{ text: `Especie 2:`, type: 1, question: `a_1_1_2_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_2_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
+                <ModuleInput elements={[{ text: `Nombre común especie 2:`, type: 1, question: `a_1_1_2_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_2_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
 
                 <ModuleInput elements={components} />
 
@@ -185,7 +224,7 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green">1.2 Indique en el recuadro punteado el área (m2) de los espacios mencionados a continuación:</h3>
                 <ModuleInput elements={data} text={"En caso de que aplique, añadir evidencia fotográfica de cada uno de los espacios indicados."} />
             </Stack>
-            <Stack spacing="30px" padding="30px"  position={"relative"}>
+            <Stack spacing="30px" padding="30px" position={"relative"}>
                 <Stack direction={"row"} gap={6} position={"absolute"} right={"20px"}>
                     <Button className="add-button" onClick={item2}>+</Button>
                     <Button className="delete-button" onClick={() => popModule(2)}>-</Button>
@@ -193,8 +232,8 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
-                <ModuleInput elements={[{ type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1' }, { type: 1, holder: "Nombre del producto 1", question: 'a_1_3_1_2' }, { evidence: true }] } noColumn ={true} />
-                <ModuleInput elements={components2} noColumn ={true} />
+                <ModuleInput elements={[{ type: 1, holder: "Nombre del producto 1", question: 'a_1_3_1_1_2' }, { type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1_1' }, { evidence: true }]} noColumn={true} />
+                <ModuleInput elements={components2} noColumn={true} />
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ type: 6, holder: year - 3, question: 'a_1_3_2_1' }, { type: 6, holder: year - 2, question: 'a_1_3_2_2' }, { type: 6, holder: year - 1, question: 'a_1_3_2_2' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
@@ -205,7 +244,7 @@ export default function Infraestructura() {
                     <Stack spacing="30px" direction="column" className="expand-3 column-2">
                         <h4>1.3.4 Cantidad de Instalaciones destinadas a personas con discapacidad y/o maternidad</h4>
                         <ModuleInput
-                            text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2, question: 'a_1_3_4_1' } ,]} />
+                            text="1.3.4.1 Números de Espacio de estacionamiento adecuado" elements={[{ type: 2, question: 'a_1_3_4_1' },]} />
                         <Stack direction={"column"} className="expand-3">
                             <ModuleInput title="Infraestructura y equipos adecuados y/o adaptados" elements={[{ text: "1.3.4.2 Número de baños adaptados", type: 2, vertical: true, question: 'a_1_3_4_2' }, { text: "1.3.4.3 Número de espacios de lactancia", type: 2, vertical: true, question: 'a_1_3_4_3' }, { text: "1.3.4.4 Número de rampas de acceso", type: 2, vertical: true, question: 'a_1_3_4_4' }, { text: "1.3.4.5 Número de elevadores adaptados", type: 2, vertical: true, question: 'a_1_3_4_5' }, { text: "1.3.4.6 Número de carteles o anuncios en braille", type: 2, vertical: true, question: 'a_1_3_4_6' }, { text: "1.3.4.7 Número de salidas de emergencia", type: 2, vertical: true, question: 'a_1_3_4_7' }, {
                                 text: "1.3.4.8 Otros", type: 1, vertical: true, holder: "¿Cuál?", additional: {
@@ -256,7 +295,7 @@ export default function Infraestructura() {
                     <Button className="add-button" onClick={item3}>+</Button>
                     <Button className="delete-button" onClick={() => popModule(3)}>-</Button>
                 </Stack>
-                <ModuleInput elements={[{ type: -1, holder: "Nombre de la instalación", evidence: true, question: 'a_1_3_6_1' }]} title={"1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público)."} />
+                <ModuleInput elements={[{ noAddon: true, type: 1, holder: "Nombre de la instalación", evidence: true, question: 'a_1_3_6_1' }]} title={"1.3.6 Instalaciones destinadas a la salud. Mencione aquellas con las que cuente (ej. Módulo pips,enfermería, clínica con personal y con acceso al público)."} emptyStart={true} />
                 <ModuleInput elements={components3} />
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px" className="column-3" position={"relative"}>
@@ -286,8 +325,8 @@ export default function Infraestructura() {
                 ]} />
                 <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question: 'a_1-3-9-2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question: 'a_1-3-10-1' }]} />
                 <Stack spacing="30px" className="row">
-                    <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question: 'a_1_3_11_1' }]} />
-                    <ModuleInput elements={[{ type: 1, evidence: true, question: 'a_1_3_11_2' }]} />
+                    <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question: 'a_1_3_11_1_1' }]} />
+                    <ModuleInput elements={[{ type: 1, evidence: true, question: 'a_1_3_11_1_2' }]} />
                     <ModuleInput elements={components5} />
                 </Stack>
 
@@ -321,6 +360,8 @@ export default function Infraestructura() {
                         <Button className="add-button" onClick={item6}>+</Button>
                         <Button className="delete-button" onClick={() => popModule(6)}>-</Button>
                     </Stack>
+                    <h3>{" "}</h3>
+                    <h3>{" "}</h3>
                     <h3>1.4.6 Medidas de seguridad y protección en su infraestructura y en qué consisten (ej. botón de pánico, respuesta a siniestros, enfermería). </h3>
                     <Text className="blue text-start expand-3">Coloque el nombre de la medida de seguridad en los recuadros y añada evidencia fotográfica en el recuadro de mayor tamaño.</Text>
                     <Stack spacing="30px">

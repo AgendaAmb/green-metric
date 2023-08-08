@@ -29,7 +29,7 @@ import CustomSelect from "./CustomSelect";
 * * Tipo 4: Kilogramos
 * * Tipo 5: Metros Cuadrados
 */
-export default function ModuleInput({ title, elements, selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect = "undefined", questionEvidence = "undefined", questionCheckBox = "undefined", hasSelect, noColumn = false}) {
+export default function ModuleInput({ title, elements, selectValue, checkbox, area = false, select, add, addTitle = "Añadir otro módulo", column = false, span = false, inputLarge = false, text, addModule, colorTitle = "blue", questionSelect = "undefined", questionEvidence = "undefined", questionCheckBox = "undefined", hasSelect, emptyStart = false}) {
     
     const form = useContext(FormContext);
     const handleChange = (e) => {
@@ -39,6 +39,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
     }
     return (
         <>
+            {emptyStart && <h4 className={`expand-2`}>{" "}</h4>}
             {title && <h4 className={`expand-2 ${colorTitle}`}>{title}</h4>}
             {addModule && (
                 <Button className="add-button" size='sm' onClick={addModule.func}>
@@ -46,7 +47,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined" }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined", noAddon = false, }, index,) => {
                 const isInputEnable = hasSelect && dicotomic && selectValue === '1';
 
                 let answer;
@@ -68,9 +69,9 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                     <option value="1">Si</option>
                                     <option value="0">No</option>
                                 </Select>
-                            ) : (type != null) && (
+                            ) : ( type != null ) && (
                                 <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size="sm" onChange={form.handleChange} onBlur={form.handleBlur}>
-                                    {type > 0 && (
+                                    {!noAddon || type > 0 && (
                                         <InputLeftAddon
                                             pointerEvents="none"
                                             color="gray.600"
