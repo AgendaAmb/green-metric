@@ -7,76 +7,53 @@ import { useEffect, useState, useRef } from "react";
 
 import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react-icons/md"
 import Swal from 'sweetalert2'
-import { getDroppedOrSelectedFiles } from 'html5-file-selector'
+import axios from "axios";
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
-import axios from 'axios';
 
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "" }) {
   const [images, setImages] = useState([]);
-  const [arr, setArr] = useState([]);
   const [photos, setPhotos] = useState(1);
   const [reference, setReference] = useState(null);
-
+  const [imgArray, setimgArray] = useState([]);
   const ref = useRef(null);
 
-  const convertBlobToBase64 = (blob) => {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onloadend = () => resolve(reader.result.split(',')[1]);
-      reader.onerror = reject;
-      reader.readAsDataURL(blob);
-    });
-  };
-
-  const handleImages = async (e) => {
+  const handleImages = (e) => {
+    let count = 0;
+    let tmpImages = [...images];
+    let tmpArr = [...imgArray];
     try {
-      if (maxPhotos !== -1 && e.length > photos) {
+      if (maxPhotos != -1 && e.length > photos) {
         throw `No puedes agregar más de ${maxPhotos} archivos.`;
       }
 
-      const newImages = e.map(async (file, index) => {
-        const url = URL.createObjectURL(file);
-        const response = await fetch(url);
-        const val = await response.blob();
-        const base64Image = await convertBlobToBase64(val);
-        console.log("responseimg", val);
-        axios.post("/GreenMetric/api/images", { img: base64Image });
-        return ({
-          original: url,
-          name: `${title}-${index + 1}`,
-        })
-      });
-
-      // Enviar las imágenes al servidor
-      /* await Promise.all(
-        newImages.map(async (image) => {
-          try {
-            const response = await axios.post("/GreenMetric/images/upload", { image });
-            console.log(response.data.message);
-          } catch (error) {
-            console.error('Error al subir la imagen:', error);
-          }
-        })
-      ); */
-      // Actualizar el estado con las nuevas imágenes
-      setImages([...images, ...newImages]);
-      setPhotos((prevPhotos) => prevPhotos - e.length);
-    } catch (error) {
-      Swal.fire('¡Error!', error, 'error');
-    } finally {
-      disableHover();
+      e.forEach((file) => {
+        if (photos > 0 || maxPhotos == -1) {
+          let url = URL.createObjectURL(file);
+          tmpImages.push({ original: url });
+          tmpArr.push(file);
+        }
+        count++;
+      })
+      setPhotos(photos - count);
+      setImages(tmpImages);
+      setimgArray(tmpArr);
+      uploadToServer();
     }
-  };
+    catch (e) {
+      Swal.fire(
+        '¡Error!',
+        e,
+        'error'
+      )
+    }
+    finally {
+      disableHover();
 
-  const deleteImage = (index) => {
-    const updatedImages = [...images];
-    updatedImages.splice(index, 1);
-    setImages(updatedImages);
-    setPhotos((prevPhotos) => prevPhotos + 1);
-  };
+    }
 
 
+  }
   const prev = (e) => {
     const index = reference?.current?.getCurrentIndex();
     reference?.current?.slideToIndex(index - 1);
@@ -101,101 +78,55 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     node.className = `drop-container ${images?.length == 0 ? "" : "hide-container"}`;
   }
 
-  const getUploadParams = ({ meta }) => {
-    console.log(meta);
-    return { url: 'https://httpbin.org/post' }
-  }
 
-  const handleChangeStatus = ({ meta, file }, status) => { console.log(status, meta, file) }
+  const uploadToServer =  () => {
+    let form = new FormData();
+    // console.log("file", image)
 
-  const handleSubmit = (files, allFiles) => {
-    console.log(files.map(f => f.meta))
-    allFiles.forEach(f => f.remove())
-  }
 
-  const getFilesFromEvent = e => {
-    return new Promise(resolve => {
-      getDroppedOrSelectedFiles(e).then(chosenFiles => {
-        resolve(chosenFiles.map(f => f.fileObject))
-      })
-    })
-  }
+    form.append("file", imgArray[0]);
+    
+    axios.post("/GreenMetric/api/upload", form);
+    
+  };
   useEffect(() => {
-
     setPhotos(maxPhotos)
   }, []);
   return (
-    <Stack direction="column" className="grid-center" spacing="30px 0">
+    <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
       <div className="drop-title">
         <h3 className="blue">{`${title} `}</h3>
         {photos > 0 && <h3 className="red">({photos})</h3>}
       </div>
-      <Dropzone
-        onDrop={handleImages}
-        multiple={true}
-        getFilesFromEvent={getFilesFromEvent}
-        onChangeStatus={handleChangeStatus}
-        getUploadParams={getUploadParams}
-        onDragEnter={enableHover}
-        onDragLeave={disableHover}
-        accept={{ "image/*": ["*.*", ".pdf"] }}
-      >
+      <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{ "image/*": ["*.*", ".pdf"] }}>
         {({ getRootProps, getInputProps }) => (
           <section className="carousel-row">
-            {images?.length > 1 ? (
-              <Icon
-                as={MdOutlineSkipPrevious}
-                className="icon-hover"
-                onClick={prev}
-                role="button"
-              />
-            ) : (
-              <div></div>
-            )}
+            {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
             <div {...getRootProps()} className="drag-and-drop">
-              <div
-                ref={ref}
-                className={`drop-container ${images?.length === 0 ? "" : "hide-container"
-                  }`}
-                role="button"
-              >
+              <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
                 <div className="head">
                   <Text>{sub}</Text>
                   <div className="icon">
                     <MdOutlineUpload className="icon" />
                   </div>
                 </div>
-                <p>
-                  Seleccione un archivo o arrástrelo aquí
+                <p>Seleccione un archivo o arrástrelo aquí
                   <br />
                   {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
                 </p>
+
               </div>
               <Gallery images={images} setReference={setReference} />
-              <Input onChange={e => getFilesFromEvent(e).then(chosenFiles => { console.log("fi", chosenFiles) })} {...getInputProps()} />
+              <Input {...getInputProps()} />
             </div>
-            {images?.length > 1 ? (
-              <Icon
-                as={MdOutlineSkipNext}
-                className="icon-hover"
-                onClick={next}
-                role="button"
-              />
-            ) : (
-              <div></div>
-            )}
+            {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
-            {images.length > 0 && (
-              <div className="delete-top-right">
-                <span role="button" onClick={() => deleteImage(0)}>
-                  <p>x</p>
-                </span>
-              </div>
-            )}
+            <div className="delete-top-right">
+              <span role="button" ><p>x</p></span>
+            </div>
           </section>
         )}
       </Dropzone>
     </Stack>
-
   )
 }
