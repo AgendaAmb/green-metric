@@ -11,7 +11,7 @@ import axios from "axios";
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 
-export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "" }) {
+export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "", questionId = "na" }) {
   const [images, setImages] = useState([]);
   const [photos, setPhotos] = useState(1);
   const [reference, setReference] = useState(null);
@@ -38,7 +38,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       setPhotos(photos - count);
       setImages(tmpImages);
       setimgArray(tmpArr);
-      uploadToServer();
+      uploadToServer(tmpArr);
     }
     catch (e) {
       Swal.fire(
@@ -79,15 +79,18 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
   }
 
 
-  const uploadToServer =  () => {
+  const uploadToServer = (arr) => {
+
+
     let form = new FormData();
-    // console.log("file", image)
 
+    arr.forEach((img, index) => {
+      form.append(`file${index}`, img);
+    })
 
-    form.append("file", imgArray[0]);
-    
     axios.post("/GreenMetric/api/upload", form);
-    
+
+
   };
   useEffect(() => {
     setPhotos(maxPhotos)
@@ -98,7 +101,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
         <h3 className="blue">{`${title} `}</h3>
         {photos > 0 && <h3 className="red">({photos})</h3>}
       </div>
-      <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} accept={{ "image/*": ["*.*", ".pdf"] }}>
+      <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} >{/* accept={{ "image/*": ["*.*", ".pdf"] }} */}
         {({ getRootProps, getInputProps }) => (
           <section className="carousel-row">
             {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
