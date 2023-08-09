@@ -10,9 +10,9 @@ export async function POST(req) {
       const file = formDataEntryValue;
       const ext = file.name.split(".").pop();
       console.log(ext);
-      fs.mkdirSync("public/1", { recursive: true });
+      fs.mkdirSync("public/answers/1", { recursive: true });
       const buffer = Buffer.from(await file.arrayBuffer());
-      fs.writeFileSync(`public/1/${"test"}.${ext}`, buffer);
+      fs.writeFileSync(`public/answers/1/${"test"}.${ext}`, buffer);
     }
   }
   return NextResponse.json({ success: true });

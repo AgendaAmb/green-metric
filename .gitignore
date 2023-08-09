@@ -40,4 +40,4 @@ next-env.d.ts
 
 #api errors
 /tmp
-
+/public/answers
