@@ -179,14 +179,12 @@ export default function Infraestructura() {
             }
             const regex_5 = /^a_1_3_11_(?!0|1)\d+_1$/;
             checkItem = Object.keys(answers).filter((el) => regex_5.test(el)).length;
-            console.log(checkItem);
             for (let i = 0; i < checkItem; i++) {
                 item5();
                 checkItem = 0;
             }
             const regex_6 = /^a_1_4_6_(?!0|1)/;
             checkItem = Object.keys(answers).filter((el) => regex_6.test(el)).length;
-            console.log(checkItem);
             for (let i = 0; i < checkItem; i++) {
                 item6();
                 checkItem = 0;
