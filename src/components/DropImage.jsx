@@ -26,7 +26,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       if (maxPhotos != -1 && e.length > photos) {
         throw `No puedes agregar más de ${maxPhotos} archivos.`;
       }
-
+      
       e.forEach((file) => {
         if (photos > 0 || maxPhotos == -1) {
           let url = URL.createObjectURL(file);
@@ -39,6 +39,9 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       setImages(tmpImages);
       setimgArray(tmpArr);
       uploadToServer(tmpArr);
+      
+
+      
     }
     catch (e) {
       Swal.fire(
