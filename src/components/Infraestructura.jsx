@@ -31,7 +31,7 @@ export default function Infraestructura() {
             { text: "1.2.3 Área total de cobertura plantada", type: 5, question: 'a_1_2_3' },
             { text: "1.2.4 Área total de cobertura forestal", type: 5, question: 'a_1_2_4' },
             { text: "1.2.5 Área total de su entidad donde se lleven a cabo actividades académicas.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.5 Actividades académicas", helper: "(incluyendo edificios administrativos, edificios para actividades estudiantiles y del personal, salones, jardines únicamente con fines académicos)", question: 'a_1_2_5' },
-            { text: "1.2.6 ¿Cuántos edificios componen tu entidad?", type: 5, question: 'a_1_2-6' },
+            { text: "1.2.6 ¿Cuántos edificios componen tu entidad?", type: 5, question: 'a_1_2_6' },
             { text: "1.2.7 Área total de la planta baja de los edificios de su entidad de trabajo.", type: 5, question: 'a_1_2_7' },
             { text: "1.2.8 Área total construida de su entidad de trabajo.", helper: "(tome en cuenta los distintos niveles que conforman las edificaciones)", type: 5, question: 'a_1_2_8' },
             { text: "1.2.9 Área correspondiente a jardines verticales.", type: 5, evidence: true, maxPhotos: 4, title: "1.2.9 Jardines verticales", question: 'a_1_2_9' },
@@ -321,7 +321,7 @@ export default function Infraestructura() {
                     "51 - 75%",
                     "76 - 100%",
                 ]} />
-                <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question: 'a_1-3-9-2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question: 'a_1-3-10-1' }]} />
+                <ModuleInput elements={[{ text: "1.3.9 Número de protocolos para cuidar bioseguridad (OGM, patógenos, RPBI, otros).", type: 2, question: 'a_1_3_9_2' }, { text: "1.3.10 Número de protocolos de bioética.", type: 2, question: 'a_1_3_10_1' }]} />
                 <Stack spacing="30px" className="row">
                     <ModuleInput text="1.3.11 Número de animales reubicados, apoyados y conservados de acuerdo a algún protocolo. De ser el caso, indique especie y anexe evidencia." elements={[{ type: 2, question: 'a_1_3_11_1_1' }]} />
                     <ModuleInput elements={[{ type: 1, evidence: true, question: 'a_1_3_11_1_2' }]} />
