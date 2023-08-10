@@ -14,7 +14,7 @@ import { getCookie, hasCookie } from 'cookies-next';
 export const FormContext = createContext(null);
 
 
-function PreRender({ children, handleSubmit, handleBlur, handleChange, values }) {
+function PreRender({ children, handleSubmit, handleBlur, handleChange, values, props }) {
     const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values });
 
 
