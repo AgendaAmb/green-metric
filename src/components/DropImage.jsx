@@ -87,7 +87,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     arr.forEach((img, index) => {
       form.append(`file${index}`, img);
     })
-
+    form.append("id", questionId);
     axios.post("/GreenMetric/api/upload", form);
 
 

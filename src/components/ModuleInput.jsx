@@ -111,7 +111,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
 
                         </Stack >
                         {evidence &&
-                            <DropImage title={`${title}`} maxPhotos={maxPhotos} />
+                            <DropImage questionId={question} title={`${title}`} maxPhotos={maxPhotos} />
                         }
 
                     </Stack >

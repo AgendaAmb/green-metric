@@ -103,11 +103,11 @@ export default function Informacion({ hello }) {
                 <h3>Fotografías</h3>
                 <Text className="self-start">Anexar fotografías de su entidad de trabajo.</Text>
                 <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
-                    <DropImage title={"Instalaciones interiores"} maxPhotos={4} />
-                    <DropImage title={"Fachadas"} maxPhotos={4} />
+                    <DropImage title={"Instalaciones interiores"} maxPhotos={4} questionId="a_0_5_1"/>
+                    <DropImage title={"Fachadas"} maxPhotos={4} questionId="a_0_5_2"/>
                     <Stack className="grid-center">
 
-                        <DropImage title={"Planos"} maxPhotos={4} pdf={true} sub="Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad." />
+                        <DropImage title={"Planos"} questionId="a_0_5_3" maxPhotos={4} pdf={true} sub="Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad." />
                     </Stack>
                 </Stack>
             </VStack>
