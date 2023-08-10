@@ -56,7 +56,7 @@ export default function Infraestructura() {
             ...components,
             { text: `Nombre común especie: ${species + 1}`, type: 1, question: `a_1_1_${species + 1}_1` },
             { text: "Nombre científico: ", type: 1, question: `a_1_1_${species + 1}_2` },
-            { evidence: true, maxPhotos: 1 }
+            { question: `a_1_1_${species + 1}_2`, evidence: true, maxPhotos: 1 }
         ];
         setComponents(newMod);
         setSpecies(species + 1);
@@ -64,7 +64,7 @@ export default function Infraestructura() {
 
 
     const item2 = () => {
-        const newMod2 = [...components2, { type: 1, holder: `Nombre del producto ${products}`, question: `a_1_3_1_${products}_2` }, { type: 4, holder: "Cantidad (kg)", question: `a_1_3_1_${products}_1` }, { evidence: true }];
+        const newMod2 = [...components2, { type: 1, holder: `Nombre del producto ${products}`, question: `a_1_3_1_${products}_2` }, { type: 4, holder: "Cantidad (kg)", question: `a_1_3_1_${products}_1` }, { question: `a_1_3_1_${products}_1`, evidence: true }];
         setComponents2([...newMod2]);
         setProducts(products + 1);
     }
@@ -81,7 +81,7 @@ export default function Infraestructura() {
         setMaintainances(maintanances + 1)
     }
     const item5 = () => {
-        const newMod5 = [...components5, { type: 1, question: `a_1_3_11_${animals}_2` }, { type: 2, question: `a_1_3_11_${animals}_1` }, { evidence: true }];
+        const newMod5 = [...components5, { type: 1, question: `a_1_3_11_${animals}_2` }, { type: 2, question: `a_1_3_11_${animals}_1` }, { question: `a_1_3_11_${animals}_1`, evidence: true }];
         setComponents5([...newMod5]);
         setAnimals(animals + 1)
     }
@@ -210,9 +210,9 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
 
-                <ModuleInput elements={[{ text: `Nombre común especie 1:`, type: 1, question: `a_1_1_1_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_1_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
+                <ModuleInput elements={[{ text: `Nombre común especie 1:`, type: 1, question: `a_1_1_1_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_1_2` }, {question: 'a_1_1_1_2', evidence: true, maxPhotos: 1 }]} inputLarge={true} />
 
-                <ModuleInput elements={[{ text: `Nombre común especie 2:`, type: 1, question: `a_1_1_2_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_2_2` }, { evidence: true, maxPhotos: 1 }]} inputLarge={true} />
+                <ModuleInput elements={[{ text: `Nombre común especie 2:`, type: 1, question: `a_1_1_2_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_2_2` }, { question: 'a_1_1_2_2', evidence: true, maxPhotos: 1 }]} inputLarge={true} />
 
                 <ModuleInput elements={components} />
 
@@ -230,7 +230,7 @@ export default function Infraestructura() {
                 <h3 className="expand-2 green"><strong>1.3 </strong>Responda a los siguientes requerimientos: </h3>
                 <Text className="expand-3 blue text-start">1.3.1 Producción de alimentos y plantas medicinales. hortalizas, hongos etc. </Text>
                 <Text className="blue text-start expand-3">Indique el nombre del producto presente en su entidad y mencione la cantidad que producen mensualmente (en kg) y posteriormente coloque el nombre del producto en los recuadros punteados y añada evidencia fotográfica en el recuadro de mayor tamaño en caso de aplicar.</Text>
-                <ModuleInput elements={[{ type: 1, holder: "Nombre del producto 1", question: 'a_1_3_1_1_2' }, { type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1_1' }, { evidence: true }]} noColumn={true} />
+                <ModuleInput elements={[{ type: 1, holder: "Nombre del producto 1", question: 'a_1_3_1_1_2' }, { type: 4, holder: "Cantidad (kg)", question: 'a_1_3_1_1_1' }, {question: 'a_1_3_1_1_1', evidence: true }]} noColumn={true} />
                 <ModuleInput elements={components2} noColumn={true} />
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
@@ -253,7 +253,7 @@ export default function Infraestructura() {
                             },]} />
                             <Stack className="column-2 grid-center">
                                 <ModuleInput elements={[{ disabled: true, type: -1, text: "Total: ", holder: "Total", question: 'a_1_3_4_10' },]} />
-                                <ModuleInput elements={[{ evidence: true, maxPhotos: 4 }]} />
+                                <ModuleInput elements={[{ question: 'a_1_3_4_8', evidence: true, maxPhotos: 4 }]} />
                             </Stack>
                         </Stack>
                     </Stack>

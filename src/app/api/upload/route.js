@@ -32,8 +32,6 @@ export async function POST(req) {
 
 
     if (arr.length > 0) {
-      console.log("more than 0");
-      console.log(arr.length);
       arr.forEach((img) => {
         connection.query(`
           INSERT INTO images (image_id, dependency_id, path, order_id)
@@ -65,3 +63,17 @@ export async function POST(req) {
 
 };
 
+
+
+
+export async function GET(req){
+  const user = JSON.parse(req.cookies.get("user").value);
+ 
+  const images = await connection.promise().query(`
+    SELECT * FROM images
+    WHERE dependency_id = ?;`,
+    [user.dependency_id]
+  );
+
+  return NextResponse.json(images[0]);
+}

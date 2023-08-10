@@ -27,7 +27,7 @@ function CustomSelect({ data, setSelected, classes, holder = "Seleccione:", name
         //console.log("Select", form);
     })
     return (
-        <Select placeholder={holder}  className={...classes} name={nameSelect}  value={form.values[nameSelect]} onClick={form.handleChange} onChange={handleSelected}>
+        <Select placeholder={holder}  className={...classes} name={nameSelect}  value={form.values[nameSelect]} onClick={form.handleChange} onChange={handleSelected} defaultValue={form.values[nameSelect]}>
             {data?.map((el, index) => {
                 return (
                     <option key={"el" + index} value={el}>

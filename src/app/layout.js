@@ -18,6 +18,7 @@ const metadata = {
 
 export default function RootLayout({ children }) {
     const [data, setData] = useState({});
+    const [images, setImages] = useState([]);
     const [load, setLoad] = useState(true);
     const [reload, setReload] = useState(false);
     useEffect(() => {
@@ -44,6 +45,10 @@ export default function RootLayout({ children }) {
                 }, 100);
             }
         }, 1000);
+
+        axios.get('/GreenMetric/api/upload').then((res) => {
+            setImages(res.data);
+        });
     }, [load])
     return (
         <html lang="en">
@@ -60,7 +65,7 @@ export default function RootLayout({ children }) {
                     <div className="main ">
                         <div className="main-info-container">
                             {load ?
-                                <Providers data={data}>
+                                <Providers data={data} images={images}>
                                     <Login />
                                 </Providers> :
                                 reload && <Providers data={data}>{children}</Providers>}
