@@ -30,9 +30,9 @@ export async function GET(req, res) {
         });
         return NextResponse.json(data);
     }
-    /* else {
+    else {
         return NextResponse.json({ message: "No hay datos" });
-    } */
+    }
 };
 
 export async function POST(req, res) {
