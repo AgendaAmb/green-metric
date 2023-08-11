@@ -24,7 +24,7 @@ export default function CustomCheckbox({ checkbox, question }) {
                         key={"cb" + index}
                         hasInput={content?.hasInput}
                         index={index}
-                        questioncheckbox={question}
+                        questionCheckbox={`${question}_${index}`}
                     />
                 );
                 //return <h1 key={generateKey("checkbox")}>Hi</h1>;

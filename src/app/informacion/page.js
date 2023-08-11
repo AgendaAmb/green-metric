@@ -1,5 +1,5 @@
 
-import Main from "@components/Informacion";
+import Informacion from "@components/Informacion";
 
 
 export default function InformacionPage() {
@@ -7,7 +7,7 @@ export default function InformacionPage() {
     return (
         
             <div className="overflow-y">
-                <Main />
+                <Informacion />
             </div>
             
         

@@ -9,7 +9,7 @@ import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo, useCallback } from "react";
 import axios from "axios";
 import { getCookie, hasCookie } from 'cookies-next';
-
+import Swal from 'sweetalert2';
 
 export const FormContext = createContext(null);
 
@@ -121,7 +121,12 @@ export const Providers = withFormik({
                 question: key
             })
                 .then(function (response) {
-                    //console.log(response);
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Respuestas guardadas!',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 })
                 .catch(function (error) {
                     console.log("Error con la BD");

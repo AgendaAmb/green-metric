@@ -3,16 +3,23 @@ import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
 
-export default function CheckboxItem({ element, area, hasInput = false, index = 1, questioncheckbox}) {
+export default function CheckboxItem({ element, area, hasInput = false, index = 1, questionCheckbox }) {
     const [enabled, setEnabled] = useState(false);
     const form = useContext(FormContext);
     
+    let isChecked = false;
 
-
+    if(form.values[`${questionCheckbox}`]){
+        isChecked = true;
+    }
     const handleEnabled = () => {
         setEnabled(!enabled);
     };
-    useEffect(() => { }, []);
+    useEffect(() => { 
+        if (isChecked) {
+            setEnabled(true);
+        }
+    }, []);
     return (
         <Stack
             direction={["column", "row"]}
@@ -22,8 +29,8 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
         >
             <Checkbox
                 onChange={handleEnabled}
-                name={`checkbox.${index}.selected`}
-                value={form.values[questioncheckbox]}
+                defaultChecked={isChecked}
+                name={`${questionCheckbox}`}
                 h="35px"
                 w="100%"
                 onSelect={form.handleChange}
@@ -41,7 +48,8 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
                     placeholder={`${area ? "Investigador" : "Representante"}`}
                     w={"100%"}
                     className="grid-center"
-                    name={`${questioncheckbox}.${index} .value`}
+                    value={form.values[`${questionCheckbox}`]}
+                    name={`${questionCheckbox}`}
                     onKeyUp={form.handleChange}
                 />
             </Stack>)}
