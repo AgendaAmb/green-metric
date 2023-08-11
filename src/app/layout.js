@@ -40,16 +40,19 @@ export default function RootLayout({ children }) {
                 const final = await results;
                 setData(final);
                 setLoad(false);
-                setTimeout(() => {
-                    setReload(true);
-                }, 100);
+                axios.get('/GreenMetric/api/upload').then((res) => {
+                    console.log(res.data);
+                    setImages(res.data);
+
+                    setTimeout(() => {
+                        setReload(true);
+                    }, 100);
+                });
+                
             }
         }, 1000);
 
-        axios.get('/GreenMetric/api/upload').then((res) => {
-            setImages(res.data);
-        });
-    }, [load])
+    }, [])
     return (
         <html lang="en">
             <head>
@@ -68,7 +71,7 @@ export default function RootLayout({ children }) {
                                 <Providers data={data} images={images}>
                                     <Login />
                                 </Providers> :
-                                reload && <Providers data={data}>{children}</Providers>}
+                                reload && <Providers data={data} images={images}>{children}</Providers>}
                         </div>
                     </div>
                 </div>

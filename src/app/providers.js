@@ -14,10 +14,13 @@ import { getCookie, hasCookie } from 'cookies-next';
 export const FormContext = createContext(null);
 
 
-function PreRender({ children, handleSubmit, handleBlur, handleChange, values, props }) {
-    const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values });
+function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images, ...props }) {
+    const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values, images:images });
+    
 
-
+    useEffect(() => {
+        console.log(props);
+    },[]);
 
     return (
         <>

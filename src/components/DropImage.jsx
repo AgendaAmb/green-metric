@@ -3,13 +3,14 @@ import {
   Icon, Stack, Input, Text
 } from "@chakra-ui/react";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 
 import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react-icons/md"
 import Swal from 'sweetalert2'
 import axios from "axios";
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
+import { FormContext } from "@/app/providers";
 
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "", questionId = "na" }) {
   const [images, setImages] = useState([]);
@@ -17,6 +18,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
   const [reference, setReference] = useState(null);
   const [imgArray, setimgArray] = useState([]);
   const ref = useRef(null);
+  const context = useContext(FormContext);
 
   const handleImages = (e) => {
     let count = 0;
@@ -96,6 +98,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
   };
   useEffect(() => {
+    console.log(context);
     setPhotos(maxPhotos)
   }, []);
   return (
