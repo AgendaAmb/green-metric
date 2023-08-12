@@ -11,7 +11,7 @@ export async function POST(req, res) {
         params = body.params;
     }
     catch (e) {
-        console.log("No hay cuerpo en la request")
+        //console.log("No hay cuerpo en la request")
     }
 
     const { user_id, password } = params;
@@ -63,7 +63,7 @@ export async function POST(req, res) {
             })
         }
     } catch (error) {
-        console.error("Error con la conexion a la BD");
+        //console.error("Error con la conexion a la BD");
     }
     return NextResponse.json("No autorizado");
 };

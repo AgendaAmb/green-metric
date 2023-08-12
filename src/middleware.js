@@ -26,10 +26,10 @@ export async function middleware(request) {
         let user;
         try {
             user = request.cookies?.get("user").value;
-            console.log("user", user)
+            //console.log("user", user)
         }
         catch (e) {
-            console.log("No hay cookies")
+            //console.log("No hay cookies")
         }
 
         if (user != null) {
