@@ -18,6 +18,19 @@ import { useEffect, useState } from 'react';
 
 export default function Educacion() {
 
+    const [year, setYear] = useState(2013);
+    const [forum, setForum] = useState(2);
+    const [track,setTrack] = useState(2);
+    const [fair,setFair] = useState(2);
+    const [talk,setTalk] = useState(2);
+    const [seminary,setSeminary] = useState(2);
+    const [conference,setConference] = useState(2);
+    const [event,setEvent] = useState(2);
+    const [program,setProgram] = useState(2);
+    const [proyect,setProyect] = useState(2);
+    const [subject,setSubject] = useState(2);
+    const [eventName,setEventName] = useState(2);
+
     const [components,setComponents] = useState([]);
     const [components2,setComponents2] = useState([]);
     const [components3,setComponents3] = useState([]);
@@ -34,56 +47,67 @@ export default function Educacion() {
 
     
     const item = () => {
-        const newMod = [...components, { text: 'Nombre del foro', type: 1, question:'a_6_3_1_1_3' }, { text: "Asistentes", type: 1, question:'a_6_3_1_1_4' }, { evidence: true }];
+        const newMod = [...components, { text: 'Nombre del foro', type: 1, question:`a_6_3_1_1_${forum}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_1_${forum + 1}` }, { evidence: true }];
         setComponents([...newMod]);
+        setForum(forum + 1);
     }
 
     const item2 = () => {
-        const newMod2 = [...components2,{ text: 'Nombre de la rodada', type: 1, question:'a_6_3_1_2_1' }, { text: "Asistentes", type: 1 , question:'a_6_3_1_2_2'}, { evidence: true }];
+        const newMod2 = [...components2,{ text: 'Nombre de la rodada', type: 1, question:`a_6_3_1_2_${track}` }, { text: "Asistentes", type: 1 , question:`a_6_3_1_2_${track + 1}`}, { evidence: true }];
         setComponents2([...newMod2]);
+        setTrack(track + 1);
     }
 
     const item3 = () => {
-        const newMod3 = [...components3, { text: 'Nombre de la feria', type: 1, question:'a_6_3_1_3_1' }, { text: "Asistentes", type: 1, question:'a_6_3_1_3_2' }, { evidence: true }];
+        const newMod3 = [...components3, { text: 'Nombre de la feria', type: 1, question:`a_6_3_1_3_${fair}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_3_${fair + 1}` }, { evidence: true }];
         setComponents3([...newMod3]);
+        setFair(fair + 1);
     }
     
     const item4 = () => {
-        const newMod4 = [...components4, { text: 'Nombre de la charla', type: 1, question:'a_6_3_1_4_1' }, { text: "Asistentes", type: 1, question:'a_6_3_1_4_2' }, { evidence: true }];
+        const newMod4 = [...components4, { text: 'Nombre de la charla', type: 1, question:`a_6_3_1_4_${talk}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_4_${talk + 1}` }, { evidence: true }];
         setComponents4([...newMod4]);
+        setTalk(talk + 1);
     }
     const item5 = () => {
-        const newMod5 = [...components5, { text: 'Nombre del seminario', type: 1, question:'a_6_3_1_5_1' }, { text: "Asistentes", type: 1, question:'a_6_3_1_5_2' }, { evidence: true }];
+        const newMod5 = [...components5, { text: 'Nombre del seminario', type: 1, question:`a_6_3_1_5_${seminary}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_5_${seminary + 1}` }, { evidence: true }];
         setComponents5([...newMod5]);
+        setSeminary(seminary + 1)
     }
 
    
     const item6 = () => {
-        const newMod6 = [...components6,{ text: 'Nombre de la conferencia', type: 1, question:'a_6_3_1_6_1' }, { text: "Asistentes", type: 1, question:'a_6_3_1_6_2' }, { evidence: true }];
+        const newMod6 = [...components6,{ text: 'Nombre de la conferencia', type: 1, question:`a_6_3_1_6_${conference}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_6_${conference + 1}` }, { evidence: true }];
         setComponents6([...newMod6]);
+        setConference(conference + 1);
     }
 
     const item7 = () => {
-        const newMod7 = [...components7,{ text: 'Evento', type: 1, question:'a_6_3_1_7_1' }, { text: "Asistentes", type: 1, question:'a_6_3_1_7_2' }, { evidence: true }];
+        const newMod7 = [...components7,{ text: 'Evento', type: 1, question:`a_6_3_1_7_${event}` }, { text: "Asistentes", type: 1, question:`a_6_3_1_7_${event + 1}` }, { evidence: true }];
         setComponents7([...newMod7]);
+        setEvent(event + 1);
     }
     
     const item8 = () => {
-        const newMod8 = [...components8,{ text: 'Número de programas', type: 2, question:'a_6_5_1_1' }, { evidence: true }];
+        const newMod8 = [...components8,{ text: 'Número de programas', type: 2, question:`a_6_5_1_${program}` }, { evidence: true }];
         setComponents8([...newMod8]);
+        setProgram(program + 1);
     }
     
     const item9 = () => {
-        const newMod9 = [...components9,{ text: 'Nombre del proyecto', type: 1, question:'a_6_5_3_4' }, { text: 'Cantidad destinada ($)', type: 6, question:'a_6_5_3_5' }, { text: 'Fuente de recurso', type: 1, question:'a_6_5_3_6' }, { evidence: true }];
+        const newMod9 = [...components9,{ text: 'Nombre del proyecto', type: 1, question:`a_6_5_3_${proyect}_4` }, { text: 'Cantidad destinada ($)', type: 6, question:`a_6_5_3_${proyect + 1}_4` }, { text: 'Fuente de recurso', type: 1, question:`a_6_5_3_${proyect + 2}_4` }, { evidence: true }];
         setComponents9([...newMod9]);
+        setProyect(proyect + 1);
     }
     const item10 = () => {
-        const newMod10 = [...components10,{ text: 'Nombre del curso o asignatura', type: 1, question:'a_6_1_2_2' }, { text: 'Nombre del programa educativo', type: 1, question:'a_6_1_2_3' }];
+        const newMod10 = [...components10,{ text: 'Nombre del curso o asignatura', type: 1, question:`a_6_1_2_${subject}` }, { text: 'Nombre del programa educativo', type: 1, question:`a_6_1_2_${subject + 1}` }];
         setComponents10([...newMod10]);
+        setSubject(subject + 1);
     }
     const item11 = () => {
-        const newMod11 = [...components11,{ text: 'Nombre del evento', type: 2, question:'a_6_2_1_1' }, { text: 'Responsable', type: 1, question:'a_6_2_1_2' }, { evidence: true, maxPhotos: 3 }];
+        const newMod11 = [...components11,{ text: 'Nombre del evento', type: 2, question:`a_6_2_1_${eventName}` }, { text: 'Responsable', type: 1, question:`a_6_2_1_${eventName + 1}` }, { evidence: true, maxPhotos: 3 }];
         setComponents11([...newMod11]);
+        setEventName(eventName + 1);
     }
     
     const popModule = (componentnumber) => {
@@ -92,30 +116,35 @@ export default function Educacion() {
                 if (components.length > 1) {
                 const updatedComps = components.filter((_, index) => index > 2);
                 setComponents(updatedComps);
+                setForum(forum - 1);
                 }
             break;        
             case 2:
                 if (components2.length > 1) {
                 const updatedComps = components2.filter((_, index) => index > 2);
                 setComponents2(updatedComps);
+                setTrack(track - 1);
                 }
                 break;       
             case 3:
                 if (components3.length > 1) {
                     const updatedComps = components3.filter((_, index) => index > 2);
                     setComponents3(updatedComps);
+                    setFair(fair - 1);
                     }
                     break;   
             case 4:
                 if (components4.length > 1) {
                     const updatedComps = components4.filter((_, index) => index > 2);
                     setComponents4(updatedComps);
+                    setTalk(talk - 1);
                     }
                     break;  
             case 5:
                 if (components5.length > 1) {
                 const updatedComps = components5.filter((_, index) => index > 2);
                 setComponents5(updatedComps);
+                setSeminary(seminary - 1);
                 }
                 break;
             case 6:
@@ -128,18 +157,21 @@ export default function Educacion() {
                 if (components7.length > 1) {
                     const updatedComps = components7.filter((_, index) => index > 2);
                     setComponents7(updatedComps);
+                    setConference(conference - 1);
                     }
                     break;  
             case 8:
                 if (components8.length > 0) {
                     const updatedComps = components8.slice(0, components8.length - 1);
                     setComponents8([...updatedComps]);
+                    setProgram(program - 1);
                     console.log("Eliminado");
                   }
               case 9:
                 if (components9.length > 1) {
                     const updatedComps = components9.filter((_, index) => index > 3);
                     setComponents9(updatedComps);
+                    setProyect(proyect - 1);
                     }
                     break;  
             case 10:
@@ -147,18 +179,70 @@ export default function Educacion() {
                     const updatedComps = components10.slice(0, components10.length - 1);
                     setComponents10([...updatedComps]);
                     console.log("Eliminado");
+                    setSubject(subject - 1);
                   }
                 break;
              case 11:
                 if (components11.length > 1) {
                     const updatedComps = components11.filter((_, index) => index > 2);
                     setComponents11(updatedComps);
+                    setEventName(eventName - 1);
                     }
                 break;
                     
 
       };
     }
+
+     useEffect(() => {
+        setYear(new Date().getFullYear());
+
+        const { values: answers } = context;
+        if (answers) {
+            const regex_1 = /^a_1_1_(?!1|2|0).*_1$/;
+            let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
+
+            for (let i = 0; i < checkItem; i++) {
+                item();
+                checkItem = 0;
+            }
+
+            const regex_2 = /^a_1_3_1_(?!1|0).*_1$/;
+            checkItem = Object.keys(answers).filter((el) => regex_2.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item2();
+                checkItem = 0;
+            }
+            const regex_3 = /^a_1_3_6_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_3.test(el)).length;
+            
+    
+            for (let i = 0; i < checkItem; i++) {
+                item3();
+                checkItem = 0;
+            }
+            const regex_4 = /^a_1_3_7_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_4.test(el)).length;
+            for (let i = 0; i < checkItem; i++) {
+                item4();
+                checkItem = 0;
+            }
+            const regex_5 = /^a_1_3_11_(?!0|1)\d+_1$/;
+            checkItem = Object.keys(answers).filter((el) => regex_5.test(el)).length;
+            for (let i = 0; i < checkItem; i++) {
+                item5();
+                checkItem = 0;
+            }
+            const regex_6 = /^a_1_4_6_(?!0|1)/;
+            checkItem = Object.keys(answers).filter((el) => regex_6.test(el)).length;
+            for (let i = 0; i < checkItem; i++) {
+                item6();
+                checkItem = 0;
+            }
+        }
+    }, [year]);
+
 
     return (
         <VStack
