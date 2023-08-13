@@ -14,7 +14,9 @@ import {
 
 import ModuleInput from "./ModuleInput";
 import CustomTextArea from "./CustomTextArea";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { FormContext } from "../app/providers";
+
 
 export default function Educacion() {
 
@@ -29,7 +31,7 @@ export default function Educacion() {
     const [program,setProgram] = useState(2);
     const [proyect,setProyect] = useState(2);
     const [subject,setSubject] = useState(2);
-    const [eventName,setEventName] = useState(2);
+    const [eventName,setEventName] = useState(1);
 
     const [components,setComponents] = useState([]);
     const [components2,setComponents2] = useState([]);
@@ -43,7 +45,7 @@ export default function Educacion() {
     const [components10,setComponents10] = useState([]);
     const [components11,setComponents11] = useState([]);
 
-
+    const context = useContext(FormContext);
 
     
     const item = () => {
@@ -174,19 +176,20 @@ export default function Educacion() {
                     setProyect(proyect - 1);
                     }
                     break;  
-            case 10:
-                if (components10.length > 0) {
-                    const updatedComps = components10.slice(0, components10.length - 1);
+               case 10:
+                 if (components10.length >= 2) {
+                    const updatedComps = components10.slice(0, components10.length - 2);
                     setComponents10([...updatedComps]);
-                    console.log("Eliminado");
                     setSubject(subject - 1);
-                  }
-                break;
+                    }
+                    break;
+                      
              case 11:
                 if (components11.length > 1) {
                     const updatedComps = components11.filter((_, index) => index > 2);
                     setComponents11(updatedComps);
                     setEventName(eventName - 1);
+                    console.log("eliminado");
                     }
                 break;
                     
@@ -194,7 +197,7 @@ export default function Educacion() {
       };
     }
 
-     useEffect(() => {
+    useEffect(() => {
         setYear(new Date().getFullYear());
 
         const { values: answers } = context;
