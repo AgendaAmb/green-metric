@@ -118,9 +118,14 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       if (img?.path !== "") {
         
         const realPath = img.path.replace("public", "/GreenMetric");
-        console.log(realPath);
-        imgScreen.push( { original: realPath });
-        blink();
+
+        fetch(realPath).then((res) =>{
+          imgScreen.push({original: res.url});
+          
+        });
+        //console.log(realPath);
+        //imgScreen.push( { original: realPath });
+        //blink();
       }
     })
     setImages(imgScreen)

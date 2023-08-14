@@ -5,7 +5,8 @@
             "@/*": ["./src/*"],
             "@sass": ["./src/sass/main.scss"],
             "@components/*": ["./src/components/*"],
-            "@lib/*": ["./src/lib/*"]
+            "@lib/*": ["./src/lib/*"],
+            "@assets/*":["./public/*"]
         }
     }
 }
