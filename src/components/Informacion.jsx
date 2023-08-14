@@ -6,9 +6,11 @@ import {
     Button,
     Text,
 } from "@chakra-ui/react";
-import { useEffect, useState} from "react";
+import { useEffect, useState, useContext } from "react";
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
+import { FormContext } from "@/app/providers";
+
 
 
 export default function Informacion({ hello }) {
@@ -23,28 +25,49 @@ export default function Informacion({ hello }) {
         "Servicios al público",
     ];
 
+    const context = useContext(FormContext)
 
-    const [deps, setDeps] = useState([]);
-
+    const [deps, setDeps] = useState([{ holder: `Nombre de la dependencia 1`, type: 1, question: `a_0_2_1` }]);
+    
 
     const pushModule = () => {
         const newDeps = [...deps, { holder: `Nombre de la dependencia ${deps.length + 1}`, type: 1, question: `a_0_2_${deps.length + 1}` }];
-
+        
         setDeps([...newDeps]);
     }
 
     const popModule = () => {
-        if (deps.length > 1) {
-            const updatedDeps = deps.slice(0, deps.length - 1);
+        if (depCounter > 1) {
+            const updatedDeps = deps.slice(0, depCounter - 1);
             setDeps(updatedDeps);
+            setCounter(depCounter - 1)
+
         }
     }
 
-    useEffect(() => {
-        if (deps.length <= 1) {
 
-            setDeps([{ holder: `Nombre de la dependencia 1`, type: 1, question: `a_0_2_${deps.length + 1}` }])
+
+    useEffect(() => {
+
+
+
+        const { values: answers } = context;
+        if (answers) {
+            const regex_1 = /^a_0_2_(?!1)/;
+            let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
+            const tmpArr = [{ holder: `Nombre de la dependencia 1`, type: 1, question: `a_0_2_1` }];
+            for (let i = 2; i < checkItem + 3; i++) {
+                tmpArr.push({ holder: `Nombre de la dependencia ${i}`, type: 1, question: `a_0_2_${i}` })
+            }
+
+            setDeps(tmpArr);
+            
         }
+
+
+
+
+
     }, [])
 
     return (
@@ -103,8 +126,8 @@ export default function Informacion({ hello }) {
                 <h3>Fotografías</h3>
                 <Text className="self-start">Anexar fotografías de su entidad de trabajo.</Text>
                 <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
-                    <DropImage title={"Instalaciones interiores"} maxPhotos={4} questionId="a_0_5_1"/>
-                    <DropImage title={"Fachadas"} maxPhotos={4} questionId="a_0_5_2"/>
+                    <DropImage title={"Instalaciones interiores"} maxPhotos={4} questionId="a_0_5_1" />
+                    <DropImage title={"Fachadas"} maxPhotos={4} questionId="a_0_5_2" />
                     <Stack className="grid-center">
 
                         <DropImage title={"Planos"} questionId="a_0_5_3" maxPhotos={4} pdf={true} sub="Dentro de lo posible, agregar fotos de planos de área y/o construcción de su entidad." />

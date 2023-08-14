@@ -15,11 +15,19 @@ import { FormContext } from "@/app/providers";
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "", questionId = "na" }) {
   const [images, setImages] = useState([]);
   const [photos, setPhotos] = useState(1);
+  const [showPhoto, setShowPhoto] = useState(true);
   const [reference, setReference] = useState(null);
   const [imgArray, setimgArray] = useState([]);
   const ref = useRef(null);
   const context = useContext(FormContext);
   const [filteredImages, setFilteredImages] = useState([]);
+
+  const blink = () => {
+    setShowPhoto(false);
+    setTimeout(() => {
+      setShowPhoto(true);
+    }, 1);
+  }
 
   const handleImages = (e) => {
     let count = 0;
@@ -29,7 +37,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       if (maxPhotos != -1 && e.length > photos) {
         throw `No puedes agregar más de ${maxPhotos} archivos.`;
       }
-      
+
       e.forEach((file) => {
         if (photos > 0 || maxPhotos == -1) {
           let url = URL.createObjectURL(file);
@@ -42,9 +50,9 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       setImages(tmpImages);
       setimgArray(tmpArr);
       uploadToServer(tmpArr);
-      
 
-      
+
+
     }
     catch (e) {
       Swal.fire(
@@ -100,49 +108,73 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
   };
   useEffect(() => {
     /* INTENTO DE CARGA DE IMAGEN */
+    setTimeout(() => {
+
+    })
     const imagesFromContext = context.images || [];
+    const imgScreen = [];
     const filtered = imagesFromContext.filter(image => image.image_id.startsWith(questionId));
-    setFilteredImages(filtered);
-    console.log(filteredImages);
+    const imagesOnScreen = filtered.map((img) => {
+      if (img?.path !== "") {
+
+        const realPath = img.path.replace("public", "/GreenMetric");
+
+        fetch(realPath).then((res) => {
+          imgScreen.push({ original: res.url });
+
+        });
+        //console.log(realPath);
+        //imgScreen.push( { original: realPath });
+        //blink();
+      }
+    })
+
+    setTimeout(() => {
+      setImages(imgScreen)
+      blink();
+    }, 10);
     setPhotos(maxPhotos);
-  }, [context.images, questionId]);
-  
+  }, []);
+
 
   return (
-    <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
-      <div className="drop-title">
-        <h3 className="blue">{`${title} `}</h3>
-        {photos > 0 && <h3 className="red">({photos})</h3>}
-      </div>
-      <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} >{/* accept={{ "image/*": ["*.*", ".pdf"] }} */}
-        {({ getRootProps, getInputProps }) => (
-          <section className="carousel-row">
-            {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
-            <div {...getRootProps()} className="drag-and-drop">
-              <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
-                <div className="head">
-                  <Text>{sub}</Text>
-                  <div className="icon">
-                    <MdOutlineUpload className="icon" />
+    <>
+      {showPhoto &&
+        <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
+          <div className="drop-title">
+            <h3 className="blue">{`${title} `}</h3>
+            {photos > 0 && <h3 className="red">({photos})</h3>}
+          </div>
+          <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} >{/* accept={{ "image/*": ["*.*", ".pdf"] }} */}
+            {({ getRootProps, getInputProps }) => (
+              <section className="carousel-row">
+                {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
+                <div {...getRootProps()} className="drag-and-drop">
+                  <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
+                    <div className="head">
+                      <Text>{sub}</Text>
+                      <div className="icon">
+                        <MdOutlineUpload className="icon" />
+                      </div>
+                    </div>
+                    <p>Seleccione un archivo o arrástrelo aquí
+                      <br />
+                      {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
+                    </p>
+
                   </div>
+                  <Gallery images={images} setReference={setReference} />
+                  <Input {...getInputProps()} />
                 </div>
-                <p>Seleccione un archivo o arrástrelo aquí
-                  <br />
-                  {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
-                </p>
+                {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
-              </div>
-              <Gallery images={images} setReference={setReference} />
-              <Input {...getInputProps()} />
-            </div>
-            {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
-
-            <div className="delete-top-right">
-              <span role="button" ><p>x</p></span>
-            </div>
-          </section>
-        )}
-      </Dropzone>
-    </Stack>
+                <div className="delete-top-right">
+                  <span role="button" ><p>x</p></span>
+                </div>
+              </section>
+            )}
+          </Dropzone>
+        </Stack>}
+    </>
   )
 }

@@ -53,7 +53,7 @@ export async function POST(req, res) {
                 [module.dependency_id, value, question],
                 function (err, results, fields) {
                     if (err) {
-                        console.error(err);
+                        //console.error(err);
                         return;
                     }
                     /* console.log("Results", results);

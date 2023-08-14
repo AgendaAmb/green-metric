@@ -3,7 +3,7 @@ import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
 
-export default function CheckboxItem({ element, area, hasInput = false, index = 1, questionCheckbox }) {
+export default function CheckboxItem({span = false, element, area, hasInput = false, index = 1, questionCheckbox }) {
     const [enabled, setEnabled] = useState(false);
     const form = useContext(FormContext);
     
@@ -34,6 +34,8 @@ export default function CheckboxItem({ element, area, hasInput = false, index = 
                 h="35px"
                 w="100%"
                 onSelect={form.handleChange}
+                display="grid"
+                gridTemplateColumn={`${span ? "1fr" : "1fr 1fr"}`}
             >
                 {element}
             </Checkbox>
