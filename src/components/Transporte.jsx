@@ -70,7 +70,7 @@ export default function Transporte() {
         <Stack spacing="30px" w="100%" padding="30px" direction="column">
             <h2 className="green">5.6 Número de pasos peatonales y su extensión (m2).</h2>
             <ModuleInput text="Tener en cuenta que sean accesibles, seguros, convenientes y aptos para todos los peatones (muletas, silla de ruedas, débiles visuales, etc)"
-            elements={[{type: 2, helper:'Número de pasos peatonales', question:'a_5_6_1'}, {type:5, helper:'Área de extensión', question:'a_5_6_2'}, {evidence:true}]}/>
+            elements={[{type: 2, helper:'Número de pasos peatonales', question:'a_5_6_1'}, {type:5, helper:'Área de extensión', question:'a_5_6_2'}, {evidence:true, question:'a_5_6_2'}]}/>
         </Stack>
 
         <Stack spacing="30px" w="100%"   padding="30px">
