@@ -43,7 +43,7 @@ export default function Agua(){
                 "El programa ya tiene capacidad de conservar porcentajes 50% >",
                 ]}/>
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
+                    <ModuleInput elements={[{ question:'a_4_1_2', evidence:true, type: 0 }, { question:'a_4_1_2', evidence:true, type: 0 }, { question:'a_4_1_2', evidence:true, type: 0 }]} />
                 </Stack>
             </Stack>
 
@@ -51,7 +51,7 @@ export default function Agua(){
                 <ModuleInput title="4.1.3 ¿Con cuantos sistemas de conservación de agua cuenta?"
                 elements={[{type:2, question:'a_4_1_3'}]} />
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
+                    <ModuleInput elements={[{ question:'a_4_1_3', evidence:true }, { question:'a_4_1_3', evidence:true }, { question:'a_4_1_3', evidence:true}]} />
                 </Stack>
             </Stack>
 
@@ -82,7 +82,7 @@ export default function Agua(){
                 elements={[{holder: "Especifique", type:1, question:'a_4_1_4_1'}]} />
             </Stack>
             <Stack direction="column-3">
-                 <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
+                 <ModuleInput elements={[{ question:'a_4_1_4_1', evidence:true }, { question:'a_4_1_4_1', evidence:true }, { question:'a_4_1_4_1', evidence:true }]} />
             </Stack>
 
             <h1 className="green"> 4.2 Programa de reciclaje de agua.</h1>
@@ -99,7 +99,7 @@ export default function Agua(){
                 "Tratamiento Terciario: ofrece opciones de reutilización como desinfección, filtración y oxidación avanzada para purificar aún más el agua para su reutilización en procesos industriales o riego.",
                 ]} questionSelect="a_4_2_2_2"/>
                  <Stack direction="column-3">
-                     <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
+                     <ModuleInput elements={[{ question:'a_4_2_2_2', evidence:true }, { question:'a_4_2_2_2', evidence:true }, { question:'a_4_2_2_2', evidence:true }]} />
                  </Stack>
             </Stack>
 
@@ -112,7 +112,7 @@ export default function Agua(){
                 "El programa ya tiene capacidad de reciclar porcentajes 50% >",
                 ]} questionSelect="a_4_2_3"/>
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
+                    <ModuleInput elements={[{ question:'a_4_2_3', evidence:true, type: 0 }, { question:'a_4_2_3', evidence:true, type: 0 }, { question:'a_4_2_3', evidence:true, type: 0 }]} />
                 </Stack>
             </Stack>
 
@@ -120,7 +120,7 @@ export default function Agua(){
                 <ModuleInput title="4.2.4 ¿Con cuantas acciones de reciclaje de agua cuenta?"
                 elements={[{type:2, question:'a_4_2_4'}]} />
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{evidence:true}, {evidence:true}, {evidence:true}]} />
+                    <ModuleInput elements={[{ question:'a_4_2_4', evidence:true }, { question:'a_4_2_4', evidence:true }, { question:'a_4_2_4', evidence:true }]} />
                 </Stack>
             </Stack>
 
@@ -135,7 +135,7 @@ export default function Agua(){
                 "Los programas de control de la contaminación del agua se implementan en su totalidad y se supervisan con regularidad. (81-100%)"
                 ]} questionSelect="a_4_3"/>
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{evidence:true, type: 0}, {evidence:true, type: 0}, {evidence:true, type: 0}]} />
+                    <ModuleInput elements={[{ question: 'a_4_3', evidence:true, type: 0 }, { question: 'a_4_3', evidence:true, type: 0 }, { question: 'a_4_3', evidence:true, type: 0 }]} />
                 </Stack>
             </Stack>
             
