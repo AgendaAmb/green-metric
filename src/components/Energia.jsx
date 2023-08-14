@@ -137,8 +137,9 @@ export default function Energia() {
                             "Control de iluminación automático (sensores de movimiento).",
                             "Ajuste de protección solar (ventanas polarizadas,pergolas).",
                             "Sistemas pasivos para el aprovechamiento de la luz natural (Ventanas y tragaluces).",
-                        ]
-                    }} questionCheckBox={'a_2_1_14'} />
+                        ],
+                        w: "100%",
+                    }} questionCheckBox={'a_2_1_14'}/>
             </Stack>
             <Stack spacing="30px" w="100%" padding="30px">
                 <ModuleInput title="2.1.15 Área total ocupada por Smart Buildings dentro de su entidad o espacio de trabajo"
