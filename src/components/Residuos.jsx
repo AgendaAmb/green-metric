@@ -47,13 +47,13 @@ export default function Residuos() {
                 "51 - 75%",
                 "76 - 100%",
                 ]} />
-                <ModuleInput elements={[{ evidence: true, span: true }]} />
+                <ModuleInput elements={[{ evidence: true, span: true, question: 'a_3_2_3_3' }]} />
             </Stack>
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
                 <h3 className="expand-2 green">
                     3.3 Porcentaje de implementación del programa de separación de RSU de la UASLP
                 </h3>
-                <ModuleInput elements={[{ text: "3.3.1 ¿Cuenta con un programa de separación de residuos sólidos urbanos?", type: 3, dicotomic: true, questionDicotomic:'a_3_3_1' }, { text: "3.3.1.1 ¿Cual?", type: 1, holder: "Respuesta abierta", question:'a_3_3_1_1'}, { text: "3.3.1.2 Número de actividades o dinámicas de separación (papel, botellas de PET, taparroscas, latas, etc.)", type: 2, question:'a_3_3_1_2' }, { evidence: true, span: true, maxPhotos: 3 }]} />
+                <ModuleInput elements={[{ text: "3.3.1 ¿Cuenta con un programa de separación de residuos sólidos urbanos?", type: 3, dicotomic: true, questionDicotomic:'a_3_3_1' }, { text: "3.3.1.1 ¿Cual?", type: 1, holder: "Respuesta abierta", question:'a_3_3_1_1'}, { text: "3.3.1.2 Número de actividades o dinámicas de separación (papel, botellas de PET, taparroscas, latas, etc.)", type: 2, question:'a_3_3_1_2' }, { evidence: true, span: true, maxPhotos: 3, question:'a_3_3_1_2' }]} />
             </Stack>
 
             <Stack spacing="30px" w="100%" className="column-2" padding="30px">
@@ -62,7 +62,7 @@ export default function Residuos() {
                 </h3>
                 <ModuleInput elements={[{ text: "3.4.1 Cantidad de residuos inorgánicos producidos por semana (kg).", type: 2, evidence: true, maxPhotos: 3, question:'a_3_4_1' }, { text: "3.4.2 Cantidad de residuos inorgánicos procesados por semana (separados, recuperados, reciclados, etc (kg)).", type: 2, evidence: true, maxPhotos: 3, question:'a_3_4_2' }]}/>
 
-                <ModuleInput elements={[{ text: "3.4.3.1 ¿Cuenta con un programa de tratamiento de residuos inorgánicos?", dicotomic: true, questionDicotomic:'a_3_4_3_1'}, { text: "3.4.3.2 Nombre del programa implementado", type: 1, holder: "Nombre del programa", question:'a_3_4_3_2' }, { text: "3.4.3.3 Indicar el porcentaje de residuos inorgánicos que son tratados con el programa.", type: 3, question:'a_3_4_3_3' }, { evidence: true, span: true, maxPhotos: 3 }]} title={"3.4.3 Porcentaje de implementación de programa(s) para tratamiento de residuos inorgánicos."} />
+                <ModuleInput elements={[{ text: "3.4.3.1 ¿Cuenta con un programa de tratamiento de residuos inorgánicos?", dicotomic: true, questionDicotomic:'a_3_4_3_1'}, { text: "3.4.3.2 Nombre del programa implementado", type: 1, holder: "Nombre del programa", question:'a_3_4_3_2' }, { text: "3.4.3.3 Indicar el porcentaje de residuos inorgánicos que son tratados con el programa.", type: 3, question:'a_3_4_3_3' }, { evidence: true, span: true, maxPhotos: 3,question:'a_3_4_3_3' }]} title={"3.4.3 Porcentaje de implementación de programa(s) para tratamiento de residuos inorgánicos."} />
 
             </Stack>
 
@@ -75,7 +75,7 @@ export default function Residuos() {
 
                 <ModuleInput elements={[{ text: "3.5.1 Cantidad de residuos tóxicos producidos al semestre (kg) (Reactivos, Tóner, lámpara de  Hg, productos de limpieza, etc).", type: 2, evidence: true, maxPhotos:3, question:'a_3_5_1' }, { text: "3.5.2 Cantidad de residuos tóxicos tratados por semana (kg).", type: 4, evidence: true, maxPhotos: 3, question:'a_3_5_2' }]} />
 
-                <ModuleInput elements={[{ text: "3.5.3.1 ¿Cuentan con protocolos de manejo, tratamiento y disposición de estos residuos", dicotomic: true, questionDicotomic:'a_3_5_3_1' }, { text: "3.5.3.2 ¿Cuántos kg de residuos entregaron a disposición durante el 2022?", type: 4, question:'a_3_5_3_2_1' }, { text: "3.5.3.3 Porcentaje de residuos tóxicos que son entregados a disposición.", type: 3, question:'a_3_5_3_3_1' }, { evidence: true, span: 2, maxPhotos: 3 }]} title="3.5.3 Porcentaje de implementación de programa para tratamiento de residuos tóxicos." />
+                <ModuleInput elements={[{ text: "3.5.3.1 ¿Cuentan con protocolos de manejo, tratamiento y disposición de estos residuos", dicotomic: true, questionDicotomic:'a_3_5_3_1' }, { text: "3.5.3.2 ¿Cuántos kg de residuos entregaron a disposición durante el 2022?", type: 4, question:'a_3_5_3_2_1' }, { text: "3.5.3.3 Porcentaje de residuos tóxicos que son entregados a disposición.", type: 3, question:'a_3_5_3_3_1' }, { evidence: true, span: 2, maxPhotos: 3,question:'a_3_5_3_3_1' }]} title="3.5.3 Porcentaje de implementación de programa para tratamiento de residuos tóxicos." />
             </Stack>
 
 

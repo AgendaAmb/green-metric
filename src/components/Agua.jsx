@@ -135,7 +135,7 @@ export default function Agua(){
                 "Los programas de control de la contaminación del agua se implementan en su totalidad y se supervisan con regularidad. (81-100%)"
                 ]} questionSelect="a_4_3"/>
                  <Stack spacing="30px" direction="column-3">
-                    <ModuleInput elements={[{ question: 'a_4_3', evidence:true, type: 0 }, { question: 'a_4_3', evidence:true, type: 0 }, { question: 'a_4_3', evidence:true, type: 0 }]} />
+                    <ModuleInput elements={[{ question: 'a_4_3_1', evidence:true, type: 0 }, { question: 'a_4_3_2', evidence:true, type: 0 }, { question: 'a_4_3_3', evidence:true, type: 0 }]} />
                 </Stack>
             </Stack>
             
