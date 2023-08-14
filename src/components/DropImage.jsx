@@ -15,11 +15,19 @@ import { FormContext } from "@/app/providers";
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "", questionId = "na" }) {
   const [images, setImages] = useState([]);
   const [photos, setPhotos] = useState(1);
+  const [showPhoto, setShowPhoto] = useState(true);
   const [reference, setReference] = useState(null);
   const [imgArray, setimgArray] = useState([]);
   const ref = useRef(null);
   const context = useContext(FormContext);
   const [filteredImages, setFilteredImages] = useState([]);
+
+  const blink = () => {
+    setShowPhoto(false);
+    setTimeout(() => {
+      setShowPhoto(true);
+    }, 1);
+  }
 
   const handleImages = (e) => {
     let count = 0;
@@ -29,7 +37,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       if (maxPhotos != -1 && e.length > photos) {
         throw `No puedes agregar más de ${maxPhotos} archivos.`;
       }
-      
+
       e.forEach((file) => {
         if (photos > 0 || maxPhotos == -1) {
           let url = URL.createObjectURL(file);
@@ -42,9 +50,9 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       setImages(tmpImages);
       setimgArray(tmpArr);
       uploadToServer(tmpArr);
-      
 
-      
+
+
     }
     catch (e) {
       Swal.fire(
@@ -100,13 +108,25 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
   };
   useEffect(() => {
     /* INTENTO DE CARGA DE IMAGEN */
+    setTimeout(() => {
+
+    })
     const imagesFromContext = context.images || [];
+    const imgScreen = [];
     const filtered = imagesFromContext.filter(image => image.image_id.startsWith(questionId));
-    setFilteredImages(filtered);
-    console.log(filteredImages);
+    const imagesOnScreen = filtered.map((img) => {
+      if (img?.path !== "") {
+        
+        const realPath = img.path.replace("public", "/GreenMetric");
+        console.log(realPath);
+        imgScreen.push( { original: realPath });
+        blink();
+      }
+    })
+    setImages(imgScreen)
     setPhotos(maxPhotos);
-  }, [context.images, questionId]);
-  
+  }, []);
+
 
   return (
     <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
@@ -132,7 +152,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 </p>
 
               </div>
-              <Gallery images={images} setReference={setReference} />
+              {showPhoto && <Gallery images={images} setReference={setReference} />}
               <Input {...getInputProps()} />
             </div>
             {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
