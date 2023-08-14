@@ -29,7 +29,7 @@ export default function Energia() {
 
     const item = () => {
         const newMod = [...components, { text: `Tipo de energía renovable ${energies}`, type: 1, question: `a_2_2_1_${energies}_1` },
-        { text: 'Cantidad de equipos', type: 2, question: `a_2_2_1_${energies}_2` }, { text: 'Capacidad de kW/h', type: 2, question: `a_2_2_1_${energies}_3` }, { evidence: true, maxPhotos: 1 }];
+        { text: 'Cantidad de equipos', type: 2, question: `a_2_2_1_${energies}_2` }, { text: 'Capacidad de kW/h', type: 2, question: `a_2_2_1_${energies}_3` }, { question: `a_2_2_1_${energies}_3`, evidence: true, maxPhotos: 1 }];
         setComponents([...newMod]);
         setEnergies(energies + 1);
     }
