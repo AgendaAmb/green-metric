@@ -19,6 +19,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
   const [imgArray, setimgArray] = useState([]);
   const ref = useRef(null);
   const context = useContext(FormContext);
+  const [filteredImages, setFilteredImages] = useState([]);
 
   const handleImages = (e) => {
     let count = 0;
@@ -98,9 +99,15 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
   };
   useEffect(() => {
-    console.log(context);
-    setPhotos(maxPhotos)
-  }, []);
+    /* INTENTO DE CARGA DE IMAGEN */
+    const imagesFromContext = context.images || [];
+    const filtered = imagesFromContext.filter(image => image.image_id.startsWith(questionId));
+    setFilteredImages(filtered);
+    console.log(filteredImages);
+    setPhotos(maxPhotos);
+  }, [context.images, questionId]);
+  
+
   return (
     <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
       <div className="drop-title">
