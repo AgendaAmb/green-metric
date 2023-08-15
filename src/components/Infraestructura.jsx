@@ -207,7 +207,7 @@ export default function Infraestructura() {
                     <Button className="delete-button" onClick={() => popModule(1)}>-</Button>
                 </Stack>
 
-                <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existente en su entidad. </h3>
+                <h3 className="expand-2 green"><strong>1.1 </strong>Indique qué tipos de especies de plantas y otro tipo de vegetación existen en su entidad. </h3>
                 <Text className="blue text-start expand-3">Mencione el nombre de la especie y agregue una fotografía de evidencia dentro del recuadro.</Text>
 
                 <ModuleInput elements={[{ text: `Nombre común especie 1:`, type: 1, question: `a_1_1_1_1` }, { text: "Nombre científico: ", type: 1, question: `a_1_1_1_2` }, {question: 'a_1_1_1_2', evidence: true, maxPhotos: 1 }]} inputLarge={true} />

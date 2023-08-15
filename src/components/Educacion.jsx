@@ -520,7 +520,7 @@ export default function Educacion() {
                 </Stack>
             </Stack>
 
-            <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
             <Button type="submit">Subir</Button>
         </VStack>
     )

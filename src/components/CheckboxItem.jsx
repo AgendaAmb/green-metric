@@ -25,7 +25,7 @@ export default function CheckboxItem({span = false, element, area, hasInput = fa
             direction={["column", "row"]}
             spacing={"10px"}
             w="100%"
-            className="grid-center-2"
+            className="grid-center-2 checkbox-text"
         >
             <Checkbox
                 onChange={handleEnabled}

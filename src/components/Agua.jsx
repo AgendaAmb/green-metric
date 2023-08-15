@@ -139,7 +139,7 @@ export default function Agua(){
                 </Stack>
             </Stack>
             
-            <CustomTextArea title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica cosntructiva, observaciones. te lo agradecemos." />
+            <CustomTextArea title="4.4 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
             <Button type="submit">Subir</Button>
         </VStack>
     );
