@@ -1,9 +1,6 @@
 // app/providers.tsx
 "use client";
-import { CacheProvider } from "@chakra-ui/next-js";
-import { ChakraProvider } from "@chakra-ui/react";
-import { DndProvider } from 'react-dnd'
-import { HTML5Backend } from 'react-dnd-html5-backend';
+
 import { withFormik } from "formik";
 import { Stack } from "@chakra-ui/react";
 import { useState, createContext, useEffect, useMemo, useCallback } from "react";
@@ -15,12 +12,12 @@ export const FormContext = createContext(null);
 
 
 function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images, ...props }) {
-    const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values, images:images });
-    
+    const [data, setData] = useState({ handleSubmit, handleChange, handleBlur, values: values, images: images });
+
 
     useEffect(() => {
         console.log(props);
-    },[]);
+    }, []);
 
     return (
         <>
@@ -56,17 +53,13 @@ function FormBase({ children, handleSubmit, data }) {
     else {
         return (
 
-            <DndProvider backend={HTML5Backend}>
-                <CacheProvider>
-                    <ChakraProvider>
-                        <FormContext.Provider value={...data}>
-                            <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
-                                {children}
-                            </Stack>
-                        </FormContext.Provider>
-                    </ChakraProvider>
-                </CacheProvider>
-            </DndProvider>
+
+            <FormContext.Provider value={...data}>
+                <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
+                    {children}
+                </Stack>
+            </FormContext.Provider>
+
 
         );
 

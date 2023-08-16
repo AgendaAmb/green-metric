@@ -1,3 +1,25 @@
-.modal {
-    color: $primary-color;
+.chakra-modal__content-container {
+
+    background-color: transparent !important;
+
+    section {
+        footer {
+
+            button {
+                background-color: $primary-color;
+                color: $secondary-color;
+            }
+
+            .close-btn {
+                background-color: #A0AEC0;
+            }
+        }
+    }
+
+    .admin-select{
+        text-overflow: ellipsis !important;
+        overflow-x: hidden;
+    }
+
+    background-color: $secondary-color ;
 }

@@ -1,13 +1,29 @@
 "use client";
 import Navbar from "./Navbar";
-import { Text } from "@chakra-ui/react";
-import { Image } from "@chakra-ui/react"
+import AdminModal from "./AdminModal";
 import { useEffect, useState } from 'react';
 import { MdLogout } from "react-icons/md";
 import { getCookie, setCookie, deleteCookie } from 'cookies-next';
 import { useRouter } from "next/navigation";
-function Header() {
+import { MdOutlineAdminPanelSettings } from "react-icons/md";
+import { useDisclosure, Text, Image, } from '@chakra-ui/react'
+import axios from "axios";
+function Header({reloadDB}) {
     const [logout, setLogout] = useState(false);
+    const [dependencies, setDependencies] = useState([]);
+    const [showAdmin, setAdmin] = useState(false);
+    const { onOpen, onClose, isOpen } = useDisclosure();
+
+
+    const openAdminModal = () => {
+        axios.get("/GreenMetric/api/dependencies").then((res) => {
+            setDependencies(res.data);
+            setAdmin(true);
+        }).then(() => {
+            onOpen();
+        })
+    }
+
     const router = useRouter();
     const close = () => {
         setTimeout(() => {
@@ -17,11 +33,12 @@ function Header() {
         }, 100)
     }
 
-    useEffect(()=> {
-        const user =getCookie('user');
-        if(user){
+    useEffect(() => {
+        const user = getCookie('user');
+        if (user) {
             setLogout(true);
         }
+        
     })
 
     return (
@@ -36,10 +53,19 @@ function Header() {
                     <Text className="font-header">Agenda Ambiental</Text>
                     <Text className="font-header">Green Metric</Text>
                 </div>
-                {logout && (<div className="logout" role="button" onClick={close}>
-                    <MdLogout className="icon icon-logout" />
-                    <h5>Cerrar Sesion</h5>
-                </div>)}
+                {logout &&
+                    <div className="logout" role="button" onClick={close}>
+                        <MdLogout className="icon icon-logout" />
+                        <h5>Cerrar Sesion</h5>
+                    </div>
+                }
+                {
+                    <div className="admin" role="button" onClick={openAdminModal}>
+                        {showAdmin && <AdminModal reloadDB={reloadDB} onClose={onClose} isOpen={isOpen} dependencies={dependencies}/>}
+                        <MdOutlineAdminPanelSettings className="icon icon-logout" />
+                        <h5>Admin</h5>
+                    </div>
+                }
             </div>
             <Navbar />
         </div>
