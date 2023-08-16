@@ -24,7 +24,6 @@ export default function RootLayout({ children }) {
     const [images, setImages] = useState([]);
     const [load, setLoad] = useState(true);
     const [reload, setReload] = useState(false);
-    const [showAdminIcon, setShowAdmin] = useState(false);
 
     const reloadDB = () => {
         const interval = setInterval(async () => {

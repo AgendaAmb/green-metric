@@ -201,46 +201,104 @@ export default function Educacion() {
         setYear(new Date().getFullYear());
 
         const { values: answers } = context;
-        if (answers) {
-            const regex_1 = /^a_1_1_(?!1|2|0).*_1$/;
-            let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
 
+        if (answers) {
+            const regex_1 = /^a_6_3_1_(?!1|2|0)(?:._1|._2)$/;
+            let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
+            console.log(checkItem);
             for (let i = 0; i < checkItem; i++) {
                 item();
                 checkItem = 0;
             }
-
-            const regex_2 = /^a_1_3_1_(?!1|0).*_1$/;
+            const regex_2 = /^a_6_3_1_2_(?!1|2|0)(?:._1|._2)$/;
+            
+            
             checkItem = Object.keys(answers).filter((el) => regex_2.test(el)).length;
-
+            
             for (let i = 0; i < checkItem; i++) {
                 item2();
                 checkItem = 0;
             }
-            const regex_3 = /^a_1_3_6_(?!0|1)/;
+            
+            const regex_3 = /^a_6_3_1_3_(?!1|2|0)(?:._1|._2)$/;
+
+
             checkItem = Object.keys(answers).filter((el) => regex_3.test(el)).length;
-
-
+            
             for (let i = 0; i < checkItem; i++) {
                 item3();
                 checkItem = 0;
             }
-            const regex_4 = /^a_1_3_7_(?!0|1)/;
+
+            const regex_4 = /^a_6_3_1_4_(?!1|2|0)(?:._1|._2)$/;
+
             checkItem = Object.keys(answers).filter((el) => regex_4.test(el)).length;
+            
             for (let i = 0; i < checkItem; i++) {
                 item4();
                 checkItem = 0;
             }
-            const regex_5 = /^a_1_3_11_(?!0|1)\d+_1$/;
+
+            const regex_5 = /^a_6_3_1_5_(?!1|2|0)(?:._1|._2)$/;
+
             checkItem = Object.keys(answers).filter((el) => regex_5.test(el)).length;
+            
             for (let i = 0; i < checkItem; i++) {
                 item5();
                 checkItem = 0;
             }
-            const regex_6 = /^a_1_4_6_(?!0|1)/;
+
+            const regex_6 = /^a_6_3_1_6_(?!1|2|0)(?:._1|._2)$/;
+
             checkItem = Object.keys(answers).filter((el) => regex_6.test(el)).length;
+            
             for (let i = 0; i < checkItem; i++) {
                 item6();
+                checkItem = 0;
+            }
+
+            const regex_7 = /^a_6_3_1_7_(?!1|2|0)(?:._1|._2)$/;
+
+            checkItem = Object.keys(answers).filter((el) => regex_7.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item7();
+                checkItem = 0;
+            }
+
+            const regex_8 = /^a_6_5_1_(?!1|2|0)(?:._1|._2)$/;
+
+            checkItem = Object.keys(answers).filter((el) => regex_8.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item8();
+                checkItem = 0;
+            }
+
+            const regex_9 = /^a_6_5_3_(?!1|2|0)(?:._1|._2)$/;
+
+            checkItem = Object.keys(answers).filter((el) => regex_9.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item9();
+                checkItem = 0;
+            }
+
+            const regex_10 = /^a_6_1_2_(?!1|2|0)(?:._1|._2)$/;
+
+            checkItem = Object.keys(answers).filter((el) => regex_10.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item10();
+                checkItem = 0;
+            }
+
+            const regex_11 = /^a_6_2_(?!1|0)(?:._1)$/;
+
+            checkItem = Object.keys(answers).filter((el) => regex_11.test(el)).length;
+            
+            for (let i = 0; i < checkItem; i++) {
+                item11();
                 checkItem = 0;
             }
         }
