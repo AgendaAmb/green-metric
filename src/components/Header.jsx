@@ -29,6 +29,7 @@ function Header({reloadDB}) {
     const close = () => {
         setTimeout(() => {
             setLogout(false);
+            setShowAdmin(false);
             deleteCookie('user');
             router.refresh();
         }, 100)
