@@ -42,7 +42,7 @@ export async function POST(req, res) {
     try {
         data = await new Promise((resolve, reject) => {
             connection.query(
-                `SELECT user_id, password, dependency_id FROM users WHERE user_id = ?`,
+                `SELECT user_id, password, dependency_id, role FROM users WHERE user_id = ?`,
                 [user_id, password],
                 function (err, results, fields) {
                     if (err) {
@@ -56,7 +56,8 @@ export async function POST(req, res) {
             );
         });
         if (data.length > 0 && data[0].password == password) {
-            const user = { dependency_id: data[0].dependency_id, user_id: data[0].user_id };
+            const user = { dependency_id: data[0].dependency_id, user_id: data[0].user_id, role: data[0].role };
+            
             return new Response('OK', {
                 status: 200,
                 headers: { 'Set-Cookie': `user=${encodeURI(JSON.stringify(user))}` },

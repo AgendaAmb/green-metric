@@ -35,6 +35,7 @@ export async function middleware(request) {
         if (user != null) {
             const resp = NextResponse.next();
             resp.cookies.set("user", user);
+            
             return resp;
         }
 

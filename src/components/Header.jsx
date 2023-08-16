@@ -12,8 +12,9 @@ function Header({reloadDB}) {
     const [logout, setLogout] = useState(false);
     const [dependencies, setDependencies] = useState([]);
     const [showAdmin, setAdmin] = useState(false);
+    const [showAdminIcon, setShowAdmin] = useState(false);
     const { onOpen, onClose, isOpen } = useDisclosure();
-
+    
 
     const openAdminModal = () => {
         axios.get("/GreenMetric/api/dependencies").then((res) => {
@@ -36,6 +37,17 @@ function Header({reloadDB}) {
     useEffect(() => {
         const user = getCookie('user');
         if (user) {
+            let tmpUser;
+
+            try {
+                tmpUser = JSON.parse(user);
+                //console.log(tmpUser.role);
+                if(tmpUser?.role === 1){
+                    setShowAdmin(true);
+                }
+
+            }
+            catch(e){};
             setLogout(true);
         }
         
@@ -60,6 +72,7 @@ function Header({reloadDB}) {
                     </div>
                 }
                 {
+                    showAdminIcon && 
                     <div className="admin" role="button" onClick={openAdminModal}>
                         {showAdmin && <AdminModal reloadDB={reloadDB} onClose={onClose} isOpen={isOpen} dependencies={dependencies}/>}
                         <MdOutlineAdminPanelSettings className="icon icon-logout" />

@@ -40,7 +40,11 @@ export default function Login() {
                     window.location.href = "/GreenMetric/home";
                 }
                 else {
-                    axios.post("/GreenMetric/api/auth", { params: { user_id: user, password: password } });
+                    axios.post("/GreenMetric/api/auth", { params: { user_id: user, password: password } }).then((res) => {
+                        if(res.status === 200){
+                            
+                        }
+                    });
                 }
             }, 1000);
         }

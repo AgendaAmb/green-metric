@@ -24,6 +24,7 @@ export default function RootLayout({ children }) {
     const [images, setImages] = useState([]);
     const [load, setLoad] = useState(true);
     const [reload, setReload] = useState(false);
+    const [showAdminIcon, setShowAdmin] = useState(false);
 
     const reloadDB = () => {
         const interval = setInterval(async () => {
@@ -31,7 +32,6 @@ export default function RootLayout({ children }) {
                 let user = getCookie("user");
                 try {
                     user = JSON.parse(user);
-                    console.log(user);
                 }
                 catch (e) {
                     console.log("Error al parsear cookie");
@@ -79,7 +79,7 @@ export default function RootLayout({ children }) {
                                 <div className="main ">
                                     <div className="main-info-container">
                                         {load ?
-                                            <Providers data={data} images={images}>
+                                            <Providers data={data} images={images} >
                                                 <Login />
                                             </Providers> :
                                             reload && <Providers data={data} images={images}>{children}</Providers>}
