@@ -19,6 +19,8 @@ import { MdLibraryAdd } from "react-icons/md";
 import { useContext, useState } from "react";
 import { FormContext } from "@/app/providers";
 import DropImage from "./DropImage";
+
+import CustomInput from "./CustomInput";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
 /*
@@ -80,9 +82,9 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                         />
                                     )}
                                     {type != 0 && (
-                                        <Input
+                                        <CustomInput
                                             name={question}
-                                            value={answer}
+                                            /* value={answer} */
                                             
                                             id="input"
                                             type={type == 1 ? "text" : "number"}
@@ -92,8 +94,8 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                         />
                                     )}
                                     {additional != null && (
-                                        <Input
-                                            name="none"
+                                        <CustomInput
+                                            name={`${question}_a`}
                                             type={additional.type == 1 ? "text" : "number"}
                                             onChange={form.handleChange}
                                             onBlur={form.handleBlur}

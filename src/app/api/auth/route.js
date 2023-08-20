@@ -15,29 +15,23 @@ export async function POST(req, res) {
     }
 
     const { user_id, password } = params;
-    /* let user, headers;
-    if (
-        (user_id == 262482 && password == "@g3nd4@mb13nt4l") || (user_id == 11007 && password == "@g3nd4@mb13nt4l")
-        ) {
-            user = { dependency_id: 1, user_id: user_id };
-            console.log("Authorized");
-    }
 
-    user ??= null;
-    if (user != null) {
-        //console.log(user);
-        return new NextResponse('OK', {
-            status: 200,
-            headers: { 'Set-Cookie': `user=${JSON.stringify(user)}}` },
-        });
+    try {
+        const cookies = req.cookies?.get('user')?.value;
+        const dataOnCache = JSON.parse(cookies);
+        if (cookies && `${dataOnCache?.user_id}` !== `${user_id}`) {
+            const withoutCookies = new Response(
+                'No autorizado',
+                {
+                    status: 401,
+                    headers: { 'Set-Cookie': `user=; Max-Age=0` },
+                }
+            );
+            return withoutCookies;
+        }
     }
-    else {
-        console.log("unauthorized")
-        
-        return new NextResponse('Unauthorized', {
-            status: 200,
-        });
-    } */
+    catch (e) { }
+
     let data = [];
     try {
         data = await new Promise((resolve, reject) => {
@@ -57,7 +51,7 @@ export async function POST(req, res) {
         });
         if (data.length > 0 && data[0].password == password) {
             const user = { dependency_id: data[0].dependency_id, user_id: data[0].user_id, role: data[0].role };
-            
+
             return new Response('OK', {
                 status: 200,
                 headers: { 'Set-Cookie': `user=${encodeURI(JSON.stringify(user))}` },

@@ -31,8 +31,10 @@ function Header({reloadDB}) {
             setLogout(false);
             setShowAdmin(false);
             deleteCookie('user');
-            router.refresh();
         }, 100)
+        setTimeout(() => {
+            router.refresh();
+        }, 100);
     }
 
     useEffect(() => {

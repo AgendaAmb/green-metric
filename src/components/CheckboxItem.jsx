@@ -2,6 +2,7 @@
 import { Checkbox, Stack, Input, Button } from "@chakra-ui/react";
 import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
+import CustomInput from "./CustomInput";
 
 export default function CheckboxItem({span = false, element, area, hasInput = false, index = 1, questionCheckbox }) {
     const [enabled, setEnabled] = useState(false);
@@ -46,11 +47,11 @@ export default function CheckboxItem({span = false, element, area, hasInput = fa
                 direction={["column", "row"]}
             >
                 {!enabled && <div className="disabled"></div>}
-                <Input
+                <CustomInput
                     placeholder={`${area ? "Investigador" : "Representante"}`}
                     w={"100%"}
                     className="grid-center"
-                    value={form.values[`${questionCheckbox}`]}
+                    /* value={form.values[`${questionCheckbox}`]} */
                     name={`${questionCheckbox}`}
                     onKeyUp={form.handleChange}
                 />

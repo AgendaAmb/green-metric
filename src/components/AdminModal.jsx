@@ -3,10 +3,11 @@ import { useEffect, useState, useRef } from "react";
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalFooter, ModalBody, ModalCloseButton, Button, Select } from '@chakra-ui/react';
 import axios from "axios";
 import { useRouter } from "next/navigation";
-
+import { getCookie } from "cookies-next";
 
 export default function AdminModal({ isOpen, onClose, dependencies, reloadDB, ...props }) {
     const ref = useRef();
+    const [defaultDependency, setDefault] = useState(1);
     const router = useRouter();
     const changeModule = () => {
         const value = ref?.current?.value;
@@ -21,6 +22,14 @@ export default function AdminModal({ isOpen, onClose, dependencies, reloadDB, ..
     }
 
     useEffect(() => {
+        try {
+            const user = getCookie('user');
+
+
+            let parsedUser = JSON.parse(user);
+            setDefault(parsedUser?.dependency_id || 1);
+        }
+        catch(e){}
     }, [])
     return (
         <Modal isOpen={isOpen} onClose={onClose} className="admin-modal">
@@ -29,7 +38,7 @@ export default function AdminModal({ isOpen, onClose, dependencies, reloadDB, ..
                 <ModalHeader>Cambiar módulo</ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
-                    <Select ref={ref} className="admin-select">
+                    <Select ref={ref} defaultValue={defaultDependency} className="admin-select">
                         {
                             dependencies.map(({ dependency_id, dependency_name }) => {
                                 return (
