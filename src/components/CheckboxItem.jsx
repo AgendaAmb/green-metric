@@ -36,7 +36,7 @@ export default function CheckboxItem({span = false, element, area, hasInput = fa
                 w="100%"
                 onSelect={form.handleChange}
                 display="grid"
-                gridTemplateColumn={`${span ? "1fr" : "1fr 1fr"}`}
+                /* gridTemplateColumn={`${span ? "1fr" : "1fr 1fr"}`} */
             >
                 {element}
             </Checkbox>

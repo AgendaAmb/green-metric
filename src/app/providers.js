@@ -11,8 +11,8 @@ import Swal from 'sweetalert2';
 export const FormContext = createContext(null);
 
 
-function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images,setAdmin, ...props }) {
-    const [data, setData] = useState({setAdmin, handleSubmit, handleChange, handleBlur, values: values, images: images });
+function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images, setAdmin, ...props }) {
+    const [data, setData] = useState({ setAdmin, handleSubmit, handleChange, handleBlur, values: values, images: images });
 
 
     useEffect(() => {
@@ -108,26 +108,59 @@ export const Providers = withFormik({
 
         }
         else { */
+
+
+
+        let sent = false;
+
+        const sendAlert = () => {
+            setTimeout(() => {
+                
+                if (sent) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Respuestas guardadas!',
+                        text: 'Tus respuestas han sido guardadas con éxito',
+                        showConfirmButton: false,
+                    })
+                }
+                else if (!sent) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: '¡Precaución!',
+                        text: 'Una o más respuestas podrían no reflejar los cambios realizados',
+                        showConfirmButton: false,
+                    })
+                }
+            }, 1000);
+        }
+
         for (const [key, value] of Object.entries(values)) {
+            if (value === "No hay datos") {
+                continue;
+            }
+
+
+
+
             axios.post('/GreenMetric/api/answers', {
                 value: value,
                 question: key
             })
-                .then(function (response) {
-                    Swal.fire({
-                        icon: 'success',
-                        title: '¡Respuestas guardadas!',
-                        showConfirmButton: false,
-                        timer: 1500
-                    })
+                .then((response) => {
+                    if (response.status === 200 && sent !== true) {
+                        sent = true;
+                    }
                 })
                 .catch(function (error) {
-                    console.log("Error con la BD");
+                    sent = false;
                 });
         }
+        
+
         //}
         setSubmitting(true);
-
+        sendAlert();
     },
 
     displayName: 'GreenMetricForm',

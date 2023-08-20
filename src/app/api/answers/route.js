@@ -31,7 +31,7 @@ export async function GET(req, res) {
         return NextResponse.json(data);
     }
     else {
-        return NextResponse.json({ message: "No hay datos" });
+        return NextResponse.json({ success: false });
     }
 };
 
