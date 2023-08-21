@@ -49,7 +49,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                 </Button>
             )}
             {text && <Text className="expand-2 blue">{text}</Text>}
-            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined", noAddon = false, }, index,) => {
+            {elements?.map(({ text, holder, type = 0, evidence, span, half, dicotomic, left, title = "Evidencias ", helper, textTitle = "", leftTitle = false, maxPhotos = -1, vertical = false, additional, disabled = false, customName = "undefined", question = "undefinied", questionDicotomic = "undefined", noAddon = false, currentValue }, index,) => {
                 const isInputEnable = hasSelect && dicotomic && selectValue === '1';
 
                 let answer;
@@ -85,7 +85,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                         <CustomInput
                                             name={question}
                                             /* value={answer} */
-                                            
+                                            currentValue={currentValue}
                                             id="input"
                                             type={type == 1 ? "text" : "number"}
                                             placeholder={holder != null ? holder : type == 1 ? "Respuesta libre" : "Cantidad numérica"}
@@ -101,6 +101,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                                             onBlur={form.handleBlur}
                                             placeholder={additional.holder != null ? additional.holder : additional.type == 1 ? "Respuesta libre" : "Cantidad numérica"}
                                             marginRight="15px"
+                                            currentValue={currentValue}
                                             disabled={additional.disabled}
 
                                         />

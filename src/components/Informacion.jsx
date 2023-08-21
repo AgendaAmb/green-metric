@@ -10,10 +10,13 @@ import { useEffect, useState, useContext } from "react";
 import DropImage from "./DropImage";
 import ModuleInput from "./ModuleInput";
 import { FormContext } from "@/app/providers";
-
+import { getCookie } from "cookies-next";
+import axios from "axios";
 
 
 export default function Informacion({ hello }) {
+    const [currentValue, setCurrentValue] = useState("");
+
     const options = [
         "Entidades Academicas",
         "Institutos y centros de investigación",
@@ -48,7 +51,13 @@ export default function Informacion({ hello }) {
 
 
     useEffect(() => {
+        try{
+            axios.get('/GreenMetric/api/dependencies/name').then((res) => {
+                setCurrentValue(res?.data[0]?.dependency_name || null);
+            })
 
+        }
+        catch(e){}
 
 
         const { values: answers } = context;
@@ -82,7 +91,7 @@ export default function Informacion({ hello }) {
 
             <Stack spacing="5px" w="30%" padding="30px">
                 <ModuleInput title={"Datos de la dependencia"}
-                    elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question: 'a_0_1_1' }, { holder: "Dirección de la dependencia", type: 1, question: 'a_0_1_2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question: '0_1_3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question: 'a_0_1_4' }]}
+                    elements={[{ holder: "Nombre de la dependencia", type: 1, customName: "dependency", question: 'a_0_1_1', currentValue: currentValue }, { holder: "Dirección de la dependencia", type: 1, question: 'a_0_1_2' }, { holder: "Responsable de la dependencia (Director(a))", type: 1, question: '0_1_3' }, { holder: "Nombre del responsable de Green Metric", type: 1, question: 'a_0_1_4' }]}
                     inputName={'inputField'} />
             </Stack>
             <Stack spacing="30px" w="100%">
