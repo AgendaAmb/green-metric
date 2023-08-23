@@ -15,7 +15,7 @@ export default function Reporte() {
                 w="100%">
                 <CustomTextArea maxCharacters={5000} name="a_7_0_0" title={"Escriba un reporte general que indique las generalidades de la dependencia"} />
             </Stack>
-            <Button type="submit">Subir</Button>
+            
 
         </VStack>
     )

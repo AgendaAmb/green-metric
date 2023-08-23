@@ -143,7 +143,7 @@ export default function Informacion({ hello }) {
                     </Stack>
                 </Stack>
             </VStack>
-            <Button type="submit">Subir</Button>
+            
         </VStack>
     );
 }

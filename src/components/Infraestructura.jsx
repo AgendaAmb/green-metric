@@ -369,7 +369,7 @@ export default function Infraestructura() {
                 </Stack>
             </Stack>
             <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
-            <Button type="submit">Subir</Button>
+            
         </VStack>
     );
 }

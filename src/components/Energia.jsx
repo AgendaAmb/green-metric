@@ -271,7 +271,7 @@ export default function Energia() {
                 </Stack>
             </Stack>
             <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
-            <Button type="submit">Subir</Button>
+            
         </VStack>
     )
 }

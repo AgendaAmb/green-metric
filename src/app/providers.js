@@ -139,20 +139,20 @@ export const Providers = withFormik({
             if (value === "No hay datos") {
                 continue;
             }
-
-
-
-
+            
+            
+            
             axios.post('/GreenMetric/api/answers', {
                 value: value,
                 question: key
             })
-                .then((response) => {
+            .then((response) => {
                     if (response.status === 200 && sent !== true) {
                         sent = true;
                     }
                 })
                 .catch(function (error) {
+                    console.log(value);
                     sent = false;
                 });
         }

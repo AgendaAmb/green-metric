@@ -121,7 +121,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                 )
             })}
             {checkbox && <CustomCheckbox checkbox={checkbox} question={questionCheckBox} />}
-            {select && <CustomSelect data={select} nameSelect={questionSelect} />}
+            {select && <CustomSelect data={select} name={questionSelect} />}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 
                 <Stack className="grid-center" gridRow={`${span ? "span 2" : "span 1"}`}>

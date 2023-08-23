@@ -99,7 +99,7 @@ export default function Residuos() {
                 <ModuleInput elements={[{ text: "3.8.1 Residuos sólidos urbanos", left: "RSU", type: 2, question:'a_3_8_1', vertical: "true" }, { text: "3.8.2 Residuos de manejo especial", left: "RME", type: 2, question:'a_3_8_2', vertical: "true"}, { text: "3.8.3 Residuos peligrosos", left: "RP", type: 2, vertical: "true" }, { evidence: true, span: true, maxPhotos:3, question:'a_3_8_2'}]} />
             </Stack>
             <CustomTextArea title="3.9 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
-            <Button type="submit">Subir</Button>
+            
         </VStack>
 
     );

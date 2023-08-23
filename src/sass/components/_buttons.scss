@@ -49,3 +49,12 @@
 .close-btn {
     background-color: #cbd5e0;
 }
+
+.uaslp-btn{
+    color: $secondary-color;
+    background-color: $primary-color;
+    &:hover {
+        color: $primary-color;
+        background-color: $secondary-color;
+    }
+}
