@@ -9,7 +9,7 @@ const generateKey = (pre) => {
     return `${pre}_${new Date().getTime()}`;
 };
 
-export default function CustomCheckbox({w = "inherit", checkbox, question }) {
+export default function CustomCheckbox({w = "inherit", checkbox, name }) {
     const [content, setContent] = useState({});
 
     useEffect(() => {
@@ -24,7 +24,7 @@ export default function CustomCheckbox({w = "inherit", checkbox, question }) {
                         key={"cb" + index}
                         hasInput={content?.hasInput}
                         index={index}
-                        questionCheckbox={`${question}_${index}`}
+                        name={`${name}_${index}`}
                         w={w}
                     />
                 );

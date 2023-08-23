@@ -23,6 +23,7 @@ import DropImage from "./DropImage";
 import CustomInput from "./CustomInput";
 import CustomCheckbox from "./CustomCheckbox";
 import CustomSelect from "./CustomSelect";
+import DicotomicSelect from "./DicotomicSelect";
 /*
 * * Elementos
 * * Tipo 1: Texto
@@ -66,11 +67,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                         <Stack direction={`${column ? "column" : "row"}`} gridTemplateColumns={`${vertical ? "repeat1fr" : "1.3fr 1fr 1fr 1fr"}`} display={"grid"} gridTemplateRows={`${vertical ? "1fr" : "repeat(auto-fit, minmax(50px, 1fr))"}`}>
                             {text && <Text className={inputLarge ? "" : "expand-2"} >{textTitle} {text}</Text>}
                             {dicotomic ? (
-                                <Select gridColumn={"span 4"} onChange={form.handleChange} name={questionDicotomic} value={selectValue}>
-                                    <option value="-1">Seleccione:</option>
-                                    <option value="1">Si</option>
-                                    <option value="0">No</option>
-                                </Select>
+                                <DicotomicSelect gridColumn={"span 4"}  name={questionDicotomic}  />
                             ) : ( type != null ) && (
                                 <InputGroup w="100%" className={`${text == null ? "expand-4" : ""} ${inputLarge ? "expand-3" : "expand-2"}`} size="sm" onChange={form.handleChange} onBlur={form.handleBlur}>
                                     {!noAddon || type > 0 && (
@@ -120,7 +117,7 @@ export default function ModuleInput({ title, elements, selectValue, checkbox, ar
                     </Stack >
                 )
             })}
-            {checkbox && <CustomCheckbox checkbox={checkbox} question={questionCheckBox} />}
+            {checkbox && <CustomCheckbox checkbox={checkbox} name={questionCheckBox} />}
             {select && <CustomSelect data={select} name={questionSelect} />}
             {add && <Stack direction={"column"} className={`add-module`} spacing={"30px"} height={"100%"} >
 

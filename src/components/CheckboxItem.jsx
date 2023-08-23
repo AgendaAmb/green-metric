@@ -4,13 +4,13 @@ import { useEffect, useState, useContext } from "react";
 import { FormContext } from "@/app/providers";
 import CustomInput from "./CustomInput";
 
-export default function CheckboxItem({span = false, element, area, hasInput = false, index = 1, questionCheckbox }) {
+export default function CheckboxItem({span = false, element, area, hasInput = false, index = 1, name }) {
     const [enabled, setEnabled] = useState(false);
     const form = useContext(FormContext);
     
     let isChecked = false;
 
-    if(form.values[`${questionCheckbox}`]){
+    if(form.values[`${name}`]){
         isChecked = true;
     }
     const handleEnabled = () => {
@@ -31,7 +31,7 @@ export default function CheckboxItem({span = false, element, area, hasInput = fa
             <Checkbox
                 onChange={handleEnabled}
                 defaultChecked={isChecked}
-                name={`${questionCheckbox}`}
+                name={`${name}`}
                 h="35px"
                 w="100%"
                 onSelect={form.handleChange}
@@ -51,8 +51,8 @@ export default function CheckboxItem({span = false, element, area, hasInput = fa
                     placeholder={`${area ? "Investigador" : "Representante"}`}
                     w={"100%"}
                     className="grid-center"
-                    /* value={form.values[`${questionCheckbox}`]} */
-                    name={`${questionCheckbox}`}
+                    /* value={form.values[`${name}`]} */
+                    name={`${name}`}
                     onKeyUp={form.handleChange}
                 />
             </Stack>)}
