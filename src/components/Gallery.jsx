@@ -2,7 +2,7 @@
 import ImageGallery from "react-image-gallery";
 import "next/image";
 import { useEffect, useRef } from "react";
-export default function Gallery({ images, setReference }) {
+export default function Gallery({ images, setReference, }) {
     const ref_ = useRef(null)
     useEffect(() => {
         if (setReference) {

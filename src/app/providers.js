@@ -54,7 +54,7 @@ function FormBase({ children, handleSubmit, data }) {
         return (
 
 
-            <FormContext.Provider value={...data}>
+            <FormContext.Provider value={data}>
                 <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
                     {children}
                 </Stack>

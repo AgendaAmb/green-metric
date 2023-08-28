@@ -11,16 +11,20 @@ import axios from "axios";
 import Dropzone from 'react-dropzone';
 import Gallery from "./Gallery";
 import { FormContext } from "@/app/providers";
+import { getCookie } from "cookies-next";
 
 export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -1, evidencename, pdf = false, sub = "", questionId = "na" }) {
+  const user = getCookie('user');
   const [images, setImages] = useState([]);
   const [photos, setPhotos] = useState(1);
   const [showPhoto, setShowPhoto] = useState(true);
   const [reference, setReference] = useState(null);
-  const [imgArray, setimgArray] = useState([]);
-  const ref = useRef(null);
+  let imgArray = [];
   const context = useContext(FormContext);
   const [filteredImages, setFilteredImages] = useState([]);
+  const ref = useRef(null);
+
+
 
   const blink = () => {
     setShowPhoto(false);
@@ -41,15 +45,16 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
       e.forEach((file) => {
         if (photos > 0 || maxPhotos == -1) {
           let url = URL.createObjectURL(file);
-          tmpImages.push({ original: url });
+          tmpImages.push({ original: url, url: url });
           tmpArr.push(file);
         }
         count++;
       })
       setPhotos(photos - count);
       setImages(tmpImages);
-      setimgArray(tmpArr);
+      imgArray = tmpArr;
       uploadToServer(tmpArr);
+      //updateImagesFromServer();
 
 
 
@@ -68,6 +73,57 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
 
   }
+  const updateImagesFromServer = () => {
+    let counter = 0;
+    const imagesFromContext = context.images || [];
+    const imgScreen = [];
+    const filtered = imagesFromContext.filter(image => image.image_id.startsWith(questionId));
+    filtered.map((img) => {
+      if (img?.path !== "") {
+
+        const realPath = img.path.replace("public", "/GreenMetric");
+
+        /* fetch(realPath).then((res) => {
+          imgScreen.push({ original: res.url });
+
+        }); */
+        //console.log(realPath);
+        imgScreen.push({ original: realPath, url: realPath });
+        counter++;
+
+      }
+    })
+    setTimeout(() => {
+      setPhotos(maxPhotos - counter);
+      setImages(imgScreen)
+
+    }, 10);
+  }
+
+  const deletePhoto = async(e) => {
+    const index = reference?.current?.getCurrentIndex();
+    let urlDeleted;
+    const deletedList = images.filter((item, i) => {
+      if (i !== index) {
+        return item;
+      }
+      else {
+        urlDeleted = item?.url;
+        return;
+      }
+    });
+
+    if (urlDeleted) {
+      const dependency = JSON.parse(user).dependency_id;
+      setImages(deletedList);
+      const regex = /\/([^/]+)$/; // Expresión regular
+      const match = urlDeleted.match(regex);
+      const route = `/GreenMetric/api/image/${dependency}/${questionId}/${match[1]}`;
+      setPhotos(photos + 1);
+      axios.post(route);
+    }
+  }
+
   const prev = (e) => {
     const index = reference?.current?.getCurrentIndex();
     reference?.current?.slideToIndex(index - 1);
@@ -103,37 +159,15 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     })
     form.append("id", questionId);
     axios.post("/GreenMetric/api/upload", form);
+    
 
 
   };
+
+
   useEffect(() => {
-    /* INTENTO DE CARGA DE IMAGEN */
-    setTimeout(() => {
-
-    })
-    const imagesFromContext = context.images || [];
-    const imgScreen = [];
-    const filtered = imagesFromContext.filter(image => image.image_id.startsWith(questionId));
-    const imagesOnScreen = filtered.map((img) => {
-      if (img?.path !== "") {
-
-        const realPath = img.path.replace("public", "/GreenMetric");
-
-        fetch(realPath).then((res) => {
-          imgScreen.push({ original: res.url });
-
-        });
-        //console.log(realPath);
-        //imgScreen.push( { original: realPath });
-        //blink();
-      }
-    })
-
-    setTimeout(() => {
-      setImages(imgScreen)
-      blink();
-    }, 10);
-    setPhotos(maxPhotos);
+    updateImagesFromServer();
+    
   }, []);
 
 
@@ -169,7 +203,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
                 {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
                 <div className="delete-top-right">
-                  <span role="button" ><p>x</p></span>
+                  <span role="button" onClick={deletePhoto} ><p>x</p></span>
                 </div>
               </section>
             )}
