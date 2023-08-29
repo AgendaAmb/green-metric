@@ -364,7 +364,7 @@ export default function Infraestructura() {
                     <ModuleInput elements={components6} />
                 </Stack>
             </Stack>
-            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
+            <CustomTextArea title="1.5 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" name={"a_1_5_0"} />
             
         </VStack>
     );

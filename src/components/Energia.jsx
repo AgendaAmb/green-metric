@@ -270,7 +270,7 @@ export default function Energia() {
                     <ModuleInput elements={[{ question: 'a_2_2_5_5', evidence: true, maxPhotos: 3 }]} />
                 </Stack>
             </Stack>
-            <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
+            <CustomTextArea title="2.3 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" name="a_2_3_0"/>
             
         </VStack>
     )

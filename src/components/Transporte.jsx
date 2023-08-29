@@ -79,7 +79,7 @@ export default function Transporte() {
                 elements={[{type:5, question:'a_5_7'}]} /> 
             </Stack>
 
-            <CustomTextArea title="5.8 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" />
+            <CustomTextArea title="5.8 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" name="a_5_8_0"/>
             
         </VStack>
     )
