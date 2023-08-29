@@ -263,28 +263,24 @@ export default function Infraestructura() {
                 <Text className="expand-2">1.3.5 Indique el número de espacios destinados para cada caso, y el porcentaje será calculado automaticamente.
                 </Text>
                 <ModuleInput elements={[{
-                    text: "1.3.5.1 Estudiantes", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                    text: "1.3.5.1 Estudiantes", type: 2, vertical: true, question: 'a_1_3_5_1', holder: "Número de espacios", additional: {
                         type: 2,
                         holder: "(0% - 100%)"
-                        , question: 'a_1_3_5_1'
                     }
                 }, {
-                    text: "1.3.5.2 Profesores", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                    text: "1.3.5.2 Profesores", type: 2, vertical: true, holder: "Número de espacios",question: 'a_1_3_5_2', additional: {
                         type: 2,
-                        holder: "(0% - 100%)"
-                        , question: 'a_1_3_5_2'
+                        holder: "(0% ,- 100%)"
                     }
                 }, {
-                    text: "1.3.5.3 Administrativos", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                    text: "1.3.5.3 Administrativos", type: 2, vertical: true, holder: "Número de espacios",question: 'a_1_3_5_3', additional: {
                         type: 2,
                         holder: "(0% - 100%)"
-                        , question: 'a_1_3_5_3'
                     }
                 }, {
-                    text: "1.3.5.4 Staff", type: 2, vertical: true, holder: "Número de espacios", additional: {
+                    text: "1.3.5.4 Staff", type: 2, vertical: true, holder: "Número de espacios",question: 'a_1_3_5_4', additional: {
                         type: 2,
                         holder: "(0% - 100%)"
-                        , question: 'a_1_3_5_4'
                     }
                 },]} />
             </Stack>

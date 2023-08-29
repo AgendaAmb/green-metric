@@ -1,0 +1,6 @@
+.custom-checkbox{
+    display: grid;
+    height: clamp(35px, 35px, 35px);
+    grid-template-columns: 2fr .15fr;
+    width: 100%;
+}
