@@ -49,55 +49,55 @@ export default function Educacion() {
 
 
     const item = () => {
-        const newMod = [...components, { text: 'Nombre del foro', type: 1, question: `a_6_3_1_${forum}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_${forum + 1}_2` }, { evidence: true, question:'a_6_3_1_1' }];
+        const newMod = [...components, { text: 'Nombre del foro', type: 1, question: `a_6_3_1_${forum}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_${forum + 1}_2` }, { evidence: true, question: `a_6_3_1_${forum}_1` }];
         setComponents([...newMod]);
         setForum(forum + 1);
     }
 
     const item2 = () => {
-        const newMod2 = [...components2, { text: 'Nombre de la rodada', type: 1, question: `a_6_3_1_2_${track}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_2_${track + 1}_2` }, { evidence: true, question:'a_6_3_1_2' }];
+        const newMod2 = [...components2, { text: 'Nombre de la rodada', type: 1, question: `a_6_3_1_2_${track}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_2_${track + 1}_2` }, { evidence: true, question: `a_6_3_1_2_${track}_1` }];
         setComponents2([...newMod2]);
         setTrack(track + 1);
     }
 
     const item3 = () => {
-        const newMod3 = [...components3, { text: 'Nombre de la feria', type: 1, question: `a_6_3_1_3_${fair}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_3_${fair + 1}_2` }, { evidence: true,question:'a_6_3_1_3' }];
+        const newMod3 = [...components3, { text: 'Nombre de la feria', type: 1, question: `a_6_3_1_3_${fair}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_3_${fair + 1}_2` }, { evidence: true, question: `a_6_3_1_3_${fair}_1` }];
         setComponents3([...newMod3]);
         setFair(fair + 1);
     }
 
     const item4 = () => {
-        const newMod4 = [...components4, { text: 'Nombre de la charla', type: 1, question: `a_6_3_1_4_${talk + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_4_${talk + 1}_2` }, { evidence: true,question:'a_6_3_1_4' }];
+        const newMod4 = [...components4, { text: 'Nombre de la charla', type: 1, question: `a_6_3_1_4_${talk + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_4_${talk + 1}_2` }, { evidence: true, question: `a_6_3_1_4_${talk + 1}_1` }];
         setComponents4([...newMod4]);
         setTalk(talk + 1);
     }
     const item5 = () => {
-        const newMod5 = [...components5, { text: 'Nombre del seminario', type: 1, question: `a_6_3_1_5_${seminary + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_5_${seminary + 1}_2` }, { evidence: true,question:'a_6_3_1_5' }];
+        const newMod5 = [...components5, { text: 'Nombre del seminario', type: 1, question: `a_6_3_1_5_${seminary + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_5_${seminary + 1}_2` }, { evidence: true, question: `a_6_3_1_5_${seminary + 1}_1` }];
         setComponents5([...newMod5]);
         setSeminary(seminary + 1)
     }
 
 
     const item6 = () => {
-        const newMod6 = [...components6, { text: 'Nombre de la conferencia', type: 1, question: `a_6_3_1_6_${conference + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_6_${conference + 1}_2` }, { evidence: true,question:'a_6_3_1_6' }];
+        const newMod6 = [...components6, { text: 'Nombre de la conferencia', type: 1, question: `a_6_3_1_6_${conference + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_6_${conference + 1}_2` }, { evidence: true, question: `a_6_3_1_6_${conference + 1}_1` }];
         setComponents6([...newMod6]);
         setConference(conference + 1);
     }
 
     const item7 = () => {
-        const newMod7 = [...components7, { text: 'Evento', type: 1, question: `a_6_3_1_7_${event + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_7_${event + 1}_2` }, { evidence: true,question:'a_6_3_1_7' }];
+        const newMod7 = [...components7, { text: 'Evento', type: 1, question: `a_6_3_1_7_${event + 1}_1` }, { text: "Asistentes", type: 1, question: `a_6_3_1_7_${event + 1}_2` }, { evidence: true, question: `a_6_3_1_7_${event + 1}_1` }];
         setComponents7([...newMod7]);
         setEvent(event + 1);
     }
 
     const item8 = () => {
-        const newMod8 = [...components8, { text: 'Número de programas', type: 2, question: `a_6_5_1_${program + 1}_1` }, { evidence: true,question:'a_6_5_1' }];
+        const newMod8 = [...components8, { text: 'Número de programas', type: 2, question: `a_6_5_1_${program + 1}_1` }, { evidence: true, question: `a_6_5_1_${program + 1}_1` }];
         setComponents8([...newMod8]);
         setProgram(program + 1);
     }
 
     const item9 = () => {
-        const newMod9 = [...components9, { text: 'Nombre del proyecto', type: 1, question: `a_6_5_3_${proyect + 1}_1` }, { text: 'Cantidad destinada ($)', type: 6, question: `a_6_5_3_${proyect + 1}_2` }, { text: 'Fuente de recurso', type: 1, question: `a_6_5_3_${proyect + 2}_3` }, { evidence: true,question:'a_6_5_3' }];
+        const newMod9 = [...components9, { text: 'Nombre del proyecto', type: 1, question: `a_6_5_3_${proyect + 1}_1` }, { text: 'Cantidad destinada ($)', type: 6, question: `a_6_5_3_${proyect + 1}_2` }, { text: 'Fuente de recurso', type: 1, question: `a_6_5_3_${proyect + 2}_3` }, { evidence: true, question: `a_6_5_3_${proyect + 1}_1` }];
         setComponents9([...newMod9]);
         setProyect(proyect + 1);
     }
@@ -107,7 +107,7 @@ export default function Educacion() {
         setSubject(subject + 1);
     }
     const item11 = () => {
-        const newMod11 = [...components11, { text: 'Nombre del evento', type: 1, question: `a_6_2_${eventName + 1}_1_1` }, { text: 'Responsable', type: 1, question: `a_6_2_1_${eventName + 1}_2` }, { evidence: true, maxPhotos: 3,question:'a_6_2_1' }];
+        const newMod11 = [...components11, { text: 'Nombre del evento', type: 1, question: `a_6_2_${eventName + 1}_1_1` }, { text: 'Responsable', type: 1, question: `a_6_2_1_${eventName + 1}_2` }, { evidence: true, maxPhotos: 3, question: `a_6_2_${eventName + 1}_1_1` }];
         setComponents11([...newMod11]);
         setEventName(eventName + 1);
     }
@@ -211,20 +211,20 @@ export default function Educacion() {
                 checkItem = 0;
             }
             const regex_2 = /^a_6_3_1_2_(?!1|2|0)(?:._1|._2)$/;
-            
-            
+
+
             checkItem = Object.keys(answers).filter((el) => regex_2.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item2();
                 checkItem = 0;
             }
-            
+
             const regex_3 = /^a_6_3_1_3_(?!1|2|0)(?:._1|._2)$/;
 
 
             checkItem = Object.keys(answers).filter((el) => regex_3.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item3();
                 checkItem = 0;
@@ -233,7 +233,7 @@ export default function Educacion() {
             const regex_4 = /^a_6_3_1_4_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_4.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item4();
                 checkItem = 0;
@@ -242,7 +242,7 @@ export default function Educacion() {
             const regex_5 = /^a_6_3_1_5_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_5.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item5();
                 checkItem = 0;
@@ -251,7 +251,7 @@ export default function Educacion() {
             const regex_6 = /^a_6_3_1_6_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_6.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item6();
                 checkItem = 0;
@@ -260,7 +260,7 @@ export default function Educacion() {
             const regex_7 = /^a_6_3_1_7_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_7.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item7();
                 checkItem = 0;
@@ -269,7 +269,7 @@ export default function Educacion() {
             const regex_8 = /^a_6_5_1_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_8.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item8();
                 checkItem = 0;
@@ -278,7 +278,7 @@ export default function Educacion() {
             const regex_9 = /^a_6_5_3_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_9.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item9();
                 checkItem = 0;
@@ -287,7 +287,7 @@ export default function Educacion() {
             const regex_10 = /^a_6_1_2_(?!1|2|0)(?:._1|._2)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_10.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item10();
                 checkItem = 0;
@@ -296,7 +296,7 @@ export default function Educacion() {
             const regex_11 = /^a_6_2_(?!1|0)(?:._1)$/;
 
             checkItem = Object.keys(answers).filter((el) => regex_11.test(el)).length;
-            
+
             for (let i = 0; i < checkItem; i++) {
                 item11();
                 checkItem = 0;
@@ -336,7 +336,7 @@ export default function Educacion() {
                     <Button className="delete-button" onClick={() => popModule(11)}>-</Button>
                 </Stack>
                 <ModuleInput title="6.2.1 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
-                    elements={[{ text: 'Nombre del evento', type: 1, question: 'a_6_2_1_1_1' }, { text: 'Responsable', type: 1, question: 'a_6_2_1_1_2' }, { evidence: true, maxPhotos: 3,question:'a_6_2_1_1_1' }]} />
+                    elements={[{ text: 'Nombre del evento', type: 1, question: 'a_6_2_1_1_1' }, { text: 'Responsable', type: 1, question: 'a_6_2_1_1_2' }, { evidence: true, maxPhotos: 3, question: 'a_6_2_1_1_1' }]} />
                 <ModuleInput elements={components11} />
             </Stack>
 
@@ -348,10 +348,10 @@ export default function Educacion() {
                     <Button className="delete-button" onClick={() => popModule(1)}>-</Button>
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question: 'a_6_3_1_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_1_2' }, { evidence: true,question:'a_6_3_1_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question: 'a_6_3_1_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_1_2' }, { evidence: true, question: 'a_6_3_1_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question: 'a_6_3_1_1_3' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_1_4' }, { evidence: true, question:'a_6_3_1_1_4' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre del foro', type: 1, question: 'a_6_3_1_1_3' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_1_4' }, { evidence: true, question: 'a_6_3_1_1_4' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={components} />
@@ -360,10 +360,10 @@ export default function Educacion() {
                 <Button className="add-button" onClick={item2} justifySelf={"self-end"} gridColumn={3}>+</Button>
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(2)} gridColumn={3}>-</Button>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question: 'a_6_3_1_2_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_2_1_2' }, { evidence: true, question:'a_6_3_1_2_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question: 'a_6_3_1_2_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_2_1_2' }, { evidence: true, question: 'a_6_3_1_2_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question: 'a_6_3_1_2_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_2_2_2' }, { evidence: true, question:'a_6_3_1_2_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la rodada', type: 1, question: 'a_6_3_1_2_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_2_2_2' }, { evidence: true, question: 'a_6_3_1_2_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={components2} />
@@ -372,10 +372,10 @@ export default function Educacion() {
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(3)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.3 Ferias (cualquier tipo)</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_1_2' }, { evidence: true, question:'a_6_3_1_3_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_1_2' }, { evidence: true, question: 'a_6_3_1_3_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_2_2' }, { evidence: true, question:'a_6_3_1_3_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_2_2' }, { evidence: true, question: 'a_6_3_1_3_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px" >
                     <ModuleInput elements={components3} />
@@ -385,10 +385,10 @@ export default function Educacion() {
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(4)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.4 Charlas</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question: 'a_6_3_1_4_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_4_1_2' }, { evidence: true, question:'a_6_3_1_4_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question: 'a_6_3_1_4_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_4_1_2' }, { evidence: true, question: 'a_6_3_1_4_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question: 'a_6_3_1_4_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_4_2_2' }, { evidence: true, question:'a_6_3_1_4_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la charla', type: 1, question: 'a_6_3_1_4_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_4_2_2' }, { evidence: true, question: 'a_6_3_1_4_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={components4} />
@@ -398,10 +398,10 @@ export default function Educacion() {
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(5)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.5 Seminarios</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question: 'a_6_3_1_5_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_5_1_2' }, { evidence: true, question:'a_6_3_1_5_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question: 'a_6_3_1_5_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_5_1_2' }, { evidence: true, question: 'a_6_3_1_5_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question: 'a_6_3_1_5_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_5_2_2' }, { evidence: true, question:'a_6_3_1_5_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre del seminario', type: 1, question: 'a_6_3_1_5_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_5_2_2' }, { evidence: true, question: 'a_6_3_1_5_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px" >
                     <ModuleInput elements={components5} />
@@ -411,10 +411,10 @@ export default function Educacion() {
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(6)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.6 Conferencias</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question: 'a_6_3_1_6_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_6_1_2' }, { evidence: true, question:'a_6_3_1_6_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question: 'a_6_3_1_6_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_6_1_2' }, { evidence: true, question: 'a_6_3_1_6_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question: 'a_6_3_1_6_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_6_2_2' }, { evidence: true, question:'a_6_3_1_6_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la conferencia', type: 1, question: 'a_6_3_1_6_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_6_2_2' }, { evidence: true, question: 'a_6_3_1_6_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={components6} />
@@ -423,10 +423,10 @@ export default function Educacion() {
                 <Button className="delete-button" justifySelf={"self-end"} onClick={() => popModule(7)} gridColumn={3}>-</Button>
                 <h3 className="blue">6.3.1.7 Eventos culturales (festivales, teatro, evento musical, exhibiciones artísticas,etc.)</h3>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Evento', type: 1, question: 'a_6_3_1_7_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_7_1_2' }, { evidence: true, question:'a_6_3_1_7_1_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Evento', type: 1, question: 'a_6_3_1_7_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_7_1_2' }, { evidence: true, question: 'a_6_3_1_7_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Evento', type: 1, question: 'a_6_3_1_7_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_7_2_2' }, { evidence: true, question:'a_6_3_1_7_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Evento', type: 1, question: 'a_6_3_1_7_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_7_2_2' }, { evidence: true, question: 'a_6_3_1_7_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput elements={components7} />
@@ -482,11 +482,11 @@ export default function Educacion() {
                 <h2 className="green">6.5 Investigación relacionada a la sostenibilidad.</h2>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
-                        elements={[{ text: 'Número de programas', type: 2, question: 'a_6_5_1_1_1' }, { evidence: true, question:'a_6_5_1_1_1' }]} />
+                        elements={[{ text: 'Número de programas', type: 2, question: 'a_6_5_1_1_1' }, { evidence: true, question: 'a_6_5_1_1_1' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales"
-                        elements={[{ text: 'Número de programas', type: 2, question: 'a_6_5_1_2_1' }, { evidence: true, question:'a_6_5_1_2_1' }]} />
+                        elements={[{ text: 'Número de programas', type: 2, question: 'a_6_5_1_2_1' }, { evidence: true, question: 'a_6_5_1_2_1' }]} />
                 </Stack>
                 <Stack spacing="30px">
                     <ModuleInput title="6.5.1 Número de programas relacionados con la sostenibilidad de su entidad con colaboraciones internacionales" elements={components8} />
@@ -578,8 +578,8 @@ export default function Educacion() {
                 </Stack>
             </Stack>
 
-            <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" name="a_6_6_0"/>
-            
+            <CustomTextArea title="6.6 Añade un comentario sobre el criterio que evaluaste en tu entidad. (Comentarios, sugerencias, crítica constructiva, observaciones. Te lo agradecemos)" name="a_6_6_0" />
+
         </VStack>
     )
 }
