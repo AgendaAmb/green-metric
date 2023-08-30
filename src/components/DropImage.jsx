@@ -4,7 +4,7 @@ import {
 } from "@chakra-ui/react";
 
 import { useEffect, useState, useRef, useContext } from "react";
-
+import { BsTrashFill } from "react-icons/bs";
 import { MdOutlineUpload, MdOutlineSkipPrevious, MdOutlineSkipNext } from "react-icons/md"
 import Swal from 'sweetalert2'
 import axios from "axios";
@@ -73,6 +73,12 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
 
   }
+  const validateResponse = (response) => {
+    if (!response.ok) {
+      throw Error(response.statusText);
+    }
+    return response;
+  }
   const updateImagesFromServer = () => {
     let counter = 0;
     const imagesFromContext = context.images || [];
@@ -83,12 +89,16 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
         const realPath = img.path.replace("public", "/GreenMetric");
 
-        /* fetch(realPath).then((res) => {
-          imgScreen.push({ original: res.url });
-
+        fetch(realPath).then(validateResponse).then((response) => response.blob()).then((blob) => {
+          const url = URL.createObjectURL(blob);
+          imgScreen.push({ original: url, url });
+        });/* {
+          //imgScreen.push({ original: res.url });
+          const blob = response.blob();
+          console.log(route);
         }); */
         //console.log(realPath);
-        imgScreen.push({ original: realPath, url: realPath });
+        //imgScreen.push({ original: realPath, url: realPath });
         counter++;
 
       }
@@ -100,7 +110,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     }, 10);
   }
 
-  const deletePhoto = async(e) => {
+  const deletePhoto = async (e) => {
     const index = reference?.current?.getCurrentIndex();
     let urlDeleted;
     const deletedList = images.filter((item, i) => {
@@ -159,7 +169,7 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
     })
     form.append("id", questionId);
     axios.post("/GreenMetric/api/upload", form);
-    
+
 
 
   };
@@ -167,48 +177,56 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
   useEffect(() => {
     updateImagesFromServer();
-    
+
   }, []);
 
 
   return (
-    <>
+    <Stack>
       {showPhoto &&
         <Stack direction={"column"} className="grid-center" spacing={"30px 0"} >
           <div className="drop-title">
             <h3 className="blue">{`${title} `}</h3>
             {photos > 0 && <h3 className="red">({photos})</h3>}
           </div>
-          <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} >{/* accept={{ "image/*": ["*.*", ".pdf"] }} */}
-            {({ getRootProps, getInputProps }) => (
-              <section className="carousel-row">
-                {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
-                <div {...getRootProps()} className="drag-and-drop">
-                  <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
-                    <div className="head">
-                      <Text>{sub}</Text>
-                      <div className="icon">
-                        <MdOutlineUpload className="icon" />
+          <Stack className="body-drop-container">
+            {images?.length > 0 && <div className="delete-top-right">
+              <Stack>
+                <Icon as={BsTrashFill} role="button" onClick={deletePhoto} fontSize={"23px"} />
+              </Stack>
+              {/* <p role="button" onClick={deletePhoto} >x</p> */}
+            </div>}
+
+            <Dropzone onDrop={handleImages} multiple={true} onDragEnter={enableHover} onDragLeave={disableHover} >{/* accept={{ "image/*": ["*.*", ".pdf"] }} */}
+
+              {({ getRootProps, getInputProps }) => (
+                <section className="carousel-row">
+                  {images?.length > 1 ? <Icon as={MdOutlineSkipPrevious} className="icon-hover" onClick={prev} role="button" /> : <div></div>}
+                  <div {...getRootProps()} className="drag-and-drop">
+                    <div ref={ref} className={`drop-container ${images?.length == 0 ? "" : "hide-container"}`} role="button" >
+                      <div className="head">
+                        <Text>{sub}</Text>
+                        <div className="icon">
+                          <MdOutlineUpload className="icon" />
+                        </div>
                       </div>
+                      <p>Seleccione un archivo o arrástrelo aquí
+                        <br />
+                        {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
+                      </p>
+
                     </div>
-                    <p>Seleccione un archivo o arrástrelo aquí
-                      <br />
-                      {<sub>Compatible (imágenes {pdf && "y pdf"})</sub>}
-                    </p>
-
+                    <Gallery images={images} setReference={setReference} />
+                    <Input {...getInputProps()} />
                   </div>
-                  <Gallery images={images} setReference={setReference} />
-                  <Input {...getInputProps()} />
-                </div>
-                {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
+                  {images?.length > 1 ? <Icon as={MdOutlineSkipNext} className="icon-hover" onClick={next} role="button" /> : <div></div>}
 
-                <div className="delete-top-right">
-                  <span role="button" onClick={deletePhoto} ><p>x</p></span>
-                </div>
-              </section>
-            )}
-          </Dropzone>
+
+                </section>
+              )}
+            </Dropzone>
+          </Stack>
         </Stack>}
-    </>
+    </Stack>
   )
 }
