@@ -39,7 +39,7 @@ function FormBase({ children, handleSubmit, data, refresh }) {
     }, [data]); */
     const submit = (e) => {
         handleSubmit(e);
-        refresh();
+        //refresh();
 
     }
     useEffect(() => {
