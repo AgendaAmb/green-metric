@@ -86,7 +86,7 @@ export const Providers = withFormik({
         return errors;
     },
 
-    handleSubmit: (values, { setSubmitting }) => {
+    handleSubmit: async (values, { setSubmitting }) => {
 
 
         /* //Checking if form is login
@@ -128,7 +128,7 @@ export const Providers = withFormik({
                     Swal.fire({
                         icon: 'warning',
                         title: '¡Precaución!',
-                        text: 'Una o más respuestas podrían no reflejar los cambios realizados',
+                        text: 'Una o más respuestas podrían no reflejar los cambios realizados guarde nuevamente sus respuestas, si el problema persiste contacte al administrador',
                         showConfirmButton: false,
                     })
                 }
@@ -139,11 +139,14 @@ export const Providers = withFormik({
             if (value === "No hay datos") {
                 continue;
             }
-            
+            let real = value;
+            /* if (value === "on") {
+                real = true;
+            } */
             
             
             axios.post('/GreenMetric/api/answers', {
-                value: value,
+                value: real,
                 question: key
             })
             .then((response) => {
@@ -159,7 +162,7 @@ export const Providers = withFormik({
         
 
         //}
-        setSubmitting(true);
+        setSubmitting(false);
         sendAlert();
     },
 

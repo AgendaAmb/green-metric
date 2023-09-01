@@ -234,7 +234,7 @@ export default function Infraestructura() {
                 <ModuleInput elements={components2} noColumn={true} />
                 <Stack spacing="30px" padding="30px" width={"100%"} className="expand-3 column-3" >
                     <Stack spacing="30px">
-                        <ModuleInput elements={[{ type: 6, holder: year - 3, question: 'a_1_3_2_1' }, { type: 6, holder: year - 2, question: 'a_1_3_2_2' }, { type: 6, holder: year - 1, question: 'a_1_3_2_2' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
+                        <ModuleInput elements={[{ type: 6, holder: year - 3, question: 'a_1_3_2_1' }, { type: 6, holder: year - 2, question: 'a_1_3_2_2' }, { type: 6, holder: year - 1, question: 'a_1_3_2_3' }]} text="1.3.2 Proporcione el presupuesto (MXN) promedio anual de su entidad durante los últimos 3 años." />
                     </Stack>
                     <Stack spacing="30px" w="100%" className="expand-2" >
                         <ModuleInput elements={[{ text: "1.3.3 Cantidad de recursos (MXN) invertidos de su entidad en esfuerzos por la sostenibilidad.", question: 'a_1_3_3_1', helper: "(P.e. Disposición de residuos, mantenimiento de instalaciones, cambio de mobiliarios a bienes sostenibles, educación ambiental, etc.)", type: 6 }]} />

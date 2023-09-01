@@ -89,16 +89,17 @@ export default function DropImage({ title = "Agregar Evidencia: ", maxPhotos = -
 
         const realPath = img.path.replace("public", "/GreenMetric");
 
-        fetch(realPath).then(validateResponse).then((response) => response.blob()).then((blob) => {
+        /* fetch(realPath).then(validateResponse).then((response) => response.blob()).then((blob) => {
           const url = URL.createObjectURL(blob);
           imgScreen.push({ original: url, url });
-        });/* {
+        }); */
+        /* {
           //imgScreen.push({ original: res.url });
           const blob = response.blob();
           console.log(route);
         }); */
         //console.log(realPath);
-        //imgScreen.push({ original: realPath, url: realPath });
+        imgScreen.push({ original: realPath, url: realPath });
         counter++;
 
       }
