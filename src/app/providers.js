@@ -67,10 +67,11 @@ function FormBase({ children, handleSubmit, data }) {
 }
 
 export const Providers = withFormik({
-    mapPropsToValues: (props) => {
-        let values = {};
-        values = { ...props.data.data };
-        return values;
+    mapPropsToValues: (values) => {
+        
+        let vals = {};
+        vals = { ...values.data.data };
+        return vals;
     },
 
     // Custom sync validation
@@ -86,7 +87,7 @@ export const Providers = withFormik({
         return errors;
     },
 
-    handleSubmit: async (values, { setSubmitting }) => {
+    handleSubmit: (values, { setSubmitting }) => {
 
 
         /* //Checking if form is login
@@ -109,7 +110,7 @@ export const Providers = withFormik({
         }
         else { */
 
-
+        console.log(values);
 
         let sent = false;
 
@@ -164,6 +165,7 @@ export const Providers = withFormik({
         //}
         setSubmitting(false);
         sendAlert();
+        
     },
 
     displayName: 'GreenMetricForm',

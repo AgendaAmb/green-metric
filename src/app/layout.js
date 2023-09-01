@@ -23,6 +23,8 @@ export default function RootLayout({ children }) {
 	const [load, setLoad] = useState(true);
 	const [reload, setReload] = useState(false);
 
+
+
 	const reloadDB = () => {
 		const interval = setInterval(async () => {
 			if (hasCookie("user")) {
@@ -86,6 +88,7 @@ export default function RootLayout({ children }) {
 												<Providers
 													data={data}
 													images={images}
+													reload={reloadDB}
 												>
 													<Stack
 														marginBottom={"15px"}

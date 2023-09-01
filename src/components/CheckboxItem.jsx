@@ -11,11 +11,11 @@ export default function CheckboxItem({ span = false, element, area, hasInput = f
     const [reload, setReload] = useState(true);
     const form = useContext(FormContext);
 
-    let isChecked = false;
+    /* let isChecked = false;
 
     if (form.values[`${name}`]) {
         isChecked = true;
-    }
+    } */
     const refresh = () => {
         setReload(false);
         setTimeout(() => {
@@ -28,9 +28,9 @@ export default function CheckboxItem({ span = false, element, area, hasInput = f
 
     };
     useEffect(() => {
-        if (isChecked) {
+        /* if (isChecked) {
             setEnabled(true);
-        }
+        } */
     }, []);
     return (
         <Stack

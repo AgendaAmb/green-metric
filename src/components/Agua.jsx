@@ -18,7 +18,7 @@ import ModuleInput from "./ModuleInput";
 import CustomTextArea from "./CustomTextArea";
 
 export default function Agua(){
-
+    const dicotomicArr = ["No", "Si"];
     return (
         <VStack
         w="100%"
@@ -31,7 +31,10 @@ export default function Agua(){
              <Text className="blue text-start expand-3">El abasto de agua potable alcanza niveles de alarma para la población de las cuatro regiones del estado de San Luis Potosí. Por esta razón, la Universidad, tiene como objetivo abordar de manera integral los retos y problemáticas asociadas al recurso hídrico en el estado. Por ello, en este apartado se busca recopilar la información en torno a los programas y acciones que cada una de las entidades implementa con la finalidad de optimizar el uso del agua, aumentar su conservación y medir el uso de agua que se hace en las entidades.</Text>
             {/* TODO: SI SE SELECCIONA "SI", DESPLEGAR EL FORMULARIO */}
             <Stack spacing="30px" w="100%" align="center" direction="column">
-                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" elements={[{dicotomic:true, questionDicotomic: 'a_4_1_1',span:true}]} />
+                {/* <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua" select={dicotomicArr } questionSelect={'a_4_1_1'}/> */}
+                <ModuleInput title="4.1.1 Favor de indicar si cuenta con programa de conservación del agua (Si/No)" elements={[{
+                    type: 1, holder: "Responda Si/No", question:'a_4_1_1', vertical: true
+                }]}/>
 
             </Stack>
 
