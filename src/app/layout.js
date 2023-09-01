@@ -53,6 +53,11 @@ export default function RootLayout({ children }) {
 			}
 		}, 1000);
 	};
+	const refresh = () => {
+		setTimeout(() => {
+			window.location.reload();
+		}, 1000);
+	};
 	useEffect(() => {
 		reloadDB();
 	}, []);
@@ -80,6 +85,7 @@ export default function RootLayout({ children }) {
 											<Providers
 												data={data}
 												images={images}
+												refresh={refresh}
 											>
 												<Login />
 											</Providers>
@@ -88,7 +94,7 @@ export default function RootLayout({ children }) {
 												<Providers
 													data={data}
 													images={images}
-													reload={reloadDB}
+													refresh={refresh}
 												>
 													<Stack
 														marginBottom={"15px"}

@@ -11,9 +11,8 @@ import Swal from 'sweetalert2';
 export const FormContext = createContext(null);
 
 
-function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images, setAdmin, ...props }) {
+function PreRender({ children, handleSubmit, handleBlur, handleChange, values, images, setAdmin, refresh, ...props }) {
     const [data, setData] = useState({ setAdmin, handleSubmit, handleChange, handleBlur, values: values, images: images });
-
 
     useEffect(() => {
         //console.log(props);
@@ -22,7 +21,7 @@ function PreRender({ children, handleSubmit, handleBlur, handleChange, values, i
     return (
         <>
 
-            <FormBase data={data} handleSubmit={handleSubmit}>
+            <FormBase data={data} handleSubmit={handleSubmit} refresh={refresh}>
                 {children}
             </FormBase>
 
@@ -31,15 +30,31 @@ function PreRender({ children, handleSubmit, handleBlur, handleChange, values, i
 }
 
 
-function FormBase({ children, handleSubmit, data }) {
+function FormBase({ children, handleSubmit, data, refresh }) {
     const [loading, setLoading] = useState(true);
-
+   
     /* const fetchData = useCallback(async () => {
         setData({ values: data, handleChange });
         const data = await values;
     }, [data]); */
-    useEffect(() => {
+    const submit = (e) => {
+        handleSubmit(e);
+        refresh();
 
+    }
+    useEffect(() => {
+        /* const interval = setInterval(async () => {
+            if (hasCookie("user")) {
+                let user = getCookie("user");
+                try {
+                    user = JSON.parse(user);
+                    handleSubmit();
+                } catch (e) {
+                    clearInterval(interval);
+                    console.log("Error al parsear cookie");
+                }
+            }
+        }, 1000); */
         //fetchData();
         /* fetchData().catch((err) => {
             console.log("Error en obtener datos de BD");
@@ -55,7 +70,7 @@ function FormBase({ children, handleSubmit, data }) {
 
 
             <FormContext.Provider value={data}>
-                <Stack onSubmit={handleSubmit} as={"form"} className="width-100">
+                <Stack onSubmit={submit} as={"form"} className="width-100">
                     {children}
                 </Stack>
             </FormContext.Provider>
@@ -110,7 +125,6 @@ export const Providers = withFormik({
         }
         else { */
 
-        console.log(values);
 
         let sent = false;
 
@@ -156,7 +170,7 @@ export const Providers = withFormik({
                     }
                 })
                 .catch(function (error) {
-                    console.log(value);
+                    //console.log(value);
                     sent = false;
                 });
         }

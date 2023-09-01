@@ -167,7 +167,7 @@ export default function Educacion() {
                     const updatedComps = components8.slice(0, components8.length - 1);
                     setComponents8([...updatedComps]);
                     setProgram(program - 1);
-                    console.log("Eliminado");
+                    //console.log("Eliminado");
                 }
             case 9:
                 if (components9.length > 1) {
@@ -189,7 +189,7 @@ export default function Educacion() {
                     const updatedComps = components11.filter((_, index) => index > 2);
                     setComponents11(updatedComps);
                     setEventName(eventName - 1);
-                    console.log("eliminado");
+                    //console.log("eliminado");
                 }
                 break;
 
@@ -205,7 +205,7 @@ export default function Educacion() {
         if (answers) {
             const regex_1 = /^a_6_3_1_(?!1|2|0)(?:._1|._2)$/;
             let checkItem = Object.keys(answers).filter((el) => regex_1.test(el)).length;
-            console.log(checkItem);
+            //console.log(checkItem);
             for (let i = 0; i < checkItem; i++) {
                 item();
                 checkItem = 0;
@@ -375,7 +375,7 @@ export default function Educacion() {
                     <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_1_2' }, { evidence: true, question: 'a_6_3_1_3_1_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px">
-                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_1_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_2_2' }, { evidence: true, question: 'a_6_3_1_3_2_2' }]} inputLarge={true} />
+                    <ModuleInput elements={[{ text: 'Nombre de la feria', type: 1, question: 'a_6_3_1_3_2_1' }, { text: "Asistentes", type: 1, question: 'a_6_3_1_3_2_2' }, { evidence: true, question: 'a_6_3_1_3_2_2' }]} inputLarge={true} />
                 </Stack>
                 <Stack spacing="30px" >
                     <ModuleInput elements={components3} />

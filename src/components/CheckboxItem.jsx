@@ -48,19 +48,19 @@ export default function CheckboxItem({ span = false, element, area, hasInput = f
                         <input
                             {...field}
                             type="checkbox"
-                            checked={field?.value === "true" ? true : false }
+                            checked={field?.value == "true" ? true : false }
                             onChange={() => {
-                                
+                                //console.log(field);
                                 let isChecked = "false";
-                                const set = new Set(field.value);
+
                                 if (field?.value === "true") {
                                     isChecked ="false";
-                                    set.delete(element);
+                
                                 } else {
                                     isChecked = "true";
-                                    set.add(element);
+                                
                                 }
-                                const arr = Array.from(set);
+                                
                                 field.onChange(field.name)(isChecked);
                                 form.setFieldTouched(field.name, true);
                             }}
