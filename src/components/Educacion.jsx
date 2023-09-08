@@ -335,7 +335,7 @@ export default function Educacion() {
                     <Button className="add-button" onClick={item11}>+</Button>
                     <Button className="delete-button" onClick={() => popModule(11)}>-</Button>
                 </Stack>
-                <ModuleInput title="6.2.1 Indicar el número de cursos/aginaturas relacionado con la sostenibilidad."
+                <ModuleInput title="6.2.1 Indicar el número de eventos relacionados con la sostenibilidad."
                     elements={[{ text: 'Nombre del evento', type: 1, question: 'a_6_2_1_1_1' }, { text: 'Responsable', type: 1, question: 'a_6_2_1_1_2' }, { evidence: true, maxPhotos: 3, question: 'a_6_2_1_1_1' }]} />
                 <ModuleInput elements={components11} />
             </Stack>

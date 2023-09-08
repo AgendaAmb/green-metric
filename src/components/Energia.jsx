@@ -155,11 +155,11 @@ export default function Energia() {
                 <Stack w="100%" direction={"row"} divider={<StackDivider borderColor="gray.200" />}>
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ text: 'Tipo de energía renovable 1', type: 1, question: 'a_2_2_1_1_1' },
-                        { text: 'Cantidad de equipos', type: 2, question: 'a_2_2_1_1_2' }, { text: 'Capacidad de kW/h', type: 2, question: 'a_2_2_1_1_3' }, { question: 'a_2_2_1_1_3', evidence: true, maxPhotos: 1 }]} />
+                        { text: 'Cantidad de equipos', type: 2, question: 'a_2_2_1_1_2' }, { text: 'Capacidad de kW/h', type: 2, question: 'a_2_2_1_1_3' }, { question: 'a_2_2_1_1_1', evidence: true, maxPhotos: 1 }]} />
                     </Stack>
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ text: 'Tipo de energía renovable 2', type: 1, question: 'a_2_2_1_2_1' },
-                        { text: 'Cantidad de equipos', type: 2, question: 'a_2_2_1_2_2' }, { text: 'Capacidad de kW/h', type: 2, question: 'a_2_2_1_2_3' }, { question: 'a_2_2_1_2_3', evidence: true, maxPhotos: 1 }]} />
+                        { text: 'Cantidad de equipos', type: 2, question: 'a_2_2_1_2_2' }, { text: 'Capacidad de kW/h', type: 2, question: 'a_2_2_1_2_3' }, { question: 'a_2_2_1_2_2', evidence: true, maxPhotos: 1 }]} />
                     </Stack>
                     <Stack spacing="30px">
                         <ModuleInput elements={[{ text: 'Tipo de energía renovable 3', type: 1, question: 'a_2_2_1_3_1' },
