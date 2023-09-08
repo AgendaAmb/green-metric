@@ -336,7 +336,7 @@ export default function Infraestructura() {
                             "Detectores de llama",
                             " Otro (Especifique)" //Agrregar celda para este campo, cambiar letra a tamano de la instruccion
                         ]
-                    }} questionCheckBox={'a_1_4_4'} />
+                    }} questionCheckBox={'a_1_4_4_2'} />
 
                 </Stack>
                 <Stack >

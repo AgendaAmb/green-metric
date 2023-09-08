@@ -7,31 +7,7 @@ import CustomInput from "./CustomInput";
 import CustomCheckboxItem from "./CustomCheckboxItem";
 
 export default function CheckboxItem({ span = false, element, area, hasInput = false, index = 1, name }) {
-    const [enabled, setEnabled] = useState(false);
-    const [reload, setReload] = useState(true);
-    const form = useContext(FormContext);
-
-    /* let isChecked = false;
-
-    if (form.values[`${name}`]) {
-        isChecked = true;
-    } */
-    const refresh = () => {
-        setReload(false);
-        setTimeout(() => {
-            setReload(true);
-        }, 10);
-    }
-
-    const handleEnabled = () => {
-        setEnabled(!enabled);
-
-    };
-    useEffect(() => {
-        /* if (isChecked) {
-            setEnabled(true);
-        } */
-    }, []);
+  
     return (
         <Stack
             direction={["column", "row"]}
@@ -48,21 +24,20 @@ export default function CheckboxItem({ span = false, element, area, hasInput = f
                         <input
                             {...field}
                             type="checkbox"
-                            checked={field?.value == "true" ? true : false }
+                            checked={field?.value === name ? true : false }
                             onChange={() => {
-                                //console.log(field);
-                                let isChecked = "false";
-
-                                if (field?.value === "true") {
-                                    isChecked ="false";
+                                let isChecked = name;
+                                console.log(field?.value);
+                                if (field?.value == name) {
+                                    isChecked ="none";
                 
                                 } else {
-                                    isChecked = "true";
+                                    isChecked = name;
                                 
                                 }
-                                
+                                console.log(field.name, isChecked);
                                 field.onChange(field.name)(isChecked);
-                                form.setFieldTouched(field.name, true);
+                                form.setFieldTouched(field.name, isChecked);
                             }}
                         />
                         {element}
